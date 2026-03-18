@@ -57,8 +57,10 @@ export default function Analytics() {
           <DateRangeFilter value={dateRange} onChange={setDateRange} />
         </div>
 
+        {/* Stats Overview */}
         {overviewLoading ? <StatsSkeletonGrid /> : overview && <StatsCards stats={overview} />}
 
+        {/* Charts Grid */}
         <div className="grid lg:grid-cols-2 gap-6">
           {winRateLoading ? (
             <ChartSkeleton />

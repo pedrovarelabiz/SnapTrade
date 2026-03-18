@@ -11,7 +11,7 @@ const tabs = [
   { label: 'Settings', icon: Settings, path: '/settings' },
 ];
 
-const adminTab = { label: 'Admin', icon: Shield, path: '/admin/users' };
+const adminTab = { label: 'Admin', icon: Shield, path: '/admin' };
 
 export function MobileNav() {
   const { user, logout } = useAuth();

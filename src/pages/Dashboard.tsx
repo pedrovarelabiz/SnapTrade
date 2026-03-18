@@ -9,23 +9,28 @@ import { TodayStats } from '@/components/dashboard/TodayStats';
 import { LiveIndicator } from '@/components/dashboard/LiveIndicator';
 import { QuickActions } from '@/components/dashboard/QuickActions';
 import { StreakVisualization } from '@/components/dashboard/StreakVisualization';
+import { WeeklyMiniChart } from '@/components/dashboard/WeeklyMiniChart';
+import { SoundToggle, useSoundPreference } from '@/components/dashboard/SoundToggle';
 import { NewSignalToast } from '@/components/signals/NewSignalToast';
+import { WhatsNewModal } from '@/components/shared/WhatsNewModal';
 import { useSignals } from '@/hooks/useSignals';
 import { useAuth } from '@/hooks/useAuth';
 import { useNotificationSound } from '@/hooks/useNotificationSound';
 import { Signal, SignalStatus, SignalDirection } from '@/types';
-import { Zap } from 'lucide-react';
+import { Zap, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Dashboard() {
   const { user } = useAuth();
   const { signals, isLoading, isConnected, updateSignalStatus } = useSignals();
   const { playNewSignalSound } = useNotificationSound();
+  const { soundEnabled, setSoundEnabled } = useSoundPreference();
   const [statusFilter, setStatusFilter] = useState<SignalStatus | 'all'>('all');
   const [directionFilter, setDirectionFilter] = useState<SignalDirection | 'all'>('all');
   const [newSignalIds, setNewSignalIds] = useState<Set<string>>(new Set());
   const [unseenCount, setUnseenCount] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showWhatsNew, setShowWhatsNew] = useState(false);
   const prevCountRef = useRef(signals.length);
   const feedTopRef = useRef<HTMLDivElement>(null);
   const isNearTopRef = useRef(true);
@@ -47,15 +52,21 @@ export default function Dashboard() {
       const newSignal = signals[0];
       if (newSignal) {
         setNewSignalIds(prev => new Set(prev).add(newSignal.id));
-        playNewSignalSound();
+
+        if (soundEnabled) {
+          playNewSignalSound();
+        }
+
         toast.custom(() => <NewSignalToast signal={newSignal} />, {
           duration: 5000,
           position: 'top-right',
         });
+
         if (!isNearTopRef.current) {
           setUnseenCount(prev => prev + 1);
           setShowScrollTop(true);
         }
+
         setTimeout(() => {
           setNewSignalIds(prev => {
             const next = new Set(prev);
@@ -66,7 +77,7 @@ export default function Dashboard() {
       }
     }
     prevCountRef.current = signals.length;
-  }, [signals, playNewSignalSound]);
+  }, [signals, playNewSignalSound, soundEnabled]);
 
   const handleScrollToTop = useCallback(() => {
     feedTopRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -85,8 +96,14 @@ export default function Dashboard() {
       <div className="space-y-5">
         <WelcomeBanner />
         <TodayStats signals={signals} />
-        <StreakVisualization signals={signals} />
 
+        {/* Performance Row */}
+        <div className="grid sm:grid-cols-2 gap-4">
+          <StreakVisualization signals={signals} />
+          <WeeklyMiniChart signals={signals} />
+        </div>
+
+        {/* Header Row */}
         <div ref={feedTopRef} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-white">Live Signals</h1>
@@ -94,7 +111,17 @@ export default function Dashboard() {
               <QuickActions signals={signals} />
             </div>
           </div>
-          <LiveIndicator isConnected={isConnected} signalCount={filtered.length} />
+          <div className="flex items-center gap-2 flex-wrap">
+            <SoundToggle enabled={soundEnabled} onToggle={() => setSoundEnabled(!soundEnabled)} />
+            <button
+              onClick={() => setShowWhatsNew(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-st-premium/10 text-st-premium border border-st-premium/30 text-xs font-medium hover:bg-st-premium/15 transition-colors"
+            >
+              <Sparkles size={12} />
+              What's New
+            </button>
+            <LiveIndicator isConnected={isConnected} signalCount={filtered.length} />
+          </div>
         </div>
 
         {user?.role === 'free' && (
@@ -129,6 +156,7 @@ export default function Dashboard() {
         )}
 
         <ScrollToTopButton show={showScrollTop} count={unseenCount} onClick={handleScrollToTop} />
+        <WhatsNewModal open={showWhatsNew} onClose={() => setShowWhatsNew(false)} />
       </div>
     </DashboardLayout>
   );

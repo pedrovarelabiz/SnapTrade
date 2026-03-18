@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   BarChart3, FileText, Settings, CreditCard, Users, Sliders, DollarSign,
-  Activity, LogOut, ChevronLeft, ChevronRight,
+  Activity, LogOut, ChevronLeft, ChevronRight, LayoutDashboard,
 } from 'lucide-react';
 
 const navItems = [
@@ -20,6 +20,7 @@ const navItems = [
 ];
 
 const adminItems = [
+  { label: 'Overview', icon: LayoutDashboard, path: '/admin' },
   { label: 'Users', icon: Users, path: '/admin/users' },
   { label: 'Config', icon: Sliders, path: '/admin/config' },
   { label: 'Revenue', icon: DollarSign, path: '/admin/revenue' },
@@ -31,7 +32,10 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const { collapsed, toggleCollapsed } = useSidebarContext();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/admin') return location.pathname === '/admin';
+    return location.pathname === path;
+  };
 
   const handleLogout = async () => {
     await logout();
@@ -78,7 +82,7 @@ export function AppSidebar() {
         {navItems.map(item => <NavLink key={item.path} item={item} />)}
         {user?.role === 'admin' && (
           <>
-            <div className={`pt-4 pb-2 px-3`}>
+            <div className="pt-4 pb-2 px-3">
               {!collapsed && <span className="text-[10px] uppercase tracking-wider text-[var(--st-text-secondary)] font-semibold">Admin</span>}
               {collapsed && <div className="h-px bg-[var(--st-border)]" />}
             </div>
