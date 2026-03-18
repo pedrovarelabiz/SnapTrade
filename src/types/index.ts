@@ -6,6 +6,7 @@ export type SubscriptionStatus = 'active' | 'cancelled' | 'expired' | 'trial';
 export type PaymentMethod = 'btc' | 'eth' | 'usdt' | 'paypal';
 export type PaymentStatus = 'completed' | 'pending' | 'failed' | 'refunded';
 export type Timeframe = 'M1' | 'M5' | 'M15' | 'M30' | 'H1';
+export type ResultType = 'direct_victory' | 'victory_at_gale' | 'loss';
 
 export interface User {
   id: string;
@@ -23,6 +24,21 @@ export interface MartingaleStep {
   time: string;
 }
 
+export interface TradeExecution {
+  level: number;        // 0 = initial, 1 = gale 1, 2 = gale 2
+  amount: number;       // Actual amount traded at this level
+  result: 'win' | 'loss';
+}
+
+export interface PnlBreakdown {
+  baseAmount: number;
+  tradesExecuted: TradeExecution[];
+  totalInvested: number;
+  totalReturn: number;
+  netPnl: number;
+  payoutRate: number;
+}
+
 export interface Signal {
   id: string;
   asset: string;
@@ -37,6 +53,15 @@ export interface Signal {
   createdAt: string;
   isPremium: boolean;
   confidence: number;
+
+  // Result tracking
+  resultType?: ResultType;
+  resultGaleLevel?: number;        // 0 = initial trade, 1 = gale 1, 2 = gale 2
+  resultTimestamp?: string;         // When the result message arrived
+  resultRawText?: string;           // Raw result message from Telegram
+
+  // P&L calculation
+  pnl?: PnlBreakdown;
 }
 
 export interface Subscription {
@@ -80,6 +105,13 @@ export interface DailyReport {
   winRate: number;
   topAsset: string;
   signals: Signal[];
+
+  // P&L and gale breakdown
+  dailyPnl?: number;
+  directWins?: number;
+  gale1Wins?: number;
+  gale2Wins?: number;
+  fullLosses?: number;
 }
 
 export interface PlatformConfig {
@@ -134,6 +166,8 @@ export interface StatsOverview {
   currentStreak: number;
   bestStreak: number;
   avgSignalsPerDay: number;
+  totalPnl?: number;
+  avgPnlPerSignal?: number;
 }
 
 export interface AssetPerformance {

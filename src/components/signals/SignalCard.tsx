@@ -2,6 +2,8 @@ import { Signal } from '@/types';
 import { CountdownTimer } from '@/components/shared/CountdownTimer';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { InstantBadge } from '@/components/signals/InstantBadge';
+import { PnlBadge } from '@/components/signals/PnlBadge';
+import { PnlTooltip } from '@/components/signals/PnlTooltip';
 import { useAuth } from '@/hooks/useAuth';
 import { getAssetFlag } from '@/lib/assetFlags';
 import { TrendingUp, TrendingDown, Layers, Clock, Zap } from 'lucide-react';
@@ -14,24 +16,8 @@ interface SignalCardProps {
 }
 
 const dirStyles = {
-  CALL: {
-    borderActive: 'border-st-call/30',
-    borderHover: 'hover:border-st-call/50',
-    badgeBg: 'bg-st-call/10',
-    badgeBorder: 'border-st-call/30',
-    badgeText: 'text-st-call',
-    confBg: 'bg-st-call/10',
-    confText: 'text-st-call',
-  },
-  PUT: {
-    borderActive: 'border-st-put/30',
-    borderHover: 'hover:border-st-put/50',
-    badgeBg: 'bg-st-put/10',
-    badgeBorder: 'border-st-put/30',
-    badgeText: 'text-st-put',
-    confBg: 'bg-st-put/10',
-    confText: 'text-st-put',
-  },
+  CALL: { borderActive: 'border-st-call/30', borderHover: 'hover:border-st-call/50', badgeBg: 'bg-st-call/10', badgeBorder: 'border-st-call/30', badgeText: 'text-st-call', confBg: 'bg-st-call/10', confText: 'text-st-call' },
+  PUT: { borderActive: 'border-st-put/30', borderHover: 'hover:border-st-put/50', badgeBg: 'bg-st-put/10', badgeBorder: 'border-st-put/30', badgeText: 'text-st-put', confBg: 'bg-st-put/10', confText: 'text-st-put' },
 } as const;
 
 export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCardProps) {
@@ -39,9 +25,11 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
   const isCall = signal.direction === 'CALL';
   const styles = dirStyles[signal.direction];
   const isPendingOrActive = signal.status === 'pending' || signal.status === 'active';
+  const isResolved = signal.status === 'win' || signal.status === 'loss';
   const isScheduled = signal.signalType === 'scheduled';
   const isOTC = signal.asset.includes('OTC');
   const hasMartingaleSchedule = signal.martingaleSchedule && signal.martingaleSchedule.length > 0;
+  const hasResultTracking = !!signal.resultType;
 
   return (
     <div
@@ -56,27 +44,18 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="text-lg">{getAssetFlag(signal.asset)}</span>
             <span className="text-white font-semibold text-sm">{signal.asset}</span>
-            {isOTC && (
-              <span className="px-1.5 py-0.5 rounded-md bg-st-info/10 text-st-info text-[9px] font-bold border border-st-info/20">OTC</span>
-            )}
+            {isOTC && <span className="px-1.5 py-0.5 rounded-md bg-st-info/10 text-st-info text-[9px] font-bold border border-st-info/20">OTC</span>}
             {signal.martingaleLevel > 0 && (
               <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-st-premium/15 text-st-premium text-[10px] font-bold border border-st-premium/30">
-                <Layers size={8} />
-                M{signal.martingaleLevel}
+                <Layers size={8} />M{signal.martingaleLevel}
               </span>
             )}
           </div>
           <div className="flex items-center gap-2">
             {isScheduled ? (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-st-info/10 text-st-info text-[10px] font-semibold border border-st-info/20">
-                <Clock size={9} />
-                Scheduled
-              </span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-st-info/10 text-st-info text-[10px] font-semibold border border-st-info/20"><Clock size={9} />Scheduled</span>
             ) : (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-semibold border border-amber-500/20">
-                <Zap size={9} />
-                Instant
-              </span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-semibold border border-amber-500/20"><Zap size={9} />Instant</span>
             )}
             <StatusBadge status={signal.status} />
           </div>
@@ -93,6 +72,18 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
           </div>
         </div>
 
+        {/* Result tracking row */}
+        {isResolved && hasResultTracking && (
+          <div className="flex items-center justify-between mb-3">
+            <PnlBadge signal={signal} />
+            {signal.pnl && (
+              <div onClick={e => e.stopPropagation()}>
+                <PnlTooltip pnl={signal.pnl} />
+              </div>
+            )}
+          </div>
+        )}
+
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-1">
             {isPendingOrActive && isScheduled && <CountdownTimer targetTime={signal.entryTime} />}
@@ -102,12 +93,10 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
                 {new Date(signal.entryTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </span>
             )}
-            {isScheduled && hasMartingaleSchedule && (
+            {isScheduled && hasMartingaleSchedule && isPendingOrActive && (
               <div className="flex items-center gap-2 flex-wrap">
                 {signal.martingaleSchedule!.map((step) => (
-                  <span key={step.level} className="text-[10px] text-[var(--st-text-secondary)] font-mono">
-                    Gale {step.level} @ {step.time}
-                  </span>
+                  <span key={step.level} className="text-[10px] text-[var(--st-text-secondary)] font-mono">Gale {step.level} @ {step.time}</span>
                 ))}
               </div>
             )}
