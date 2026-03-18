@@ -1,6 +1,7 @@
 export type UserRole = 'free' | 'premium' | 'admin';
 export type SignalStatus = 'pending' | 'active' | 'win' | 'loss' | 'skipped' | 'expired';
 export type SignalDirection = 'CALL' | 'PUT';
+export type SignalType = 'scheduled' | 'instant';
 export type SubscriptionStatus = 'active' | 'cancelled' | 'expired' | 'trial';
 export type PaymentMethod = 'btc' | 'eth' | 'usdt' | 'paypal';
 export type PaymentStatus = 'completed' | 'pending' | 'failed' | 'refunded';
@@ -17,13 +18,20 @@ export interface User {
   subscription?: Subscription;
 }
 
+export interface MartingaleStep {
+  level: number;
+  time: string;
+}
+
 export interface Signal {
   id: string;
   asset: string;
   direction: SignalDirection;
+  signalType: SignalType;
   entryTime: string;
   timeframe: Timeframe;
   martingaleLevel: number;
+  martingaleSchedule?: MartingaleStep[];
   status: SignalStatus;
   result?: 'win' | 'loss';
   createdAt: string;
@@ -84,13 +92,38 @@ export interface PlatformConfig {
 }
 
 export interface ExtensionConfig {
-  defaultAmount: number;
-  autoTrade: boolean;
-  enabledPairs: string[];
-  maxMartingale: number;
-  soundAlerts: boolean;
+  // Connection
   token: string;
-  isConnected: boolean;
+  connected: boolean;
+
+  // Execution mode
+  executionMode: 'manual' | 'semi-auto' | 'auto';
+
+  // Signal preferences
+  acceptScheduled: boolean;
+  acceptInstant: boolean;
+  defaultAmount: number;
+  instantDelay: number;
+
+  // Martingale
+  martingaleStrategy: 'off' | 'simple' | 'dynamic';
+  maxMartingaleLevels: 1 | 2;
+  fixedMultiplier: 1.5 | 2.0 | 2.5 | 3.0;
+  autoExecuteMartingale: boolean;
+
+  // Risk management
+  maxDailyTrades: number;
+  maxConsecutiveLosses: number;
+  minBalanceProtection: number;
+  maxSingleTradeAmount: number;
+
+  // Notifications
+  soundAlerts: boolean;
+  browserNotifications: boolean;
+  showOverlay: boolean;
+
+  // Asset whitelist
+  enabledPairs: string[];
 }
 
 export interface StatsOverview {

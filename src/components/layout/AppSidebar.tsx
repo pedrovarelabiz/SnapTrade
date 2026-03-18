@@ -5,11 +5,7 @@ import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebarContext } from '@/contexts/SidebarContext';
 import { toast } from 'sonner';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import {
   BarChart3, FileText, Settings, CreditCard, Users, Sliders, DollarSign,
   Activity, LogOut, ChevronLeft, ChevronRight,
@@ -62,13 +58,10 @@ export function AppSidebar() {
       return (
         <Tooltip delayDuration={0}>
           <TooltipTrigger asChild>{link}</TooltipTrigger>
-          <TooltipContent side="right" className="bg-[var(--st-bg-card)] border-[var(--st-border)] text-white text-xs">
-            {item.label}
-          </TooltipContent>
+          <TooltipContent side="right" className="bg-[var(--st-bg-card)] border-[var(--st-border)] text-white text-xs">{item.label}</TooltipContent>
         </Tooltip>
       );
     }
-
     return link;
   };
 
@@ -82,37 +75,26 @@ export function AppSidebar() {
       </div>
 
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-        {navItems.map(item => (
-          <NavLink key={item.path} item={item} />
-        ))}
-
+        {navItems.map(item => <NavLink key={item.path} item={item} />)}
         {user?.role === 'admin' && (
           <>
-            <div className={`pt-4 pb-2 ${collapsed ? 'px-3' : 'px-3'}`}>
+            <div className={`pt-4 pb-2 px-3`}>
               {!collapsed && <span className="text-[10px] uppercase tracking-wider text-[var(--st-text-secondary)] font-semibold">Admin</span>}
               {collapsed && <div className="h-px bg-[var(--st-border)]" />}
             </div>
-            {adminItems.map(item => (
-              <NavLink key={item.path} item={item} />
-            ))}
+            {adminItems.map(item => <NavLink key={item.path} item={item} />)}
           </>
         )}
       </nav>
 
-      {!collapsed && user?.role === 'free' && (
-        <div className="p-3">
-          <UpgradeCTA />
-        </div>
-      )}
+      {!collapsed && user?.role === 'free' && <div className="p-3"><UpgradeCTA /></div>}
 
       <div className="p-3 border-t border-[var(--st-border)]">
         {collapsed ? (
           <div className="flex flex-col items-center gap-2">
             <Tooltip delayDuration={0}>
               <TooltipTrigger asChild>
-                <div className="w-8 h-8 rounded-full bg-st-accent/20 flex items-center justify-center text-st-accent text-sm font-bold cursor-default">
-                  {user?.name?.charAt(0) || 'U'}
-                </div>
+                <div className="w-8 h-8 rounded-full bg-st-accent/20 flex items-center justify-center text-st-accent text-sm font-bold cursor-default">{user?.name?.charAt(0) || 'U'}</div>
               </TooltipTrigger>
               <TooltipContent side="right" className="bg-[var(--st-bg-card)] border-[var(--st-border)] text-white text-xs">
                 <p className="font-medium">{user?.name}</p>
@@ -121,20 +103,14 @@ export function AppSidebar() {
             </Tooltip>
             <Tooltip delayDuration={0}>
               <TooltipTrigger asChild>
-                <button onClick={handleLogout} className="p-1.5 rounded-lg hover:bg-st-put/10 text-[var(--st-text-secondary)] hover:text-st-put transition-colors">
-                  <LogOut size={16} />
-                </button>
+                <button onClick={handleLogout} className="p-1.5 rounded-lg hover:bg-st-put/10 text-[var(--st-text-secondary)] hover:text-st-put transition-colors"><LogOut size={16} /></button>
               </TooltipTrigger>
-              <TooltipContent side="right" className="bg-[var(--st-bg-card)] border-[var(--st-border)] text-white text-xs">
-                Sign out
-              </TooltipContent>
+              <TooltipContent side="right" className="bg-[var(--st-bg-card)] border-[var(--st-border)] text-white text-xs">Sign out</TooltipContent>
             </Tooltip>
           </div>
         ) : (
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-st-accent/20 flex items-center justify-center text-st-accent text-sm font-bold flex-shrink-0">
-              {user?.name?.charAt(0) || 'U'}
-            </div>
+            <div className="w-8 h-8 rounded-full bg-st-accent/20 flex items-center justify-center text-st-accent text-sm font-bold flex-shrink-0">{user?.name?.charAt(0) || 'U'}</div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-white truncate">{user?.name}</span>
@@ -142,9 +118,7 @@ export function AppSidebar() {
               </div>
               <p className="text-xs text-[var(--st-text-secondary)] truncate">{user?.email}</p>
             </div>
-            <button onClick={handleLogout} className="p-1.5 rounded-lg hover:bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] hover:text-st-put transition-colors">
-              <LogOut size={16} />
-            </button>
+            <button onClick={handleLogout} className="p-1.5 rounded-lg hover:bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] hover:text-st-put transition-colors"><LogOut size={16} /></button>
           </div>
         )}
       </div>

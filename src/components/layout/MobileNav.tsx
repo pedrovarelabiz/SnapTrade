@@ -30,61 +30,36 @@ export function MobileNav() {
 
   return (
     <>
-      {/* Logout overlay */}
       {showLogout && (
         <div className="lg:hidden fixed inset-0 z-[60] flex items-end justify-center pb-20">
           <div className="absolute inset-0 bg-black/40" onClick={() => setShowLogout(false)} />
           <div className="relative w-[calc(100%-2rem)] max-w-sm p-4 rounded-2xl bg-[var(--st-bg-card)] border border-[var(--st-border)] shadow-2xl animate-fade-up">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-st-accent/20 flex items-center justify-center text-st-accent text-sm font-bold">
-                {user?.name?.charAt(0) || 'U'}
-              </div>
+              <div className="w-10 h-10 rounded-full bg-st-accent/20 flex items-center justify-center text-st-accent text-sm font-bold">{user?.name?.charAt(0) || 'U'}</div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-white truncate">{user?.name}</p>
                 <p className="text-xs text-[var(--st-text-secondary)] truncate">{user?.email}</p>
               </div>
             </div>
             <div className="flex gap-2">
-              <button
-                onClick={() => setShowLogout(false)}
-                className="flex-1 py-2.5 rounded-xl border border-[var(--st-border)] text-white text-sm font-medium hover:bg-[var(--st-border)]/30 transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleLogout}
-                className="flex-1 py-2.5 rounded-xl bg-st-put/10 border border-st-put/30 text-st-put text-sm font-semibold hover:bg-st-put/20 transition-colors flex items-center justify-center gap-2"
-              >
-                <LogOut size={14} />
-                Sign Out
+              <button onClick={() => setShowLogout(false)} className="flex-1 py-2.5 rounded-xl border border-[var(--st-border)] text-white text-sm font-medium hover:bg-[var(--st-border)]/30 transition-colors">Cancel</button>
+              <button onClick={handleLogout} className="flex-1 py-2.5 rounded-xl bg-st-put/10 border border-st-put/30 text-st-put text-sm font-semibold hover:bg-st-put/20 transition-colors flex items-center justify-center gap-2">
+                <LogOut size={14} />Sign Out
               </button>
             </div>
           </div>
         </div>
       )}
-
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 glass-strong border-t border-[var(--st-border)]">
         <div className="flex items-center justify-around h-16 px-1">
           {allTabs.map(tab => (
-            <Link
-              key={tab.path}
-              to={tab.path}
-              className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-colors min-w-0 ${
-                isActive(tab.path) ? 'text-st-accent' : 'text-[var(--st-text-secondary)]'
-              }`}
-            >
+            <Link key={tab.path} to={tab.path} className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-colors min-w-0 ${isActive(tab.path) ? 'text-st-accent' : 'text-[var(--st-text-secondary)]'}`}>
               <tab.icon size={18} />
               <span className="text-[9px] font-medium truncate">{tab.label}</span>
             </Link>
           ))}
-          {/* Avatar / Logout trigger */}
-          <button
-            onClick={() => setShowLogout(true)}
-            className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-colors min-w-0 text-[var(--st-text-secondary)]"
-          >
-            <div className="w-[18px] h-[18px] rounded-full bg-st-accent/30 flex items-center justify-center text-st-accent text-[8px] font-bold">
-              {user?.name?.charAt(0) || 'U'}
-            </div>
+          <button onClick={() => setShowLogout(true)} className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-colors min-w-0 text-[var(--st-text-secondary)]">
+            <div className="w-[18px] h-[18px] rounded-full bg-st-accent/30 flex items-center justify-center text-st-accent text-[8px] font-bold">{user?.name?.charAt(0) || 'U'}</div>
             <span className="text-[9px] font-medium truncate">Account</span>
           </button>
         </div>
