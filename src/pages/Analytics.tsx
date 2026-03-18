@@ -6,6 +6,7 @@ import { AssetPerformanceChart } from '@/components/analytics/AssetPerformance';
 import { AssetPerformanceTable } from '@/components/analytics/AssetPerformanceTable';
 import { HourlyDistribution } from '@/components/analytics/HourlyDistribution';
 import { PnlCurve } from '@/components/analytics/PnlCurve';
+import { DailyPnlChart } from '@/components/analytics/DailyPnlChart';
 import { LockedChartOverlay } from '@/components/analytics/LockedChartOverlay';
 import { DateRangeFilter, DateRange } from '@/components/shared/DateRangeFilter';
 import { StatsSkeletonGrid } from '@/components/shared/StatsSkeletonGrid';
@@ -62,7 +63,29 @@ export default function Analytics() {
         {/* Stats Overview */}
         {overviewLoading ? <StatsSkeletonGrid /> : overview && <StatsCards stats={overview} />}
 
-        {/* Charts Grid */}
+        {/* P&L Charts Row */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          {pnlLoading ? (
+            <>
+              <ChartSkeleton />
+              <ChartSkeleton />
+            </>
+          ) : filteredPnl ? (
+            isFree ? (
+              <>
+                <LockedChartOverlay><PnlCurve data={filteredPnl} /></LockedChartOverlay>
+                <LockedChartOverlay><DailyPnlChart data={filteredPnl} /></LockedChartOverlay>
+              </>
+            ) : (
+              <>
+                <PnlCurve data={filteredPnl} />
+                <DailyPnlChart data={filteredPnl} />
+              </>
+            )
+          ) : null}
+        </div>
+
+        {/* Win Rate & Asset Charts */}
         <div className="grid lg:grid-cols-2 gap-6">
           {winRateLoading ? (
             <ChartSkeleton />
@@ -83,27 +106,18 @@ export default function Analytics() {
               <AssetPerformanceChart data={assets} />
             )
           ) : null}
-
-          {hourlyLoading ? (
-            <ChartSkeleton />
-          ) : hourly ? (
-            isFree ? (
-              <LockedChartOverlay><HourlyDistribution data={hourly} /></LockedChartOverlay>
-            ) : (
-              <HourlyDistribution data={hourly} />
-            )
-          ) : null}
-
-          {pnlLoading ? (
-            <ChartSkeleton />
-          ) : filteredPnl ? (
-            isFree ? (
-              <LockedChartOverlay><PnlCurve data={filteredPnl} /></LockedChartOverlay>
-            ) : (
-              <PnlCurve data={filteredPnl} />
-            )
-          ) : null}
         </div>
+
+        {/* Hourly Distribution - Full Width */}
+        {hourlyLoading ? (
+          <ChartSkeleton />
+        ) : hourly ? (
+          isFree ? (
+            <LockedChartOverlay><HourlyDistribution data={hourly} /></LockedChartOverlay>
+          ) : (
+            <HourlyDistribution data={hourly} />
+          )
+        ) : null}
 
         {/* Asset Performance Table */}
         {assetsLoading ? (

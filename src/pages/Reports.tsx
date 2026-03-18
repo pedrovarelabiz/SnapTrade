@@ -3,6 +3,7 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { ReportList } from '@/components/reports/ReportList';
 import { ReportDetail } from '@/components/reports/ReportDetail';
 import { ReportsSummaryChart } from '@/components/reports/ReportsSummaryChart';
+import { ReportsPnlChart } from '@/components/reports/ReportsPnlChart';
 import { DateRangeFilter, DateRange } from '@/components/shared/DateRangeFilter';
 import { useAuth } from '@/hooks/useAuth';
 import { usePageTitle } from '@/hooks/usePageTitle';
@@ -12,6 +13,7 @@ import { DailyReport } from '@/types';
 import { useQuery } from '@tanstack/react-query';
 import { reportService } from '@/services/reportService';
 import { exportToCsv } from '@/utils/exportCsv';
+import { formatPnl } from '@/lib/pnlCalculator';
 import { FileText, Download, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -46,7 +48,7 @@ export default function Reports() {
       return;
     }
 
-    const headers = ['Date', 'Total Signals', 'Wins', 'Losses', 'Skipped', 'Win Rate (%)', 'Top Asset'];
+    const headers = ['Date', 'Total Signals', 'Wins', 'Losses', 'Skipped', 'Win Rate (%)', 'Top Asset', 'Daily P&L', 'Direct Wins', 'Gale 1 Wins', 'Gale 2 Wins', 'Full Losses'];
     const rows = filteredReports.map(r => [
       r.date,
       String(r.totalSignals),
@@ -55,6 +57,11 @@ export default function Reports() {
       String(r.skipped),
       String(r.winRate),
       r.topAsset,
+      r.dailyPnl !== undefined ? formatPnl(r.dailyPnl) : 'N/A',
+      String(r.directWins ?? 'N/A'),
+      String(r.gale1Wins ?? 'N/A'),
+      String(r.gale2Wins ?? 'N/A'),
+      String(r.fullLosses ?? 'N/A'),
     ]);
 
     exportToCsv(`snaptrade-reports-${dateRange}`, headers, rows);
@@ -94,15 +101,25 @@ export default function Reports() {
           </div>
         )}
 
-        {/* Summary Chart */}
+        {/* Charts Row */}
         {!isLoading && filteredReports.length > 0 && (
-          isFree ? (
-            <LockedChartOverlay>
-              <ReportsSummaryChart reports={filteredReports} />
-            </LockedChartOverlay>
-          ) : (
-            <ReportsSummaryChart reports={filteredReports} />
-          )
+          <div className="grid lg:grid-cols-2 gap-6">
+            {isFree ? (
+              <>
+                <LockedChartOverlay>
+                  <ReportsSummaryChart reports={filteredReports} />
+                </LockedChartOverlay>
+                <LockedChartOverlay>
+                  <ReportsPnlChart reports={filteredReports} />
+                </LockedChartOverlay>
+              </>
+            ) : (
+              <>
+                <ReportsSummaryChart reports={filteredReports} />
+                <ReportsPnlChart reports={filteredReports} />
+              </>
+            )}
+          </div>
         )}
 
         {isLoading ? (
