@@ -8,7 +8,8 @@ import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
 import { DailyReport } from '@/types';
 import { useQuery } from '@tanstack/react-query';
 import { reportService } from '@/services/reportService';
-import { FileText, Download } from 'lucide-react';
+import { exportToCsv } from '@/utils/exportCsv';
+import { FileText, Download, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 
 function getDaysForRange(range: DateRange): number {
@@ -22,7 +23,7 @@ function getDaysForRange(range: DateRange): number {
 
 export default function Reports() {
   const { user } = useAuth();
-  const { data: reports = [] } = useQuery({ queryKey: ['reports'], queryFn: reportService.getReports });
+  const { data: reports = [], isLoading } = useQuery({ queryKey: ['reports'], queryFn: reportService.getReports });
   const [selectedReport, setSelectedReport] = useState<DailyReport | null>(null);
   const [dateRange, setDateRange] = useState<DateRange>('7d');
   const isFree = user?.role === 'free';
@@ -35,6 +36,27 @@ export default function Reports() {
     return reports.filter(r => new Date(r.date) >= cutoff);
   }, [reports, dateRange]);
 
+  const handleExport = () => {
+    if (filteredReports.length === 0) {
+      toast.error('No reports to export');
+      return;
+    }
+
+    const headers = ['Date', 'Total Signals', 'Wins', 'Losses', 'Skipped', 'Win Rate (%)', 'Top Asset'];
+    const rows = filteredReports.map(r => [
+      r.date,
+      String(r.totalSignals),
+      String(r.wins),
+      String(r.losses),
+      String(r.skipped),
+      String(r.winRate),
+      r.topAsset,
+    ]);
+
+    exportToCsv(`snaptrade-reports-${dateRange}`, headers, rows);
+    toast.success(`Exported ${filteredReports.length} reports as CSV`);
+  };
+
   return (
     <DashboardLayout>
       <div className="space-y-6">
@@ -46,11 +68,11 @@ export default function Reports() {
           <div className="flex flex-wrap items-center gap-3">
             <DateRangeFilter value={dateRange} onChange={setDateRange} />
             <button
-              onClick={() => toast.success('PDF export coming soon!')}
+              onClick={handleExport}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)] text-sm text-[var(--st-text-primary)] hover:border-st-accent/30 transition-colors"
             >
               <Download size={14} />
-              Export PDF
+              Export CSV
             </button>
           </div>
         </div>
@@ -68,8 +90,24 @@ export default function Reports() {
           </div>
         )}
 
-        {selectedReport ? (
+        {isLoading ? (
+          <div className="grid sm:grid-cols-2 gap-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="h-40 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)] animate-pulse" />
+            ))}
+          </div>
+        ) : selectedReport ? (
           <ReportDetail report={selectedReport} onClose={() => setSelectedReport(null)} />
+        ) : filteredReports.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-[var(--st-bg-card)] border border-[var(--st-border)] flex items-center justify-center mb-4">
+              <Calendar size={28} className="text-[var(--st-text-secondary)]" />
+            </div>
+            <h3 className="text-lg font-semibold text-white mb-2">No Reports Found</h3>
+            <p className="text-sm text-[var(--st-text-secondary)] max-w-sm">
+              No reports match the selected date range. Try expanding the range or check back later.
+            </p>
+          </div>
         ) : (
           <ReportList reports={filteredReports} onSelect={setSelectedReport} />
         )}

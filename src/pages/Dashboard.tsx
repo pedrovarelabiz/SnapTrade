@@ -3,10 +3,11 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { SignalFeed } from '@/components/signals/SignalFeed';
 import { SignalFilters } from '@/components/signals/SignalFilters';
 import { SignalCounterBadge } from '@/components/signals/SignalCounterBadge';
+import { WelcomeBanner } from '@/components/dashboard/WelcomeBanner';
 import { useSignals } from '@/hooks/useSignals';
 import { useAuth } from '@/hooks/useAuth';
 import { Signal, SignalStatus, SignalDirection } from '@/types';
-import { Wifi, WifiOff } from 'lucide-react';
+import { Wifi, WifiOff, Zap } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Dashboard() {
@@ -46,6 +47,9 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       <div className="space-y-6">
+        {/* Welcome Banner */}
+        <WelcomeBanner />
+
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -81,6 +85,16 @@ export default function Dashboard() {
             {Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="h-28 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)] animate-pulse" />
             ))}
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-[var(--st-bg-card)] border border-[var(--st-border)] flex items-center justify-center mb-4">
+              <Zap size={28} className="text-[var(--st-text-secondary)]" />
+            </div>
+            <h3 className="text-lg font-semibold text-white mb-2">No Signals Match</h3>
+            <p className="text-sm text-[var(--st-text-secondary)] max-w-sm">
+              No signals match your current filters. Try adjusting the status or direction filters above.
+            </p>
           </div>
         ) : (
           <SignalFeed signals={filtered} onUpdateStatus={updateSignalStatus} newSignalIds={newSignalIds} />
