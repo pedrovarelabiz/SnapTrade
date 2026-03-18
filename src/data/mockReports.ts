@@ -8,31 +8,31 @@ const daysAgo = (d: number) => {
 
 export const mockReports: DailyReport[] = [
   {
-    id: 'r1', date: daysAgo(0), totalSignals: 24, wins: 19, losses: 4, skipped: 1,
-    winRate: 82.6, topAsset: 'EUR/USD', signals: [],
+    id: 'r1', date: daysAgo(0), totalSignals: 16, wins: 14, losses: 2, skipped: 0,
+    winRate: 87.5, topAsset: 'EUR/USD OTC', signals: [],
   },
   {
-    id: 'r2', date: daysAgo(1), totalSignals: 28, wins: 21, losses: 6, skipped: 1,
-    winRate: 77.8, topAsset: 'GBP/JPY', signals: [],
+    id: 'r2', date: daysAgo(1), totalSignals: 30, wins: 29, losses: 1, skipped: 0,
+    winRate: 96.7, topAsset: 'AUD/USD OTC', signals: [],
   },
   {
-    id: 'r3', date: daysAgo(2), totalSignals: 22, wins: 18, losses: 3, skipped: 1,
-    winRate: 85.7, topAsset: 'USD/CHF', signals: [],
+    id: 'r3', date: daysAgo(2), totalSignals: 24, wins: 24, losses: 0, skipped: 0,
+    winRate: 100, topAsset: 'USD/CAD OTC', signals: [],
   },
   {
-    id: 'r4', date: daysAgo(3), totalSignals: 26, wins: 20, losses: 5, skipped: 1,
-    winRate: 80.0, topAsset: 'AUD/USD', signals: [],
+    id: 'r4', date: daysAgo(3), totalSignals: 22, wins: 20, losses: 2, skipped: 0,
+    winRate: 90.9, topAsset: 'EUR/USD OTC', signals: [],
   },
   {
-    id: 'r5', date: daysAgo(4), totalSignals: 20, wins: 15, losses: 4, skipped: 1,
-    winRate: 78.9, topAsset: 'EUR/GBP', signals: [],
+    id: 'r5', date: daysAgo(4), totalSignals: 18, wins: 17, losses: 1, skipped: 0,
+    winRate: 94.4, topAsset: 'GBP/USD OTC', signals: [],
   },
   {
-    id: 'r6', date: daysAgo(5), totalSignals: 30, wins: 24, losses: 5, skipped: 1,
-    winRate: 82.8, topAsset: 'USD/JPY', signals: [],
+    id: 'r6', date: daysAgo(5), totalSignals: 24, wins: 22, losses: 2, skipped: 0,
+    winRate: 91.7, topAsset: 'AUD/USD OTC', signals: [],
   },
   {
-    id: 'r7', date: daysAgo(6), totalSignals: 25, wins: 19, losses: 5, skipped: 1,
-    winRate: 79.2, topAsset: 'NZD/USD', signals: [],
+    id: 'r7', date: daysAgo(6), totalSignals: 20, wins: 19, losses: 1, skipped: 0,
+    winRate: 95.0, topAsset: 'USD/CHF OTC', signals: [],
   },
 ];

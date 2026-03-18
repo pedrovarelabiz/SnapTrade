@@ -4,7 +4,7 @@ const baseFlags: Record<string, string> = {
   'EUR/JPY': '🇪🇺🇯🇵', 'AUD/USD': '🇦🇺🇺🇸', 'CHF/JPY': '🇨🇭🇯🇵', 'EUR/AUD': '🇪🇺🇦🇺',
   'GBP/CHF': '🇬🇧🇨🇭', 'NZD/JPY': '🇳🇿🇯🇵', 'EUR/NZD': '🇪🇺🇳🇿', 'AUD/JPY': '🇦🇺🇯🇵',
   'GBP/AUD': '🇬🇧🇦🇺', 'USD/CAD': '🇺🇸🇨🇦', 'AUD/NZD': '🇦🇺🇳🇿', 'AUD/CHF': '🇦🇺🇨🇭',
-  'EUR/CHF': '🇪🇺🇨🇭', 'CAD/CHF': '🇨🇦🇨🇭', 'CHF/NOK': '🇨🇭🇳🇴', 'EUR/NZD': '🇪🇺🇳🇿',
+  'EUR/CHF': '🇪🇺🇨🇭', 'CAD/CHF': '🇨🇦🇨🇭', 'CHF/NOK': '🇨🇭🇳🇴',
   'CAD/JPY': '🇨🇦🇯🇵', 'NZD/CAD': '🇳🇿🇨🇦', 'GBP/NZD': '🇬🇧🇳🇿', 'GBP/CAD': '🇬🇧🇨🇦',
   'USD/SGD': '🇺🇸🇸🇬', 'CHF/SGD': '🇨🇭🇸🇬', 'AUD/SGD': '🇦🇺🇸🇬', 'USD/MXN': '🇺🇸🇲🇽',
   'EUR/HUF': '🇪🇺🇭🇺', 'EUR/PLN': '🇪🇺🇵🇱', 'GBP/SEK': '🇬🇧🇸🇪', 'GBP/ZAR': '🇬🇧🇿🇦',
