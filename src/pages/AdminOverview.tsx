@@ -5,10 +5,12 @@ import { RecentActivityFeed } from '@/components/admin/RecentActivityFeed';
 import { useQuery } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
 import { useSignals } from '@/hooks/useSignals';
+import { usePageTitle } from '@/hooks/usePageTitle';
 import { Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function AdminOverview() {
+  usePageTitle('Admin Overview');
   const { data: revenueStats } = useQuery({ queryKey: ['admin', 'revenue'], queryFn: adminService.getRevenueStats });
   const { data: users = [] } = useQuery({ queryKey: ['admin', 'users'], queryFn: adminService.getUsers });
   const { signals } = useSignals();

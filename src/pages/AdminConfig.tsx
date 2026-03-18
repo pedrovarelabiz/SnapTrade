@@ -2,8 +2,10 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { PlatformConfigForm } from '@/components/admin/PlatformConfigForm';
 import { SignalManager } from '@/components/admin/SignalManager';
 import { useSignals } from '@/hooks/useSignals';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function AdminConfig() {
+  usePageTitle('Admin — Config');
   const { signals, updateSignalStatus } = useSignals();
 
   return (

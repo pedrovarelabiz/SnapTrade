@@ -1,13 +1,13 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { Activity, BarChart3, CreditCard, Settings, Shield, LogOut } from 'lucide-react';
+import { Activity, BarChart3, FileText, Settings, Shield, LogOut } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
 const tabs = [
   { label: 'Signals', icon: Activity, path: '/dashboard' },
   { label: 'Analytics', icon: BarChart3, path: '/analytics' },
-  { label: 'Billing', icon: CreditCard, path: '/subscription' },
+  { label: 'Reports', icon: FileText, path: '/reports' },
   { label: 'Settings', icon: Settings, path: '/settings' },
 ];
 

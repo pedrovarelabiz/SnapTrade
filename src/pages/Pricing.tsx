@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { CheckCircle, X, Crown, HelpCircle } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const faqs = [
   { q: 'How accurate are the signals?', a: 'Our signals maintain a consistent 75-82% win rate across all supported currency pairs. Performance varies by market conditions and is tracked transparently in our daily reports.' },
@@ -21,6 +22,7 @@ const premiumFeatures = [
 const yearlyBonusFeatures = ['Early access to new features', 'Dedicated account manager', '1-on-1 strategy session'];
 
 export default function Pricing() {
+  usePageTitle('Pricing');
   const navigate = useNavigate();
   const [isYearly, setIsYearly] = useState(false);
 
@@ -82,7 +84,7 @@ export default function Pricing() {
               </button>
             </div>
 
-            {/* Premium Plan — adapts to toggle */}
+            {/* Premium Plan */}
             <div className="relative p-6 sm:p-8 rounded-2xl border bg-st-accent/5 border-st-accent/40 glow-accent transition-all">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-st-premium text-st-deep text-xs font-bold">

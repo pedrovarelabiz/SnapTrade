@@ -47,7 +47,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-[var(--st-border)] bg-[var(--st-bg-card)]">
+          <div className="md:hidden border-t border-[var(--st-border)] bg-[var(--st-bg-card)] animate-slide-down">
             <div className="px-4 py-4 space-y-3">
               <Link to="/" className="block text-sm text-[var(--st-text-secondary)] hover:text-white" onClick={() => setMobileMenuOpen(false)}>Home</Link>
               <Link to="/pricing" className="block text-sm text-[var(--st-text-secondary)] hover:text-white" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
@@ -73,35 +73,43 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
               <Logo size="sm" />
-              <p className="mt-3 text-xs text-[var(--st-text-secondary)]">Real-time binary options signals powered by advanced algorithms.</p>
+              <p className="mt-3 text-xs text-[var(--st-text-secondary)] leading-relaxed">Real-time binary options signals powered by advanced algorithms.</p>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-white mb-3">Product</h4>
               <div className="space-y-2">
                 <Link to="/pricing" className="block text-xs text-[var(--st-text-secondary)] hover:text-white transition-colors">Pricing</Link>
-                <span className="block text-xs text-[var(--st-text-secondary)]">Chrome Extension</span>
-                <span className="block text-xs text-[var(--st-text-secondary)]">API Docs</span>
+                <Link to="/register" className="block text-xs text-[var(--st-text-secondary)] hover:text-white transition-colors">Get Started</Link>
+                <Link to="/login" className="block text-xs text-[var(--st-text-secondary)] hover:text-white transition-colors">Sign In</Link>
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-3">Company</h4>
+              <h4 className="text-sm font-semibold text-white mb-3">Resources</h4>
               <div className="space-y-2">
-                <span className="block text-xs text-[var(--st-text-secondary)]">About</span>
-                <span className="block text-xs text-[var(--st-text-secondary)]">Blog</span>
-                <span className="block text-xs text-[var(--st-text-secondary)]">Contact</span>
+                <Link to="/pricing" className="block text-xs text-[var(--st-text-secondary)] hover:text-white transition-colors">FAQ</Link>
+                <span className="block text-xs text-[var(--st-text-secondary)] cursor-default">Chrome Extension</span>
+                <span className="block text-xs text-[var(--st-text-secondary)] cursor-default">API Docs</span>
               </div>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-white mb-3">Legal</h4>
               <div className="space-y-2">
-                <span className="block text-xs text-[var(--st-text-secondary)]">Privacy Policy</span>
-                <span className="block text-xs text-[var(--st-text-secondary)]">Terms of Service</span>
-                <span className="block text-xs text-[var(--st-text-secondary)]">Risk Disclosure</span>
+                <span className="block text-xs text-[var(--st-text-secondary)] cursor-default">Privacy Policy</span>
+                <span className="block text-xs text-[var(--st-text-secondary)] cursor-default">Terms of Service</span>
+                <span className="block text-xs text-[var(--st-text-secondary)] cursor-default">Risk Disclosure</span>
               </div>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-[var(--st-border)] text-center">
-            <p className="text-xs text-[var(--st-text-secondary)]">© {new Date().getFullYear()} SnapTrade. All rights reserved. Trading involves risk.</p>
+          <div className="mt-8 pt-8 border-t border-[var(--st-border)]">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-xs text-[var(--st-text-secondary)]">© {new Date().getFullYear()} SnapTrade. All rights reserved. Trading involves risk.</p>
+              <div className="flex items-center gap-4">
+                <span className="text-xs text-[var(--st-text-secondary)]">₿ BTC</span>
+                <span className="text-xs text-[var(--st-text-secondary)]">Ξ ETH</span>
+                <span className="text-xs text-[var(--st-text-secondary)]">₮ USDT</span>
+                <span className="text-xs text-[var(--st-text-secondary)]">🅿 PayPal</span>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

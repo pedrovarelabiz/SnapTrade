@@ -2,8 +2,10 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { RevenueStatsPanel } from '@/components/admin/RevenueStats';
 import { useQuery } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 export default function AdminRevenue() {
+  usePageTitle('Admin — Revenue');
   const { data: stats } = useQuery({ queryKey: ['admin', 'revenue'], queryFn: adminService.getRevenueStats });
 
   return (

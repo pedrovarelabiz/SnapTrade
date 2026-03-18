@@ -2,10 +2,12 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { UserTable } from '@/components/admin/UserTable';
 import { useQuery } from '@tanstack/react-query';
 import { adminService } from '@/services/adminService';
+import { usePageTitle } from '@/hooks/usePageTitle';
 import { toast } from 'sonner';
 import { User } from '@/types';
 
 export default function AdminUsers() {
+  usePageTitle('Admin — Users');
   const { data: users = [] } = useQuery({ queryKey: ['admin', 'users'], queryFn: adminService.getUsers });
 
   const handleUpdateRole = (userId: string, role: User['role']) => {
