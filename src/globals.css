@@ -144,38 +144,13 @@
   }
 }
 
-/* Animations */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(124, 77, 255, 0.2); }
-  50% { box-shadow: 0 0 20px rgba(124, 77, 255, 0.5), 0 0 40px rgba(124, 77, 255, 0.2); }
-}
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes signal-pulse {
-  0% { border-color: rgba(124, 77, 255, 0.5); }
-  50% { border-color: rgba(124, 77, 255, 1); }
-  100% { border-color: rgba(124, 77, 255, 0.5); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
+/* Shimmer animation — not in Tailwind config */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
+/* Ticker animation — not in Tailwind config */
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

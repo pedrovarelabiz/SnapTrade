@@ -1,9 +1,10 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from '@/components/shared/Logo';
 import { PremiumBadge } from '@/components/shared/PremiumBadge';
 import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebarContext } from '@/contexts/SidebarContext';
+import { toast } from 'sonner';
 import {
   BarChart3, FileText, Settings, CreditCard, Users, Sliders, DollarSign,
   Activity, LogOut, ChevronLeft, ChevronRight,
@@ -26,9 +27,16 @@ const adminItems = [
 export function AppSidebar() {
   const { user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const { collapsed, toggleCollapsed } = useSidebarContext();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleLogout = async () => {
+    await logout();
+    toast.success('Signed out successfully');
+    navigate('/');
+  };
 
   return (
     <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 bg-[var(--st-bg-elevated)] border-r border-[var(--st-border)] transition-all duration-300 ${collapsed ? 'w-[72px]' : 'w-[260px]'}`}>
@@ -100,7 +108,7 @@ export function AppSidebar() {
             </div>
           )}
           {!collapsed && (
-            <button onClick={logout} className="p-1.5 rounded-lg hover:bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] transition-colors">
+            <button onClick={handleLogout} className="p-1.5 rounded-lg hover:bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] hover:text-st-put transition-colors">
               <LogOut size={16} />
             </button>
           )}

@@ -7,6 +7,8 @@ import { HourlyDistribution } from '@/components/analytics/HourlyDistribution';
 import { PnlCurve } from '@/components/analytics/PnlCurve';
 import { LockedChartOverlay } from '@/components/analytics/LockedChartOverlay';
 import { DateRangeFilter, DateRange } from '@/components/shared/DateRangeFilter';
+import { StatsSkeletonGrid } from '@/components/shared/StatsSkeletonGrid';
+import { ChartSkeleton } from '@/components/shared/ChartSkeleton';
 import { useStatsOverview, useAssetPerformance, useHourlyData, usePnlCurve, useWinRateHistory } from '@/hooks/useStats';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -21,11 +23,11 @@ function getDaysForRange(range: DateRange): number {
 
 export default function Analytics() {
   const { user } = useAuth();
-  const { data: overview } = useStatsOverview();
-  const { data: assets } = useAssetPerformance();
-  const { data: hourly } = useHourlyData();
-  const { data: pnl } = usePnlCurve();
-  const { data: winRate } = useWinRateHistory();
+  const { data: overview, isLoading: overviewLoading } = useStatsOverview();
+  const { data: assets, isLoading: assetsLoading } = useAssetPerformance();
+  const { data: hourly, isLoading: hourlyLoading } = useHourlyData();
+  const { data: pnl, isLoading: pnlLoading } = usePnlCurve();
+  const { data: winRate, isLoading: winRateLoading } = useWinRateHistory();
   const isFree = user?.role === 'free';
   const [dateRange, setDateRange] = useState<DateRange>('30d');
 
@@ -54,10 +56,12 @@ export default function Analytics() {
           <DateRangeFilter value={dateRange} onChange={setDateRange} />
         </div>
 
-        {overview && <StatsCards stats={overview} />}
+        {overviewLoading ? <StatsSkeletonGrid /> : overview && <StatsCards stats={overview} />}
 
         <div className="grid lg:grid-cols-2 gap-6">
-          {filteredWinRate && (
+          {winRateLoading ? (
+            <ChartSkeleton />
+          ) : filteredWinRate && (
             isFree ? (
               <LockedChartOverlay><WinRateChart data={filteredWinRate} /></LockedChartOverlay>
             ) : (
@@ -65,7 +69,9 @@ export default function Analytics() {
             )
           )}
 
-          {assets && (
+          {assetsLoading ? (
+            <ChartSkeleton />
+          ) : assets && (
             isFree ? (
               <LockedChartOverlay><AssetPerformanceChart data={assets} /></LockedChartOverlay>
             ) : (
@@ -73,7 +79,9 @@ export default function Analytics() {
             )
           )}
 
-          {hourly && (
+          {hourlyLoading ? (
+            <ChartSkeleton />
+          ) : hourly && (
             isFree ? (
               <LockedChartOverlay><HourlyDistribution data={hourly} /></LockedChartOverlay>
             ) : (
@@ -81,7 +89,9 @@ export default function Analytics() {
             )
           )}
 
-          {filteredPnl && (
+          {pnlLoading ? (
+            <ChartSkeleton />
+          ) : filteredPnl && (
             isFree ? (
               <LockedChartOverlay><PnlCurve data={filteredPnl} /></LockedChartOverlay>
             ) : (

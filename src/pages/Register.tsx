@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from '@/components/shared/Logo';
 import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function Register() {
   const { register } = useAuth();
@@ -24,6 +25,7 @@ export default function Register() {
     setIsLoading(true);
     try {
       await register(name, email, password);
+      toast.success('Account created successfully!');
       navigate('/verify-email');
     } catch {
       setError('Registration failed');

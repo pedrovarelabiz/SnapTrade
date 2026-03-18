@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Logo } from '@/components/shared/Logo';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function Login() {
   const { login } = useAuth();
@@ -18,7 +19,8 @@ export default function Login() {
     setError('');
     setIsLoading(true);
     try {
-      await login(email, password);
+      const user = await login(email, password);
+      toast.success(`Welcome back, ${user.name}!`);
       navigate('/dashboard');
     } catch {
       setError('Invalid credentials');

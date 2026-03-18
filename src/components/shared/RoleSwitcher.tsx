@@ -1,7 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
 import { UserRole } from '@/types';
 import { Shield, Crown, User, ChevronUp, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const roles: { role: UserRole; label: string; icon: React.ElementType; color: string }[] = [
   { role: 'free', label: 'Free', icon: User, color: 'text-[var(--st-text-secondary)]' },
@@ -17,6 +19,14 @@ export function RoleSwitcher() {
 
   const { user, switchRole } = context;
 
+  const handleSwitch = (role: UserRole) => {
+    switchRole(role);
+    setOpen(false);
+    toast(`Switched to ${role} role`, {
+      description: `You're now viewing the app as a ${role} user.`,
+    });
+  };
+
   return (
     <div className="fixed bottom-4 right-4 z-[100] lg:bottom-6 lg:right-6">
       <div className={`transition-all duration-200 ${open ? 'mb-2' : ''}`}>
@@ -26,7 +36,7 @@ export function RoleSwitcher() {
             {roles.map(r => (
               <button
                 key={r.role}
-                onClick={() => { switchRole(r.role); setOpen(false); }}
+                onClick={() => handleSwitch(r.role)}
                 className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   user.role === r.role ? 'bg-st-accent/15 text-st-accent' : 'text-[var(--st-text-secondary)] hover:text-white hover:bg-[var(--st-border)]/30'
                 }`}
