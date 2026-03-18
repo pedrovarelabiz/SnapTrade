@@ -6,10 +6,16 @@ interface Props {
   reports: DailyReport[];
 }
 
+function getBarColor(winRate: number): string {
+  if (winRate >= 75) return '#00e676';
+  if (winRate >= 65) return '#ffd740';
+  return '#ff1744';
+}
+
 export function ReportsSummaryChart({ reports }: Props) {
   if (reports.length === 0) return null;
 
-  const data = reports.slice(0, 14).reverse().map(r => {
+  const data = reports.slice(0, 14).reverse().map((r) => {
     const date = new Date(r.date);
     return {
       label: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
@@ -20,9 +26,12 @@ export function ReportsSummaryChart({ reports }: Props) {
     };
   });
 
-  const avgWinRate = Math.round(data.reduce((sum, d) => sum + d.winRate, 0) / data.length * 10) / 10;
+  const avgWinRate =
+    Math.round((data.reduce((sum, d) => sum + d.winRate, 0) / data.length) * 10) / 10;
   const totalSignals = data.reduce((sum, d) => sum + d.signals, 0);
   const totalWins = data.reduce((sum, d) => sum + d.wins, 0);
+
+  const lessThanLabel = '< 65%';
 
   return (
     <div className="p-5 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)]">
@@ -36,15 +45,15 @@ export function ReportsSummaryChart({ reports }: Props) {
         <div className="flex items-center gap-3 text-xs">
           <span className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm bg-st-call" />
-            <span className="text-[var(--st-text-secondary)]">≥75%</span>
+            <span className="text-[var(--st-text-secondary)]">{'≥ 75%'}</span>
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm bg-st-premium" />
-            <span className="text-[var(--st-text-secondary)]">≥65%</span>
+            <span className="text-[var(--st-text-secondary)]">{'≥ 65%'}</span>
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-sm bg-st-put" />
-            <span className="text-[var(--st-text-secondary)]"><65%</span>
+            <span className="text-[var(--st-text-secondary)]">{lessThanLabel}</span>
           </span>
         </div>
       </div>
@@ -78,7 +87,7 @@ export function ReportsSummaryChart({ reports }: Props) {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={entry.winRate >= 75 ? '#00e676' : entry.winRate >= 65 ? '#ffd740' : '#ff1744'}
+                  fill={getBarColor(entry.winRate)}
                   fillOpacity={0.7}
                 />
               ))}
