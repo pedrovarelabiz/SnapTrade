@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Sparkles, Zap, BarChart3, Chrome, Shield, DollarSign, Globe } from 'lucide-react';
+import { Sparkles, Zap, BarChart3, Chrome, Shield, DollarSign, Trophy } from 'lucide-react';
 
 interface Props {
   open: boolean;
@@ -10,17 +10,17 @@ const updates = [
   {
     version: '2.6.0',
     date: 'Today',
-    icon: Globe,
+    icon: Trophy,
     color: 'text-st-premium',
     bg: 'bg-st-premium/10',
     items: [
-      'Session Performance breakdown (Sydney, Tokyo, London, NY)',
-      'Top Performers widget showing best assets by win rate',
+      'Top Performers widget showing best assets by win rate & P&L',
       'Signal Quality breakdown (Direct, Gale 1, Gale 2, Loss)',
       'Active Signals banner with next entry time',
       'Mobile notification dots for pending signals',
       'Auto-reconnect countdown when disconnected',
       'Streak motivation messages in Welcome Banner',
+      'Simplified OTC market status indicator',
     ],
   },
   {
@@ -48,7 +48,7 @@ const updates = [
       'Live notification sounds for new signals',
       'Weekly performance mini-chart on Dashboard',
       'Streak visualization showing recent W/L pattern',
-      'Market session indicators (Sydney, Tokyo, London, NY)',
+      'UTC clock with OTC market status',
     ],
   },
   {

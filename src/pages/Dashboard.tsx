@@ -12,7 +12,6 @@ import { QuickActions } from '@/components/dashboard/QuickActions';
 import { StreakVisualization } from '@/components/dashboard/StreakVisualization';
 import { WeeklyMiniChart } from '@/components/dashboard/WeeklyMiniChart';
 import { ActiveSignalsBanner } from '@/components/dashboard/ActiveSignalsBanner';
-import { SessionSummary } from '@/components/dashboard/SessionSummary';
 import { TopPerformers } from '@/components/dashboard/TopPerformers';
 import { SignalQualityBreakdown } from '@/components/dashboard/SignalQualityBreakdown';
 import { SoundToggle, useSoundPreference } from '@/components/dashboard/SoundToggle';
@@ -125,10 +124,9 @@ export default function Dashboard() {
 
         {/* Insights Row — premium only */}
         {isPremium && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <TopPerformers signals={signals} />
             <SignalQualityBreakdown signals={signals} />
-            <SessionSummary signals={signals} />
           </div>
         )}
 

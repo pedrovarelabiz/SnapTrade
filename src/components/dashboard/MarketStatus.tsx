@@ -1,28 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Globe, Sun, Moon } from 'lucide-react';
-
-interface MarketSession {
-  name: string;
-  emoji: string;
-  openHour: number;
-  closeHour: number;
-  color: string;
-  bg: string;
-}
-
-const sessions: MarketSession[] = [
-  { name: 'Sydney', emoji: '🇦🇺', openHour: 22, closeHour: 7, color: 'text-st-info', bg: 'bg-st-info/15' },
-  { name: 'Tokyo', emoji: '🇯🇵', openHour: 0, closeHour: 9, color: 'text-st-put', bg: 'bg-st-put/15' },
-  { name: 'London', emoji: '🇬🇧', openHour: 8, closeHour: 17, color: 'text-st-accent', bg: 'bg-st-accent/15' },
-  { name: 'New York', emoji: '🇺🇸', openHour: 13, closeHour: 22, color: 'text-st-call', bg: 'bg-st-call/15' },
-];
-
-function isSessionOpen(session: MarketSession, utcHour: number): boolean {
-  if (session.openHour < session.closeHour) {
-    return utcHour >= session.openHour && utcHour < session.closeHour;
-  }
-  return utcHour >= session.openHour || utcHour < session.closeHour;
-}
+import { Globe, Wifi } from 'lucide-react';
 
 export function MarketStatus() {
   const [now, setNow] = useState(new Date());
@@ -31,11 +8,6 @@ export function MarketStatus() {
     const interval = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
-
-  const utcHour = now.getUTCHours();
-  const isWeekend = now.getUTCDay() === 0 || now.getUTCDay() === 6;
-  const openSessions = isWeekend ? [] : sessions.filter(s => isSessionOpen(s, utcHour));
-  const isDayTime = utcHour >= 6 && utcHour < 20;
 
   const timeStr = now.toLocaleTimeString([], {
     hour: '2-digit',
@@ -52,30 +24,12 @@ export function MarketStatus() {
         <span className="text-[var(--st-text-secondary)] font-mono tabular-nums">
           {timeStr} UTC
         </span>
-        {isDayTime ? <Sun size={10} className="text-st-premium" /> : <Moon size={10} className="text-st-info" />}
       </div>
 
-      {isWeekend ? (
-        <span className="px-2.5 py-1.5 rounded-lg bg-st-put/10 border border-st-put/20 text-st-put text-xs font-medium">
-          Markets Closed (Weekend)
-        </span>
-      ) : (
-        openSessions.map(session => (
-          <span
-            key={session.name}
-            className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg ${session.bg} border border-transparent text-xs font-medium ${session.color}`}
-          >
-            <span>{session.emoji}</span>
-            {session.name}
-          </span>
-        ))
-      )}
-
-      {!isWeekend && openSessions.length === 0 && (
-        <span className="px-2.5 py-1.5 rounded-lg bg-[var(--st-border)]/30 text-[var(--st-text-secondary)] text-xs font-medium">
-          Low Activity
-        </span>
-      )}
+      <span className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-st-call/10 border border-st-call/20 text-xs font-medium text-st-call">
+        <Wifi size={10} />
+        OTC Markets Open 24/7
+      </span>
     </div>
   );
 }
