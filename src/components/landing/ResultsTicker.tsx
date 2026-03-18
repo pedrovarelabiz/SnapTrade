@@ -15,8 +15,8 @@ export function ResultsTicker() {
             <span className={`font-semibold ${item.direction === 'CALL' ? 'text-st-call' : 'text-st-put'}`}>
               {item.direction}
             </span>
-            <span className={`font-mono ${item.result === 'win' ? 'text-st-call' : 'text-st-put'}`}>
-              {item.pnl}
+            <span className={`font-semibold ${item.result === 'win' ? 'text-st-call' : 'text-st-put'}`}>
+              {item.result === 'win' ? 'WIN' : 'LOSS'}
             </span>
           </span>
         ))}
