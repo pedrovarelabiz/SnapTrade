@@ -1,31 +1,68 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { SignalFeed } from '@/components/signals/SignalFeed';
 import { SignalFilters } from '@/components/signals/SignalFilters';
 import { SignalCounterBadge } from '@/components/signals/SignalCounterBadge';
+import { ScrollToTopButton } from '@/components/signals/ScrollToTopButton';
 import { WelcomeBanner } from '@/components/dashboard/WelcomeBanner';
+import { TodayStats } from '@/components/dashboard/TodayStats';
+import { LiveIndicator } from '@/components/dashboard/LiveIndicator';
+import { QuickActions } from '@/components/dashboard/QuickActions';
+import { NewSignalToast } from '@/components/signals/NewSignalToast';
 import { useSignals } from '@/hooks/useSignals';
 import { useAuth } from '@/hooks/useAuth';
+import { useNotificationSound } from '@/hooks/useNotificationSound';
 import { Signal, SignalStatus, SignalDirection } from '@/types';
-import { Wifi, WifiOff, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Dashboard() {
   const { user } = useAuth();
   const { signals, isLoading, isConnected, updateSignalStatus } = useSignals();
+  const { playNewSignalSound } = useNotificationSound();
   const [statusFilter, setStatusFilter] = useState<SignalStatus | 'all'>('all');
   const [directionFilter, setDirectionFilter] = useState<SignalDirection | 'all'>('all');
   const [newSignalIds, setNewSignalIds] = useState<Set<string>>(new Set());
+  const [unseenCount, setUnseenCount] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const prevCountRef = useRef(signals.length);
+  const feedTopRef = useRef<HTMLDivElement>(null);
+  const isNearTopRef = useRef(true);
+
+  // Track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      isNearTopRef.current = window.scrollY < 400;
+      if (isNearTopRef.current && unseenCount > 0) {
+        setUnseenCount(0);
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [unseenCount]);
 
   useEffect(() => {
     if (signals.length > prevCountRef.current) {
       const newSignal = signals[0];
       if (newSignal) {
         setNewSignalIds(prev => new Set(prev).add(newSignal.id));
-        toast(`New Signal: ${newSignal.asset} ${newSignal.direction}`, {
-          description: `Confidence: ${newSignal.confidence}% | ${newSignal.timeframe}`,
+
+        // Play sound
+        playNewSignalSound();
+
+        // Show rich toast
+        toast.custom(() => <NewSignalToast signal={newSignal} />, {
+          duration: 5000,
+          position: 'top-right',
         });
+
+        // If user scrolled down, show "scroll to top" button
+        if (!isNearTopRef.current) {
+          setUnseenCount(prev => prev + 1);
+          setShowScrollTop(true);
+        }
+
         setTimeout(() => {
           setNewSignalIds(prev => {
             const next = new Set(prev);
@@ -36,7 +73,13 @@ export default function Dashboard() {
       }
     }
     prevCountRef.current = signals.length;
-  }, [signals]);
+  }, [signals, playNewSignalSound]);
+
+  const handleScrollToTop = useCallback(() => {
+    feedTopRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setUnseenCount(0);
+    setShowScrollTop(false);
+  }, []);
 
   const filtered = signals.filter((s: Signal) => {
     if (statusFilter !== 'all' && s.status !== statusFilter) return false;
@@ -46,24 +89,22 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
+      <div className="space-y-5">
         {/* Welcome Banner */}
         <WelcomeBanner />
 
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        {/* Today's Stats */}
+        <TodayStats signals={signals} />
+
+        {/* Header Row */}
+        <div ref={feedTopRef} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-white">Live Signals</h1>
-            <p className="text-sm text-[var(--st-text-secondary)]">{filtered.length} signals • Updated in real-time</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
-              isConnected ? 'bg-st-call/10 text-st-call border border-st-call/30' : 'bg-st-put/10 text-st-put border border-st-put/30'
-            }`}>
-              {isConnected ? <Wifi size={12} /> : <WifiOff size={12} />}
-              {isConnected ? 'Connected' : 'Disconnected'}
+            <div className="mt-1">
+              <QuickActions signals={signals} />
             </div>
           </div>
+          <LiveIndicator isConnected={isConnected} signalCount={filtered.length} />
         </div>
 
         {/* Free user counter */}
@@ -99,6 +140,9 @@ export default function Dashboard() {
         ) : (
           <SignalFeed signals={filtered} onUpdateStatus={updateSignalStatus} newSignalIds={newSignalIds} />
         )}
+
+        {/* Scroll to top for new signals */}
+        <ScrollToTopButton show={showScrollTop} count={unseenCount} onClick={handleScrollToTop} />
       </div>
     </DashboardLayout>
   );
