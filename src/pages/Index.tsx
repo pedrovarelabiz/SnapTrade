@@ -1,5 +1,6 @@
 import { PublicLayout } from '@/components/layout/PublicLayout';
 import { YesterdayResults } from '@/components/landing/YesterdayResults';
+import { HowItWorks } from '@/components/landing/HowItWorks';
 import { useNavigate } from 'react-router-dom';
 import {
   Zap, BarChart3, Chrome, Globe, FileText, Shield,
@@ -151,7 +152,10 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Yesterday's Results — Primary Conversion Driver */}
+      {/* How It Works */}
+      <HowItWorks />
+
+      {/* Yesterday's Results */}
       <YesterdayResults />
 
       {/* Live Signal Preview */}

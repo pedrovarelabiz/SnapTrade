@@ -8,6 +8,7 @@ import { WelcomeBanner } from '@/components/dashboard/WelcomeBanner';
 import { TodayStats } from '@/components/dashboard/TodayStats';
 import { LiveIndicator } from '@/components/dashboard/LiveIndicator';
 import { QuickActions } from '@/components/dashboard/QuickActions';
+import { StreakVisualization } from '@/components/dashboard/StreakVisualization';
 import { NewSignalToast } from '@/components/signals/NewSignalToast';
 import { useSignals } from '@/hooks/useSignals';
 import { useAuth } from '@/hooks/useAuth';
@@ -29,7 +30,6 @@ export default function Dashboard() {
   const feedTopRef = useRef<HTMLDivElement>(null);
   const isNearTopRef = useRef(true);
 
-  // Track scroll position
   useEffect(() => {
     const handleScroll = () => {
       isNearTopRef.current = window.scrollY < 400;
@@ -47,22 +47,15 @@ export default function Dashboard() {
       const newSignal = signals[0];
       if (newSignal) {
         setNewSignalIds(prev => new Set(prev).add(newSignal.id));
-
-        // Play sound
         playNewSignalSound();
-
-        // Show rich toast
         toast.custom(() => <NewSignalToast signal={newSignal} />, {
           duration: 5000,
           position: 'top-right',
         });
-
-        // If user scrolled down, show "scroll to top" button
         if (!isNearTopRef.current) {
           setUnseenCount(prev => prev + 1);
           setShowScrollTop(true);
         }
-
         setTimeout(() => {
           setNewSignalIds(prev => {
             const next = new Set(prev);
@@ -90,13 +83,10 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       <div className="space-y-5">
-        {/* Welcome Banner */}
         <WelcomeBanner />
-
-        {/* Today's Stats */}
         <TodayStats signals={signals} />
+        <StreakVisualization signals={signals} />
 
-        {/* Header Row */}
         <div ref={feedTopRef} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-white">Live Signals</h1>
@@ -107,12 +97,10 @@ export default function Dashboard() {
           <LiveIndicator isConnected={isConnected} signalCount={filtered.length} />
         </div>
 
-        {/* Free user counter */}
         {user?.role === 'free' && (
           <SignalCounterBadge signals={signals} maxFree={3} />
         )}
 
-        {/* Filters */}
         <SignalFilters
           statusFilter={statusFilter}
           directionFilter={directionFilter}
@@ -120,7 +108,6 @@ export default function Dashboard() {
           onDirectionChange={setDirectionFilter}
         />
 
-        {/* Signal Feed */}
         {isLoading ? (
           <div className="space-y-3">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -141,7 +128,6 @@ export default function Dashboard() {
           <SignalFeed signals={filtered} onUpdateStatus={updateSignalStatus} newSignalIds={newSignalIds} />
         )}
 
-        {/* Scroll to top for new signals */}
         <ScrollToTopButton show={showScrollTop} count={unseenCount} onClick={handleScrollToTop} />
       </div>
     </DashboardLayout>

@@ -3,6 +3,7 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { StatsCards } from '@/components/analytics/StatsCards';
 import { WinRateChart } from '@/components/analytics/WinRateChart';
 import { AssetPerformanceChart } from '@/components/analytics/AssetPerformance';
+import { AssetPerformanceTable } from '@/components/analytics/AssetPerformanceTable';
 import { HourlyDistribution } from '@/components/analytics/HourlyDistribution';
 import { PnlCurve } from '@/components/analytics/PnlCurve';
 import { LockedChartOverlay } from '@/components/analytics/LockedChartOverlay';
@@ -99,6 +100,17 @@ export default function Analytics() {
             )
           ) : null}
         </div>
+
+        {/* Asset Performance Table */}
+        {assetsLoading ? (
+          <div className="h-64 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)] animate-pulse" />
+        ) : assets ? (
+          isFree ? (
+            <LockedChartOverlay><AssetPerformanceTable data={assets} /></LockedChartOverlay>
+          ) : (
+            <AssetPerformanceTable data={assets} />
+          )
+        ) : null}
       </div>
     </DashboardLayout>
   );
