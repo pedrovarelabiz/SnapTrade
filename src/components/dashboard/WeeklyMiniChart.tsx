@@ -1,6 +1,7 @@
 import React from 'react';
 import { Signal } from '@/types';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
+import { formatPnl } from '@/lib/pnlCalculator';
 
 interface Props {
   signals: Signal[];
@@ -11,6 +12,8 @@ interface DayData {
   wins: number;
   losses: number;
   total: number;
+  pnl: number;
+  hasPnl: boolean;
 }
 
 export function WeeklyMiniChart({ signals }: Props) {
@@ -28,7 +31,13 @@ export function WeeklyMiniChart({ signals }: Props) {
     const wins = daySignals.filter((s) => s.result === 'win').length;
     const losses = daySignals.filter((s) => s.result === 'loss').length;
 
-    days.push({ label: dayLabel, wins, losses, total: wins + losses });
+    const dayPnl = daySignals.reduce((sum, s) => {
+      if (s.pnl?.netPnl !== undefined) return sum + s.pnl.netPnl;
+      return sum;
+    }, 0);
+    const hasPnl = daySignals.some(s => s.pnl !== undefined);
+
+    days.push({ label: dayLabel, wins, losses, total: wins + losses, pnl: Math.round(dayPnl * 100) / 100, hasPnl });
   }
 
   const maxTotal = Math.max(...days.map((d) => d.total), 1);
@@ -37,7 +46,11 @@ export function WeeklyMiniChart({ signals }: Props) {
   const totalResolved = totalWins + totalLosses;
   const weeklyWinRate = totalResolved > 0 ? Math.round((totalWins / totalResolved) * 100) : 0;
 
-  const prevWeekRate = 74; // Mock previous week for trend
+  const weeklyPnl = days.reduce((sum, d) => sum + d.pnl, 0);
+  const roundedWeeklyPnl = Math.round(weeklyPnl * 100) / 100;
+  const hasAnyPnl = days.some(d => d.hasPnl);
+
+  const prevWeekRate = 74;
   const trending = weeklyWinRate >= prevWeekRate ? 'up' : 'down';
 
   return (
@@ -47,6 +60,12 @@ export function WeeklyMiniChart({ signals }: Props) {
           <span className="text-sm font-semibold text-white">7-Day Performance</span>
         </div>
         <div className="flex items-center gap-2">
+          {hasAnyPnl && (
+            <span className={`inline-flex items-center gap-0.5 text-xs font-bold tabular-nums ${roundedWeeklyPnl >= 0 ? 'text-st-call' : 'text-st-put'}`}>
+              <DollarSign size={10} />
+              {formatPnl(roundedWeeklyPnl)}
+            </span>
+          )}
           {totalResolved > 0 && (
             <div className="flex items-center gap-1">
               {trending === 'up' ? (
@@ -79,12 +98,17 @@ export function WeeklyMiniChart({ signals }: Props) {
             <div key={day.label} className="flex-1 flex flex-col items-center gap-1 group relative">
               {/* Tooltip */}
               <div className="absolute bottom-full mb-2 hidden group-hover:block z-10">
-                <div className="px-2 py-1 rounded-lg bg-[var(--st-bg-elevated)] border border-[var(--st-border)] shadow-xl whitespace-nowrap">
+                <div className="px-2.5 py-1.5 rounded-lg bg-[var(--st-bg-elevated)] border border-[var(--st-border)] shadow-xl whitespace-nowrap">
                   <p className="text-[10px] font-medium text-white">{day.label}</p>
                   <p className="text-[9px] text-[var(--st-text-secondary)]">
                     {day.wins}W / {day.losses}L
                     {day.total > 0 && ` · ${Math.round(winPct)}%`}
                   </p>
+                  {day.hasPnl && (
+                    <p className={`text-[9px] font-bold tabular-nums ${day.pnl >= 0 ? 'text-st-call' : 'text-st-put'}`}>
+                      {formatPnl(day.pnl)}
+                    </p>
+                  )}
                 </div>
               </div>
 

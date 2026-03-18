@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Sparkles, Zap, BarChart3, Chrome, Shield, Bell } from 'lucide-react';
+import { Sparkles, Zap, BarChart3, Chrome, Shield, DollarSign } from 'lucide-react';
 
 interface Props {
   open: boolean;
@@ -8,8 +8,23 @@ interface Props {
 
 const updates = [
   {
-    version: '2.4.0',
+    version: '2.5.0',
     date: 'This Week',
+    icon: DollarSign,
+    color: 'text-st-call',
+    bg: 'bg-st-call/10',
+    items: [
+      'Full P&L tracking per signal with gale-level breakdown',
+      'Daily P&L chart on Analytics page',
+      'P&L badges on signal cards (Direct Win, Gale 1, Gale 2)',
+      'Hover tooltips showing invested/return/net P&L',
+      'Today\'s P&L in Welcome Banner and Stats',
+      'CSV export now includes P&L and result type data',
+    ],
+  },
+  {
+    version: '2.4.0',
+    date: 'Last Week',
     icon: Zap,
     color: 'text-st-accent',
     bg: 'bg-st-accent/10',
@@ -22,7 +37,7 @@ const updates = [
   },
   {
     version: '2.3.0',
-    date: 'Last Week',
+    date: '2 Weeks Ago',
     icon: BarChart3,
     color: 'text-st-info',
     bg: 'bg-st-info/10',
@@ -35,7 +50,7 @@ const updates = [
   },
   {
     version: '2.2.0',
-    date: '2 Weeks Ago',
+    date: '3 Weeks Ago',
     icon: Chrome,
     color: 'text-st-premium',
     bg: 'bg-st-premium/10',
@@ -48,7 +63,7 @@ const updates = [
   },
   {
     version: '2.1.0',
-    date: '3 Weeks Ago',
+    date: '4 Weeks Ago',
     icon: Shield,
     color: 'text-st-call',
     bg: 'bg-st-call/10',

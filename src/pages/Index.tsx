@@ -4,22 +4,22 @@ import { HowItWorks } from '@/components/landing/HowItWorks';
 import { getAssetFlag } from '@/lib/assetFlags';
 import { useNavigate } from 'react-router-dom';
 import {
-  Zap, BarChart3, Chrome, Globe, FileText, Shield,
+  Zap, BarChart3, Chrome, Globe, FileText, Shield, DollarSign,
   ArrowRight, Star, TrendingUp, CheckCircle,
 } from 'lucide-react';
 
 const features = [
-  { icon: Zap, title: 'Real-Time Signals', desc: 'Get instant CALL/PUT signals delivered via live stream with precise entry times.' },
-  { icon: BarChart3, title: 'Analytics Suite', desc: 'Track win rates, P&L curves, and asset performance with interactive charts.' },
-  { icon: Chrome, title: 'Chrome Extension', desc: 'Auto-trade directly on your broker platform with one-click execution.' },
-  { icon: Globe, title: 'Multi-Asset', desc: '20+ currency pairs analyzed 24/5 with advanced pattern recognition.' },
-  { icon: FileText, title: 'Daily Reports', desc: 'Comprehensive daily summaries with signal breakdowns and insights.' },
-  { icon: Shield, title: 'Secure Payments', desc: 'Pay with BTC, ETH, USDT, or PayPal. Your data stays encrypted.' },
+  { icon: Zap, title: 'Real-Time Signals', desc: 'Get instant CALL/PUT signals delivered via live stream with precise entry times and confidence scores.' },
+  { icon: DollarSign, title: 'P&L Tracking', desc: 'Track profit & loss per signal with gale-level breakdown. See exactly how much you earn on every trade.' },
+  { icon: BarChart3, title: 'Analytics Suite', desc: 'Track win rates, P&L curves, asset performance, and hourly distribution with interactive charts.' },
+  { icon: Chrome, title: 'Chrome Extension', desc: 'Auto-trade directly on your broker platform with one-click execution and risk management.' },
+  { icon: Globe, title: 'Multi-Asset OTC', desc: '20+ OTC currency pairs analyzed 24/7 with advanced pattern recognition and martingale support.' },
+  { icon: FileText, title: 'Daily Reports', desc: 'Comprehensive daily summaries with signal breakdowns, gale analysis, and P&L insights.' },
 ];
 
 const testimonials = [
   { name: 'Alex M.', role: 'Day Trader', text: 'SnapTrade changed my trading game. The signals are incredibly accurate and the Chrome extension makes execution effortless.', rating: 5 },
-  { name: 'Sarah K.', role: 'Forex Trader', text: "I've tried many signal services. SnapTrade's win rate is consistently above 75%. The analytics help me understand my performance.", rating: 5 },
+  { name: 'Sarah K.', role: 'Forex Trader', text: "I've tried many signal services. SnapTrade's win rate is consistently above 75%. The P&L tracking helps me understand my real performance.", rating: 5 },
   { name: 'David R.', role: 'Part-time Trader', text: "Perfect for someone who can't watch charts all day. I get notifications, check the signal, and execute in seconds.", rating: 4 },
 ];
 
@@ -27,7 +27,7 @@ const stats = [
   { value: '10,000+', label: 'Signals Sent' },
   { value: '78%', label: 'Win Rate' },
   { value: '2,500+', label: 'Active Traders' },
-  { value: '24/5', label: 'Market Coverage' },
+  { value: '24/7', label: 'OTC Coverage' },
 ];
 
 const heroSignal = { asset: 'EUR/USD OTC', dir: 'CALL' as const, time: '2:45', tf: 'M5', conf: 85 };
@@ -45,7 +45,7 @@ const previewDirStyles = {
 
 const pricingPlans = [
   { name: 'Free', price: '$0', period: '/forever', features: ['3 signals/day', 'Basic analytics', 'Email support'], popular: false },
-  { name: 'Premium', price: '$49', period: '/month', features: ['Unlimited signals', 'Full analytics', 'Chrome extension', 'Priority support'], popular: true },
+  { name: 'Premium', price: '$49', period: '/month', features: ['Unlimited signals', 'Full analytics & P&L', 'Chrome extension', 'Priority support'], popular: true },
   { name: 'Yearly', price: '$399', period: '/year', features: ['Everything in Premium', 'Save 32%', 'Dedicated manager'], popular: false },
 ];
 
@@ -72,7 +72,7 @@ export default function Index() {
             </h1>
 
             <p className="text-lg sm:text-xl text-[var(--st-text-secondary)] mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              Get precise CALL/PUT signals delivered in real-time. Powered by advanced algorithms with a proven 78% win rate across 20+ currency pairs.
+              Get precise CALL/PUT signals delivered in real-time. Powered by advanced algorithms with a proven 78% win rate across 20+ OTC currency pairs.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
@@ -140,7 +140,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Everything You Need to Trade</h2>
-            <p className="text-[var(--st-text-secondary)] max-w-2xl mx-auto">A complete trading signal platform with real-time delivery, advanced analytics, and seamless broker integration.</p>
+            <p className="text-[var(--st-text-secondary)] max-w-2xl mx-auto">A complete trading signal platform with real-time delivery, P&L tracking, advanced analytics, and seamless broker integration.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -175,7 +175,7 @@ export default function Index() {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Watch Signals Flow in Real-Time</h2>
               <p className="text-[var(--st-text-secondary)] mb-6">Our SSE-powered feed delivers signals the instant they're generated. No refreshing, no delays — just pure, real-time trading intelligence.</p>
               <ul className="space-y-3">
-                {['Instant signal delivery via SSE', 'Countdown timers to entry', 'Confidence scores for each signal', 'Martingale level tracking'].map(item => (
+                {['Instant signal delivery via SSE', 'Countdown timers to entry', 'P&L tracking with gale breakdown', 'Martingale level tracking'].map(item => (
                   <li key={item} className="flex items-center gap-3 text-sm text-[var(--st-text-primary)]">
                     <CheckCircle size={16} className="text-st-call flex-shrink-0" />
                     {item}

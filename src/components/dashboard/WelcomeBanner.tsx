@@ -1,15 +1,30 @@
 import { useAuth } from '@/hooks/useAuth';
-import { Zap, TrendingUp, ArrowRight } from 'lucide-react';
+import { useSignals } from '@/hooks/useSignals';
+import { Zap, TrendingUp, ArrowRight, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { MarketStatus } from './MarketStatus';
+import { formatPnl } from '@/lib/pnlCalculator';
 
 export function WelcomeBanner() {
   const { user } = useAuth();
+  const { signals } = useSignals();
   const navigate = useNavigate();
 
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
   const firstName = user?.name?.split(' ')[0] || 'Trader';
+
+  // Calculate today's P&L
+  const today = new Date().toDateString();
+  const todaySignals = signals.filter(s => new Date(s.createdAt).toDateString() === today);
+  const todayPnl = todaySignals.reduce((sum, s) => {
+    if (s.pnl?.netPnl !== undefined) return sum + s.pnl.netPnl;
+    return sum;
+  }, 0);
+  const roundedPnl = Math.round(todayPnl * 100) / 100;
+  const hasPnl = todaySignals.some(s => s.pnl !== undefined);
+  const todayWins = todaySignals.filter(s => s.result === 'win').length;
+  const todayLosses = todaySignals.filter(s => s.result === 'loss').length;
 
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-st-accent/10 via-st-info/5 to-transparent border border-st-accent/20 p-5 sm:p-6">
@@ -34,24 +49,45 @@ export function WelcomeBanner() {
             </div>
           </div>
 
-          {user?.role === 'free' ? (
-            <button
-              onClick={() => navigate('/pricing')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-st-accent to-st-info text-white font-semibold text-sm hover:opacity-90 transition-opacity flex-shrink-0"
-            >
-              <TrendingUp size={14} />
-              Go Premium
-              <ArrowRight size={14} />
-            </button>
-          ) : (
-            <button
-              onClick={() => navigate('/analytics')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[var(--st-border)] text-white font-medium text-sm hover:bg-[var(--st-border)]/30 transition-colors flex-shrink-0"
-            >
-              <TrendingUp size={14} />
-              View Analytics
-            </button>
-          )}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            {/* Today's P&L badge */}
+            {hasPnl && user?.role !== 'free' && (
+              <div className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border ${
+                roundedPnl >= 0
+                  ? 'bg-st-call/5 border-st-call/20'
+                  : 'bg-st-put/5 border-st-put/20'
+              }`}>
+                <DollarSign size={14} className={roundedPnl >= 0 ? 'text-st-call' : 'text-st-put'} />
+                <div>
+                  <p className={`text-sm font-bold tabular-nums ${roundedPnl >= 0 ? 'text-st-call' : 'text-st-put'}`}>
+                    {formatPnl(roundedPnl)}
+                  </p>
+                  <p className="text-[9px] text-[var(--st-text-secondary)]">
+                    {todayWins}W / {todayLosses}L today
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {user?.role === 'free' ? (
+              <button
+                onClick={() => navigate('/pricing')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-st-accent to-st-info text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                <TrendingUp size={14} />
+                Go Premium
+                <ArrowRight size={14} />
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate('/analytics')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[var(--st-border)] text-white font-medium text-sm hover:bg-[var(--st-border)]/30 transition-colors"
+              >
+                <TrendingUp size={14} />
+                View Analytics
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Market Status */}

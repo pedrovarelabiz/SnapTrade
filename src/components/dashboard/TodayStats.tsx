@@ -1,5 +1,6 @@
 import { Signal } from '@/types';
-import { Activity, Target, CheckCircle, XCircle, Flame, Clock } from 'lucide-react';
+import { Activity, Target, CheckCircle, XCircle, Flame, Clock, DollarSign } from 'lucide-react';
+import { formatPnl } from '@/lib/pnlCalculator';
 
 interface Props {
   signals: Signal[];
@@ -13,6 +14,14 @@ export function TodayStats({ signals }: Props) {
   const losses = todaySignals.filter(s => s.result === 'loss').length;
   const resolved = wins + losses;
   const winRate = resolved > 0 ? Math.round((wins / resolved) * 100) : 0;
+
+  // Calculate today's P&L
+  const todayPnl = todaySignals.reduce((sum, s) => {
+    if (s.pnl?.netPnl !== undefined) return sum + s.pnl.netPnl;
+    return sum;
+  }, 0);
+  const roundedPnl = Math.round(todayPnl * 100) / 100;
+  const hasPnl = todaySignals.some(s => s.pnl !== undefined);
 
   // Calculate current streak
   const resolvedSignals = todaySignals
@@ -45,8 +54,8 @@ export function TodayStats({ signals }: Props) {
       label: 'Win Rate',
       value: resolved > 0 ? `${winRate}%` : '—',
       icon: Target,
-      color: winRate >= 70 ? 'text-st-call' : winRate >= 50 ? 'text-st-premium' : 'text-st-put',
-      bg: winRate >= 70 ? 'bg-st-call/10' : winRate >= 50 ? 'bg-st-premium/10' : 'bg-st-put/10',
+      color: winRate >= 70 ? 'text-st-call' : winRate >= 50 ? 'text-st-premium' : resolved > 0 ? 'text-st-put' : 'text-[var(--st-text-secondary)]',
+      bg: winRate >= 70 ? 'bg-st-call/10' : winRate >= 50 ? 'bg-st-premium/10' : resolved > 0 ? 'bg-st-put/10' : 'bg-[var(--st-border)]/30',
     },
     {
       label: 'Wins',
@@ -69,13 +78,19 @@ export function TodayStats({ signals }: Props) {
       color: streakType === 'win' ? 'text-st-premium' : streakType === 'loss' ? 'text-st-put' : 'text-[var(--st-text-secondary)]',
       bg: streakType === 'win' ? 'bg-st-premium/10' : streakType === 'loss' ? 'bg-st-put/10' : 'bg-[var(--st-border)]/30',
     },
-    {
+    ...(hasPnl ? [{
+      label: "Today's P&L",
+      value: formatPnl(roundedPnl),
+      icon: DollarSign,
+      color: roundedPnl >= 0 ? 'text-st-call' : 'text-st-put',
+      bg: roundedPnl >= 0 ? 'bg-st-call/10' : 'bg-st-put/10',
+    }] : [{
       label: 'Total',
       value: todaySignals.length,
       icon: Clock,
       color: 'text-st-info',
       bg: 'bg-st-info/10',
-    },
+    }]),
   ];
 
   return (
@@ -85,7 +100,7 @@ export function TodayStats({ signals }: Props) {
           key={stat.label}
           className="flex items-center gap-2.5 p-3 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)]"
         >
-          <div className={`w-8 h-8 rounded-lg ${stat.bg} flex items-center justify-center flex-shrink-0 ${stat.pulse ? 'animate-pulse' : ''}`}>
+          <div className={`w-8 h-8 rounded-lg ${stat.bg} flex items-center justify-center flex-shrink-0 ${'pulse' in stat && stat.pulse ? 'animate-pulse' : ''}`}>
             <stat.icon size={14} className={stat.color} />
           </div>
           <div className="min-w-0">
