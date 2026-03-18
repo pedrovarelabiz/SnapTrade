@@ -1,4 +1,5 @@
 import { PublicLayout } from '@/components/layout/PublicLayout';
+import { YesterdayResults } from '@/components/landing/YesterdayResults';
 import { useNavigate } from 'react-router-dom';
 import {
   Zap, BarChart3, Chrome, Globe, FileText, Shield,
@@ -138,6 +139,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Yesterday's Results — Primary Conversion Driver */}
+      <YesterdayResults />
 
       {/* Live Signal Preview */}
       <section className="py-20 bg-[var(--st-bg-card)] border-y border-[var(--st-border)]">
