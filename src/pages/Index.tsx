@@ -1,6 +1,7 @@
 import { PublicLayout } from '@/components/layout/PublicLayout';
 import { YesterdayResults } from '@/components/landing/YesterdayResults';
 import { HowItWorks } from '@/components/landing/HowItWorks';
+import { getAssetFlag } from '@/lib/assetFlags';
 import { useNavigate } from 'react-router-dom';
 import {
   Zap, BarChart3, Chrome, Globe, FileText, Shield,
@@ -29,10 +30,12 @@ const stats = [
   { value: '24/5', label: 'Market Coverage' },
 ];
 
+const heroSignal = { asset: 'EUR/USD OTC', dir: 'CALL' as const, time: '2:45', tf: 'M5', conf: 85 };
+
 const livePreviewSignals = [
-  { asset: 'GBP/JPY', flag: '🇬🇧🇯🇵', dir: 'PUT' as const, time: '1:30', tf: 'M5', conf: 78 },
-  { asset: 'USD/CHF', flag: '🇺🇸🇨🇭', dir: 'CALL' as const, time: '4:15', tf: 'M1', conf: 92 },
-  { asset: 'AUD/USD', flag: '🇦🇺🇺🇸', dir: 'CALL' as const, time: '7:00', tf: 'M15', conf: 81 },
+  { asset: 'GBP/JPY OTC', dir: 'PUT' as const, time: '1:30', tf: 'M5', conf: 78 },
+  { asset: 'USD/CHF OTC', dir: 'CALL' as const, time: '4:15', tf: 'M1', conf: 92 },
+  { asset: 'AUD/USD OTC', dir: 'CALL' as const, time: '7:00', tf: 'M15', conf: 81 },
 ];
 
 const previewDirStyles = {
@@ -94,23 +97,23 @@ export default function Index() {
             <div className="rounded-2xl bg-[var(--st-bg-card)] border border-[var(--st-border)] p-4 animate-float">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">🇪🇺🇺🇸</span>
-                  <span className="text-white font-semibold">EUR/USD</span>
+                  <span className="text-lg">{getAssetFlag(heroSignal.asset)}</span>
+                  <span className="text-white font-semibold">{heroSignal.asset}</span>
                 </div>
                 <span className="px-3 py-1 rounded-lg bg-st-call/15 text-st-call font-bold text-sm border border-st-call/30">CALL ↑</span>
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="p-2 rounded-lg bg-[var(--st-bg-elevated)]">
                   <p className="text-[10px] text-[var(--st-text-secondary)]">Entry</p>
-                  <p className="text-sm font-mono text-white">2:45</p>
+                  <p className="text-sm font-mono text-white">{heroSignal.time}</p>
                 </div>
                 <div className="p-2 rounded-lg bg-[var(--st-bg-elevated)]">
                   <p className="text-[10px] text-[var(--st-text-secondary)]">Timeframe</p>
-                  <p className="text-sm font-mono text-white">M5</p>
+                  <p className="text-sm font-mono text-white">{heroSignal.tf}</p>
                 </div>
                 <div className="p-2 rounded-lg bg-[var(--st-bg-elevated)]">
                   <p className="text-[10px] text-[var(--st-text-secondary)]">Confidence</p>
-                  <p className="text-sm font-mono text-st-call">85%</p>
+                  <p className="text-sm font-mono text-st-call">{heroSignal.conf}%</p>
                 </div>
               </div>
             </div>
@@ -187,7 +190,7 @@ export default function Index() {
                   <div key={s.asset} className="rounded-xl bg-[var(--st-bg-elevated)] border border-[var(--st-border)] p-4 animate-fade-up" style={{ animationDelay: `${i * 0.15}s` }}>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <span className="text-lg">{s.flag}</span>
+                        <span className="text-lg">{getAssetFlag(s.asset)}</span>
                         <span className="text-white font-semibold">{s.asset}</span>
                         <span className={`px-2 py-0.5 rounded-md text-xs font-bold ${pStyles.badge}`}>{s.dir}</span>
                       </div>
