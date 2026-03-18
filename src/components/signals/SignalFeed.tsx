@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Signal } from '@/types';
 import { SignalCard } from './SignalCard';
 import { LockedSignalCard } from './LockedSignalCard';
+import { SignalDetailModal } from './SignalDetailModal';
 import { useAuth } from '@/hooks/useAuth';
 import { Zap } from 'lucide-react';
 
@@ -15,6 +17,7 @@ const statusOrder: Record<string, number> = { pending: 0, active: 1, win: 2, los
 export function SignalFeed({ signals, onUpdateStatus, newSignalIds }: Props) {
   const { user } = useAuth();
   const isFree = user?.role === 'free';
+  const [selectedSignal, setSelectedSignal] = useState<Signal | null>(null);
 
   if (signals.length === 0) {
     return (
@@ -41,22 +44,48 @@ export function SignalFeed({ signals, onUpdateStatus, newSignalIds }: Props) {
 
   if (isFree) {
     return (
-      <div className="space-y-3">
-        {freeSignals.map(signal => (
-          <SignalCard key={signal.id} signal={signal} onUpdateStatus={onUpdateStatus} isNew={newSignalIds?.has(signal.id)} />
-        ))}
-        {premiumSignals.slice(0, 5).map((_, i) => (
-          <LockedSignalCard key={`locked-${i}`} index={i} />
-        ))}
-      </div>
+      <>
+        <div className="space-y-3">
+          {freeSignals.map(signal => (
+            <SignalCard
+              key={signal.id}
+              signal={signal}
+              onUpdateStatus={onUpdateStatus}
+              isNew={newSignalIds?.has(signal.id)}
+              onClick={() => setSelectedSignal(signal)}
+            />
+          ))}
+          {premiumSignals.slice(0, 5).map((_, i) => (
+            <LockedSignalCard key={`locked-${i}`} index={i} />
+          ))}
+        </div>
+        <SignalDetailModal
+          signal={selectedSignal}
+          open={!!selectedSignal}
+          onClose={() => setSelectedSignal(null)}
+        />
+      </>
     );
   }
 
   return (
-    <div className="space-y-3">
-      {sorted.map(signal => (
-        <SignalCard key={signal.id} signal={signal} onUpdateStatus={onUpdateStatus} isNew={newSignalIds?.has(signal.id)} />
-      ))}
-    </div>
+    <>
+      <div className="space-y-3">
+        {sorted.map(signal => (
+          <SignalCard
+            key={signal.id}
+            signal={signal}
+            onUpdateStatus={onUpdateStatus}
+            isNew={newSignalIds?.has(signal.id)}
+            onClick={() => setSelectedSignal(signal)}
+          />
+        ))}
+      </div>
+      <SignalDetailModal
+        signal={selectedSignal}
+        open={!!selectedSignal}
+        onClose={() => setSelectedSignal(null)}
+      />
+    </>
   );
 }

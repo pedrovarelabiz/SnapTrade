@@ -2,9 +2,11 @@ import { useState, useMemo } from 'react';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { ReportList } from '@/components/reports/ReportList';
 import { ReportDetail } from '@/components/reports/ReportDetail';
+import { ReportsSummaryChart } from '@/components/reports/ReportsSummaryChart';
 import { DateRangeFilter, DateRange } from '@/components/shared/DateRangeFilter';
 import { useAuth } from '@/hooks/useAuth';
 import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
+import { LockedChartOverlay } from '@/components/analytics/LockedChartOverlay';
 import { DailyReport } from '@/types';
 import { useQuery } from '@tanstack/react-query';
 import { reportService } from '@/services/reportService';
@@ -88,6 +90,17 @@ export default function Reports() {
               </div>
             </div>
           </div>
+        )}
+
+        {/* Summary Chart */}
+        {!isLoading && filteredReports.length > 0 && (
+          isFree ? (
+            <LockedChartOverlay>
+              <ReportsSummaryChart reports={filteredReports} />
+            </LockedChartOverlay>
+          ) : (
+            <ReportsSummaryChart reports={filteredReports} />
+          )
         )}
 
         {isLoading ? (

@@ -9,6 +9,7 @@ interface SignalCardProps {
   signal: Signal;
   onUpdateStatus?: (id: string, status: Signal['status']) => void;
   isNew?: boolean;
+  onClick?: () => void;
 }
 
 const assetFlags: Record<string, string> = {
@@ -45,7 +46,7 @@ const dirStyles = {
   },
 } as const;
 
-export function SignalCard({ signal, onUpdateStatus, isNew }: SignalCardProps) {
+export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCardProps) {
   const { user } = useAuth();
   const isCall = signal.direction === 'CALL';
   const styles = dirStyles[signal.direction];
@@ -55,10 +56,13 @@ export function SignalCard({ signal, onUpdateStatus, isNew }: SignalCardProps) {
   const hasMartingaleSchedule = signal.martingaleSchedule && signal.martingaleSchedule.length > 0;
 
   return (
-    <div className={`rounded-xl bg-[var(--st-bg-card)] border transition-all duration-300 ${
-      isNew ? 'animate-fade-up border-st-accent animate-signal-pulse' :
-      isPendingOrActive ? `${styles.borderActive} ${styles.borderHover}` : 'border-[var(--st-border)]'
-    }`}>
+    <div
+      onClick={onClick}
+      className={`rounded-xl bg-[var(--st-bg-card)] border transition-all duration-300 ${onClick ? 'cursor-pointer' : ''} ${
+        isNew ? 'animate-fade-up border-st-accent animate-signal-pulse' :
+        isPendingOrActive ? `${styles.borderActive} ${styles.borderHover}` : 'border-[var(--st-border)]'
+      }`}
+    >
       <div className="p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2.5 flex-wrap">
@@ -122,7 +126,7 @@ export function SignalCard({ signal, onUpdateStatus, isNew }: SignalCardProps) {
           </div>
 
           {user?.role === 'admin' && isPendingOrActive && onUpdateStatus && (
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5" onClick={e => e.stopPropagation()}>
               <button onClick={() => onUpdateStatus(signal.id, 'win')} className="px-2.5 py-1 rounded-lg bg-st-call/10 text-st-call text-xs font-semibold hover:bg-st-call/20 transition-colors">WIN</button>
               <button onClick={() => onUpdateStatus(signal.id, 'loss')} className="px-2.5 py-1 rounded-lg bg-st-put/10 text-st-put text-xs font-semibold hover:bg-st-put/20 transition-colors">LOSS</button>
               <button onClick={() => onUpdateStatus(signal.id, 'skipped')} className="px-2.5 py-1 rounded-lg bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] text-xs font-semibold hover:bg-[var(--st-border)] transition-colors">SKIP</button>

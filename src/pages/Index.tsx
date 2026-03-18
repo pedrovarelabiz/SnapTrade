@@ -18,8 +18,8 @@ const features = [
 
 const testimonials = [
   { name: 'Alex M.', role: 'Day Trader', text: 'SnapTrade changed my trading game. The signals are incredibly accurate and the Chrome extension makes execution effortless.', rating: 5 },
-  { name: 'Sarah K.', role: 'Forex Trader', text: 'I\'ve tried many signal services. SnapTrade\'s win rate is consistently above 75%. The analytics help me understand my performance.', rating: 5 },
-  { name: 'David R.', role: 'Part-time Trader', text: 'Perfect for someone who can\'t watch charts all day. I get notifications, check the signal, and execute in seconds.', rating: 4 },
+  { name: 'Sarah K.', role: 'Forex Trader', text: "I've tried many signal services. SnapTrade's win rate is consistently above 75%. The analytics help me understand my performance.", rating: 5 },
+  { name: 'David R.', role: 'Part-time Trader', text: "Perfect for someone who can't watch charts all day. I get notifications, check the signal, and execute in seconds.", rating: 4 },
 ];
 
 const stats = [
@@ -39,6 +39,12 @@ const previewDirStyles = {
   CALL: { badge: 'bg-st-call/15 text-st-call border border-st-call/30', conf: 'text-st-call' },
   PUT: { badge: 'bg-st-put/15 text-st-put border border-st-put/30', conf: 'text-st-put' },
 } as const;
+
+const pricingPlans = [
+  { name: 'Free', price: '$0', period: '/forever', features: ['3 signals/day', 'Basic analytics', 'Email support'], popular: false },
+  { name: 'Premium', price: '$49', period: '/month', features: ['Unlimited signals', 'Full analytics', 'Chrome extension', 'Priority support'], popular: true },
+  { name: 'Yearly', price: '$399', period: '/year', features: ['Everything in Premium', 'Save 32%', 'Dedicated manager'], popular: false },
+];
 
 export default function Index() {
   const navigate = useNavigate();
@@ -240,184 +246,75 @@ export default function Index() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { name: 'Free', price: '$0', period: '/forever', features: ['3 signals/day', 'Basic analytics', 'Email support'] },
-              { name: 'Premium', price: '$49', period: '/month', features: ['Unlimited signals', 'Full analytics', 'Chrome extension', 'Priority support'], popular: true },
-              { name: 'Yearly', price: '$399', period: '/year', features: ['Everything in Premium', 'Save 32%', 'Dedicated manager'] },
-            ].map(plan => (
+            {pricingPlans.map(plan => (
               <div key={plan.name} className={`p-6 rounded-2xl border ${plan.popular ? 'bg-st-accent/5 border-st-accent/40 glow-accent' : 'bg-[var(--st-bg-elevated)] border-[var(--st-border)]'}`}>
                 {plan.popular && (
-                  <span className="inline-block px-3 py-1 rounded-full bg-st-accent/20 text-st-accent text-xs font-semibold mb-3">Most Popular</spanLet me review what's been built and identify the next meaningful improvements. Looking at the codebase, I can see:
+                  <span className="inline-block px-3 py-1 rounded-full bg-st-accent/20 text-st-accent text-xs font-semibold mb-3">Most Popular</span>
+                )}
+                <h3 className="text-lg font-bold text-white">{plan.name}</h3>
+                <div className="mt-2 mb-4">
+                  <span className="text-3xl font-bold text-white">{plan.price}</span>
+                  <span className="text-[var(--st-text-secondary)] text-sm">{plan.period}</span>
+                </div>
+                <ul className="space-y-2 mb-6">
+                  {plan.features.map(f => (
+                    <li key={f} className="flex items-center gap-2 text-sm text-[var(--st-text-primary)]">
+                      <CheckCircle size={14} className="text-st-call flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => navigate(plan.popular ? '/register' : '/pricing')}
+                  className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                    plan.popular
+                      ? 'bg-gradient-to-r from-st-accent to-st-info text-white hover:opacity-90'
+                      : 'border border-[var(--st-border)] text-white hover:bg-[var(--st-border)]/30'
+                  }`}
+                >
+                  {plan.popular ? 'Get Started' : 'Learn More'}
+                </button>
+              </div>
+            ))}
+          </div>
 
-1. **StreakVisualization** component exists but isn't in the Dashboard yet — let me add it
-2. **AssetPerformanceTable** exists but isn't in Analytics yet — let me add it
-3. **AdminOverview** page exists but isn't in the routes — let me add it
-4. **HowItWorks** component exists but isn't on the landing page — let me verify it's there
-5. **Skeleton loading states** exist but could be used more consistently
-6. **The Analytics page** could use the AssetPerformanceTable
-7. **Admin sidebar** links to `/admin/users` but there's no overview page linked
-
-Let me implement these improvements and add some new features:
-
-- **Add StreakVisualization to Dashboard**
-- **Add AssetPerformanceTable to Analytics**
-- **Wire up AdminOverview in routes and sidebar**
-- **Add skeleton loading states to Analytics**
-- **Improve the Admin sidebar with Overview link**
-
-Looking at the existing files more carefully, I can see that most of these components and pages already exist in the codebase but some aren't properly wired up. Let me check what's actually missing vs. what's already connected.
-
-After reviewing, I see:
-- `StreakVisualization` exists but Dashboard already imports it ✅
-- `AssetPerformanceTable` exists and Analytics already imports it ✅
-- `AdminOverview` exists and App.tsx already has the route ✅
-- `HowItWorks` exists and Index.tsx already imports it ✅
-- Skeleton components exist and Analytics uses them ✅
-- Sidebar already has Overview link ✅
-
-Everything appears to be wired up! Let me focus on **new features** that would genuinely improve the app:
-
-1. **Signal sound toggle** — persist sound preference
-2. **Dashboard performance summary widget** — weekly mini-chart
-3. **Improved Reports page** with CSV export and date filtering
-4. **Better empty states across the app**
-5. **A "What's New" changelog modal**
-
-Let me build some genuinely new features:
-
-<dyad-write path="src/components/dashboard/WeeklyMiniChart.tsx" description="Compact weekly performance sparkline chart for the dashboard">
-import { useMemo } from 'react';
-import { Signal } from '@/types';
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-
-interface Props {
-  signals: Signal[];
-}
-
-interface DayData {
-  label: string;
-  wins: number;
-  losses: number;
-  total: number;
-  winRate: number;
-}
-
-export function WeeklyMiniChart({ signals }: Props) {
-  const weekData = useMemo(() => {
-    const days: DayData[] = [];
-    const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-    for (let i = 6; i >= 0; i--) {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      const dateStr = date.toDateString();
-      const daySignals = signals.filter(s => new Date(s.createdAt).toDateString() === dateStr);
-      const wins = daySignals.filter(s => s.result === 'win').length;
-      const losses = daySignals.filter(s => s.result === 'loss').length;
-      const total = wins + losses;
-
-      days.push({
-        label: dayLabels[date.getDay()],
-        wins,
-        losses,
-        total,
-        winRate: total > 0 ? Math.round((wins / total) * 100) : 0,
-      });
-    }
-
-    return days;
-  }, [signals]);
-
-  const totalWins = weekData.reduce((sum, d) => sum + d.wins, 0);
-  const totalLosses = weekData.reduce((sum, d) => sum + d.losses, 0);
-  const totalResolved = totalWins + totalLosses;
-  const weekWinRate = totalResolved > 0 ? Math.round((totalWins / totalResolved) * 100) : 0;
-  const maxTotal = Math.max(...weekData.map(d => d.total), 1);
-
-  const trend = weekData.length >= 2
-    ? weekData[weekData.length - 1].winRate - weekData[weekData.length - 2].winRate
-    : 0;
-
-  return (
-    <div className="p-4 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)]">
-      <div className="flex items-center justify-between mb-3">
-        <div>
-          <h3 className="text-sm font-semibold text-white">7-Day Performance</h3>
-          <div className="flex items-center gap-2 mt-0.5">
-            <span className={`text-lg font-bold tabular-nums ${weekWinRate >= 70 ? 'text-st-call' : weekWinRate >= 50 ? 'text-st-premium' : 'text-st-put'}`}>
-              {totalResolved > 0 ? `${weekWinRate}%` : '—'}
-            </span>
-            {trend !== 0 && totalResolved > 0 && (
-              <span className={`inline-flex items-center gap-0.5 text-[10px] font-semibold ${trend > 0 ? 'text-st-call' : 'text-st-put'}`}>
-                {trend > 0 ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
-                {Math.abs(trend)}%
-              </span>
-            )}
-            {trend === 0 && totalResolved > 0 && (
-              <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-[var(--st-text-secondary)]">
-                <Minus size={10} />
-                Flat
-              </span>
-            )}
+          <div className="text-center mt-8">
+            <button onClick={() => navigate('/pricing')} className="text-sm text-st-accent hover:text-st-accent/80 font-medium">
+              Compare all features →
+            </button>
           </div>
         </div>
-        <div className="flex items-center gap-3 text-xs text-[var(--st-text-secondary)]">
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-sm bg-st-call" />
-            {totalWins}W
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-sm bg-st-put" />
-            {totalLosses}L
-          </span>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 sm:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-st-accent/8 rounded-full blur-[100px]" />
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Ready to Start Trading Smarter?
+          </h2>
+          <p className="text-lg text-[var(--st-text-secondary)] mb-8">
+            Join 2,500+ traders already using SnapTrade. Start with 3 free signals per day — no credit card required.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={() => navigate('/register')}
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-st-accent to-st-info text-white font-bold text-base hover:opacity-90 transition-opacity flex items-center justify-center gap-2 glow-accent"
+            >
+              Create Free Account
+              <ArrowRight size={18} />
+            </button>
+            <button
+              onClick={() => navigate('/login')}
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl border border-[var(--st-border)] text-white font-semibold text-base hover:bg-[var(--st-bg-elevated)] transition-colors"
+            >
+              Sign In
+            </button>
+          </div>
         </div>
-      </div>
-
-      {/* Bar chart */}
-      <div className="flex items-end gap-1.5 h-16">
-        {weekData.map((day, i) => {
-          const height = day.total > 0 ? Math.max((day.total / maxTotal) * 100, 12) : 4;
-          const winHeight = day.total > 0 ? (day.wins / day.total) * height : 0;
-          const lossHeight = height - winHeight;
-          const isToday = i === weekData.length - 1;
-
-          return (
-            <div key={day.label} className="flex-1 flex flex-col items-center gap-1 group relative">
-              <div className="w-full flex flex-col rounded-sm overflow-hidden" style={{ height: `${height}%` }}>
-                {day.total > 0 ? (
-                  <>
-                    <div
-                      className="w-full bg-st-put/60 transition-all group-hover:bg-st-put"
-                      style={{ height: `${(lossHeight / height) * 100}%` }}
-                    />
-                    <div
-                      className="w-full bg-st-call/60 transition-all group-hover:bg-st-call"
-                      style={{ height: `${(winHeight / height) * 100}%` }}
-                    />
-                  </>
-                ) : (
-                  <div className="w-full h-full bg-[var(--st-border)]/30 rounded-sm" />
-                )}
-              </div>
-              <span className={`text-[8px] font-medium ${isToday ? 'text-st-accent' : 'text-[var(--st-text-secondary)]'}`}>
-                {day.label}
-              </span>
-
-              {/* Tooltip */}
-              {day.total > 0 && (
-                <div className="absolute bottom-full mb-2 hidden group-hover:block z-10">
-                  <div className="px-2.5 py-1.5 rounded-lg bg-[var(--st-bg-elevated)] border border-[var(--st-border)] shadow-xl whitespace-nowrap text-center">
-                    <p className="text-[10px] font-semibold text-white">{day.wins}W / {day.losses}L</p>
-                    <p className={`text-[9px] font-bold ${day.winRate >= 70 ? 'text-st-call' : 'text-st-premium'}`}>
-                      {day.winRate}%
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
+      </section>
+    </PublicLayout>
   );
 }
