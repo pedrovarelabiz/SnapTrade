@@ -3,12 +3,14 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { ExtensionSettings } from '@/components/extension/ExtensionSettings';
 import { LockedChartOverlay } from '@/components/analytics/LockedChartOverlay';
 import { useAuth } from '@/hooks/useAuth';
+import { usePageTitle } from '@/hooks/usePageTitle';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { User, Bell, Monitor, Chrome } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Settings() {
+  usePageTitle('Settings');
   const { user } = useAuth();
   const isFree = user?.role === 'free';
   const [name, setName] = useState(user?.name || '');

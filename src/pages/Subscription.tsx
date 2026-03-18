@@ -5,10 +5,12 @@ import { PaymentHistory } from '@/components/subscription/PaymentHistory';
 import { CancelModal } from '@/components/subscription/CancelModal';
 import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
 import { useAuth } from '@/hooks/useAuth';
+import { usePageTitle } from '@/hooks/usePageTitle';
 import { useMySubscription, usePaymentHistory } from '@/hooks/useSubscription';
 import { toast } from 'sonner';
 
 export default function Subscription() {
+  usePageTitle('Subscription');
   const { user } = useAuth();
   const { data: subscription } = useMySubscription();
   const { data: payments = [] } = usePaymentHistory();

@@ -12,6 +12,7 @@ import { StatsSkeletonGrid } from '@/components/shared/StatsSkeletonGrid';
 import { ChartSkeleton } from '@/components/shared/ChartSkeleton';
 import { useStatsOverview, useAssetPerformance, useHourlyData, usePnlCurve, useWinRateHistory } from '@/hooks/useStats';
 import { useAuth } from '@/hooks/useAuth';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 function getDaysForRange(range: DateRange): number {
   switch (range) {
@@ -23,6 +24,7 @@ function getDaysForRange(range: DateRange): number {
 }
 
 export default function Analytics() {
+  usePageTitle('Analytics');
   const { user } = useAuth();
   const { data: overview, isLoading: overviewLoading } = useStatsOverview();
   const { data: assets, isLoading: assetsLoading } = useAssetPerformance();

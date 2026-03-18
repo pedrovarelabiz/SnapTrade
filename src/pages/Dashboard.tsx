@@ -4,6 +4,7 @@ import { SignalFeed } from '@/components/signals/SignalFeed';
 import { SignalFilters } from '@/components/signals/SignalFilters';
 import { SignalCounterBadge } from '@/components/signals/SignalCounterBadge';
 import { ScrollToTopButton } from '@/components/signals/ScrollToTopButton';
+import { ConnectionBanner } from '@/components/dashboard/ConnectionBanner';
 import { WelcomeBanner } from '@/components/dashboard/WelcomeBanner';
 import { TodayStats } from '@/components/dashboard/TodayStats';
 import { LiveIndicator } from '@/components/dashboard/LiveIndicator';
@@ -94,6 +95,9 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       <div className="space-y-5">
+        {/* Connection Banner — shows only when disconnected */}
+        <ConnectionBanner isConnected={isConnected} />
+
         <WelcomeBanner />
         <TodayStats signals={signals} />
 

@@ -5,6 +5,7 @@ import { ReportDetail } from '@/components/reports/ReportDetail';
 import { ReportsSummaryChart } from '@/components/reports/ReportsSummaryChart';
 import { DateRangeFilter, DateRange } from '@/components/shared/DateRangeFilter';
 import { useAuth } from '@/hooks/useAuth';
+import { usePageTitle } from '@/hooks/usePageTitle';
 import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
 import { LockedChartOverlay } from '@/components/analytics/LockedChartOverlay';
 import { DailyReport } from '@/types';
@@ -24,6 +25,7 @@ function getDaysForRange(range: DateRange): number {
 }
 
 export default function Reports() {
+  usePageTitle('Reports');
   const { user } = useAuth();
   const { data: reports = [], isLoading } = useQuery({ queryKey: ['reports'], queryFn: reportService.getReports });
   const [selectedReport, setSelectedReport] = useState<DailyReport | null>(null);
