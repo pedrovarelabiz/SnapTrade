@@ -3,6 +3,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { BarChart3, FileText, Chrome, Download } from 'lucide-react';
 import { exportToCsv } from '@/utils/exportCsv';
 import { Signal } from '@/types';
+import { formatPnl, getResultLabel } from '@/lib/pnlCalculator';
 import { toast } from 'sonner';
 
 interface Props {
@@ -23,7 +24,7 @@ export function QuickActions({ signals }: Props) {
       return;
     }
 
-    const headers = ['Asset', 'Direction', 'Type', 'Timeframe', 'Status', 'Confidence', 'Entry Time'];
+    const headers = ['Asset', 'Direction', 'Type', 'Timeframe', 'Status', 'Confidence', 'Entry Time', 'Result Type', 'Gale Level', 'Net P&L'];
     const rows = todaySignals.map(s => [
       s.asset,
       s.direction,
@@ -32,6 +33,9 @@ export function QuickActions({ signals }: Props) {
       s.status,
       `${s.confidence}%`,
       new Date(s.entryTime).toLocaleTimeString(),
+      s.resultType ? getResultLabel(s.resultType, s.resultGaleLevel ?? 0) : '',
+      s.resultGaleLevel !== undefined ? String(s.resultGaleLevel) : '',
+      s.pnl ? formatPnl(s.pnl.netPnl) : '',
     ]);
 
     exportToCsv(`snaptrade-signals-${new Date().toISOString().split('T')[0]}`, headers, rows);
