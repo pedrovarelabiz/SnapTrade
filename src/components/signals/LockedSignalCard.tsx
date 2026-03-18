@@ -1,7 +1,8 @@
 import { Lock, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { getAssetFlag } from '@/lib/assetFlags';
 
-const randomAssets = ['EUR/USD', 'GBP/JPY', 'USD/CHF', 'AUD/USD', 'EUR/GBP'];
+const randomAssets = ['EUR/USD OTC', 'GBP/JPY OTC', 'USD/CHF OTC', 'AUD/USD OTC', 'EUR/GBP OTC'];
 
 export function LockedSignalCard({ index = 0 }: { index?: number }) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export function LockedSignalCard({ index = 0 }: { index?: number }) {
       <div className="p-4 blur-sm select-none pointer-events-none" aria-hidden>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2.5">
-            <span className="text-lg">🌐</span>
+            <span className="text-lg">{getAssetFlag(asset)}</span>
             <span className="text-white font-semibold text-sm">{asset}</span>
           </div>
           <span className="px-2 py-0.5 rounded-full bg-[var(--st-border)] text-[var(--st-text-secondary)] text-xs">Pending</span>

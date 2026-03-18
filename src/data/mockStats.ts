@@ -11,16 +11,16 @@ export const mockStatsOverview: StatsOverview = {
 };
 
 export const mockAssetPerformance: AssetPerformance[] = [
-  { asset: 'EUR/USD', totalSignals: 210, wins: 172, losses: 38, winRate: 81.9 },
-  { asset: 'GBP/JPY', totalSignals: 185, wins: 148, losses: 37, winRate: 80.0 },
-  { asset: 'USD/CHF', totalSignals: 156, wins: 125, losses: 31, winRate: 80.1 },
-  { asset: 'AUD/USD', totalSignals: 142, wins: 110, losses: 32, winRate: 77.5 },
-  { asset: 'EUR/GBP', totalSignals: 128, wins: 99, losses: 29, winRate: 77.3 },
-  { asset: 'USD/JPY', totalSignals: 118, wins: 89, losses: 29, winRate: 75.4 },
-  { asset: 'NZD/USD', totalSignals: 95, wins: 73, losses: 22, winRate: 76.8 },
-  { asset: 'GBP/USD', totalSignals: 88, wins: 67, losses: 21, winRate: 76.1 },
-  { asset: 'EUR/JPY', totalSignals: 72, wins: 55, losses: 17, winRate: 76.4 },
-  { asset: 'AUD/JPY', totalSignals: 53, wins: 39, losses: 14, winRate: 73.6 },
+  { asset: 'EUR/USD OTC', totalSignals: 210, wins: 172, losses: 38, winRate: 81.9 },
+  { asset: 'GBP/JPY OTC', totalSignals: 185, wins: 148, losses: 37, winRate: 80.0 },
+  { asset: 'USD/CHF OTC', totalSignals: 156, wins: 125, losses: 31, winRate: 80.1 },
+  { asset: 'AUD/USD OTC', totalSignals: 142, wins: 110, losses: 32, winRate: 77.5 },
+  { asset: 'EUR/GBP OTC', totalSignals: 128, wins: 99, losses: 29, winRate: 77.3 },
+  { asset: 'USD/JPY OTC', totalSignals: 118, wins: 89, losses: 29, winRate: 75.4 },
+  { asset: 'NZD/USD OTC', totalSignals: 95, wins: 73, losses: 22, winRate: 76.8 },
+  { asset: 'GBP/USD OTC', totalSignals: 88, wins: 67, losses: 21, winRate: 76.1 },
+  { asset: 'EUR/JPY OTC', totalSignals: 72, wins: 55, losses: 17, winRate: 76.4 },
+  { asset: 'AUD/JPY OTC', totalSignals: 53, wins: 39, losses: 14, winRate: 73.6 },
 ];
 
 export const mockHourlyData: HourlyData[] = Array.from({ length: 24 }, (_, i) => {
@@ -35,9 +35,17 @@ const generatePnlData = (): PnlPoint[] => {
   for (let i = 29; i >= 0; i--) {
     const date = new Date();
     date.setDate(date.getDate() - i);
-    const pnl = Math.round((Math.random() * 200 - 40) * 100) / 100;
-    cumulative += pnl;
-    data.push({ date: date.toISOString().split('T')[0], pnl: Math.round(pnl * 100) / 100, cumulative: Math.round(cumulative * 100) / 100 });
+    const totalSignals = Math.floor(Math.random() * 10) + 15;
+    const winRate = 0.7 + Math.random() * 0.2;
+    const wins = Math.round(totalSignals * winRate);
+    const losses = totalSignals - wins;
+    const netWins = wins - losses;
+    cumulative += netWins;
+    data.push({
+      date: date.toISOString().split('T')[0],
+      pnl: netWins,
+      cumulative,
+    });
   }
   return data;
 };

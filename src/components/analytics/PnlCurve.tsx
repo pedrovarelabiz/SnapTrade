@@ -8,7 +8,7 @@ interface Props {
 export function PnlCurve({ data }: Props) {
   return (
     <div className="p-5 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)]">
-      <h3 className="text-sm font-semibold text-white mb-4">Cumulative P&L ($10 stake)</h3>
+      <h3 className="text-sm font-semibold text-white mb-4">Cumulative Performance</h3>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
@@ -24,7 +24,7 @@ export function PnlCurve({ data }: Props) {
             <Tooltip
               contentStyle={{ background: '#12121a', border: '1px solid #2a2a3e', borderRadius: '12px', fontSize: '12px' }}
               labelStyle={{ color: '#e8e8f0' }}
-              formatter={(value: number) => [`$${value.toFixed(2)}`, 'Cumulative P&L']}
+              formatter={(value: number) => [`${value > 0 ? '+' : ''}${value} wins`, 'Cumulative']}
             />
             <Area type="monotone" dataKey="cumulative" stroke="#7c4dff" strokeWidth={2} fill="url(#pnlGradient)" />
           </AreaChart>

@@ -1,9 +1,10 @@
 import { Lock } from 'lucide-react';
+import { getAssetFlag } from '@/lib/assetFlags';
 
 const phantomAssets = [
-  'EUR/CHF', 'GBP/NZD', 'AUD/CAD', 'USD/SGD', 'CAD/JPY',
-  'EUR/PLN', 'GBP/SEK', 'NZD/CAD', 'CHF/SGD', 'AUD/CHF',
-  'USD/MXN', 'EUR/HUF', 'GBP/ZAR', 'NZD/CHF', 'AUD/SGD',
+  'EUR/CHF OTC', 'GBP/NZD OTC', 'AUD/CAD OTC', 'USD/SGD OTC', 'CAD/JPY OTC',
+  'EUR/PLN OTC', 'GBP/SEK OTC', 'NZD/CAD OTC', 'CHF/SGD OTC', 'AUD/CHF OTC',
+  'USD/MXN OTC', 'EUR/HUF OTC', 'GBP/ZAR OTC', 'NZD/CHF OTC', 'AUD/SGD OTC',
 ];
 
 interface Props {
@@ -20,7 +21,7 @@ export function BlurredResultRow({ index }: Props) {
     >
       {/* Blurred content */}
       <div className="flex items-center gap-3 flex-1 blur-[6px] select-none pointer-events-none opacity-50" aria-hidden>
-        <span className="text-base">🌐</span>
+        <span className="text-base">{getAssetFlag(asset)}</span>
         <div className="min-w-0 flex-1">
           <span className="text-sm font-semibold text-white">{asset}</span>
           <span className="block text-[10px] text-[var(--st-text-secondary)] font-mono">--:-- UTC · M5</span>
