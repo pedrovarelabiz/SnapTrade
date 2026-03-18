@@ -3,6 +3,7 @@ import { CountdownTimer } from '@/components/shared/CountdownTimer';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { InstantBadge } from '@/components/signals/InstantBadge';
 import { useAuth } from '@/hooks/useAuth';
+import { getAssetFlag } from '@/lib/assetFlags';
 import { TrendingUp, TrendingDown, Layers, Clock, Zap } from 'lucide-react';
 
 interface SignalCardProps {
@@ -11,19 +12,6 @@ interface SignalCardProps {
   isNew?: boolean;
   onClick?: () => void;
 }
-
-const assetFlags: Record<string, string> = {
-  'EUR/USD': '🇪🇺🇺🇸', 'GBP/JPY': '🇬🇧🇯🇵', 'USD/CHF': '🇺🇸🇨🇭', 'AUD/USD': '🇦🇺🇺🇸',
-  'EUR/GBP': '🇪🇺🇬🇧', 'USD/JPY': '🇺🇸🇯🇵', 'NZD/USD': '🇳🇿🇺🇸', 'EUR/JPY': '🇪🇺🇯🇵',
-  'GBP/USD': '🇬🇧🇺🇸', 'AUD/JPY': '🇦🇺🇯🇵', 'CAD/CHF': '🇨🇦🇨🇭', 'EUR/AUD': '🇪🇺🇦🇺',
-  'USD/CAD': '🇺🇸🇨🇦', 'GBP/CHF': '🇬🇧🇨🇭', 'NZD/JPY': '🇳🇿🇯🇵', 'EUR/CHF': '🇪🇺🇨🇭',
-  'AUD/NZD': '🇦🇺🇳🇿', 'GBP/AUD': '🇬🇧🇦🇺', 'CHF/JPY': '🇨🇭🇯🇵', 'EUR/NZD': '🇪🇺🇳🇿',
-  'EUR/USD OTC': '🇪🇺🇺🇸', 'GBP/JPY OTC': '🇬🇧🇯🇵', 'USD/CHF OTC': '🇺🇸🇨🇭',
-  'AUD/USD OTC': '🇦🇺🇺🇸', 'EUR/CHF OTC': '🇪🇺🇨🇭', 'EUR/JPY OTC': '🇪🇺🇯🇵',
-  'USD/JPY OTC': '🇺🇸🇯🇵', 'CAD/CHF OTC': '🇨🇦🇨🇭', 'NZD/JPY OTC': '🇳🇿🇯🇵',
-  'AUD/NZD OTC': '🇦🇺🇳🇿', 'EUR/NZD OTC': '🇪🇺🇳🇿', 'USD/CAD OTC': '🇺🇸🇨🇦',
-  'CRYPTO IDX': '₿',
-};
 
 const dirStyles = {
   CALL: {
@@ -66,7 +54,7 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
       <div className="p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2.5 flex-wrap">
-            <span className="text-lg">{assetFlags[signal.asset] || '🌐'}</span>
+            <span className="text-lg">{getAssetFlag(signal.asset)}</span>
             <span className="text-white font-semibold text-sm">{signal.asset}</span>
             {isOTC && (
               <span className="px-1.5 py-0.5 rounded-md bg-st-info/10 text-st-info text-[9px] font-bold border border-st-info/20">OTC</span>

@@ -1,15 +1,10 @@
 import { AssetPerformance } from '@/types';
+import { getAssetFlag } from '@/lib/assetFlags';
 import { TrendingUp } from 'lucide-react';
 
 interface Props {
   data: AssetPerformance[];
 }
-
-const assetFlags: Record<string, string> = {
-  'EUR/USD': '🇪🇺🇺🇸', 'GBP/JPY': '🇬🇧🇯🇵', 'USD/CHF': '🇺🇸🇨🇭', 'AUD/USD': '🇦🇺🇺🇸',
-  'EUR/GBP': '🇪🇺🇬🇧', 'USD/JPY': '🇺🇸🇯🇵', 'NZD/USD': '🇳🇿🇺🇸', 'EUR/JPY': '🇪🇺🇯🇵',
-  'GBP/USD': '🇬🇧🇺🇸', 'AUD/JPY': '🇦🇺🇯🇵',
-};
 
 export function AssetPerformanceTable({ data }: Props) {
   const sorted = [...data].sort((a, b) => b.winRate - a.winRate);
@@ -47,7 +42,7 @@ export function AssetPerformanceTable({ data }: Props) {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm">{assetFlags[asset.asset] || '🌐'}</span>
+                      <span className="text-sm">{getAssetFlag(asset.asset)}</span>
                       <span className="text-sm font-medium text-white">{asset.asset}</span>
                       {isTop3 && (
                         <TrendingUp size={12} className="text-st-call" />

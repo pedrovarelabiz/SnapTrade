@@ -1,24 +1,6 @@
 import { YesterdayResult } from '@/data/mockYesterdayResults';
+import { getAssetFlag } from '@/lib/assetFlags';
 import { TrendingUp, TrendingDown, CheckCircle, XCircle, Layers } from 'lucide-react';
-
-const assetFlags: Record<string, string> = {
-  'EUR/USD': '🇪🇺🇺🇸', 'GBP/JPY': '🇬🇧🇯🇵', 'USD/CHF': '🇺🇸🇨🇭', 'AUD/CAD': '🇦🇺🇨🇦',
-  'USD/JPY': '🇺🇸🇯🇵', 'NZD/USD': '🇳🇿🇺🇸', 'EUR/GBP': '🇪🇺🇬🇧', 'GBP/USD': '🇬🇧🇺🇸',
-  'EUR/JPY': '🇪🇺🇯🇵', 'AUD/USD': '🇦🇺🇺🇸', 'CHF/JPY': '🇨🇭🇯🇵', 'EUR/AUD': '🇪🇺🇦🇺',
-  'GBP/CHF': '🇬🇧🇨🇭', 'NZD/JPY': '🇳🇿🇯🇵', 'EUR/NZD': '🇪🇺🇳🇿', 'AUD/JPY': '🇦🇺🇯🇵',
-  'GBP/AUD': '🇬🇧🇦🇺', 'USD/CAD': '🇺🇸🇨🇦', 'AUD/NZD': '🇦🇺🇳🇿', 'AUD/CHF': '🇦🇺🇨🇭',
-  'EUR/CHF': '🇪🇺🇨🇭', 'CAD/CHF': '🇨🇦🇨🇭', 'CHF/NOK': '🇨🇭🇳🇴',
-  // OTC variants — same flags
-  'EUR/USD OTC': '🇪🇺🇺🇸', 'GBP/JPY OTC': '🇬🇧🇯🇵', 'USD/CHF OTC': '🇺🇸🇨🇭',
-  'AUD/CAD OTC': '🇦🇺🇨🇦', 'USD/JPY OTC': '🇺🇸🇯🇵', 'NZD/USD OTC': '🇳🇿🇺🇸',
-  'EUR/GBP OTC': '🇪🇺🇬🇧', 'GBP/USD OTC': '🇬🇧🇺🇸', 'EUR/JPY OTC': '🇪🇺🇯🇵',
-  'AUD/USD OTC': '🇦🇺🇺🇸', 'CHF/JPY OTC': '🇨🇭🇯🇵', 'EUR/AUD OTC': '🇪🇺🇦🇺',
-  'GBP/CHF OTC': '🇬🇧🇨🇭', 'NZD/JPY OTC': '🇳🇿🇯🇵', 'EUR/NZD OTC': '🇪🇺🇳🇿',
-  'AUD/JPY OTC': '🇦🇺🇯🇵', 'GBP/AUD OTC': '🇬🇧🇦🇺', 'USD/CAD OTC': '🇺🇸🇨🇦',
-  'AUD/NZD OTC': '🇦🇺🇳🇿', 'AUD/CHF OTC': '🇦🇺🇨🇭', 'EUR/CHF OTC': '🇪🇺🇨🇭',
-  'CAD/CHF OTC': '🇨🇦🇨🇭', 'CHF/NOK OTC': '🇨🇭🇳🇴',
-  'CRYPTO IDX': '₿',
-};
 
 interface Props {
   result: YesterdayResult;
@@ -40,7 +22,7 @@ export function ResultCard({ result, index }: Props) {
     >
       {/* Asset */}
       <div className="flex items-center gap-2 min-w-0 flex-1">
-        <span className="text-base flex-shrink-0">{assetFlags[result.asset] || '🌐'}</span>
+        <span className="text-base flex-shrink-0">{getAssetFlag(result.asset)}</span>
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
             <span className="text-sm font-semibold text-white truncate">{result.asset}</span>

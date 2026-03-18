@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { CountdownTimer } from '@/components/shared/CountdownTimer';
 import { InstantBadge } from '@/components/signals/InstantBadge';
+import { getAssetFlag } from '@/lib/assetFlags';
 import {
   TrendingUp, TrendingDown, Clock, Zap, Layers, Copy, CheckCircle,
   BarChart3, Target, Calendar,
@@ -15,17 +16,6 @@ interface Props {
   open: boolean;
   onClose: () => void;
 }
-
-const assetFlags: Record<string, string> = {
-  'EUR/USD': '🇪🇺🇺🇸', 'GBP/JPY': '🇬🇧🇯🇵', 'USD/CHF': '🇺🇸🇨🇭', 'AUD/USD': '🇦🇺🇺🇸',
-  'EUR/GBP': '🇪🇺🇬🇧', 'USD/JPY': '🇺🇸🇯🇵', 'NZD/USD': '🇳🇿🇺🇸', 'EUR/JPY': '🇪🇺🇯🇵',
-  'GBP/USD': '🇬🇧🇺🇸', 'AUD/JPY': '🇦🇺🇯🇵', 'CAD/CHF': '🇨🇦🇨🇭', 'EUR/AUD': '🇪🇺🇦🇺',
-  'USD/CAD': '🇺🇸🇨🇦', 'GBP/CHF': '🇬🇧🇨🇭', 'NZD/JPY': '🇳🇿🇯🇵', 'EUR/CHF': '🇪🇺🇨🇭',
-  'AUD/NZD': '🇦🇺🇳🇿', 'GBP/AUD': '🇬🇧🇦🇺', 'CHF/JPY': '🇨🇭🇯🇵', 'EUR/NZD': '🇪🇺🇳🇿',
-  'EUR/USD OTC': '🇪🇺🇺🇸', 'GBP/JPY OTC': '🇬🇧🇯🇵', 'USD/CHF OTC': '🇺🇸🇨🇭',
-  'AUD/USD OTC': '🇦🇺🇺🇸', 'EUR/CHF OTC': '🇪🇺🇨🇭',
-  'CRYPTO IDX': '₿',
-};
 
 export function SignalDetailModal({ signal, open, onClose }: Props) {
   const [copied, setCopied] = useState(false);
@@ -66,7 +56,7 @@ export function SignalDetailModal({ signal, open, onClose }: Props) {
         <DialogHeader>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">{assetFlags[signal.asset] || '🌐'}</span>
+              <span className="text-2xl">{getAssetFlag(signal.asset)}</span>
               <div>
                 <DialogTitle className="text-white text-lg flex items-center gap-2">
                   {signal.asset}
