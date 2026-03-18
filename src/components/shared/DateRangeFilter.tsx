@@ -20,7 +20,9 @@ export function DateRangeFilter({ value, onChange }: Props) {
           key={opt.value}
           onClick={() => onChange(opt.value)}
           className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors whitespace-nowrap ${
-            value === opt.value ? 'bg-st-accent/15 text-st-accent' : 'text-[var(--st-text-secondary)] hover:text-white'
+            value === opt.value
+              ? 'bg-st-accent/15 text-st-accent'
+              : 'text-[var(--st-text-secondary)] hover:text-white'
           }`}
         >
           {opt.label}
