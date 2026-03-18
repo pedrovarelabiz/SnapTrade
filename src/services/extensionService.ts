@@ -1,31 +1,45 @@
 import { ExtensionConfig } from '@/types';
 
 const defaultConfig: ExtensionConfig = {
-  defaultAmount: 10,
-  autoTrade: false,
-  enabledPairs: ['EUR/USD', 'GBP/JPY', 'USD/CHF'],
-  maxMartingale: 2,
-  soundAlerts: true,
   token: 'st_ext_a1b2c3d4e5f6g7h8i9j0',
-  isConnected: false,
+  connected: false,
+  executionMode: 'manual',
+  acceptScheduled: true,
+  acceptInstant: true,
+  defaultAmount: 5,
+  instantDelay: 5,
+  martingaleStrategy: 'dynamic',
+  maxMartingaleLevels: 2,
+  fixedMultiplier: 2.0,
+  autoExecuteMartingale: false,
+  maxDailyTrades: 0,
+  maxConsecutiveLosses: 3,
+  minBalanceProtection: 10,
+  maxSingleTradeAmount: 50,
+  soundAlerts: true,
+  browserNotifications: true,
+  showOverlay: true,
+  enabledPairs: [],
 };
+
+let currentConfig = { ...defaultConfig };
 
 export const extensionService = {
   async getExtensionConfig(): Promise<ExtensionConfig> {
     await new Promise(r => setTimeout(r, 300));
-    return { ...defaultConfig };
+    return { ...currentConfig };
   },
 
   async updateExtensionConfig(updates: Partial<ExtensionConfig>): Promise<ExtensionConfig> {
     await new Promise(r => setTimeout(r, 300));
-    Object.assign(defaultConfig, updates);
-    return { ...defaultConfig };
+    Object.assign(currentConfig, updates);
+    return { ...currentConfig };
   },
 
   async generateToken(): Promise<string> {
     await new Promise(r => setTimeout(r, 500));
     const token = `st_ext_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
-    defaultConfig.token = token;
+    currentConfig.token = token;
     return token;
   },
 };
