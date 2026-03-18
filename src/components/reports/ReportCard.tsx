@@ -1,5 +1,6 @@
 import { DailyReport } from '@/types';
-import { Calendar, TrendingUp, CheckCircle, XCircle } from 'lucide-react';
+import { Calendar, CheckCircle, XCircle, Zap, TrendingUp, AlertTriangle } from 'lucide-react';
+import { formatPnl } from '@/lib/pnlCalculator';
 
 interface Props {
   report: DailyReport;
@@ -9,6 +10,9 @@ interface Props {
 export function ReportCard({ report, onClick }: Props) {
   const date = new Date(report.date);
   const isToday = new Date().toDateString() === date.toDateString();
+  const hasPnl = report.dailyPnl !== undefined;
+  const hasGaleBreakdown = report.directWins !== undefined;
+  const pnlPositive = (report.dailyPnl ?? 0) >= 0;
 
   return (
     <button
@@ -23,10 +27,14 @@ export function ReportCard({ report, onClick }: Props) {
           </span>
           {isToday && <span className="px-2 py-0.5 rounded-full bg-st-accent/15 text-st-accent text-[10px] font-semibold">Today</span>}
         </div>
-        <span className="text-sm font-bold text-white">{report.topAsset}</span>
+        {hasPnl && (
+          <span className={`text-sm font-bold tabular-nums ${pnlPositive ? 'text-st-call' : 'text-st-put'}`}>
+            {formatPnl(report.dailyPnl!)}
+          </span>
+        )}
       </div>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-4 gap-3 mb-3">
         <div>
           <p className="text-[10px] text-[var(--st-text-secondary)]">Signals</p>
           <p className="text-lg font-bold text-white tabular-nums">{report.totalSignals}</p>
@@ -45,7 +53,35 @@ export function ReportCard({ report, onClick }: Props) {
         </div>
       </div>
 
-      <div className="mt-3 h-1.5 rounded-full bg-[var(--st-border)] overflow-hidden">
+      {/* Gale breakdown */}
+      {hasGaleBreakdown && (
+        <div className="flex items-center gap-3 mb-3 flex-wrap">
+          <span className="inline-flex items-center gap-1 text-[10px] text-st-call font-medium">
+            <Zap size={8} />
+            {report.directWins} direct
+          </span>
+          {(report.gale1Wins ?? 0) > 0 && (
+            <span className="inline-flex items-center gap-1 text-[10px] text-st-premium font-medium">
+              <TrendingUp size={8} />
+              {report.gale1Wins} G1
+            </span>
+          )}
+          {(report.gale2Wins ?? 0) > 0 && (
+            <span className="inline-flex items-center gap-1 text-[10px] text-st-premium font-medium">
+              <TrendingUp size={8} />
+              {report.gale2Wins} G2
+            </span>
+          )}
+          {(report.fullLosses ?? 0) > 0 && (
+            <span className="inline-flex items-center gap-1 text-[10px] text-st-put font-medium">
+              <AlertTriangle size={8} />
+              {report.fullLosses} loss
+            </span>
+          )}
+        </div>
+      )}
+
+      <div className="h-1.5 rounded-full bg-[var(--st-border)] overflow-hidden">
         <div className="h-full rounded-full bg-st-call" style={{ width: `${report.winRate}%` }} />
       </div>
     </button>

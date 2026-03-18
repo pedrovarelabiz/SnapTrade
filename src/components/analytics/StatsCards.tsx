@@ -1,19 +1,41 @@
 import { StatsOverview } from '@/types';
-import { TrendingUp, Target, CheckCircle, XCircle, Flame, Award, BarChart3 } from 'lucide-react';
+import { TrendingUp, Target, CheckCircle, XCircle, Flame, Award, BarChart3, DollarSign, Calculator } from 'lucide-react';
+import { formatPnl } from '@/lib/pnlCalculator';
 
 interface Props {
   stats: StatsOverview;
 }
 
 export function StatsCards({ stats }: Props) {
+  const hasPnl = stats.totalPnl !== undefined;
+  const pnlPositive = (stats.totalPnl ?? 0) >= 0;
+  const avgPnlPositive = (stats.avgPnlPerSignal ?? 0) >= 0;
+
   const cards = [
     { label: 'Total Signals', value: stats.totalSignals.toLocaleString(), icon: BarChart3, color: 'text-st-info', bg: 'bg-st-info/10' },
     { label: 'Win Rate', value: `${stats.winRate}%`, icon: Target, color: 'text-st-call', bg: 'bg-st-call/10' },
     { label: 'Wins', value: stats.wins.toLocaleString(), icon: CheckCircle, color: 'text-st-call', bg: 'bg-st-call/10' },
     { label: 'Losses', value: stats.losses.toLocaleString(), icon: XCircle, color: 'text-st-put', bg: 'bg-st-put/10' },
     { label: 'Current Streak', value: `${stats.currentStreak}`, icon: Flame, color: 'text-st-premium', bg: 'bg-st-premium/10' },
-    { label: 'Best Streak', value: `${stats.bestStreak}`, icon: Award, color: 'text-st-accent', bg: 'bg-st-accent/10' },
-    { label: 'Avg/Day', value: stats.avgSignalsPerDay.toFixed(1), icon: TrendingUp, color: 'text-st-info', bg: 'bg-st-info/10' },
+    ...(hasPnl ? [
+      {
+        label: 'Total P&L',
+        value: formatPnl(stats.totalPnl!),
+        icon: DollarSign,
+        color: pnlPositive ? 'text-st-call' : 'text-st-put',
+        bg: pnlPositive ? 'bg-st-call/10' : 'bg-st-put/10',
+      },
+      {
+        label: 'Avg P&L/Signal',
+        value: formatPnl(stats.avgPnlPerSignal!),
+        icon: Calculator,
+        color: avgPnlPositive ? 'text-st-call' : 'text-st-put',
+        bg: avgPnlPositive ? 'bg-st-call/10' : 'bg-st-put/10',
+      },
+    ] : [
+      { label: 'Best Streak', value: `${stats.bestStreak}`, icon: Award, color: 'text-st-accent', bg: 'bg-st-accent/10' },
+      { label: 'Avg/Day', value: stats.avgSignalsPerDay.toFixed(1), icon: TrendingUp, color: 'text-st-info', bg: 'bg-st-info/10' },
+    ]),
   ];
 
   return (
