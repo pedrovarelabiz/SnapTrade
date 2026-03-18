@@ -11,6 +11,7 @@ import { LiveIndicator } from '@/components/dashboard/LiveIndicator';
 import { QuickActions } from '@/components/dashboard/QuickActions';
 import { StreakVisualization } from '@/components/dashboard/StreakVisualization';
 import { WeeklyMiniChart } from '@/components/dashboard/WeeklyMiniChart';
+import { ActiveSignalsBanner } from '@/components/dashboard/ActiveSignalsBanner';
 import { SoundToggle, useSoundPreference } from '@/components/dashboard/SoundToggle';
 import { NewSignalToast } from '@/components/signals/NewSignalToast';
 import { WhatsNewModal } from '@/components/shared/WhatsNewModal';
@@ -86,6 +87,10 @@ export default function Dashboard() {
     setShowScrollTop(false);
   }, []);
 
+  const handleScrollToSignals = useCallback(() => {
+    feedTopRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   const filtered = signals.filter((s: Signal) => {
     if (statusFilter !== 'all' && s.status !== statusFilter) return false;
     if (directionFilter !== 'all' && s.direction !== directionFilter) return false;
@@ -99,6 +104,10 @@ export default function Dashboard() {
         <ConnectionBanner isConnected={isConnected} />
 
         <WelcomeBanner />
+
+        {/* Active Signals Banner */}
+        <ActiveSignalsBanner signals={signals} onScrollToSignals={handleScrollToSignals} />
+
         <TodayStats signals={signals} />
 
         {/* Performance Row */}

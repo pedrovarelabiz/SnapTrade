@@ -1,9 +1,21 @@
 import { useAuth } from '@/hooks/useAuth';
 import { useSignals } from '@/hooks/useSignals';
-import { Zap, TrendingUp, ArrowRight, DollarSign } from 'lucide-react';
+import { Zap, TrendingUp, ArrowRight, DollarSign, Flame } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { MarketStatus } from './MarketStatus';
 import { formatPnl } from '@/lib/pnlCalculator';
+
+function getStreakMessage(streak: number, type: 'win' | 'loss' | null): string | null {
+  if (!type || streak < 3) return null;
+  if (type === 'win') {
+    if (streak >= 10) return '🔥 Incredible streak! You\'re on fire!';
+    if (streak >= 7) return '🔥 Amazing run! Keep the momentum going!';
+    if (streak >= 5) return '🎯 Great streak! Stay focused and disciplined.';
+    return '✨ Nice streak building! Keep it up.';
+  }
+  if (streak >= 5) return '💪 Tough stretch — consider reducing position size.';
+  return '📊 Short losing streak — stay patient, the edge is real.';
+}
 
 export function WelcomeBanner() {
   const { user } = useAuth();
@@ -26,6 +38,26 @@ export function WelcomeBanner() {
   const todayWins = todaySignals.filter(s => s.result === 'win').length;
   const todayLosses = todaySignals.filter(s => s.result === 'loss').length;
 
+  // Calculate current streak across all signals
+  const resolved = signals
+    .filter(s => s.result === 'win' || s.result === 'loss')
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+  let streak = 0;
+  let streakType: 'win' | 'loss' | null = null;
+  for (const s of resolved) {
+    if (!streakType) {
+      streakType = s.result!;
+      streak = 1;
+    } else if (s.result === streakType) {
+      streak++;
+    } else {
+      break;
+    }
+  }
+
+  const streakMessage = getStreakMessage(streak, streakType);
+
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-st-accent/10 via-st-info/5 to-transparent border border-st-accent/20 p-5 sm:p-6">
       {/* Decorative elements */}
@@ -46,10 +78,31 @@ export function WelcomeBanner() {
                   ? 'You have 3 free signals today. Upgrade for unlimited access.'
                   : 'Your signals are streaming live. Stay sharp and trade smart.'}
               </p>
+              {streakMessage && (
+                <p className={`text-xs mt-1.5 font-medium ${
+                  streakType === 'win' ? 'text-st-premium' : 'text-st-put/80'
+                }`}>
+                  {streakMessage}
+                </p>
+              )}
             </div>
           </div>
 
           <div className="flex items-center gap-3 flex-shrink-0">
+            {/* Streak badge */}
+            {streak >= 3 && user?.role !== 'free' && (
+              <div className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border ${
+                streakType === 'win'
+                  ? 'bg-st-premium/5 border-st-premium/20'
+                  : 'bg-st-put/5 border-st-put/20'
+              }`}>
+                <Flame size={14} className={streakType === 'win' ? 'text-st-premium' : 'text-st-put'} />
+                <span className={`text-sm font-bold tabular-nums ${streakType === 'win' ? 'text-st-premium' : 'text-st-put'}`}>
+                  {streak}{streakType === 'win' ? 'W' : 'L'}
+                </span>
+              </div>
+            )}
+
             {/* Today's P&L badge */}
             {hasPnl && user?.role !== 'free' && (
               <div className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border ${

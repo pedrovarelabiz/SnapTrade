@@ -1,5 +1,5 @@
 import { Signal } from '@/types';
-import { Activity, Target, CheckCircle, XCircle, Flame, Clock, DollarSign } from 'lucide-react';
+import { Activity, Target, CheckCircle, XCircle, Flame, Clock, DollarSign, Zap, TrendingUp } from 'lucide-react';
 import { formatPnl } from '@/lib/pnlCalculator';
 
 interface Props {
@@ -14,6 +14,10 @@ export function TodayStats({ signals }: Props) {
   const losses = todaySignals.filter(s => s.result === 'loss').length;
   const resolved = wins + losses;
   const winRate = resolved > 0 ? Math.round((wins / resolved) * 100) : 0;
+
+  // Gale breakdown
+  const directWins = todaySignals.filter(s => s.resultType === 'direct_victory').length;
+  const galeWins = todaySignals.filter(s => s.resultType === 'victory_at_gale').length;
 
   // Calculate today's P&L
   const todayPnl = todaySignals.reduce((sum, s) => {
@@ -63,6 +67,9 @@ export function TodayStats({ signals }: Props) {
       icon: CheckCircle,
       color: 'text-st-call',
       bg: 'bg-st-call/10',
+      subtitle: directWins > 0 || galeWins > 0
+        ? `${directWins > 0 ? `${directWins}D` : ''}${directWins > 0 && galeWins > 0 ? ' · ' : ''}${galeWins > 0 ? `${galeWins}G` : ''}`
+        : undefined,
     },
     {
       label: 'Losses',
@@ -105,7 +112,12 @@ export function TodayStats({ signals }: Props) {
           </div>
           <div className="min-w-0">
             <p className={`text-base font-bold tabular-nums ${stat.color}`}>{stat.value}</p>
-            <p className="text-[9px] text-[var(--st-text-secondary)] leading-tight">{stat.label}</p>
+            <div className="flex items-center gap-1">
+              <p className="text-[9px] text-[var(--st-text-secondary)] leading-tight">{stat.label}</p>
+              {'subtitle' in stat && stat.subtitle && (
+                <span className="text-[8px] text-[var(--st-text-secondary)]/60 font-mono">{stat.subtitle}</span>
+              )}
+            </div>
           </div>
         </div>
       ))}

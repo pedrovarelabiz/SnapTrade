@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Globe, Sun, Moon } from 'lucide-react';
 
 interface MarketSession {
@@ -16,38 +17,47 @@ const sessions: MarketSession[] = [
   { name: 'New York', emoji: '🇺🇸', openHour: 13, closeHour: 22, color: 'text-st-call', bg: 'bg-st-call/15' },
 ];
 
-function isSessionOpen(session: MarketSession): boolean {
-  const now = new Date();
-  const utcHour = now.getUTCHours();
-
+function isSessionOpen(session: MarketSession, utcHour: number): boolean {
   if (session.openHour < session.closeHour) {
     return utcHour >= session.openHour && utcHour < session.closeHour;
   }
-  // Wraps around midnight
   return utcHour >= session.openHour || utcHour < session.closeHour;
 }
 
 export function MarketStatus() {
-  const now = new Date();
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const utcHour = now.getUTCHours();
   const isWeekend = now.getUTCDay() === 0 || now.getUTCDay() === 6;
-
-  const openSessions = isWeekend ? [] : sessions.filter(isSessionOpen);
+  const openSessions = isWeekend ? [] : sessions.filter(s => isSessionOpen(s, utcHour));
   const isDayTime = utcHour >= 6 && utcHour < 20;
+
+  const timeStr = now.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'UTC',
+  });
 
   return (
     <div className="flex items-center gap-2 flex-wrap">
       <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[var(--st-bg-card)] border border-[var(--st-border)] text-xs">
         <Globe size={11} className="text-[var(--st-text-secondary)]" />
         <span className="text-[var(--st-text-secondary)] font-mono tabular-nums">
-          {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' })} UTC
+          {timeStr} UTC
         </span>
         {isDayTime ? <Sun size={10} className="text-st-premium" /> : <Moon size={10} className="text-st-info" />}
       </div>
 
       {isWeekend ? (
         <span className="px-2.5 py-1.5 rounded-lg bg-st-put/10 border border-st-put/20 text-st-put text-xs font-medium">
-          Markets Closed
+          Markets Closed (Weekend)
         </span>
       ) : (
         openSessions.map(session => (
