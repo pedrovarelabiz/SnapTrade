@@ -12,17 +12,22 @@ import { QuickActions } from '@/components/dashboard/QuickActions';
 import { StreakVisualization } from '@/components/dashboard/StreakVisualization';
 import { WeeklyMiniChart } from '@/components/dashboard/WeeklyMiniChart';
 import { ActiveSignalsBanner } from '@/components/dashboard/ActiveSignalsBanner';
+import { SessionSummary } from '@/components/dashboard/SessionSummary';
+import { TopPerformers } from '@/components/dashboard/TopPerformers';
+import { SignalQualityBreakdown } from '@/components/dashboard/SignalQualityBreakdown';
 import { SoundToggle, useSoundPreference } from '@/components/dashboard/SoundToggle';
 import { NewSignalToast } from '@/components/signals/NewSignalToast';
 import { WhatsNewModal } from '@/components/shared/WhatsNewModal';
 import { useSignals } from '@/hooks/useSignals';
 import { useAuth } from '@/hooks/useAuth';
 import { useNotificationSound } from '@/hooks/useNotificationSound';
+import { usePageTitle } from '@/hooks/usePageTitle';
 import { Signal, SignalStatus, SignalDirection } from '@/types';
 import { Zap, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Dashboard() {
+  usePageTitle('Dashboard');
   const { user } = useAuth();
   const { signals, isLoading, isConnected, updateSignalStatus } = useSignals();
   const { playNewSignalSound } = useNotificationSound();
@@ -97,6 +102,8 @@ export default function Dashboard() {
     return true;
   });
 
+  const isPremium = user?.role !== 'free';
+
   return (
     <DashboardLayout>
       <div className="space-y-5">
@@ -115,6 +122,15 @@ export default function Dashboard() {
           <StreakVisualization signals={signals} />
           <WeeklyMiniChart signals={signals} />
         </div>
+
+        {/* Insights Row — premium only */}
+        {isPremium && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <TopPerformers signals={signals} />
+            <SignalQualityBreakdown signals={signals} />
+            <SessionSummary signals={signals} />
+          </div>
+        )}
 
         {/* Header Row */}
         <div ref={feedTopRef} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">

@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Sparkles, Zap, BarChart3, Chrome, Shield, DollarSign } from 'lucide-react';
+import { Sparkles, Zap, BarChart3, Chrome, Shield, DollarSign, Globe } from 'lucide-react';
 
 interface Props {
   open: boolean;
@@ -8,8 +8,24 @@ interface Props {
 
 const updates = [
   {
+    version: '2.6.0',
+    date: 'Today',
+    icon: Globe,
+    color: 'text-st-premium',
+    bg: 'bg-st-premium/10',
+    items: [
+      'Session Performance breakdown (Sydney, Tokyo, London, NY)',
+      'Top Performers widget showing best assets by win rate',
+      'Signal Quality breakdown (Direct, Gale 1, Gale 2, Loss)',
+      'Active Signals banner with next entry time',
+      'Mobile notification dots for pending signals',
+      'Auto-reconnect countdown when disconnected',
+      'Streak motivation messages in Welcome Banner',
+    ],
+  },
+  {
     version: '2.5.0',
-    date: 'This Week',
+    date: 'Last Update',
     icon: DollarSign,
     color: 'text-st-call',
     bg: 'bg-st-call/10',
@@ -24,7 +40,7 @@ const updates = [
   },
   {
     version: '2.4.0',
-    date: 'Last Week',
+    date: '1 Week Ago',
     icon: Zap,
     color: 'text-st-accent',
     bg: 'bg-st-accent/10',
