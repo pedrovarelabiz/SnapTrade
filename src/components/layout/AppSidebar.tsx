@@ -3,11 +3,11 @@ import { Logo } from '@/components/shared/Logo';
 import { PremiumBadge } from '@/components/shared/PremiumBadge';
 import { UpgradeCTA } from '@/components/shared/UpgradeCTA';
 import { useAuth } from '@/hooks/useAuth';
+import { useSidebarContext } from '@/contexts/SidebarContext';
 import {
   BarChart3, FileText, Settings, CreditCard, Users, Sliders, DollarSign,
   Activity, LogOut, ChevronLeft, ChevronRight,
 } from 'lucide-react';
-import { useState } from 'react';
 
 const navItems = [
   { label: 'Signals', icon: Activity, path: '/dashboard' },
@@ -26,7 +26,7 @@ const adminItems = [
 export function AppSidebar() {
   const { user, logout } = useAuth();
   const location = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
+  const { collapsed, toggleCollapsed } = useSidebarContext();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -34,7 +34,7 @@ export function AppSidebar() {
     <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 bg-[var(--st-bg-elevated)] border-r border-[var(--st-border)] transition-all duration-300 ${collapsed ? 'w-[72px]' : 'w-[260px]'}`}>
       <div className="flex items-center justify-between p-4 border-b border-[var(--st-border)]">
         {!collapsed && <Logo size="sm" />}
-        <button onClick={() => setCollapsed(!collapsed)} className="p-1.5 rounded-lg hover:bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] transition-colors">
+        <button onClick={toggleCollapsed} className="p-1.5 rounded-lg hover:bg-[var(--st-border)]/50 text-[var(--st-text-secondary)] transition-colors">
           {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
         </button>
       </div>

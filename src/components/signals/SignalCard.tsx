@@ -18,17 +18,38 @@ const assetFlags: Record<string, string> = {
   'AUD/NZD': '🇦🇺🇳🇿', 'GBP/AUD': '🇬🇧🇦🇺', 'CHF/JPY': '🇨🇭🇯🇵', 'EUR/NZD': '🇪🇺🇳🇿',
 };
 
+const dirStyles = {
+  CALL: {
+    borderActive: 'border-st-call/30',
+    borderHover: 'hover:border-st-call/50',
+    badgeBg: 'bg-st-call/10',
+    badgeBorder: 'border-st-call/30',
+    badgeText: 'text-st-call',
+    confBg: 'bg-st-call/10',
+    confText: 'text-st-call',
+  },
+  PUT: {
+    borderActive: 'border-st-put/30',
+    borderHover: 'hover:border-st-put/50',
+    badgeBg: 'bg-st-put/10',
+    badgeBorder: 'border-st-put/30',
+    badgeText: 'text-st-put',
+    confBg: 'bg-st-put/10',
+    confText: 'text-st-put',
+  },
+} as const;
+
 export function SignalCard({ signal, onUpdateStatus, isNew }: SignalCardProps) {
   const { user } = useAuth();
   const isCall = signal.direction === 'CALL';
-  const dirColor = isCall ? 'st-call' : 'st-put';
+  const styles = dirStyles[signal.direction];
   const isPendingOrActive = signal.status === 'pending' || signal.status === 'active';
 
   return (
     <div className={`rounded-xl bg-[var(--st-bg-card)] border transition-all duration-300 ${
       isNew ? 'animate-fade-up border-st-accent animate-signal-pulse' :
-      isPendingOrActive ? `border-${dirColor}/30` : 'border-[var(--st-border)]'
-    } ${isPendingOrActive ? `hover:border-${dirColor}/50` : ''}`}>
+      isPendingOrActive ? `${styles.borderActive} ${styles.borderHover}` : 'border-[var(--st-border)]'
+    }`}>
       <div className="p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2.5">
@@ -45,14 +66,14 @@ export function SignalCard({ signal, onUpdateStatus, isNew }: SignalCardProps) {
         </div>
 
         <div className="flex items-center gap-3 mb-3">
-          <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-${dirColor}/10 border border-${dirColor}/30`}>
-            {isCall ? <TrendingUp size={16} className={`text-${dirColor}`} /> : <TrendingDown size={16} className={`text-${dirColor}`} />}
-            <span className={`text-${dirColor} font-bold text-sm`}>{signal.direction}</span>
+          <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${styles.badgeBg} border ${styles.badgeBorder}`}>
+            {isCall ? <TrendingUp size={16} className={styles.badgeText} /> : <TrendingDown size={16} className={styles.badgeText} />}
+            <span className={`${styles.badgeText} font-bold text-sm`}>{signal.direction}</span>
           </div>
 
           <div className="flex items-center gap-2 text-xs">
             <span className="px-2 py-1 rounded-md bg-[var(--st-bg-elevated)] text-[var(--st-text-secondary)] font-mono">{signal.timeframe}</span>
-            <span className={`px-2 py-1 rounded-md bg-${dirColor}/10 text-${dirColor} font-semibold`}>{signal.confidence}%</span>
+            <span className={`px-2 py-1 rounded-md ${styles.confBg} ${styles.confText} font-semibold`}>{signal.confidence}%</span>
           </div>
         </div>
 

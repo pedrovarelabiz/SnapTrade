@@ -28,6 +28,17 @@ const stats = [
   { value: '24/5', label: 'Market Coverage' },
 ];
 
+const livePreviewSignals = [
+  { asset: 'GBP/JPY', flag: '🇬🇧🇯🇵', dir: 'PUT' as const, time: '1:30', tf: 'M5', conf: 78 },
+  { asset: 'USD/CHF', flag: '🇺🇸🇨🇭', dir: 'CALL' as const, time: '4:15', tf: 'M1', conf: 92 },
+  { asset: 'AUD/USD', flag: '🇦🇺🇺🇸', dir: 'CALL' as const, time: '7:00', tf: 'M15', conf: 81 },
+];
+
+const previewDirStyles = {
+  CALL: { badge: 'bg-st-call/15 text-st-call border border-st-call/30', conf: 'text-st-call' },
+  PUT: { badge: 'bg-st-put/15 text-st-put border border-st-put/30', conf: 'text-st-put' },
+} as const;
+
 export default function Index() {
   const navigate = useNavigate();
 
@@ -160,26 +171,25 @@ export default function Index() {
               </ul>
             </div>
             <div className="space-y-3">
-              {[
-                { asset: 'GBP/JPY', flag: '🇬🇧🇯🇵', dir: 'PUT', color: 'st-put', time: '1:30', tf: 'M5', conf: 78 },
-                { asset: 'USD/CHF', flag: '🇺🇸🇨🇭', dir: 'CALL', color: 'st-call', time: '4:15', tf: 'M1', conf: 92 },
-                { asset: 'AUD/USD', flag: '🇦🇺🇺🇸', dir: 'CALL', color: 'st-call', time: '7:00', tf: 'M15', conf: 81 },
-              ].map((s, i) => (
-                <div key={s.asset} className="rounded-xl bg-[var(--st-bg-elevated)] border border-[var(--st-border)] p-4 animate-fade-up" style={{ animationDelay: `${i * 0.15}s` }}>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="text-lg">{s.flag}</span>
-                      <span className="text-white font-semibold">{s.asset}</span>
-                      <span className={`px-2 py-0.5 rounded-md bg-${s.color}/15 text-${s.color} text-xs font-bold border border-${s.color}/30`}>{s.dir}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-xs text-[var(--st-text-secondary)]">
-                      <span className="font-mono">{s.time}</span>
-                      <span className="px-1.5 py-0.5 rounded bg-[var(--st-border)]/50">{s.tf}</span>
-                      <span className={`text-${s.color} font-semibold`}>{s.conf}%</span>
+              {livePreviewSignals.map((s, i) => {
+                const pStyles = previewDirStyles[s.dir];
+                return (
+                  <div key={s.asset} className="rounded-xl bg-[var(--st-bg-elevated)] border border-[var(--st-border)] p-4 animate-fade-up" style={{ animationDelay: `${i * 0.15}s` }}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg">{s.flag}</span>
+                        <span className="text-white font-semibold">{s.asset}</span>
+                        <span className={`px-2 py-0.5 rounded-md text-xs font-bold ${pStyles.badge}`}>{s.dir}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-xs text-[var(--st-text-secondary)]">
+                        <span className="font-mono">{s.time}</span>
+                        <span className="px-1.5 py-0.5 rounded bg-[var(--st-border)]/50">{s.tf}</span>
+                        <span className={`${pStyles.conf} font-semibold`}>{s.conf}%</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
