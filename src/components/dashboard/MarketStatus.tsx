@@ -14,7 +14,7 @@ export function MarketStatus() {
     minute: '2-digit',
     second: '2-digit',
     hour12: false,
-    timeZone: 'UTC',
+    hour12: false,
   });
 
   return (
@@ -22,7 +22,7 @@ export function MarketStatus() {
       <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[var(--st-bg-card)] border border-[var(--st-border)] text-xs">
         <Globe size={11} className="text-[var(--st-text-secondary)]" />
         <span className="text-[var(--st-text-secondary)] font-mono tabular-nums">
-          {timeStr} UTC
+          {timeStr}
         </span>
       </div>
 

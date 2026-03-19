@@ -8,7 +8,7 @@ import { formatPnl } from '@/lib/pnlCalculator';
 function getStreakMessage(streak: number, type: 'win' | 'loss' | null): string | null {
   if (!type || streak < 3) return null;
   if (type === 'win') {
-    if (streak >= 10) return '🔥 Incredible streak! You\'re on fire!';
+    if (streak >= 10) return "Strong win streak!";
     if (streak >= 7) return '🔥 Amazing run! Keep the momentum going!';
     if (streak >= 5) return '🎯 Great streak! Stay focused and disciplined.';
     return '✨ Nice streak building! Keep it up.';

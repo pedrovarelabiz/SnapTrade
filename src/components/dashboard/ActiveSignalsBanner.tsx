@@ -49,7 +49,7 @@ export function ActiveSignalsBanner({ signals, onScrollToSignals }: Props) {
         {soonestTime && (
           <p className="text-[10px] text-[var(--st-text-secondary)] mt-0.5 flex items-center gap-1">
             <Clock size={9} />
-            Next entry at {soonestTime} UTC
+            Next entry at {soonestTime}
           </p>
         )}
       </div>

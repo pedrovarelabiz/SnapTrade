@@ -106,7 +106,7 @@ export function ReportDetail({ report, onClose }: Props) {
                 <AlertTriangle size={14} className="text-st-put" />
               </div>
               <div>
-                <p className="text-lg font-bold text-st-put tabular-nums">{report.fullLosses}</p>
+                <p className="text-lg font-bold text-st-put tabular-nums">{report.fullLosses ? `-${report.fullLosses}` : "0"}</p>
                 <p className="text-[9px] text-[var(--st-text-secondary)]">Full Losses</p>
               </div>
             </div>

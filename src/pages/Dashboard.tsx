@@ -149,7 +149,7 @@ export default function Dashboard() {
               <Sparkles size={12} />
               What's New
             </button>
-            <LiveIndicator isConnected={isConnected} signalCount={filtered.length} />
+            <LiveIndicator isConnected={isConnected} signalCount={signals.length} />
           </div>
         </div>
 
