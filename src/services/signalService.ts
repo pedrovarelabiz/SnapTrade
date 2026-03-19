@@ -110,6 +110,13 @@ export const signalService = {
           attempt = 0;
         };
 
+        eventSource.addEventListener('signal:new', (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            onNewSignal(mapSignal(data));
+          } catch { /* ignore parse errors */ }
+        });
+
         eventSource.addEventListener('signal:active', (e) => {
           try {
             const data = JSON.parse(e.data);
