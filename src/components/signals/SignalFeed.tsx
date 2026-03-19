@@ -13,7 +13,7 @@ interface Props {
   newSignalIds?: Set<string>;
 }
 
-const statusOrder: Record<string, number> = { pending: 0, active: 1, win: 2, loss: 3, skipped: 4, expired: 5 };
+// Removed status-based grouping — pure chronological sort
 
 export function SignalFeed({ signals, onUpdateStatus, newSignalIds }: Props) {
   const { user } = useAuth();
@@ -35,8 +35,10 @@ export function SignalFeed({ signals, onUpdateStatus, newSignalIds }: Props) {
   }
 
   const sorted = [...signals].sort((a, b) => {
-    const orderDiff = (statusOrder[a.status] ?? 5) - (statusOrder[b.status] ?? 5);
-    if (orderDiff !== 0) return orderDiff;
+    // Active/pending first, then chronological (newest first)
+    const aActive = a.status === 'pending' || a.status === 'active' ? 0 : 1;
+    const bActive = b.status === 'pending' || b.status === 'active' ? 0 : 1;
+    if (aActive !== bActive) return aActive - bActive;
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 

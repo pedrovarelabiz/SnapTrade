@@ -52,8 +52,6 @@ export interface Signal {
   result?: 'win' | 'loss';
   createdAt: string;
   isPremium: boolean;
-  confidence: number;
-
   // Result tracking
   resultType?: ResultType;
   resultGaleLevel?: number;        // 0 = initial trade, 1 = gale 1, 2 = gale 2

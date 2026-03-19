@@ -2,12 +2,12 @@ import { SignalStatus, SignalDirection } from '@/types';
 
 const CHANNEL_OPTIONS = [
   { value: 'all', label: 'All', color: '' },
-  { value: 'tyl_vip', label: 'TYL VIP', color: '#2979ff' },
-  { value: 'tyl_trading', label: 'TYL', color: '#7c4dff' },
-  { value: 'sinais_mil', label: 'SM', color: '#00e676' },
-  { value: 'blacklist', label: 'BL', color: '#ff9100' },
-  { value: 'cole_carter', label: 'CC', color: '#e040fb' },
-  { value: 'private_team', label: 'PT', color: '#00bcd4' },
+  { value: 'tyl_vip', label: 'Source A', color: '#2979ff' },
+  { value: 'tyl_trading', label: 'Source B', color: '#7c4dff' },
+  { value: 'sinais_mil', label: 'Source C', color: '#00e676' },
+  { value: 'blacklist', label: 'Source D', color: '#ff9100' },
+  { value: 'cole_carter', label: 'Source E', color: '#e040fb' },
+  { value: 'private_team', label: 'Source F', color: '#00bcd4' },
 ];
 
 interface Props {
