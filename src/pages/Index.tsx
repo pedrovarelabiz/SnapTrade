@@ -31,7 +31,7 @@ const fallbackStats = [
   { value: '24/7', label: 'OTC Coverage' },
 ];
 
-const heroSignal = { asset: 'EUR/USD OTC', dir: 'CALL' as const, time: '2:45', tf: 'M5', conf: 85 };
+const heroSignal = { asset: 'EUR/USD OTC', dir: 'CALL' as const, time: '2:45', tf: 'M5' };
 
 const livePreviewSignals = [
   { asset: 'GBP/JPY OTC', dir: 'PUT' as const, time: '1:30', tf: 'M5', conf: 78 },
@@ -144,8 +144,8 @@ export default function Index() {
                   <p className="text-sm font-mono text-white">{heroSignal.tf}</p>
                 </div>
                 <div className="p-2 rounded-lg bg-[var(--st-bg-elevated)]">
-                  <p className="text-[10px] text-[var(--st-text-secondary)]">Confidence</p>
-                  <p className="text-sm font-mono text-st-call">{heroSignal.conf}%</p>
+                  <p className="text-[10px] text-[var(--st-text-secondary)]">Payout</p>
+                  <p className="text-sm font-mono text-st-call">88%</p>
                 </div>
               </div>
             </div>

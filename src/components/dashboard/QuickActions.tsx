@@ -24,7 +24,7 @@ export function QuickActions({ signals }: Props) {
       return;
     }
 
-    const headers = ['Asset', 'Direction', 'Type', 'Timeframe', 'Status', 'Confidence', 'Entry Time', 'Result Type', 'Gale Level', 'Net P&L'];
+    const headers = ['Asset', 'Direction', 'Timeframe', 'Status', 'Entry Time', 'Result Type', 'Gale Level', 'Net P&L'];
     const rows = todaySignals.map(s => [
       s.asset,
       s.direction,
