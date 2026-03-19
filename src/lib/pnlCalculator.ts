@@ -83,8 +83,8 @@ export function quickPnl(
 }
 
 export function formatPnl(pnl: number): string {
-  const sign = pnl >= 0 ? '+' : '';
-  return `${sign}$${Math.abs(pnl).toFixed(2)}`;
+  if (pnl >= 0) return `+$${pnl.toFixed(2)}`;
+  return `-$${Math.abs(pnl).toFixed(2)}`;
 }
 
 export function getResultLabel(resultType: ResultType, galeLevel: number): string {

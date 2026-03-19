@@ -60,7 +60,7 @@ const App = () => (
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <RoleSwitcher />
+          {import.meta.env.VITE_DEV_MODE === "true" && <RoleSwitcher />}
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

@@ -68,17 +68,45 @@ export function SignalFeed({ signals, onUpdateStatus, newSignalIds }: Props) {
     );
   }
 
+  // Group signals by day
+  const grouped: { label: string; signals: Signal[] }[] = [];
+  const today = new Date().toDateString();
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  let currentDay = '';
+  for (const sig of sorted) {
+    const dayStr = new Date(sig.createdAt).toDateString();
+    if (dayStr !== currentDay) {
+      currentDay = dayStr;
+      const label = dayStr === today ? 'Today' : dayStr === yesterday ? 'Yesterday' : new Date(sig.createdAt).toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
+      grouped.push({ label, signals: [sig] });
+    } else {
+      grouped[grouped.length - 1].signals.push(sig);
+    }
+  }
+
   return (
     <>
       <div className="space-y-3">
-        {sorted.map(signal => (
-          <SignalCard
-            key={signal.id}
-            signal={signal}
-            onUpdateStatus={onUpdateStatus}
-            isNew={newSignalIds?.has(signal.id)}
-            onClick={() => setSelectedSignal(signal)}
-          />
+        {grouped.map((group, gi) => (
+          <div key={group.label}>
+            {gi > 0 && (
+              <div className="flex items-center gap-3 py-3">
+                <div className="flex-1 h-px bg-[var(--st-border)]" />
+                <span className="text-xs font-medium text-[var(--st-text-secondary)]">{group.label}</span>
+                <div className="flex-1 h-px bg-[var(--st-border)]" />
+              </div>
+            )}
+            {group.signals.map(signal => (
+              <div key={signal.id} className="mb-3">
+                <SignalCard
+                  signal={signal}
+                  onUpdateStatus={onUpdateStatus}
+                  isNew={newSignalIds?.has(signal.id)}
+                  onClick={() => setSelectedSignal(signal)}
+                />
+              </div>
+            ))}
+          </div>
         ))}
       </div>
       <SignalDetailModal

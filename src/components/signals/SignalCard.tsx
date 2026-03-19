@@ -45,11 +45,7 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
             <span className="text-lg">{getAssetFlag(signal.asset)}</span>
             <span className="text-white font-semibold text-sm">{signal.asset}</span>
             {isOTC && <span className="px-1.5 py-0.5 rounded-md bg-st-info/10 text-st-info text-[9px] font-bold border border-st-info/20">OTC</span>}
-            {signal.martingaleLevel > 0 && (
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-st-premium/15 text-st-premium text-[10px] font-bold border border-st-premium/30">
-                <Layers size={8} />M{signal.martingaleLevel}
-              </span>
-            )}
+
           </div>
           <div className="flex items-center gap-2">
             {isScheduled ? (
@@ -58,6 +54,18 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-semibold border border-amber-500/20"><Zap size={9} />Instant</span>
             )}
             <StatusBadge status={signal.status} />
+            {signal.channel?.slug && (() => {
+              const badges: Record<string, { label: string; bg: string }> = {
+                tyl_vip: { label: 'TYL VIP', bg: '#2979ff' },
+                tyl_trading: { label: 'TYL', bg: '#7c4dff' },
+                sinais_mil: { label: 'SM', bg: '#00e676' },
+                blacklist: { label: 'BL', bg: '#ff9100' },
+              };
+              const b = badges[signal.channel!.slug];
+              return b ? (
+                <span style={{ background: b.bg + '22', color: b.bg, border: `1px solid ${b.bg}44` }} className="px-1.5 py-0.5 rounded-md text-[9px] font-bold">{b.label}</span>
+              ) : null;
+            })()}
           </div>
         </div>
 
@@ -68,7 +76,7 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
           </div>
           <div className="flex items-center gap-2 text-xs">
             <span className="px-2 py-1 rounded-md bg-[var(--st-bg-elevated)] text-[var(--st-text-secondary)] font-mono">{signal.timeframe}</span>
-            <span className={`px-2 py-1 rounded-md ${styles.confBg} ${styles.confText} font-semibold`}>{signal.confidence}%</span>
+
           </div>
         </div>
 

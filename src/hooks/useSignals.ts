@@ -18,7 +18,17 @@ export function useSignals() {
   useEffect(() => {
     setIsConnected(true);
     unsubRef.current = signalService.subscribeToSignals((newSignal) => {
-      setSignals(prev => [newSignal, ...prev]);
+      setSignals(prev => {
+        const idx = prev.findIndex(s => s.id === newSignal.id);
+        if (idx >= 0) {
+          // Update existing signal (e.g., active->resolved)
+          const updated = [...prev];
+          updated[idx] = newSignal;
+          return updated;
+        }
+        // New signal - prepend
+        return [newSignal, ...prev];
+      });
     });
 
     return () => {

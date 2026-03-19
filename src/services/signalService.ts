@@ -72,7 +72,6 @@ function mapSignal(raw: Record<string, unknown>): Signal {
     result: raw.result as 'win' | 'loss' | undefined,
     createdAt: raw.createdAt as string,
     isPremium: raw.visibility === 'premium',
-    confidence: 85,
     resultType,
     resultGaleLevel: raw.status === 'resolved' ? galeLevel : undefined,
     resultTimestamp: raw.resolvedAt as string | undefined,
