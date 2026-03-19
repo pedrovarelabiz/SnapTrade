@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { PublicLayout } from '@/components/layout/PublicLayout';
 import { YesterdayResults } from '@/components/landing/YesterdayResults';
 import { HowItWorks } from '@/components/landing/HowItWorks';
@@ -23,10 +24,10 @@ const testimonials = [
   { name: 'David R.', role: 'Part-time Trader', text: "Perfect for someone who can't watch charts all day. I get notifications, check the signal, and execute in seconds.", rating: 4 },
 ];
 
-const stats = [
-  { value: '10,000+', label: 'Signals Sent' },
+const fallbackStats = [
+  { value: '10,000+', label: 'Signals Analyzed' },
   { value: '78%', label: 'Win Rate' },
-  { value: '2,500+', label: 'Active Traders' },
+  { value: '4', label: 'Signal Sources' },
   { value: '24/7', label: 'OTC Coverage' },
 ];
 
@@ -48,6 +49,37 @@ const pricingPlans = [
   { name: 'Premium', price: '$49', period: '/month', features: ['Unlimited signals', 'Full analytics & P&L', 'Chrome extension', 'Priority support'], popular: true },
   { name: 'Yearly', price: '$399', period: '/year', features: ['Everything in Premium', 'Save 32%', 'Dedicated manager'], popular: false },
 ];
+
+function StatsBar() {
+  const [stats, setStats] = useState(fallbackStats);
+
+  useEffect(() => {
+    fetch('/api/stats/public-summary')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data) {
+          setStats([
+            { value: data.totalSignals.toLocaleString() + '+', label: 'Signals Analyzed' },
+            { value: data.winRate + '%', label: 'Win Rate' },
+            { value: String(data.totalChannels), label: 'Signal Sources' },
+            { value: '24/7', label: 'OTC Coverage' },
+          ]);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {stats.map(stat => (
+        <div key={stat.label} className="text-center">
+          <p className="text-2xl sm:text-3xl font-bold text-gradient">{stat.value}</p>
+          <p className="text-sm text-[var(--st-text-secondary)] mt-1">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Index() {
   const navigate = useNavigate();
@@ -124,14 +156,7 @@ export default function Index() {
       {/* Stats Bar */}
       <section className="border-y border-[var(--st-border)] bg-[var(--st-bg-card)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map(stat => (
-              <div key={stat.label} className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold text-gradient">{stat.value}</p>
-                <p className="text-sm text-[var(--st-text-secondary)] mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+          <StatsBar />
         </div>
       </section>
 

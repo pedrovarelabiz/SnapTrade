@@ -22,8 +22,8 @@ export default function Login() {
       const user = await login(email, password);
       toast.success(`Welcome back, ${user.name}!`);
       navigate('/dashboard');
-    } catch {
-      setError('Invalid credentials');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Invalid credentials');
     } finally {
       setIsLoading(false);
     }
@@ -103,25 +103,6 @@ export default function Login() {
               Don't have an account?{' '}
               <Link to="/register" className="text-st-accent hover:text-st-accent/80 font-medium">Sign up</Link>
             </p>
-          </div>
-
-          <div className="mt-4 p-3 rounded-xl bg-[var(--st-bg-elevated)] border border-[var(--st-border)]">
-            <p className="text-xs text-[var(--st-text-secondary)] text-center mb-2">Quick demo login:</p>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {[
-                { label: 'Admin', email: 'admin@snaptrade.io' },
-                { label: 'Premium', email: 'premium@snaptrade.io' },
-                { label: 'Free', email: 'free@snaptrade.io' },
-              ].map(demo => (
-                <button
-                  key={demo.label}
-                  onClick={() => { setEmail(demo.email); setPassword('demo'); }}
-                  className="px-3 py-1 rounded-lg bg-[var(--st-border)]/50 text-xs text-[var(--st-text-primary)] hover:bg-[var(--st-border)] transition-colors"
-                >
-                  {demo.label}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </div>

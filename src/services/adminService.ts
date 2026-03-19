@@ -1,58 +1,95 @@
-import { User, PlatformConfig, RevenueStats } from '@/types';
-import { mockUsers } from '@/data/mockUsers';
+import { apiGet, apiPatch, apiPut, apiPost, apiDelete } from './api';
+import type { User, PlatformConfig } from '../types';
 
-const platformConfig: PlatformConfig = {
-  maxFreeSignals: 3,
-  signalCooldownSeconds: 60,
-  enabledAssets: ['EUR/USD', 'GBP/JPY', 'USD/CHF', 'AUD/USD', 'EUR/GBP', 'USD/JPY', 'NZD/USD', 'GBP/USD'],
-  maintenanceMode: false,
-  announcementMessage: '',
-  minConfidence: 65,
-};
-
-const revenueStats: RevenueStats = {
-  mrr: 12450,
-  totalRevenue: 89340,
-  totalUsers: 2547,
-  activeSubscriptions: 312,
-  churnRate: 4.2,
-  newSubscriptionsThisMonth: 28,
-  revenueHistory: [
-    { month: 'Jun', revenue: 8200 },
-    { month: 'Jul', revenue: 9100 },
-    { month: 'Aug', revenue: 9800 },
-    { month: 'Sep', revenue: 10500 },
-    { month: 'Oct', revenue: 11200 },
-    { month: 'Nov', revenue: 12450 },
-  ],
-};
+interface RevenueStats {
+  totalRevenue: number;
+  monthlyRevenue: number;
+  activeSubscriptions: number;
+  churnRate: number;
+  revenueByMonth: Array<{ month: string; revenue: number }>;
+}
 
 export const adminService = {
-  async getUsers(): Promise<User[]> {
-    await new Promise(r => setTimeout(r, 400));
-    return [...mockUsers];
+  async getUsers(params?: Record<string, string>): Promise<User[]> {
+    try {
+      const result = await apiGet<Record<string, unknown>[]>('/admin/users', params);
+      return result.map((u) => ({
+        id: u.id as string,
+        name: (u.name as string) || (u.email as string),
+        email: u.email as string,
+        role: u.role as User['role'],
+        createdAt: u.createdAt as string,
+        isVerified: (u.emailVerified as boolean) ?? false,
+      }));
+    } catch {
+      return [];
+    }
   },
 
   async updateUser(userId: string, updates: Partial<User>): Promise<User | null> {
-    await new Promise(r => setTimeout(r, 300));
-    const user = mockUsers.find(u => u.id === userId);
-    if (user) return { ...user, ...updates };
-    return null;
+    try {
+      const raw = await apiPatch<Record<string, unknown>>(`/admin/users/${userId}`, updates);
+      return {
+        id: raw.id as string,
+        name: (raw.name as string) || (raw.email as string),
+        email: raw.email as string,
+        role: raw.role as User['role'],
+        createdAt: raw.createdAt as string,
+        isVerified: (raw.emailVerified as boolean) ?? false,
+      };
+    } catch {
+      return null;
+    }
   },
 
   async getPlatformConfig(): Promise<PlatformConfig> {
-    await new Promise(r => setTimeout(r, 300));
-    return { ...platformConfig };
+    try {
+      const configs = await apiGet<Array<{ key: string; value: string }>>('/admin/config');
+      const configMap: Record<string, string> = {};
+      for (const c of configs) {
+        configMap[c.key] = c.value;
+      }
+      return {
+        maxFreeSignals: parseInt(configMap.maxFreeSignals || '3'),
+        signalCooldownSeconds: parseInt(configMap.signalCooldownSeconds || '60'),
+        enabledAssets: (configMap.enabledAssets || '').split(',').filter(Boolean),
+        maintenanceMode: configMap.maintenanceMode === 'true',
+        announcementMessage: configMap.announcementMessage || '',
+        minConfidence: parseInt(configMap.minConfidence || '70'),
+      };
+    } catch {
+      return {
+        maxFreeSignals: 3,
+        signalCooldownSeconds: 60,
+        enabledAssets: [],
+        maintenanceMode: false,
+        announcementMessage: '',
+        minConfidence: 70,
+      };
+    }
   },
 
   async updatePlatformConfig(updates: Partial<PlatformConfig>): Promise<PlatformConfig> {
-    await new Promise(r => setTimeout(r, 300));
-    Object.assign(platformConfig, updates);
-    return { ...platformConfig };
+    for (const [key, value] of Object.entries(updates)) {
+      await apiPut(`/admin/config/${key}`, {
+        value: String(value),
+        description: key,
+      });
+    }
+    return this.getPlatformConfig();
   },
 
   async getRevenueStats(): Promise<RevenueStats> {
-    await new Promise(r => setTimeout(r, 400));
-    return { ...revenueStats };
+    try {
+      return await apiGet<RevenueStats>('/admin/revenue-stats');
+    } catch {
+      return {
+        totalRevenue: 0,
+        monthlyRevenue: 0,
+        activeSubscriptions: 0,
+        churnRate: 0,
+        revenueByMonth: [],
+      };
+    }
   },
 };

@@ -1,96 +1,91 @@
-import { User } from '@/types';
-import { defaultFreeUser, defaultPremiumUser, defaultAdminUser } from '@/data/mockUsers';
+import { apiGet, apiPost } from './api';
+import type { User } from '../types';
 
-const STORAGE_KEY = 'snaptrade_user';
-
-function getStoredUser(): User | null {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    try { return JSON.parse(stored); } catch { return null; }
-  }
-  return null;
-}
-
-function storeUser(user: User | null) {
-  if (user) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
-  } else {
-    localStorage.removeItem(STORAGE_KEY);
-  }
+// Map backend user shape to frontend User type
+function mapUser(raw: Record<string, unknown>): User {
+  return {
+    id: raw.id as string,
+    name: (raw.name as string) || (raw.email as string),
+    email: raw.email as string,
+    role: raw.role as User['role'],
+    avatar: undefined,
+    createdAt: raw.createdAt as string,
+    isVerified: (raw.emailVerified as boolean) ?? false,
+    subscription: raw.subscription
+      ? {
+          id: (raw.subscription as Record<string, unknown>).id as string,
+          plan: (raw.subscription as Record<string, unknown>).plan as string as 'free' | 'premium_monthly' | 'premium_yearly',
+          status: (raw.subscription as Record<string, unknown>).status as string as 'active' | 'cancelled' | 'expired' | 'trial',
+          startDate: (raw.subscription as Record<string, unknown>).createdAt as string,
+          endDate: (raw.subscription as Record<string, unknown>).expiresAt as string || new Date().toISOString(),
+          autoRenew: true,
+        }
+      : undefined,
+  };
 }
 
 export const authService = {
-  async login(email: string, _password: string): Promise<User> {
-    await new Promise(r => setTimeout(r, 800));
-    if (email === 'admin@snaptrade.io') {
-      storeUser(defaultAdminUser);
-      return defaultAdminUser;
-    }
-    if (email === 'premium@snaptrade.io') {
-      storeUser(defaultPremiumUser);
-      return defaultPremiumUser;
-    }
-    const user = { ...defaultFreeUser, email, name: email.split('@')[0] };
-    storeUser(user);
+  async login(email: string, password: string): Promise<User> {
+    const raw = await apiPost<Record<string, unknown>>('/auth/login', { email, password });
+    const user = raw.user ? mapUser(raw.user as Record<string, unknown>) : mapUser(raw);
     return user;
   },
 
-  async register(name: string, email: string, _password: string): Promise<User> {
-    await new Promise(r => setTimeout(r, 800));
-    const user: User = {
-      id: `u${Date.now()}`,
-      name,
-      email,
-      role: 'free',
-      createdAt: new Date().toISOString(),
-      isVerified: false,
-      subscription: {
-        id: `sub${Date.now()}`,
-        plan: 'free',
-        status: 'active',
-        startDate: new Date().toISOString(),
-        endDate: '2099-12-31T23:59:59Z',
-        autoRenew: false,
-      },
-    };
-    storeUser(user);
+  async register(name: string, email: string, password: string): Promise<User> {
+    const raw = await apiPost<Record<string, unknown>>('/auth/register', { name, email, password });
+    const user = raw.user ? mapUser(raw.user as Record<string, unknown>) : mapUser(raw);
     return user;
   },
 
   async logout(): Promise<void> {
-    await new Promise(r => setTimeout(r, 300));
-    storeUser(null);
+    await apiPost<void>('/auth/logout');
   },
 
   async getMe(): Promise<User | null> {
-    await new Promise(r => setTimeout(r, 300));
-    return getStoredUser();
-  },
-
-  async verifyEmail(_token: string): Promise<boolean> {
-    await new Promise(r => setTimeout(r, 500));
-    const user = getStoredUser();
-    if (user) {
-      user.isVerified = true;
-      storeUser(user);
+    try {
+      const raw = await apiGet<Record<string, unknown>>('/auth/me');
+      return mapUser(raw);
+    } catch {
+      return null;
     }
-    return true;
   },
 
-  async forgotPassword(_email: string): Promise<boolean> {
-    await new Promise(r => setTimeout(r, 500));
-    return true;
+  async verifyEmail(token: string): Promise<boolean> {
+    try {
+      await apiPost('/auth/verify-email', { token });
+      return true;
+    } catch {
+      return false;
+    }
   },
 
-  async resetPassword(_token: string, _newPassword: string): Promise<boolean> {
-    await new Promise(r => setTimeout(r, 500));
-    return true;
+  async forgotPassword(email: string): Promise<boolean> {
+    try {
+      await apiPost('/auth/forgot-password', { email });
+      return true;
+    } catch {
+      return false;
+    }
   },
 
-  switchRole(role: User['role']): User {
-    const roleMap = { free: defaultFreeUser, premium: defaultPremiumUser, admin: defaultAdminUser };
-    const user = { ...roleMap[role] };
-    storeUser(user);
-    return user;
+  async resetPassword(token: string, newPassword: string): Promise<boolean> {
+    try {
+      await apiPost('/auth/reset-password', { token, password: newPassword });
+      return true;
+    } catch {
+      return false;
+    }
+  },
+
+  // Keep switchRole for dev mode only - returns a mock user with the given role
+  switchRole(role: 'free' | 'premium' | 'admin'): User {
+    return {
+      id: 'dev-user',
+      name: `Dev ${role}`,
+      email: `${role}@snaptrade.io`,
+      role,
+      createdAt: new Date().toISOString(),
+      isVerified: true,
+    };
   },
 };
