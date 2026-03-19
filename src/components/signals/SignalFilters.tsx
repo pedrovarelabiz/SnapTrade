@@ -1,13 +1,23 @@
 import { SignalStatus, SignalDirection } from '@/types';
 
+const CHANNEL_OPTIONS = [
+  { value: 'all', label: 'All', color: '' },
+  { value: 'tyl_vip', label: 'TYL VIP', color: '#2979ff' },
+  { value: 'tyl_trading', label: 'TYL', color: '#7c4dff' },
+  { value: 'sinais_mil', label: 'SM', color: '#00e676' },
+  { value: 'blacklist', label: 'BL', color: '#ff9100' },
+];
+
 interface Props {
   statusFilter: SignalStatus | 'all';
   directionFilter: SignalDirection | 'all';
+  channelFilter?: string;
   onStatusChange: (s: SignalStatus | 'all') => void;
   onDirectionChange: (d: SignalDirection | 'all') => void;
+  onChannelChange?: (c: string) => void;
 }
 
-export function SignalFilters({ statusFilter, directionFilter, onStatusChange, onDirectionChange }: Props) {
+export function SignalFilters({ statusFilter, directionFilter, channelFilter = 'all', onStatusChange, onDirectionChange, onChannelChange }: Props) {
   const statuses: (SignalStatus | 'all')[] = ['all', 'pending', 'active', 'win', 'loss'];
   const directions: (SignalDirection | 'all')[] = ['all', 'CALL', 'PUT'];
 
@@ -42,6 +52,25 @@ export function SignalFilters({ statusFilter, directionFilter, onStatusChange, o
           </button>
         ))}
       </div>
+
+      {onChannelChange && (
+        <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--st-bg-card)] border border-[var(--st-border)]">
+          {CHANNEL_OPTIONS.map(ch => (
+            <button
+              key={ch.value}
+              onClick={() => onChannelChange(ch.value)}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                channelFilter === ch.value
+                  ? 'text-white'
+                  : 'text-[var(--st-text-secondary)] hover:text-white'
+              }`}
+              style={channelFilter === ch.value && ch.color ? { background: ch.color + '22', color: ch.color } : undefined}
+            >
+              {ch.label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

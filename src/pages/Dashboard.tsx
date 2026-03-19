@@ -33,6 +33,7 @@ export default function Dashboard() {
   const { soundEnabled, setSoundEnabled } = useSoundPreference();
   const [statusFilter, setStatusFilter] = useState<SignalStatus | 'all'>('all');
   const [directionFilter, setDirectionFilter] = useState<SignalDirection | 'all'>('all');
+  const [channelFilter, setChannelFilter] = useState<string>('all');
   const [newSignalIds, setNewSignalIds] = useState<Set<string>>(new Set());
   const [unseenCount, setUnseenCount] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -98,6 +99,7 @@ export default function Dashboard() {
   const filtered = signals.filter((s: Signal) => {
     if (statusFilter !== 'all' && s.status !== statusFilter) return false;
     if (directionFilter !== 'all' && s.direction !== directionFilter) return false;
+    if (channelFilter !== 'all' && s.channel?.slug !== channelFilter) return false;
     return true;
   });
 
@@ -158,8 +160,10 @@ export default function Dashboard() {
         <SignalFilters
           statusFilter={statusFilter}
           directionFilter={directionFilter}
+          channelFilter={channelFilter}
           onStatusChange={setStatusFilter}
           onDirectionChange={setDirectionFilter}
+          onChannelChange={setChannelFilter}
         />
 
         {isLoading ? (
