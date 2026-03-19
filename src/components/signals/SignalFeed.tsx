@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Signal } from '@/types';
+import { formatDate } from '@/lib/timeUtils';
 import { SignalCard } from './SignalCard';
 import { LockedSignalCard } from './LockedSignalCard';
 import { SignalDetailModal } from './SignalDetailModal';
@@ -77,7 +78,7 @@ export function SignalFeed({ signals, onUpdateStatus, newSignalIds }: Props) {
     const dayStr = new Date(sig.createdAt).toDateString();
     if (dayStr !== currentDay) {
       currentDay = dayStr;
-      const label = dayStr === today ? 'Today' : dayStr === yesterday ? 'Yesterday' : new Date(sig.createdAt).toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
+      const label = dayStr === today ? 'Today' : dayStr === yesterday ? 'Yesterday' : formatDate(sig.createdAt);
       grouped.push({ label, signals: [sig] });
     } else {
       grouped[grouped.length - 1].signals.push(sig);

@@ -6,6 +6,8 @@ const CHANNEL_OPTIONS = [
   { value: 'tyl_trading', label: 'TYL', color: '#7c4dff' },
   { value: 'sinais_mil', label: 'SM', color: '#00e676' },
   { value: 'blacklist', label: 'BL', color: '#ff9100' },
+  { value: 'cole_carter', label: 'CC', color: '#e040fb' },
+  { value: 'private_team', label: 'PT', color: '#00bcd4' },
 ];
 
 interface Props {

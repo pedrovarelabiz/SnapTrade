@@ -1,4 +1,5 @@
 import { Signal } from '@/types';
+import { formatTime, formatGaleTime } from '@/lib/timeUtils';
 import { CountdownTimer } from '@/components/shared/CountdownTimer';
 import { StatusBadge } from '@/components/shared/StatusBadge';
 import { InstantBadge } from '@/components/signals/InstantBadge';
@@ -60,6 +61,8 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
                 tyl_trading: { label: 'TYL', bg: '#7c4dff' },
                 sinais_mil: { label: 'SM', bg: '#00e676' },
                 blacklist: { label: 'BL', bg: '#ff9100' },
+                cole_carter: { label: 'CC', bg: '#e040fb' },
+                private_team: { label: 'PT', bg: '#00bcd4' },
               };
               const b = badges[signal.channel!.slug];
               return b ? (
@@ -98,13 +101,13 @@ export function SignalCard({ signal, onUpdateStatus, isNew, onClick }: SignalCar
             {isPendingOrActive && !isScheduled && <InstantBadge createdAt={signal.createdAt} />}
             {!isPendingOrActive && (
               <span className="text-xs text-[var(--st-text-secondary)]">
-                {new Date(signal.entryTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                {formatTime(signal.entryTime)}
               </span>
             )}
             {isScheduled && hasMartingaleSchedule && isPendingOrActive && (
               <div className="flex items-center gap-2 flex-wrap">
                 {signal.martingaleSchedule!.map((step) => (
-                  <span key={step.level} className="text-[10px] text-[var(--st-text-secondary)] font-mono">Gale {step.level} @ {step.time}</span>
+                  <span key={step.level} className="text-[10px] text-[var(--st-text-secondary)] font-mono">Gale {step.level} @ {formatGaleTime(step.time, signal.entryTime || signal.createdAt)}</span>
                 ))}
               </div>
             )}
