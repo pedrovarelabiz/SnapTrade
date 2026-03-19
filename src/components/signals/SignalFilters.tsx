@@ -8,6 +8,7 @@ const CHANNEL_OPTIONS = [
   { value: 'blacklist', label: 'Source D', color: '#ff9100' },
   { value: 'cole_carter', label: 'Source E', color: '#e040fb' },
   { value: 'private_team', label: 'Source F', color: '#00bcd4' },
+  { value: 'pocket_vip', label: 'Source G', color: '#ff5252' },
 ];
 
 interface Props {

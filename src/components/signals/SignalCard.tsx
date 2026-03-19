@@ -24,6 +24,7 @@ const SOURCE_LABELS: Record<string, { label: string; bg: string }> = {
   blacklist:    { label: 'Source D', bg: '#ff9100' },
   cole_carter:  { label: 'Source E', bg: '#e040fb' },
   private_team: { label: 'Source F', bg: '#00bcd4' },
+  pocket_vip: { label: 'Source G', bg: '#ff5252' },
 };
 
 const dirStyles = {

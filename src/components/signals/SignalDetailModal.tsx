@@ -17,7 +17,7 @@ import { toast } from 'sonner';
 
 const SOURCE_LABELS: Record<string, string> = {
   tyl_vip: 'Source A', tyl_trading: 'Source B', sinais_mil: 'Source C',
-  blacklist: 'Source D', cole_carter: 'Source E', private_team: 'Source F',
+  blacklist: 'Source D', pocket_vip: 'Source G', cole_carter: 'Source E', private_team: 'Source F',
 };
 
 interface Props {
