@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://snaptrade.faroldigital.pt;"/>
+<title>SnapTrade Live</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 280px; height: 300px; overflow: hidden;
+  background: #0a0a0f; color: #e0e0e0;
+  font-family: system-ui, -apple-system, sans-serif; font-size: 11px;
+  border: 1px solid #2a2a3e; border-radius: 8px;
+}
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 10px; background: #12121a; border-bottom: 1px solid #2a2a3e;
+}
+.logo { font-weight: 700; color: #7c4dff; font-size: 12px; }
+.mode { font-size: 9px; padding: 1px 6px; border-radius: 4px; font-weight: 600; background: #00e67622; color: #00e676; }
+.account { display: flex; justify-content: space-between; padding: 5px 10px; font-size: 10px; border-bottom: 1px solid #2a2a3e; }
+.demo { color: #00e676; font-weight: 600; }
+.real { color: #ff1744; font-weight: 600; }
+.stats { display: flex; justify-content: space-around; padding: 6px 10px; border-bottom: 1px solid #2a2a3e; }
+.stat { text-align: center; }
+.stat-val { font-weight: 700; font-size: 13px; }
+.stat-val.green { color: #00e676; }
+.stat-val.red { color: #ff1744; }
+.stat-label { color: #8b8b9e; font-size: 9px; }
+.section-title { color: #8b8b9e; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 10px 2px; }
+.trades { padding: 0 8px; max-height: 140px; overflow-y: auto; }
+.trade { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px; border-radius: 5px; margin-bottom: 3px; font-size: 11px; transition: background 0.3s; }
+.trade.call { background: #00e67611; border-left: 2px solid #00e676; }
+.trade.put { background: #ff174411; border-left: 2px solid #ff1744; }
+.trade.winning { background: #00e67622; }
+.trade.losing { background: #ff174422; }
+.trade-asset { font-weight: 600; }
+.trade-pnl { font-family: monospace; font-weight: 700; }
+.trade-pnl.green { color: #00e676; }
+.trade-pnl.red { color: #ff1744; }
+.trade-time { color: #8b8b9e; font-family: monospace; font-size: 10px; }
+.trade-amount { color: #8b8b9e; font-size: 10px; }
+.empty { color: #8b8b9e; text-align: center; padding: 20px 10px; font-size: 11px; }
+.result { padding: 4px 8px; margin: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; text-align: center; animation: fadeIn 0.3s; }
+.result.win { background: #00e67622; color: #00e676; }
+.result.loss { background: #ff174422; color: #ff1744; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <span class="logo">SnapTrade Live</span>
+  <span class="mode" id="mode">AUTO</span>
+</div>
+<div class="account" id="account">
+  <span class="demo">DEMO</span>
+  <span>$0.00</span>
+</div>
+<div class="stats" id="stats">
+  <div class="stat"><div class="stat-val green" id="wins">0</div><div class="stat-label">Wins</div></div>
+  <div class="stat"><div class="stat-val red" id="losses">0</div><div class="stat-label">Losses</div></div>
+  <div class="stat"><div class="stat-val green" id="pnl">+$0.00</div><div class="stat-label">P&L</div></div>
+</div>
+<div class="section-title">OPEN TRADES</div>
+<div class="trades" id="trades"><div class="empty">Waiting for trades...</div></div>
+<div id="results"></div>
+
+<script src="floating.js"></script>
+</body>
+</html>
