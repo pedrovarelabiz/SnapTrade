@@ -1,0 +1,57 @@
+{
+  "_comment": "Real Pocket Option DOM selectors — verified 2026-03-19",
+  "_version": "2.0.0",
+  "_lastVerified": "2026-03-19",
+  "tradingView": {
+    "container": ".call-put-wrap.trading-panel",
+    "isReady": "a.btn.btn-call"
+  },
+  "assetSelector": {
+    "currentAsset": "span.current-symbol, span.current-symbol_cropped",
+    "dropdownTrigger": "a.pair-number-wrap",
+    "assetPanel": ".assets-block",
+    "assetPanelBody": ".assets-block__body",
+    "assetList": "ul.alist.alist-currency",
+    "assetItem": "li.alist__item",
+    "assetItemActive": "li.alist__item.alist__item--active",
+    "assetLink": "a.alist__link",
+    "categoryNav": ".assets-block__nav",
+    "categoryCurrency": ".assets-block__nav-item--currency",
+    "categoryCrypto": ".assets-block__nav-item--cryptocurrency",
+    "categoryFavorites": ".assets-block__nav-item--favorites",
+    "filterSort": ".assets-block__filters"
+  },
+  "tradeControls": {
+    "amountInput": ".value__val input[type='text'][autocomplete='off']",
+    "amountContainer": ".value__val",
+    "callButton": "a.btn.btn-call",
+    "putButton": "a.btn.btn-put"
+  },
+  "timeframe": {
+    "container": ".block--expiration-inputs",
+    "currentValue": ".block--expiration-inputs .value__val",
+    "title": ".block--expiration-inputs .block__title",
+    "controlButtons": ".block--expiration-inputs .control__buttons",
+    "upButton": ".block--expiration-inputs .control__buttons a:first-child",
+    "downButton": ".block--expiration-inputs .control__buttons a:last-child"
+  },
+  "accountInfo": {
+    "balanceReal": "span.js-balance-real-USD",
+    "balanceDemo": "span.js-balance-demo",
+    "balanceCurrent": "span.balance_current",
+    "accountTypeLabel": ".balance-info-block__label",
+    "isRealAccount": ".balance-item--current.balance-item--real",
+    "isDemoAccount": ".balance-item--current[data-type='demo']"
+  },
+  "tradeResult": {
+    "resultPopup": ".trade-result, .deal-result",
+    "resultWin": ".trade-result--win, .deal-result--win",
+    "resultLoss": ".trade-result--loss, .deal-result--loss",
+    "resultAmount": ".trade-result__amount, .deal-result__amount"
+  },
+  "misc": {
+    "assetInactive": ".asset-inactive",
+    "dealsListEmpty": ".deals-list",
+    "marketWatchPanel": ".market-watch-panel"
+  }
+}

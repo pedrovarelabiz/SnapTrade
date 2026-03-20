@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+
+# Dependencies
+node_modules
+
+# Frontend build
+dist/
+dist-ssr
+*.local
+
+# Extension build
+extension/dist/
+extension/node_modules/
+*.zip
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dyad
+.dyad/
+
+# Env
+.env*
+!.env.example

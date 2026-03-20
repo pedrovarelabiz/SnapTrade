@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "SnapTrade - Signal Auto-Trader",
+  "version": "2.0.2",
+  "description": "Receive real-time binary options signals and execute trades on Pocket Option with intelligent money management.",
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://snaptrade.faroldigital.pt/*",
+    "https://pocketoption.com/*",
+    "https://po.trade/*",
+    "https://*.pocketoption.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://pocketoption.com/*",
+        "https://po.trade/*",
+        "https://*.pocketoption.com/*"
+      ],
+      "js": [
+        "ws-interceptor.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://pocketoption.com/*",
+        "https://po.trade/*",
+        "https://*.pocketoption.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "overlay.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon-16.png",
+      "32": "assets/icon-32.png",
+      "48": "assets/icon-48.png",
+      "128": "assets/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  }
+}
