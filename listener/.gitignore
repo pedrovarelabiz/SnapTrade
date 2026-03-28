@@ -1,0 +1,50 @@
+# Environment files
+.env
+.env.*
+*.env
+.env.backup*
+# Allow the example template to be committed
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.log
+
+# Project specific
+backups/
+_archive/
+REDACTED/
+REDACTED.session
+report.html
+listener.log
+listener.py,cover
