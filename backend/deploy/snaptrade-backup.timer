@@ -1,0 +1,11 @@
+[Unit]
+Description=SnapTrade Backup Timer
+Documentation=man:systemd.timer(5)
+
+[Timer]
+OnCalendar=*-*-* 02:00:00
+Persistent=true
+Unit=snaptrade-backup-oneshot.service
+
+[Install]
+WantedBy=timers.target

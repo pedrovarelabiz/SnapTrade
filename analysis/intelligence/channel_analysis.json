@@ -1,0 +1,336 @@
+{
+  "blacklist": {
+    "total": 837,
+    "wins": 757,
+    "losses": 80,
+    "wr": 90.44,
+    "non_gale_total": 587,
+    "non_gale_wr": 100.0,
+    "unique_assets": 9,
+    "directions": {
+      "PUT": 664,
+      "CALL": 173
+    },
+    "date_range": [
+      "2021-11-28",
+      "2022-08-25"
+    ],
+    "top_assets": {
+      "NZDUSD_otc": {
+        "wr": 94.2,
+        "n": 86
+      },
+      "EURUSD_otc": {
+        "wr": 93.1,
+        "n": 87
+      },
+      "USDJPY_otc": {
+        "wr": 92.3,
+        "n": 104
+      },
+      "USDCHF_otc": {
+        "wr": 91.8,
+        "n": 97
+      },
+      "EURGBP_otc": {
+        "wr": 90.0,
+        "n": 110
+      }
+    },
+    "worst_assets": {
+      "AUDCAD_otc": {
+        "wr": 86.3,
+        "n": 117
+      },
+      "GBPUSD_otc": {
+        "wr": 88.6,
+        "n": 132
+      },
+      "EURJPY_otc": {
+        "wr": 89.3,
+        "n": 103
+      },
+      "EURGBP_otc": {
+        "wr": 90.0,
+        "n": 110
+      },
+      "USDCHF_otc": {
+        "wr": 91.8,
+        "n": 97
+      }
+    }
+  },
+  "cole_carter": {
+    "total": 65,
+    "wins": 65,
+    "losses": 0,
+    "wr": 100.0,
+    "non_gale_total": 65,
+    "non_gale_wr": 100.0,
+    "unique_assets": 18,
+    "directions": {
+      "CALL": 18,
+      "PUT": 47
+    },
+    "date_range": [
+      "2025-12-24",
+      "2026-03-17"
+    ],
+    "top_assets": {
+      "AEDCNY_otc": {
+        "wr": 100.0,
+        "n": 15
+      }
+    },
+    "worst_assets": {
+      "AEDCNY_otc": {
+        "wr": 100.0,
+        "n": 15
+      }
+    }
+  },
+  "private_team": {
+    "total": 429,
+    "wins": 376,
+    "losses": 53,
+    "wr": 87.65,
+    "non_gale_total": 429,
+    "non_gale_wr": 87.65,
+    "unique_assets": 45,
+    "directions": {
+      "CALL": 98,
+      "PUT": 331
+    },
+    "date_range": [
+      "2025-12-24",
+      "2026-03-18"
+    ],
+    "top_assets": {
+      "BHDCNY_otc": {
+        "wr": 100.0,
+        "n": 25
+      },
+      "CADCHF_otc": {
+        "wr": 100.0,
+        "n": 22
+      },
+      "EURCHF_otc": {
+        "wr": 100.0,
+        "n": 13
+      },
+      "AUDCAD_otc": {
+        "wr": 97.5,
+        "n": 40
+      },
+      "CHFJPY_otc": {
+        "wr": 90.9,
+        "n": 11
+      }
+    },
+    "worst_assets": {
+      "CHFNOK_otc": {
+        "wr": 80.0,
+        "n": 15
+      },
+      "AEDCNY_otc": {
+        "wr": 83.3,
+        "n": 48
+      },
+      "AUDNZD_otc": {
+        "wr": 83.3,
+        "n": 30
+      },
+      "CADJPY_otc": {
+        "wr": 85.7,
+        "n": 14
+      },
+      "AUDUSD_otc": {
+        "wr": 87.5,
+        "n": 40
+      }
+    }
+  },
+  "sinais_mil": {
+    "total": 3645,
+    "wins": 3019,
+    "losses": 626,
+    "wr": 82.83,
+    "non_gale_total": 3008,
+    "non_gale_wr": 100.0,
+    "unique_assets": 33,
+    "directions": {
+      "PUT": 2534,
+      "CALL": 1111
+    },
+    "date_range": [
+      "2022-08-25",
+      "2025-08-07"
+    ],
+    "top_assets": {
+      "AUDCHF": {
+        "wr": 91.5,
+        "n": 59
+      },
+      "EURCAD": {
+        "wr": 88.5,
+        "n": 209
+      },
+      "GBPCHF": {
+        "wr": 87.6,
+        "n": 145
+      },
+      "USDCHF": {
+        "wr": 87.2,
+        "n": 78
+      },
+      "CADCHF": {
+        "wr": 86.4,
+        "n": 22
+      }
+    },
+    "worst_assets": {
+      "USDJPY": {
+        "wr": 78.6,
+        "n": 173
+      },
+      "EURAUD": {
+        "wr": 80.5,
+        "n": 185
+      },
+      "EURUSD": {
+        "wr": 80.6,
+        "n": 253
+      },
+      "GBPAUD": {
+        "wr": 80.9,
+        "n": 209
+      },
+      "AUDCAD": {
+        "wr": 80.9,
+        "n": 235
+      }
+    }
+  },
+  "tyl_trading": {
+    "total": 5103,
+    "wins": 4433,
+    "losses": 670,
+    "wr": 86.87,
+    "non_gale_total": 2546,
+    "non_gale_wr": 100.0,
+    "unique_assets": 78,
+    "directions": {
+      "CALL": 2529,
+      "PUT": 2574
+    },
+    "date_range": [
+      "2025-01-20",
+      "2026-03-19"
+    ],
+    "top_assets": {
+      "EURJPY": {
+        "wr": 100.0,
+        "n": 10
+      },
+      "EURGBP": {
+        "wr": 100.0,
+        "n": 11
+      },
+      "USDIDR_otc": {
+        "wr": 94.7,
+        "n": 38
+      },
+      "EURGBP_otc": {
+        "wr": 94.7,
+        "n": 75
+      },
+      "USDDZD_otc": {
+        "wr": 94.3,
+        "n": 35
+      }
+    },
+    "worst_assets": {
+      "NZDJPY_otc": {
+        "wr": 73.3,
+        "n": 30
+      },
+      "USDSGD_otc": {
+        "wr": 74.4,
+        "n": 43
+      },
+      "EURUSD": {
+        "wr": 75.0,
+        "n": 12
+      },
+      "USDRUB_otc": {
+        "wr": 75.7,
+        "n": 37
+      },
+      "USDCLP_otc": {
+        "wr": 76.3,
+        "n": 38
+      }
+    }
+  },
+  "tyl_vip": {
+    "total": 7989,
+    "wins": 6968,
+    "losses": 1021,
+    "wr": 87.22,
+    "non_gale_total": 3958,
+    "non_gale_wr": 100.0,
+    "unique_assets": 78,
+    "directions": {
+      "PUT": 4040,
+      "CALL": 3949
+    },
+    "date_range": [
+      "2025-04-21",
+      "2026-03-18"
+    ],
+    "top_assets": {
+      "AUDCAD": {
+        "wr": 100.0,
+        "n": 12
+      },
+      "QARCNY_otc": {
+        "wr": 94.1,
+        "n": 51
+      },
+      "CHFNOK_otc": {
+        "wr": 93.0,
+        "n": 43
+      },
+      "USDSGD_otc": {
+        "wr": 92.9,
+        "n": 42
+      },
+      "USDINR_otc": {
+        "wr": 92.3,
+        "n": 65
+      }
+    },
+    "worst_assets": {
+      "USDEGP_otc": {
+        "wr": 77.1,
+        "n": 48
+      },
+      "EURJPY_otc": {
+        "wr": 80.0,
+        "n": 60
+      },
+      "AUDJPY": {
+        "wr": 80.0,
+        "n": 15
+      },
+      "USDBRL_otc": {
+        "wr": 82.0,
+        "n": 100
+      },
+      "USDRUB_otc": {
+        "wr": 82.5,
+        "n": 63
+      }
+    }
+  }
+}

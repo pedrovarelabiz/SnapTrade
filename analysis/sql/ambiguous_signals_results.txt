@@ -1,0 +1,42 @@
+================================================================================
+AMBIGUOUS SIGNALS ANALYSIS RESULTS
+Historical Data Analysis for D3 Issue Validation
+Executed: 2026-03-23
+================================================================================
+
+SUMMARY:
+- Total signals analyzed: 8,028
+- Ambiguous cases found: 1
+- Total signals involved in ambiguous cases: 3
+- Assets affected: 1 (CADJPY_otc)
+
+DETAILED FINDINGS:
+
+Case #1:
+--------
+Asset: CADJPY_otc
+Time Bucket: 2025-09-12T23:40:00Z
+Signal Count: 3
+Directions: CALL, CALL, CALL
+First Signal: 2025-09-12T23:40:00Z
+Last Signal: 2025-09-12T23:40:00Z
+Time Difference: 0 seconds (simultaneous)
+
+ANALYSIS:
+This case represents 3 duplicate signals posted at exactly the same time for the
+same asset (CADJPY_otc) with the same direction (CALL). This is the exact scenario
+that the D3 fix (signal deduplication) is designed to prevent.
+
+VALIDATION:
+The D3 fix is validated as necessary - without proper deduplication logic, users
+would have received the same signal 3 times, potentially causing:
+- Duplicate trades
+- Confusion in the UI
+- Incorrect risk management
+
+CONCLUSION:
+Found 1 ambiguous signal case affecting 3 signals in the historical dataset,
+confirming the D3 issue exists in production data and validating the necessity
+of the deduplication fix.
+
+Verification command successful: ✓

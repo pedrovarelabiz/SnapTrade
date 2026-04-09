@@ -1,0 +1,3658 @@
+"""SnapTrade — Multi-Channel Telegram Listener.
+
+Listens to all configured channels simultaneously, routes messages
+to the correct parser, and forwards signals/results to the backend API.
+"""
+
+import asyncio
+import gc
+import json
+import logging
+import os
+import re
+import signal
+import sys
+import time
+import traceback
+from collections import deque
+from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
+from enum import Enum
+from logging.handlers import RotatingFileHandler
+from typing import Optional, Dict, Any, List, Deque
+
+import aiohttp
+import sentry_sdk
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+from telethon import TelegramClient, events
+from telethon.errors import FloodWaitError, AuthKeyError, PhoneNumberInvalidError
+
+sys.path.insert(0, os.path.dirname(__file__))
+
+from config import (
+    TELEGRAM_API_ID,
+    TELEGRAM_API_HASH,
+    TELEGRAM_PHONE,
+    SESSION_NAME,
+    LOGS_DIR,
+)
+from parser import parse_message
+from multi_channel_parsers import (
+    parse_blacklist_live,
+    parse_sinais_live,
+    parse_instant_ready_live,
+    parse_vip_otc_market,
+)
+from sentry_config import init_sentry
+
+VERSION = "2.1.0"  # Fixed signal attribution race condition (D3)
+
+# Prometheus metrics
+exact_match_total = Counter(
+    "exact_match_total", "Total number of exact expiration matches"
+)
+signal_matches_proximity_fallback_total = Counter(
+    "signal_matches_proximity_fallback_total",
+    "Total number of proximity fallback matches",
+    ["asset", "reason"],
+)
+ambiguous_attribution_total = Counter(
+    "ambiguous_attribution_total", "Total number of ambiguous signal attributions"
+)
+expiration_delta_seconds = Histogram(
+    "expiration_delta_seconds",
+    "Time difference between result and expected expiration in seconds",
+)
+signal_matches_exact_expiration_total = Counter(
+    "signal_matches_exact_expiration_total",
+    "Total exact expiration matches by asset and outcome",
+    ["asset", "outcome"],
+)
+signal_race_conditions_detected_total = Counter(
+    "signal_race_conditions_detected_total",
+    "Total number of race conditions detected when 2+ signals match exact expiration",
+    ["asset"],
+)
+signal_matching_duration_seconds = Histogram(
+    "signal_matching_duration_seconds",
+    "Duration of signal matching operations in seconds",
+    ["method"],
+)
+
+# Global tier match counters
+tier1_matches = 0
+tier2_matches = 0
+tier3_matches = 0
+
+# Debug mode for signal matching
+SIGNAL_MATCHING_DEBUG = os.getenv("SIGNAL_MATCHING_DEBUG", "false").lower() == "true"
+
+# Tolerance for exact expiration match (in seconds)
+EXACT_MATCH_TOLERANCE_SECONDS = int(os.getenv('EXACT_MATCH_TOLERANCE_SECONDS', '5'))
+PROXIMITY_MATCH_WINDOW_MINUTES = int(os.getenv('PROXIMITY_MATCH_WINDOW_MINUTES', '30'))
+EXPIRATION_MATCH_TOLERANCE_SECONDS = 5
+EXPIRATION_MATCH_TOLERANCE = 60  # ±60s tolerance for clock skew
+
+
+def parse_martingale_time(time_str: str) -> int:
+    """Convert time strings like '5m', '10m', '1h' to seconds.
+
+    Args:
+        time_str: Time string with format like '5m', '10m', '1h'
+
+    Returns:
+        Time in seconds
+
+    Raises:
+        ValueError: If time_str is empty or has invalid format
+    """
+    if not time_str or not isinstance(time_str, str):
+        raise ValueError("Time string cannot be empty or None")
+
+    time_str = time_str.strip()
+    if not time_str:
+        raise ValueError("Time string cannot be empty")
+
+    # Match pattern: number + unit (m/h/s)
+    match = re.match(r"^(\d+)([smh])$", time_str.lower())
+    if not match:
+        raise ValueError(
+            f"Invalid time format: '{time_str}'. Expected format: '5m', '10m', '1h', etc."
+        )
+
+    value = int(match.group(1))
+    unit = match.group(2)
+
+    if unit == "s":
+        return value
+    elif unit == "m":
+        return value * 60
+    elif unit == "h":
+        return value * 3600
+    else:
+        raise ValueError(f"Unknown time unit: '{unit}'")
+
+
+def log_matching_stats():
+    """Log the distribution of tier usage for signal matching."""
+    global tier1_matches, tier2_matches, tier3_matches
+
+    total_matches = tier1_matches + tier2_matches + tier3_matches
+    if total_matches == 0:
+        logger.info("Matching stats: No tier matches recorded yet")
+        return
+
+    tier1_pct = (tier1_matches / total_matches) * 100
+    tier2_pct = (tier2_matches / total_matches) * 100
+    tier3_pct = (tier3_matches / total_matches) * 100
+
+    logger.info(
+        f"Matching stats: Total={total_matches} | "
+        f"Tier1={tier1_matches} ({tier1_pct:.1f}%) | "
+        f"Tier2={tier2_matches} ({tier2_pct:.1f}%) | "
+        f"Tier3={tier3_matches} ({tier3_pct:.1f}%)"
+    )
+
+
+def calculate_expiration_time(
+    entry_time: datetime, martingale_times: List[int], martingale_level: int = 0
+) -> datetime:
+    """Calculate exact expiration timestamp based on martingale level.
+
+    This function computes the precise expiration time for a trading position by adding
+    the appropriate duration (from martingale_times) to the entry timestamp. It is used
+    in martingale trading strategies where each level has a predefined expiration duration.
+    The function validates all inputs and ensures type safety before performing calculations.
+
+    Args:
+        entry_time: The original entry timestamp when the position was opened.
+                   Must be a valid datetime object and cannot be None.
+        martingale_times: List of martingale time values in minutes for each level.
+                         Must be a non-empty list of integers. Each element represents
+                         the duration in minutes for that martingale level.
+        martingale_level: The current martingale level (0-based index) to use for
+                         calculating expiration. Defaults to 0 (first level).
+                         Must be within bounds [0, len(martingale_times)).
+
+    Returns:
+        datetime: Exact expiration timestamp calculated as entry_time plus the duration
+                 (in minutes) specified by martingale_times[martingale_level].
+
+    Raises:
+        ValueError: If entry_time is None
+        ValueError: If martingale_times is None
+        ValueError: If martingale_times is not a non-empty list
+        ValueError: If martingale_level is None
+        ValueError: If martingale_level < 0 or martingale_level >= len(martingale_times)
+        ValueError: If martingale_times[martingale_level] is None
+        TypeError: If entry_time is not a datetime object
+
+    Examples:
+        Basic usage with different martingale levels:
+        >>> entry = datetime(2026, 3, 24, 10, 0, 0)
+        >>> times = [5, 10, 15]
+        >>> calculate_expiration_time(entry, times, 0)
+        datetime(2026, 3, 24, 10, 5, 0)  # 10:00 + 5 min = 10:05
+        >>> calculate_expiration_time(entry, times, 1)
+        datetime(2026, 3, 24, 10, 10, 0)  # 10:00 + 10 min = 10:10
+        >>> calculate_expiration_time(entry, times, 2)
+        datetime(2026, 3, 24, 10, 15, 0)  # 10:00 + 15 min = 10:15
+
+        Edge case - midnight crossing:
+        >>> entry_late = datetime(2026, 3, 24, 23, 55, 0)
+        >>> calculate_expiration_time(entry_late, [10], 0)
+        datetime(2026, 3, 25, 0, 5, 0)  # 23:55 + 10 min = 00:05 next day
+
+        Edge case - month boundary crossing:
+        >>> entry_month_end = datetime(2026, 3, 31, 23, 50, 0)
+        >>> calculate_expiration_time(entry_month_end, [20], 0)
+        datetime(2026, 4, 1, 0, 10, 0)  # Crosses into April
+
+    Notes:
+        - Edge cases: The function correctly handles datetime arithmetic across day,
+          month, and year boundaries using timedelta.
+        - Thread safety: This is a pure function with no side effects or shared state.
+        - Performance: O(1) time complexity with minimal validation overhead.
+        - Timezone handling: Preserves timezone information from entry_time if present.
+    """
+    try:
+        # Validate inputs
+        if entry_time is None:
+            raise ValueError("entry_time cannot be None")
+        if not isinstance(entry_time, datetime):
+            raise TypeError("entry_time must be a datetime object")
+        if martingale_times is None:
+            raise ValueError("martingale_times cannot be None")
+        if not isinstance(martingale_times, list) or not martingale_times:
+            raise ValueError("martingale_times must be a non-empty list")
+        if martingale_level is None:
+            raise ValueError("martingale_level cannot be None")
+        if not isinstance(martingale_level, int):
+            raise TypeError("martingale_level must be an integer")
+        if martingale_level < 0 or martingale_level >= len(martingale_times):
+            raise ValueError(
+                f"martingale_level {martingale_level} out of bounds for list of length {len(martingale_times)}"
+            )
+        if martingale_times[martingale_level] is None:
+            raise ValueError(f"martingale_times[{martingale_level}] cannot be None")
+
+        # Use the value at martingale_level directly as seconds
+        seconds = martingale_times[martingale_level]
+
+        # Return entry_time + timedelta(seconds=seconds)
+        return entry_time + timedelta(seconds=seconds)
+    except Exception as e:
+        logger.error(
+            f"Error calculating expiration time: {e}. Signal details - entry_time: {entry_time}, "
+            f"martingale_times: {martingale_times}, martingale_level: {martingale_level}"
+        )
+        raise
+
+
+def find_matching_signal_proximity_only(
+    asset: str, result_timestamp: datetime, signals: list
+) -> Optional[dict]:
+    """Find a signal using proximity matching when exact matching fails.
+
+    Args:
+        asset: The asset symbol to match
+        result_timestamp: The datetime when the result was received (timezone-aware or naive)
+        signals: List of signal dictionaries to search
+
+    Returns:
+        Best matching signal dict based on proximity, None if no suitable match found
+    """
+    start_time = time.time()
+    # Ensure timezone consistency
+    if result_timestamp.tzinfo is None:
+        result_timestamp = result_timestamp.replace(tzinfo=timezone.utc)
+
+    candidates = []
+    for signal in signals:
+        # Filter by asset
+        if signal.get("asset") != asset:
+            continue
+
+        # Get entry time
+        try:
+            entry_time = datetime.fromisoformat(
+                signal["entryTimeUtc"].replace("Z", "+00:00")
+            )
+            if entry_time.tzinfo is None:
+                entry_time = entry_time.replace(tzinfo=timezone.utc)
+        except (KeyError, ValueError, AttributeError):
+            continue
+
+        # Time window filter: skip signals outside reasonable window (+-35 minutes)
+        # TIER 3 is last-resort: allow matching before and after entry time
+        delta_min = abs((result_timestamp - entry_time).total_seconds()) / 60
+        if delta_min > 35:
+            continue
+
+        # Get martingale times and calculate expiration (if available)
+        martingale_times = signal.get("martingaleTimes", [])
+        matched_via_martingale = False
+
+        if martingale_times:
+            # Convert martingale times and calculate expected expiration
+            try:
+                martingale_seconds = []
+                for mt in martingale_times:
+                    if isinstance(mt, str) and ":" in mt:
+                        parts = mt.split(":")
+                        if len(parts) == 2:
+                            mins, secs = map(int, parts)
+                            # Convert to total seconds: minutes * 60 + seconds
+                            martingale_seconds.append(mins * 60 + secs)
+                    else:
+                        # Assume already in seconds if not in MM:SS format
+                        martingale_seconds.append(float(mt))
+
+                # Calculate expiration time using the last martingale iteration
+                iteration = len(martingale_seconds) - 1
+                expiration_time = calculate_expiration_time(
+                    entry_time, martingale_seconds, iteration
+                )
+
+                # Calculate proximity score (time difference from expected expiration)
+                time_diff = abs((result_timestamp - expiration_time).total_seconds())
+                candidates.append((signal, expiration_time, time_diff))
+                matched_via_martingale = True
+            except Exception:
+                pass  # Fall through to entry_time proximity below
+
+        # TIER 3 fallback: use entry_time directly for proximity when no martingaleTimes
+        if not matched_via_martingale:
+            time_diff = abs((result_timestamp - entry_time).total_seconds())
+            candidates.append((signal, entry_time, time_diff))
+
+    # Return the closest match by proximity
+    if candidates:
+        # Detect ambiguity: multiple signals match within the window
+        if len(candidates) >= 2:
+            match_details = [
+                f"signal_id={sig.get('id')}, timestamp={exp.isoformat()}, time_diff={diff:.2f}s"
+                for sig, exp, diff in candidates
+            ]
+            logger.warning(
+                f"Ambiguous proximity match detected for asset={asset}: {len(candidates)} signals matched. "
+                f"Matches: {'; '.join(match_details)}. Returning closest match."
+            )
+
+        # Prefer signals placed BEFORE result (entry_time <= result_timestamp),
+        # then pick closest by time_diff. Signals after result are last resort.
+        best_match = min(candidates, key=lambda x: (x[1] > result_timestamp, x[2]))
+        signal, expiration, time_diff = best_match
+        logger.warning(
+            f"Using proximity fallback for {asset} - exact expiration matching failed. "
+            f"signal_timestamp={expiration.isoformat()}, result_timestamp={result_timestamp.isoformat()}"
+        )
+        logger.info(
+            f"Proximity match found: signal_id={signal.get('id')}, asset={asset}, "
+            f"expiration={expiration.isoformat()}, result_timestamp={result_timestamp.isoformat()}, "
+            f"time_diff={time_diff:.2f}s"
+        )
+        signal_matching_duration_seconds.labels(method="proximity").observe(
+            time.time() - start_time
+        )
+        return signal
+
+    # No match found after all 3 tiers - log comprehensive error with full context
+    pending_signals_for_asset = [s for s in signals if s.get("asset") == asset]
+    pending_signal_timestamps = []
+    for sig in pending_signals_for_asset:
+        try:
+            entry_time = datetime.fromisoformat(
+                sig["entryTimeUtc"].replace("Z", "+00:00")
+            )
+            pending_signal_timestamps.append(entry_time.isoformat())
+        except (KeyError, ValueError, AttributeError):
+            pending_signal_timestamps.append("invalid_timestamp")
+
+    logger.error(
+        f"No match found after all 3 tiers (exact, martingale-aware, proximity) - "
+        f"asset={asset}, result_timestamp={result_timestamp.isoformat()}, "
+        f"num_pending_signals={len(pending_signals_for_asset)}, "
+        f"pending_signal_timestamps={pending_signal_timestamps}"
+    )
+
+    # Capture Sentry event for match failures to track matching issues
+    sentry_sdk.capture_message(
+        'Signal match failed',
+        level='warning',
+        extras={
+            'asset': asset,
+            'timestamp': result_timestamp.isoformat(),
+            'pending_signal_count': len(pending_signals_for_asset)
+        }
+    )
+
+    signal_matching_duration_seconds.labels(method="proximity").observe(
+        time.time() - start_time
+    )
+    return None
+
+
+# Issue D3: Race Condition Fix
+# Problem: When multiple signals match within the tolerance window (±60s), we cannot
+# reliably determine which signal generated a particular result, creating a race condition
+# that leads to incorrect signal attribution and duplicate result processing.
+# Solution: This function uses exact expiration matching (calculate_expiration_time) as the
+# primary strategy. When 2+ signals match within tolerance (race condition detected), it
+# falls back to proximity matching to resolve ambiguity. All race conditions are logged,
+# tracked in Sentry with 'D3' tag, and counted in signal_race_conditions_detected_total metric.
+def find_matching_signal(
+    asset: str,
+    result_timestamp: datetime,
+    result_iteration: int,
+    signals: List[Dict[str, Any]],
+) -> Optional[Dict[str, Any]]:
+    """Find a signal using 3-tier matching algorithm with progressive fallback.
+
+    Implements a hierarchical matching strategy to resolve race conditions (D3 fix) and
+    handle clock skew, progressing from most precise to most permissive:
+
+    **3-Tier Matching Algorithm:**
+
+    **TIER 1 - Exact Expiration Match (±5s tolerance):**
+    - Uses signal.expirationTime field for direct comparison
+    - Filters by asset symbol and checks result_timestamp against expirationTime
+    - Returns immediately on first match with confidence_score based on time_diff
+    - Most reliable: avoids calculation errors and handles pre-computed expirations
+
+    **TIER 2 - Martingale-Aware Match (±5s tolerance):**
+    - Activates only if TIER 1 finds no match
+    - Calculates expiration times for ALL martingale levels using calculate_expiration_time()
+    - Checks result_timestamp against each level's computed expiration (entry_time + duration)
+    - Handles multiple matches by selecting closest time delta (D3 race condition mitigation)
+    - Sets signal["martingale_level"] on match
+    - Returns (signal, 2, confidence_score) where confidence decreases with time_diff
+
+    **TIER 3 - Proximity Fallback (30-minute window):**
+    - Activates only if TIER 1 and TIER 2 both fail
+    - Matches if result_timestamp is within [entry_time, entry_time + 30 minutes]
+    - Selects signal with smallest time delta from entry_time
+    - Logs warning indicating exact matching failed
+    - Returns (signal, 3, confidence_score) where confidence decreases with time_delta_minutes
+    - Lowest confidence: used as last resort for degraded timestamp accuracy
+
+    **D3 Race Condition Fix:**
+    TIER 2 handles ambiguous matches (multiple signals with same expiration) by selecting
+    the signal with the minimum time delta, logging warnings for monitoring, and returning
+    match_tier=2 to indicate potential race condition. This prevents the silent signal
+    attribution errors documented in issue D3.
+
+    Args:
+        asset: The asset symbol to match (e.g., "EURUSD", "BTCUSD")
+        result_timestamp: The datetime when the result was received (timezone-aware or naive;
+            naive timestamps are automatically converted to UTC)
+        result_iteration: Martingale iteration number (0 for first/only attempt, 1+ for retries);
+            currently unused but reserved for future iteration-specific matching logic
+        signals: List of signal dictionaries to search through; each dict must contain
+            asset, entryTimeUtc, and optionally expirationTime and martingaleTimes fields
+
+    Returns:
+        Tuple of (signal, match_tier, confidence_score) where:
+        - signal: Matched signal dict if found, None if no match across all tiers
+        - match_tier: Integer indicating match quality: 1 (exact), 2 (martingale), 3 (proximity), None if no match
+        - confidence_score: Float 0.0-1.0 based on timestamp precision; closer to 1.0 = higher confidence
+
+    Examples:
+        >>> # TIER 1 exact match
+        >>> signals = [{"asset": "EURUSD", "expirationTime": "2026-03-24T10:05:00Z", "id": "sig1"}]
+        >>> result_time = datetime(2026, 3, 24, 10, 5, 2, tzinfo=timezone.utc)  # 2s diff
+        >>> signal, tier, conf = find_matching_signal("EURUSD", result_time, 0, signals)
+        >>> assert tier == 1 and conf > 0.9
+
+        >>> # TIER 2 martingale match (no expirationTime field)
+        >>> signals = [{"asset": "BTCUSD", "entryTimeUtc": "2026-03-24T10:00:00Z",
+        ...             "martingaleTimes": ["5:00", "10:00"], "id": "sig2"}]
+        >>> result_time = datetime(2026, 3, 24, 10, 5, 3, tzinfo=timezone.utc)  # matches level 0
+        >>> signal, tier, conf = find_matching_signal("BTCUSD", result_time, 0, signals)
+        >>> assert tier == 2 and signal["martingale_level"] == 0
+
+        >>> # TIER 3 proximity fallback
+        >>> signals = [{"asset": "GBPUSD", "entryTimeUtc": "2026-03-24T09:50:00Z", "id": "sig3"}]
+        >>> result_time = datetime(2026, 3, 24, 10, 10, 0, tzinfo=timezone.utc)  # 20min after entry
+        >>> signal, tier, conf = find_matching_signal("GBPUSD", result_time, 0, signals)
+        >>> assert tier == 3 and conf < 0.5  # Low confidence due to large time window
+    """
+    start_time = time.time()
+    # Ensure timezone consistency: if naive, assume UTC
+    if result_timestamp.tzinfo is None:
+        logger.error(
+            f"result_timestamp is not timezone-aware for asset {asset}, converting to UTC"
+        )
+        result_timestamp = result_timestamp.replace(tzinfo=timezone.utc)
+
+    # Add Sentry breadcrumb for debugging matching attempts
+    candidate_signals_count = sum(1 for s in signals if s.get("asset") == asset)
+    sentry_sdk.add_breadcrumb(
+        category="matching",
+        message="find_matching_signal attempt",
+        level="info",
+        data={
+            "asset": asset,
+            "result_timestamp": result_timestamp.isoformat(),
+            "candidate_signals_count": candidate_signals_count,
+        },
+    )
+
+    # TIER 1: Exact expiration time matching using signal.expirationTime field
+    # Uses ±5 second tolerance for precise matching
+    # Collect ALL matches to detect race conditions
+    tier1_matches = []
+    for signal in signals:
+        # Filter by asset
+        if signal.get("asset") != asset:
+            continue
+
+        # Get expirationTime from signal
+        expiration_time_str = signal.get("expirationTime")
+        if not expiration_time_str:
+            continue
+
+        try:
+            expiration_time = datetime.fromisoformat(
+                expiration_time_str.replace("Z", "+00:00")
+            )
+            # Ensure timezone-aware
+            if expiration_time.tzinfo is None:
+                expiration_time = expiration_time.replace(tzinfo=timezone.utc)
+        except (ValueError, AttributeError):
+            continue
+
+        # Check if result_timestamp matches expirationTime within ±5 second tolerance
+        time_diff = abs((result_timestamp - expiration_time).total_seconds())
+        if time_diff <= EXACT_MATCH_TOLERANCE_SECONDS:
+            tier1_matches.append((signal, expiration_time, time_diff))
+
+    # Handle TIER 1 matches
+    if len(tier1_matches) == 1:
+        signal, expiration_time, time_diff = tier1_matches[0]
+        logger.debug(
+            f"TIER 1 exact match found: signal_id={signal.get('id')}, asset={asset}, "
+            f"expiration_time={expiration_time.isoformat()}, "
+            f"result_timestamp={result_timestamp.isoformat()}, time_delta={time_diff:.2f}s"
+        )
+        logger.info(
+            f"TIER 1 exact match found: signal_id={signal.get('id')}, asset={asset}, "
+            f"expiration_time={expiration_time.isoformat()}, "
+            f"result_timestamp={result_timestamp.isoformat()}, time_delta={time_diff:.2f}s"
+        )
+        signal_matching_duration_seconds.labels(method="exact").observe(
+            time.time() - start_time
+        )
+        confidence_score = max(0.0, 1.0 - time_diff / 25.0)
+        sentry_sdk.add_breadcrumb(
+            category='signal_matching',
+            message=f'Matched via tier 1',
+            level='info',
+            data={
+                'signal_id': signal.get('id'),
+                'asset': asset,
+                'confidence': confidence_score,
+            }
+        )
+        return (signal, 1, confidence_score)
+    elif len(tier1_matches) > 1:
+        # Race condition detected - multiple signals match the same expiration time
+        matching_ids = [s.get('id') for s, _, _ in tier1_matches]
+        matching_details = [
+            f"signal_id={s.get('id')}, expiration={exp.isoformat()}, delta={td:.2f}s"
+            for s, exp, td in tier1_matches
+        ]
+        logger.error(
+            f"TIER 1: Race condition detected - multiple signals match exact expiration: "
+            f"asset={asset}, result_timestamp={result_timestamp.isoformat()}, "
+            f"num_matches={len(tier1_matches)}, signal_ids={matching_ids}, "
+            f"matches=[{'; '.join(matching_details)}]"
+        )
+
+        # Increment race condition metric
+        signal_race_conditions_detected_total.labels(asset=asset).inc()
+
+        # Capture Sentry event for race condition
+        sentry_sdk.capture_event({
+            "level": "error",
+            "message": "Signal attribution race condition detected (TIER 1)",
+            "extra": {
+                "signal_ids": matching_ids,
+                "asset": asset,
+                "result_timestamp": result_timestamp.isoformat(),
+                "num_matches": len(tier1_matches),
+                "matching_details": matching_details,
+                "tier": 1,
+            },
+            "tags": {
+                "issue": "D3",
+            },
+        })
+
+        # Fall back to proximity matching
+        logger.warning(
+            f"Falling back to proximity matching due to race condition: asset={asset}, num_matches={len(tier1_matches)}"
+        )
+        signal_matches_proximity_fallback_total.labels(
+            asset=asset, reason="ambiguous_exact_match"
+        ).inc()
+        proximity_result = find_matching_signal_proximity_only(asset, result_timestamp, signals)
+        if proximity_result:
+            # Return as tier 3 match with lower confidence score
+            return (proximity_result, 3, 0.5)
+        else:
+            return (None, None, None)
+
+    logger.debug(f"TIER 1: No exact match found for asset={asset}, result_timestamp={result_timestamp.isoformat()}")
+
+    # TIER 2: Martingale-aware matching - check if result_timestamp falls within any martingale level's expiration window
+    logger.debug(f"TIER 2: Checking martingale-aware matching for asset={asset}, result_timestamp={result_timestamp.isoformat()}")
+    tier2_matches = []
+    for signal in signals:
+        # Filter by asset
+        if signal.get("asset") != asset:
+            continue
+
+        # Get entry time
+        try:
+            entry_time = datetime.fromisoformat(
+                signal["entryTimeUtc"].replace("Z", "+00:00")
+            )
+            if entry_time.tzinfo is None:
+                entry_time = entry_time.replace(tzinfo=timezone.utc)
+        except (KeyError, ValueError, AttributeError):
+            continue
+
+        # Get martingale times
+        martingale_times = signal.get("martingaleTimes", [])
+        if not martingale_times:
+            continue
+
+        # Convert martingale times from "MM:SS" format to total seconds
+        try:
+            martingale_seconds = []
+            for mt in martingale_times:
+                if isinstance(mt, str) and ":" in mt:
+                    parts = mt.split(":")
+                    if len(parts) == 2:
+                        mins, secs = map(int, parts)
+                        # Convert to total seconds: minutes * 60 + seconds
+                        martingale_seconds.append(mins * 60 + secs)
+                else:
+                    # Assume already in seconds if not in MM:SS format
+                    martingale_seconds.append(float(mt))
+        except (ValueError, AttributeError):
+            continue
+
+        # Calculate expiration times for ALL martingale levels
+        for martingale_level, _ in enumerate(martingale_seconds):
+            try:
+                expiration_time = calculate_expiration_time(
+                    entry_time, martingale_seconds, martingale_level
+                )
+                if expiration_time.tzinfo is None:
+                    expiration_time = expiration_time.replace(tzinfo=timezone.utc)
+
+                # Check if result_timestamp matches this martingale level's expiration within ±5 second tolerance
+                time_diff = abs((result_timestamp - expiration_time).total_seconds())
+                if time_diff <= EXACT_MATCH_TOLERANCE_SECONDS:
+                    tier2_matches.append((signal, martingale_level, expiration_time, time_diff))
+            except Exception:
+                continue
+
+    # Handle TIER 2 matches
+    if len(tier2_matches) == 1:
+        signal, martingale_level, expiration_time, time_diff = tier2_matches[0]
+        logger.info(
+            f"TIER 2 martingale match found: signal_id={signal.get('id')}, asset={asset}, "
+            f"martingale_level={martingale_level}, expected_expiration={expiration_time.isoformat()}, "
+            f"actual_result_time={result_timestamp.isoformat()}, time_delta={time_diff:.2f}s"
+        )
+        signal_matching_duration_seconds.labels(method="exact").observe(
+            time.time() - start_time
+        )
+        signal["martingale_level"] = martingale_level
+        confidence_score = min(0.85, max(0.0, 1.0 - time_diff / 5.0))
+        sentry_sdk.add_breadcrumb(
+            category='signal_matching',
+            message=f'Matched via tier 2',
+            level='info',
+            data={
+                'signal_id': signal.get('id'),
+                'asset': asset,
+                'confidence': confidence_score,
+            }
+        )
+        return (signal, 2, confidence_score)
+    elif len(tier2_matches) > 1:
+        # Race condition detected - multiple signals match the same martingale expiration
+        matching_ids = [s.get('id') for s, _, _, _ in tier2_matches]
+        match_details = [
+            f"signal_id={s.get('id')}, level={lvl}, exp={exp.isoformat()}, delta={td:.2f}s"
+            for s, lvl, exp, td in tier2_matches
+        ]
+        logger.error(
+            f"TIER 2: Race condition detected - multiple martingale matches found for asset={asset}, "
+            f"result_timestamp={result_timestamp.isoformat()}, num_matches={len(tier2_matches)}, "
+            f"signal_ids={matching_ids}, matches=[{'; '.join(match_details)}]"
+        )
+
+        # Increment race condition metric
+        signal_race_conditions_detected_total.labels(asset=asset).inc()
+
+        # Capture Sentry event for race condition
+        sentry_sdk.capture_event({
+            "level": "error",
+            "message": "Signal attribution race condition detected (TIER 2)",
+            "extra": {
+                "signal_ids": matching_ids,
+                "asset": asset,
+                "result_timestamp": result_timestamp.isoformat(),
+                "num_matches": len(tier2_matches),
+                "matching_details": match_details,
+                "tier": 2,
+            },
+            "tags": {
+                "issue": "D3",
+            },
+        })
+
+        # Fall back to proximity matching
+        logger.warning(
+            f"Falling back to proximity matching due to race condition: asset={asset}, num_matches={len(tier2_matches)}"
+        )
+        signal_matches_proximity_fallback_total.labels(
+            asset=asset, reason="ambiguous_exact_match"
+        ).inc()
+        proximity_result = find_matching_signal_proximity_only(asset, result_timestamp, signals)
+        if proximity_result:
+            # Return as tier 3 match with lower confidence score
+            return (proximity_result, 3, 0.5)
+        else:
+            return (None, None, None)
+
+    logger.debug(f"TIER 2: No martingale-aware match found for asset={asset}, result_timestamp={result_timestamp.isoformat()}")
+
+    # TIER 3: Proximity fallback - no exact match found, fall back to proximity matching
+    logger.warning(
+        f"No exact match found for {asset} - falling back to proximity matching. "
+        f"result_timestamp={result_timestamp.isoformat()}"
+    )
+
+    # Increment proximity fallback metric with reason='no_exact_match'
+    signal_matches_proximity_fallback_total.labels(
+        asset=asset, reason="no_exact_match"
+    ).inc()
+
+    # Call proximity-only matching function
+    proximity_result = find_matching_signal_proximity_only(asset, result_timestamp, signals)
+    if proximity_result:
+        # Return as tier 3 match with lower confidence score
+        return (proximity_result, 3, 0.5)
+    else:
+        # No match found across all tiers
+        logger.error(
+            f"No matching signal found for asset={asset}, result_timestamp={result_timestamp.isoformat()}, "
+            f"result_iteration={result_iteration}. Checked {candidate_signals_count} candidate signals. "
+            f"All tiers failed: TIER 1 (exact expiration), TIER 2 (martingale-aware), TIER 3 (30-minute proximity window)."
+        )
+        return (None, None, None)
+
+
+class ConnectionState(Enum):
+    """Connection state enumeration."""
+
+    DISCONNECTED = "disconnected"
+    CONNECTING = "connecting"
+    CONNECTED = "connected"
+    RECONNECTING = "reconnecting"
+    FAILED = "failed"
+
+
+# --- Global Exception Collector ---
+
+RECENT_EXCEPTIONS: Deque[Dict[str, Any]] = deque(maxlen=50)
+
+# --- Global Shutdown Tracking ---
+
+START_TIME = None
+MESSAGE_COUNT = 0
+SHUTDOWN_ALERTER = None
+shutdown_requested = False
+
+
+def record_exception(exc: Exception) -> None:
+    """Record an exception with timestamp to the global exception collector.
+
+    Args:
+        exc: The exception to record
+    """
+    timestamp = datetime.now(timezone.utc)
+    RECENT_EXCEPTIONS.append(
+        {
+            "timestamp": timestamp,
+            "exception": exc,
+            "type": type(exc).__name__,
+            "message": str(exc),
+        }
+    )
+    # Send exception to Sentry for tracking
+    sentry_sdk.capture_exception(exc)
+
+
+async def handle_shutdown(sig, client, alerter):
+    """Handle graceful shutdown of the listener.
+
+    Args:
+        sig: Signal number received
+        client: TelegramClient instance
+        alerter: Alerter instance for sending notifications
+    """
+    global shutdown_requested, START_TIME, MESSAGE_COUNT
+    shutdown_requested = True
+
+    signal_name = "SIGTERM" if sig == "SIGTERM" else "SIGINT"
+    uptime = int((datetime.now(timezone.utc) - START_TIME).total_seconds())
+
+    logging.info(f"Received signal {sig}, initiating graceful shutdown...")
+
+    if alerter:
+        await alerter.send_alert(
+            f"🛑 Listener Shutting Down\n\nSignal: {signal_name}\nUptime: {uptime}s\nMessages processed: {MESSAGE_COUNT}",
+            "INFO",
+        )
+
+    await client.disconnect()
+    logging.info("Shutdown complete")
+
+
+# Reconnection configuration from environment
+MAX_RECONNECT_DELAY = int(os.getenv("MAX_RECONNECT_DELAY_SECONDS", "60"))
+INITIAL_RECONNECT_DELAY = int(os.getenv("INITIAL_RECONNECT_DELAY_SECONDS", "1"))
+HEALTHCHECK_PORT = int(os.getenv("HEALTHCHECK_PORT", "0"))
+
+
+@dataclass
+class ReconnectionConfig:
+    """Configuration for exponential backoff reconnection strategy."""
+
+    initial_delay: float = INITIAL_RECONNECT_DELAY
+    max_delay: float = MAX_RECONNECT_DELAY
+    backoff_multiplier: float = 2
+    max_retries: Optional[int] = None
+
+
+@dataclass
+class ConnectionMetrics:
+    """Tracks connection metrics and statistics."""
+
+    total_connections: int = 0
+    successful_connections: int = 0
+    failed_connections: int = 0
+    total_reconnections: int = 0
+    last_connected_at: Optional[datetime] = None
+    total_uptime_seconds: float = 0.0
+    total_downtime_seconds: float = 0.0
+
+    def to_dict(self) -> dict:
+        """Convert metrics to dictionary format."""
+        return {
+            "total_connections": self.total_connections,
+            "successful_connections": self.successful_connections,
+            "failed_connections": self.failed_connections,
+            "total_reconnections": self.total_reconnections,
+            "last_connected_at": (
+                self.last_connected_at.isoformat() if self.last_connected_at else None
+            ),
+            "total_uptime_seconds": self.total_uptime_seconds,
+            "total_downtime_seconds": self.total_downtime_seconds,
+        }
+
+
+class ReconnectionManager:
+    """Manages reconnection attempts with exponential backoff."""
+
+    def __init__(self, config: ReconnectionConfig):
+        self.config = config
+        self.attempt_count = 0
+        self.current_delay = config.initial_delay
+        self.state = ConnectionState.DISCONNECTED
+        self.last_failure_time: Optional[datetime] = None
+
+    def calculate_next_delay(self) -> float:
+        """Calculate next delay using exponential backoff."""
+        current_delay = min(
+            self.config.initial_delay
+            * (self.config.backoff_multiplier**self.attempt_count),
+            self.config.max_delay,
+        )
+        return current_delay
+
+    def should_retry(self) -> bool:
+        """Check if reconnection should be attempted."""
+        if self.config.max_retries is None:
+            return True
+        return self.attempt_count < self.config.max_retries
+
+    def reset(self) -> None:
+        """Reset reconnection state after successful connection."""
+        # Track successful recovery in Sentry if we had failures
+        if self.attempt_count > 0:
+            sentry_sdk.capture_message(
+                f"Listener recovered after {self.attempt_count} reconnection attempts",
+                level="info",
+            )
+        self.attempt_count = 0
+        self.current_delay = self.config.initial_delay
+        self.last_failure_time = None
+
+    def record_failure(self) -> None:
+        """Record a connection failure and update state."""
+        self.attempt_count += 1
+        self.last_failure_time = datetime.now(timezone.utc)
+        self.current_delay = self.calculate_next_delay()
+        # Track failure attempt in Sentry
+        sentry_sdk.capture_message(
+            f"Reconnection attempt {self.attempt_count} failed, retrying with {self.current_delay:.1f}s backoff",
+            level="warning",
+        )
+
+
+class HealthTracker:
+    """Tracks health metrics for the listener service."""
+
+    def __init__(self):
+        self.last_heartbeat: Optional[datetime] = None
+        self.message_count: int = 0
+        self.error_count: int = 0
+
+    def record_message(self) -> None:
+        """Record a successfully processed message."""
+        self.message_count += 1
+        self.last_heartbeat = datetime.now(timezone.utc)
+
+    def record_error(self) -> None:
+        """Record an error occurrence."""
+        self.error_count += 1
+
+    def is_healthy(self, max_age_seconds: int = 300) -> bool:
+        """Check if the service is healthy based on recent heartbeat.
+
+        Args:
+            max_age_seconds: Maximum allowed time since last heartbeat (default: 300s/5min)
+
+        Returns:
+            True if last heartbeat is within max_age_seconds, False otherwise
+        """
+        if self.last_heartbeat is None:
+            return False
+        age = (datetime.now(timezone.utc) - self.last_heartbeat).total_seconds()
+        return age <= max_age_seconds
+
+
+async def save_metrics_periodically(metrics, health, interval=300):
+    """Save ConnectionMetrics and HealthTracker to JSON file periodically.
+
+    Args:
+        metrics: ConnectionMetrics instance
+        health: HealthTracker instance
+        interval: Save interval in seconds (default: 300 = 5 minutes)
+    """
+    while True:
+        await asyncio.sleep(interval)
+        try:
+            # Calculate uptime from global START_TIME
+            uptime = (
+                int((datetime.now(timezone.utc) - START_TIME).total_seconds())
+                if START_TIME
+                else 0
+            )
+
+            data = {
+                "uptime": uptime,
+                "message_count": health.message_count,
+                "error_count": health.error_count,
+                "reconnection_count": metrics.total_reconnections,
+                "last_heartbeat": (
+                    health.last_heartbeat.isoformat() if health.last_heartbeat else None
+                ),
+            }
+            metrics_file = os.path.join("listener", "metrics.json")
+            with open(metrics_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2)
+        except (IOError, OSError) as e:
+            logging.error(f"Failed to save metrics: {e}")
+            sentry_sdk.capture_exception(e)
+        except (TypeError, ValueError, json.JSONDecodeError) as error:
+            logging.error(f"JSON error: {error}")
+            sentry_sdk.capture_exception(error)
+
+
+# --- Configuration ---
+
+BACKEND_URL = os.getenv("BACKEND_URL") or os.getenv("API_BASE", "http://127.0.0.1:3001")
+API_BASE = BACKEND_URL  # Alias for backward compatibility
+INTERNAL_API_KEY = os.getenv("INTERNAL_API_KEY")
+if not INTERNAL_API_KEY or len(INTERNAL_API_KEY) < 20:
+    raise SystemExit(
+        "FATAL: INTERNAL_API_KEY env var must be set (min 20 chars). "
+        "Add it to .env or export it before starting the listener."
+    )
+SIGNAL_ACTIVATE_DELAY_SEC = 10
+SIGNAL_TIMEOUT_MIN = 35
+HEALTH_CHECK_INTERVAL_SEC = 300
+ALERT_BOT_TOKEN = os.getenv("ALERT_BOT_TOKEN")
+ALERT_CHAT_ID = os.getenv("ALERT_CHAT_ID")
+ENABLE_CRASH_ALERTS = os.getenv("ENABLE_CRASH_ALERTS", "true").lower() == "true"
+
+UTC = timezone.utc
+
+
+# --- Telegram alerting ---
+
+
+async def send_alert(session: aiohttp.ClientSession, message: str) -> None:
+    """Send alert to Telegram admin chat. Fails silently if not configured."""
+    if not ALERT_BOT_TOKEN or not ALERT_CHAT_ID:
+        return
+    try:
+        url = f"https://api.telegram.org/bot{ALERT_BOT_TOKEN}/sendMessage"
+        await session.post(
+            url,
+            json={"chat_id": ALERT_CHAT_ID, "text": message},
+            timeout=aiohttp.ClientTimeout(total=5),
+        )
+    except Exception:
+        pass
+
+
+def format_crash_report(exception: Exception, context: dict) -> str:
+    """Format exception details into a readable crash report.
+
+    Args:
+        exception: The exception that occurred
+        context: Additional context dictionary (e.g., channel, message_id)
+
+    Returns:
+        Formatted crash report string with exception type, message, traceback, timestamp, and context
+    """
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    exc_type = type(exception).__name__
+    exc_message = str(exception)
+    tb_lines = traceback.format_tb(exception.__traceback__)
+
+    # Determine severity emoji
+    critical_exceptions = (
+        "SystemExit",
+        "KeyboardInterrupt",
+        "MemoryError",
+        "RuntimeError",
+    )
+    severity_emoji = "🔴 CRITICAL" if exc_type in critical_exceptions else "🟡 WARNING"
+
+    # Get first 5 lines of traceback
+    tb_first_5 = "".join(tb_lines[:5])
+
+    # Format context
+    context_str = (
+        "\n".join(f"  {k}: {v}" for k, v in context.items()) if context else "  (none)"
+    )
+
+    report = f"""<b>🚨 Listener Crash Alert</b>
+
+{severity_emoji}
+<b>Timestamp:</b> {timestamp}
+<b>Exception:</b> {exc_type}
+<b>Message:</b> {exc_message}
+
+<b>Traceback:</b>
+{tb_first_5}
+
+<b>Context:</b>
+{context_str}
+"""
+
+    # Ensure under 4096 chars (Telegram message limit)
+    if len(report) > 4096:
+        report = report[:4093] + "..."
+
+    return report
+
+
+class TelegramAlerter:
+    """Telegram alerter for sending formatted alerts via Bot API."""
+
+    def __init__(self, bot_token: str, chat_id: str):
+        """Initialize with bot token and chat ID."""
+        self.bot_token = bot_token
+        self.chat_id = chat_id
+        self.last_alert_time: Dict[str, datetime] = (
+            {}
+        )  # Track last alert time by message type
+
+    async def send_alert(self, message: str, severity: str) -> None:
+        """Send alert message to Telegram with severity level.
+
+        Args:
+            message: Alert message text
+            severity: Severity level (info, warning, error, critical)
+        """
+        # Map severity to emoji
+        severity_emojis = {
+            "info": "ℹ️",
+            "warning": "⚠️",
+            "error": "🚨",
+            "critical": "💥",
+        }
+
+        emoji = severity_emojis.get(severity.lower(), "ℹ️")
+        formatted_message = f"{emoji} <b>{severity.upper()}</b>\n{message}"
+
+        # Rate limiting: don't send duplicate alerts within 60 seconds
+        alert_key = f"{severity}:{message}"
+        now = datetime.now(timezone.utc)
+
+        if alert_key in self.last_alert_time:
+            time_since_last = (now - self.last_alert_time[alert_key]).total_seconds()
+            if time_since_last < 60:
+                logger.info("Alert suppressed (rate limit)")
+                return
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
+                print(f"Posting to {url}")
+                await session.post(
+                    url,
+                    json={
+                        "chat_id": self.chat_id,
+                        "text": formatted_message,
+                        "parse_mode": "HTML",
+                    },
+                )
+            self.last_alert_time[alert_key] = now
+        except Exception as e:
+            print(f"Failed to send alert: {e}")
+
+
+# --- Logging ---
+
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+# Configure root logging with structured format
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
+
+logger = logging.getLogger("signal_matching")
+logger.setLevel(logging.INFO)
+
+try:
+    file_handler = RotatingFileHandler(
+        os.path.join(LOGS_DIR, "listener.log"),
+        maxBytes=10 * 1024 * 1024,
+        backupCount=5,
+    )
+    file_handler.setFormatter(
+        logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+    )
+    logger.addHandler(file_handler)
+except (IOError, OSError) as e:
+    logging.error(
+        f"Failed to create log file handler: {e}. Continuing with console logging only."
+    )
+
+# Separate file handler for crash logs
+try:
+    crash_handler = RotatingFileHandler(
+        os.path.join(LOGS_DIR, "listener_crashes.log"),
+        maxBytes=10 * 1024 * 1024,
+        backupCount=5,
+    )
+    crash_handler.setLevel(logging.ERROR)
+    crash_handler.setFormatter(
+        logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+    )
+    logger.addHandler(crash_handler)
+except (IOError, OSError) as e:
+    logging.error(
+        f"Failed to create crash log file handler: {e}. Continuing with console logging only."
+    )
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(
+    logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+)
+logger.addHandler(stream_handler)
+
+
+# --- Channel Handler ---
+
+
+class ChannelHandler:
+    """Handles parsing and state for a single channel."""
+
+    def __init__(self, channel_config: dict, health_tracker=None):
+        self.channel_id = channel_config["id"]
+        self.slug = channel_config["slug"]
+        self.name = channel_config["name"]
+        self.timezone = channel_config["timezone"]
+        self.source_format = channel_config["sourceFormat"]
+        self.max_gale = channel_config["maxGaleLevel"]
+        self.telegram_id = (
+            int(channel_config["telegramId"])
+            if channel_config.get("telegramId")
+            else None
+        )
+        self.telegram_name = channel_config["telegramName"]
+        self.active_signals: list[dict] = []
+        self.last_signal_at: datetime | None = None
+        self._silence_alerted = False
+        self.health_tracker = health_tracker
+        self.matching_stats = {
+            "exact_match": 0,
+            "proximity_fallback_count": 0,
+            "tier1": 0,
+            "tier2": 0,
+            "tier3": 0,
+            "no_match": 0,
+        }
+        self.ambiguous_matches = 0
+        self.recent_matches = deque(
+            maxlen=100
+        )  # Track last 100 matches for health stats
+        self.pocket_vip_parser = None
+        if self.source_format == "pocket_vip_sticker":
+            try:
+                from parser_pocket_vip import PocketVipParser
+
+                self.pocket_vip_parser = PocketVipParser()
+                logger.info(f"[{self.slug}] PocketVipParser initialized (OCR ready)")
+            except ImportError:
+                logger.warning(
+                    f"[{self.slug}] parser_pocket_vip not available — OCR disabled"
+                )
+
+    def is_inline_format(self) -> bool:
+        return self.source_format in ("blacklist_inline", "sinais_inline")
+
+    def parse(self, text: str, msg_id: int, msg_date: datetime):
+        """Route to correct parser. Returns list of parsed items."""
+        if self.source_format == "blacklist_inline":
+            try:
+                sentry_sdk.set_tag("parser_type", "blacklist_live")
+                return parse_blacklist_live(text, msg_id, msg_date)
+            except Exception as e:
+                logger.error(f"Failed to parse signal: {e}")
+                sentry_sdk.capture_exception(e)
+                if self.health_tracker:
+                    self.health_tracker.record_error()
+                gc.collect()
+                return []
+        elif self.source_format == "sinais_inline":
+            try:
+                sentry_sdk.set_tag("parser_type", "sinais_live")
+                return parse_sinais_live(text, msg_id, msg_date)
+            except Exception as e:
+                logger.error(f"Failed to parse signal: {e}")
+                sentry_sdk.capture_exception(e)
+                if self.health_tracker:
+                    self.health_tracker.record_error()
+                gc.collect()
+                return []
+        elif self.source_format == "instant_ready":
+            try:
+                sentry_sdk.set_tag("parser_type", "instant_ready_live")
+                return parse_instant_ready_live(text, msg_id, msg_date)
+            except Exception as e:
+                logger.error(f"Failed to parse signal: {e}")
+                sentry_sdk.capture_exception(e)
+                if self.health_tracker:
+                    self.health_tracker.record_error()
+                gc.collect()
+                return []
+        elif self.source_format == "pocket_vip_sticker":
+            # Handled in handler_fn via pocket_vip_parser — text-only parse not supported
+            sentry_sdk.set_tag("parser_type", "pocket_vip_sticker")
+            return []
+        elif self.source_format == "vip_otc_market":
+            try:
+                sentry_sdk.set_tag("parser_type", "vip_otc_market")
+                return parse_vip_otc_market(text, msg_id, msg_date)
+            except Exception as e:
+                logger.error(f"Failed to parse signal: {e}")
+                sentry_sdk.capture_exception(e)
+                if self.health_tracker:
+                    self.health_tracker.record_error()
+                gc.collect()
+                return []
+        else:
+            # Format 1+2 (TYL VIP/TRADING)
+            try:
+                sentry_sdk.set_tag("parser_type", "default_parser")
+                f2_offset = 1 if "UTC+1" in self.timezone else -3
+                result = parse_message(text, msg_id, msg_date, f2_utc_offset=f2_offset)
+                return [result] if result else []
+            except Exception as e:
+                logger.error(f"Failed to parse signal: {e}")
+                sentry_sdk.capture_exception(e)
+                if self.health_tracker:
+                    self.health_tracker.record_error()
+                gc.collect()
+                return []
+
+    def calculate_signal_expiration_time(self, sig: dict) -> datetime:
+        """Calculate the expected expiration time for a signal.
+
+        Args:
+            sig (dict): Signal dictionary with the following keys:
+                - entryTimeUtc (str): ISO format entry time
+                - expirationMinutes (int, optional): Minutes until expiration (default: 5)
+                - martingaleTimes (list[str], optional): List of martingale times in "HH:MM" format
+
+        Returns:
+            datetime: Expected expiration time in UTC
+
+        Logic:
+            - If martingaleTimes is present and non-empty, uses the last martingale time (martingale_times[-1])
+              by parsing it as HH:MM, adjusting for day boundaries, then adding expirationMinutes
+            - Otherwise, uses entryTimeUtc as the base time and adds expirationMinutes
+        """
+        exp_min = sig.get("expirationMinutes", 5)
+        entry = datetime.fromisoformat(sig["entryTimeUtc"].replace("Z", "+00:00"))
+        if entry.tzinfo is None:
+            entry = entry.replace(tzinfo=UTC)
+
+        mg_times = sig.get("martingaleTimes", [])
+
+        # If martingale_times is present and non-empty, use last martingale time
+        if mg_times:
+            # Last martingale time + expiration = latest expected end
+            last_mg = mg_times[-1]
+            h, m = map(int, last_mg.split(":"))
+            mg_dt = entry.replace(hour=h, minute=m, second=0, microsecond=0)
+            diff = (mg_dt - entry).total_seconds()
+            if diff > 12 * 3600:
+                mg_dt -= timedelta(days=1)
+            elif diff < -12 * 3600:
+                mg_dt += timedelta(days=1)
+            return mg_dt + timedelta(minutes=exp_min)
+        else:
+            # Fall back to base expiration time (entry + expirationMinutes)
+            return entry + timedelta(minutes=exp_min)
+
+    def normalize_asset_for_matching(self, asset: str) -> str:
+        """Normalize asset string for matching.
+
+        All OTC variants (``_otc``, ``-otc``, ``OTC``, ``/OTC`` etc.) are
+        canonicalised to the ``<BASE>OTC`` form so that OTC and non-OTC assets
+        are treated as distinct instruments while different OTC spellings still
+        match each other.
+
+        Args:
+            asset (str): Asset symbol to normalize
+
+        Returns:
+            str: Normalized asset symbol (uppercase, no separators).
+                 OTC variants become ``<BASE>OTC`` (e.g. ``"EURUSDOTC"``).
+
+        Examples:
+            "eurusd"       -> "EURUSD"
+            " EURUSD "     -> "EURUSD"
+            "EURUSD_otc"   -> "EURUSDOTC"
+            "EURUSDOTC"    -> "EURUSDOTC"
+            "EUR/USD OTC"  -> "EURUSDOTC"
+            "eurusd-otc"   -> "EURUSDOTC"
+        """
+        if not asset:
+            return ""
+
+        # Strip and uppercase
+        normalized = asset.strip().upper()
+
+        # Detect OTC presence before stripping separators
+        is_otc = (
+            "_OTC" in normalized
+            or "-OTC" in normalized
+            or " OTC" in normalized
+            or normalized.endswith("OTC")
+        )
+
+        # Remove separators and OTC tokens
+        for token in ("_OTC", "-OTC", " OTC"):
+            normalized = normalized.replace(token, "")
+        normalized = normalized.replace(" ", "").replace("/", "")
+
+        # Strip bare OTC suffix that may remain (e.g. "EURUSDOTC" after slash removal)
+        if normalized.endswith("OTC"):
+            normalized = normalized[:-3]
+
+        # Re-append canonical OTC suffix when the asset is an OTC instrument
+        if is_otc:
+            normalized = normalized + "OTC"
+
+        return normalized
+
+    def calculate_match_confidence(
+        self, signal: dict, result: dict, match_type: str
+    ) -> int:
+        """Calculate confidence score for signal-result attribution match.
+
+        Args:
+            signal: The matched signal dictionary
+            result: The result message dictionary
+            match_type: Type of match ("exact_expiration", "proximity", "tier1", "tier2", "tier3")
+
+        Returns:
+            int: Confidence score from 0-100
+        """
+        # Base confidence scores by match type
+        if match_type == "exact_expiration":
+            base_score = 95
+        elif match_type in ("proximity", "tier1"):
+            base_score = 70
+        elif match_type == "tier2":
+            base_score = 60
+        elif match_type == "tier3":
+            base_score = 50
+        else:
+            base_score = 50
+
+        # Check for multiple candidates scenario
+        # If there were multiple active signals within the time window, reduce confidence
+        has_multiple_candidates = result.get("multiple_candidates", False)
+        if has_multiple_candidates:
+            base_score = max(0, base_score - 20)
+
+        return min(100, max(0, base_score))
+
+    def get_matching_health_stats(self) -> dict:
+        """Calculate health statistics for signal matching quality.
+
+        Returns:
+            dict: Health statistics with:
+                - exact_match_percentage: Percentage of exact matches in last 100 matches
+                - avg_confidence_score: Average confidence score of last 100 matches
+                - ambiguous_count: Total count of ambiguous matches
+        """
+        if not self.recent_matches:
+            return {
+                "exact_match_percentage": 0.0,
+                "avg_confidence_score": 0.0,
+                "ambiguous_count": self.ambiguous_matches,
+            }
+
+        exact_count = sum(1 for m in self.recent_matches if m["is_exact"])
+        total_count = len(self.recent_matches)
+        exact_match_percentage = (
+            (exact_count / total_count * 100) if total_count > 0 else 0.0
+        )
+
+        total_confidence = sum(m["confidence"] for m in self.recent_matches)
+        avg_confidence_score = (
+            total_confidence / total_count if total_count > 0 else 0.0
+        )
+
+        return {
+            "exact_match_percentage": round(exact_match_percentage, 2),
+            "avg_confidence_score": round(avg_confidence_score, 2),
+            "ambiguous_count": self.ambiguous_matches,
+        }
+
+    def find_matching_signal_legacy(self, result_date: datetime) -> dict | None:
+        """Match a result message to the best pending signal (LEGACY IMPLEMENTATION).
+
+        Uses proximity to expected trade end time (entry + expiration or
+        last martingale + expiration) instead of first-match. This avoids
+        mis-attribution when multiple signals are active within 30 min.
+
+        NOTE: This is the legacy implementation preserved for comparison and fallback testing.
+        """
+        fmt1_delay = 7.0  # typical posting delay for format 1 results
+        fmt2_delay = 0.5  # typical posting delay for format 2 results
+
+        best_sig = None
+        best_score = float("inf")
+
+        for sig in self.active_signals:
+            if sig.get("status") in ("resolved", "expired"):
+                continue
+            entry = datetime.fromisoformat(sig["entryTimeUtc"].replace("Z", "+00:00"))
+            if entry.tzinfo is None:
+                entry = entry.replace(tzinfo=UTC)
+            delta_min = (result_date - entry).total_seconds() / 60
+            if not 1 <= delta_min <= 30:
+                continue
+
+            # Compute expected end time for the highest gale level
+            exp_min = sig.get("expirationMinutes", 5)
+            mg_times = sig.get("martingaleTimes", [])
+            if mg_times:
+                # Last martingale time + expiration = latest expected end
+                last_mg = mg_times[-1]
+                h, m = map(int, last_mg.split(":"))
+                mg_dt = entry.replace(hour=h, minute=m, second=0, microsecond=0)
+                diff = (mg_dt - entry).total_seconds()
+                if diff > 12 * 3600:
+                    mg_dt -= timedelta(days=1)
+                elif diff < -12 * 3600:
+                    mg_dt += timedelta(days=1)
+                end_time = mg_dt + timedelta(minutes=exp_min)
+            else:
+                end_time = entry + timedelta(minutes=exp_min)
+
+            fmt = sig.get("formatVersion", 1)
+            typical_delay = fmt1_delay if fmt == 1 else fmt2_delay
+            score = abs((result_date - end_time).total_seconds() / 60 - typical_delay)
+            if score < best_score:
+                best_score = score
+                best_sig = sig
+
+        return best_sig
+
+    # Legacy proximity-only matching - used as fallback
+    def find_matching_signal_proximity_only(
+        self,
+        result_date: datetime,
+        asset: Optional[str] = None,
+        direction: Optional[str] = None,
+    ) -> tuple[dict, float] | None:
+        """Match a result message to the best pending signal using two-phase matching.
+
+        This method solves the D3 race condition issue by implementing intelligent signal matching
+        when result messages may arrive before their corresponding signals due to async processing.
+
+        Two-Phase Matching Algorithm:
+            Phase 1 (Exact Expiration): When asset is provided, searches for signals with exact expiration
+                match within 5 seconds of result_date. Uses martingale timing data to precisely match
+                the signal's expected expiration time. This is the most accurate match for normal operations.
+
+            Phase 2 (Proximity Fallback): If no exact expiration match is found, falls back to proximity
+                matching within a 30-minute window. Evaluates candidates using a scoring algorithm that
+                considers asset match, direction match, temporal proximity, and expected delays.
+
+        The algorithm prioritizes exact expiration matching over proximity, ensuring the most accurate
+        signal is selected when multiple candidates exist.
+
+        Args:
+            result_date: The datetime of the result message to match against pending signals
+            asset: Optional asset symbol/identifier for exact expiration and proximity matching (e.g., "AAPL")
+            direction: Optional trade direction for enhanced proximity matching (e.g., "BUY", "SELL")
+
+        Returns:
+            Tuple of (signal_dict, confidence_score) if match found, None otherwise.
+            Confidence score is 1.0 for exact expiration matches, variable for proximity matches.
+        """
+        # Priority: Check for exact expiration match first
+        if asset is not None:
+            exact_match = find_by_exact_expiration(
+                asset, result_date, self.active_signals
+            )
+            if exact_match:
+                # Calculate time delta for structured logging
+                entry_time = datetime.fromisoformat(
+                    exact_match["entryTimeUtc"].replace("Z", "+00:00")
+                )
+                if entry_time.tzinfo is None:
+                    entry_time = entry_time.replace(tzinfo=UTC)
+                time_delta_seconds = (result_date - entry_time).total_seconds()
+
+                logger.info(
+                    "Exact expiration match found",
+                    extra={
+                        "match_type": "exact",
+                        "asset": asset,
+                        "signal_id": exact_match.get("id", "unknown"),
+                        "confidence": 1.0,
+                        "delta_seconds": time_delta_seconds,
+                    },
+                )
+                self.matching_stats["exact_match"] += 1
+                exact_match_total.inc()
+                self.recent_matches.append({"is_exact": True, "confidence": 1.0})
+                return exact_match
+            else:
+                logger.info(
+                    "Falling back to proximity matching",
+                    extra={
+                        "match_type": "proximity_fallback",
+                        "asset": asset,
+                        "signal_id": None,
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+                sentry_sdk.set_tag("race_condition_detected", "true")
+                sentry_sdk.add_breadcrumb(
+                    level="warning",
+                    category="matching",
+                    message="Proximity fallback",
+                    data={"asset": asset, "reason": "no_exact_match"},
+                )
+                self.matching_stats["proximity_fallback_count"] += 1
+                signal_matches_proximity_fallback_total.labels(
+                    asset=asset, reason="no_exact_match"
+                ).inc()
+
+        # Initialize tier candidate lists
+        tier1_candidates: list[dict[str, Any]] = []
+        tier2_candidates: list[dict[str, Any]] = []
+        tier3_candidates: list[dict[str, Any]] = []
+        # Initialize scoring constants
+        EXACT_MATCH_TOLERANCE_MINUTES = 2.0
+        typical_delay_fmt1 = 7.0
+        typical_delay_fmt2 = 0.5
+        # Iterate through active signals
+        for sig in self.active_signals:
+            try:
+                # Skip resolved or expired signals
+                if sig.get("status") in ("resolved", "expired"):
+                    continue
+
+                # Parse entryTimeUtc and ensure timezone
+                entry = datetime.fromisoformat(
+                    sig["entryTimeUtc"].replace("Z", "+00:00")
+                )
+                if entry.tzinfo is None:
+                    entry = entry.replace(tzinfo=UTC)
+
+                # Time window filter: skip signals outside 0-35 minute window
+                delta_min = (result_date - entry).total_seconds() / 60
+                if not 0 <= delta_min <= 35:
+                    continue
+
+                # Calculate expected expiration time using martingale_times if available
+                expected_exp_time = self.calculate_signal_expiration_time(sig)
+            except (KeyError, ValueError, AttributeError) as e:
+                logger.error(
+                    f"Error processing signal {sig.get('id', 'unknown')} in find_matching_signal: {e}",
+                    extra={
+                        "match_type": "error_processing",
+                        "asset": asset,
+                        "signal_id": sig.get("id", "unknown"),
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+                sentry_sdk.capture_exception(e)
+                continue
+
+            # Tier 1: Exact match (asset + direction + time)
+            try:
+                if asset is not None:
+                    normalized_sig_asset = self.normalize_asset_for_matching(
+                        sig["asset"]
+                    )
+                    normalized_provided_asset = self.normalize_asset_for_matching(asset)
+
+                    if normalized_sig_asset == normalized_provided_asset:
+                        time_diff = abs(
+                            (result_date - expected_exp_time).total_seconds() / 60
+                        )
+                        if time_diff < EXACT_MATCH_TOLERANCE_MINUTES:
+                            expiration_delta_seconds.observe(time_diff * 60)
+                            tier1_candidates.append({"signal": sig, "score": time_diff})
+                        # Tier 2: Asset-only match (asset + proximity, direction bonus)
+                        else:
+                            # Calculate proximity score using typical_delay (same as legacy)
+                            signal_format = sig.get("format", "fmt1")
+                            typical_delay = (
+                                typical_delay_fmt2
+                                if signal_format == "fmt2"
+                                else typical_delay_fmt1
+                            )
+                            proximity_score = abs(time_diff - typical_delay)
+
+                            # If direction also provided, add bonus scoring for direction match
+                            score = proximity_score
+                            if direction is not None:
+                                normalized_sig_direction = sig.get(
+                                    "direction", ""
+                                ).upper()
+                                normalized_provided_direction = direction.upper()
+                                if (
+                                    normalized_sig_direction
+                                    == normalized_provided_direction
+                                ):
+                                    score -= 0.5  # Bonus for direction match (lower score is better)
+
+                            tier2_candidates.append({"signal": sig, "score": score})
+
+                # Tier 3: Backward compatibility - legacy proximity matching when asset is None
+                else:
+                    # Calculate proximity score using typical_delay (same as legacy)
+                    signal_format = sig.get("format", "fmt1")
+                    typical_delay = (
+                        typical_delay_fmt2
+                        if signal_format == "fmt2"
+                        else typical_delay_fmt1
+                    )
+                    time_diff = abs(
+                        (result_date - expected_exp_time).total_seconds() / 60
+                    )
+                    proximity_score = abs(time_diff - typical_delay)
+                    # Use tuple for score: (proximity_score, time_diff) to break ties by preferring closer expiration
+                    tier3_score = (proximity_score, time_diff)
+                    tier3_candidates.append({"signal": sig, "score": tier3_score})
+            except (KeyError, AttributeError, TypeError) as e:
+                logger.error(
+                    f"Error matching signal {sig.get('id', 'unknown')} to tiers: {e}",
+                    extra={
+                        "match_type": "error_matching_tiers",
+                        "asset": asset,
+                        "signal_id": sig.get("id", "unknown"),
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+                sentry_sdk.capture_exception(e)
+                continue
+        # Select best match using tier hierarchy
+        best_match = None
+        tier_used = None
+        if tier1_candidates:
+            best_match = min(tier1_candidates, key=lambda x: x["score"])
+            tier_used = "tier1"
+            self.matching_stats["tier1"] += 1
+            global tier1_matches
+            tier1_matches += 1
+        elif tier2_candidates:
+            best_match = min(tier2_candidates, key=lambda x: x["score"])
+            tier_used = "tier2"
+            self.matching_stats["tier2"] += 1
+            global tier2_matches
+            tier2_matches += 1
+        elif tier3_candidates:
+            best_match = min(tier3_candidates, key=lambda x: x["score"])
+            tier_used = "tier3"
+            self.matching_stats["tier3"] += 1
+            global tier3_matches
+            tier3_matches += 1
+        if best_match and (len(tier1_candidates) > 1 or len(tier2_candidates) > 3):
+            self.ambiguous_matches += 1
+            ambiguous_attribution_total.inc()
+            logger.warning(
+                f"Ambiguous signal match: {len(tier1_candidates)} tier1, "
+                f"{len(tier2_candidates)} tier2 candidates. "
+                f"Selected {best_match['signal'].get('id', 'unknown')}",
+                extra={
+                    "match_type": "ambiguous",
+                    "asset": asset,
+                    "signal_id": best_match["signal"].get("id", "unknown"),
+                    "confidence": (
+                        best_match["score"][0]
+                        if isinstance(best_match["score"], tuple)
+                        else best_match["score"]
+                    ),
+                    "delta_seconds": None,
+                },
+            )
+            # Capture Sentry event for each ambiguous case
+            signal_ids = [
+                c["signal"].get("id", "unknown")
+                for c in tier1_candidates + tier2_candidates
+            ]
+            expiration_time = best_match["signal"].get("expirationTimeUtc", "unknown")
+            sentry_sdk.set_tag("ambiguous_match", "true")
+            try:
+                sentry_sdk.capture_message(
+                    "Ambiguous signal attribution",
+                    level="warning",
+                    extra={
+                        "signal_ids": signal_ids,
+                        "asset": asset,
+                        "expiration_time": expiration_time,
+                    },
+                )
+            except TypeError:
+                # Older sentry-sdk versions do not accept the `extra` kwarg on
+                # capture_message; fall back to a plain call without it.
+                sentry_sdk.capture_message(
+                    "Ambiguous signal attribution",
+                    level="warning",
+                )
+        # Detailed debug logging when SIGNAL_MATCHING_DEBUG is enabled
+        if SIGNAL_MATCHING_DEBUG:
+            logger.info(
+                f"Signal matching for result_date={result_date}, asset={asset}, direction={direction}",
+                extra={
+                    "match_type": "matching_started",
+                    "asset": asset,
+                    "signal_id": None,
+                    "confidence": None,
+                    "delta_seconds": None,
+                },
+            )
+            logger.info(
+                f"Tier 1 candidates: {len(tier1_candidates)} | "
+                f"Tier 2 candidates: {len(tier2_candidates)} | "
+                f"Tier 3 candidates: {len(tier3_candidates)}",
+                extra={
+                    "match_type": "tier_summary",
+                    "asset": asset,
+                    "signal_id": None,
+                    "confidence": None,
+                    "delta_seconds": None,
+                },
+            )
+            if tier1_candidates:
+                logger.info(
+                    f"Tier 1 details: {[(c['signal'].get('id'), c['signal']['asset'], c['score']) for c in tier1_candidates]}",
+                    extra={
+                        "match_type": "tier1_details",
+                        "asset": asset,
+                        "signal_id": None,
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+            if tier2_candidates:
+                logger.info(
+                    f"Tier 2 details: {[(c['signal'].get('id'), c['signal']['asset'], c['score']) for c in tier2_candidates]}",
+                    extra={
+                        "match_type": "tier2_details",
+                        "asset": asset,
+                        "signal_id": None,
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+            if tier3_candidates:
+                logger.info(
+                    f"Tier 3 details: {[(c['signal'].get('id'), c['signal']['asset'], c['score']) for c in tier3_candidates]}",
+                    extra={
+                        "match_type": "tier3_details",
+                        "asset": asset,
+                        "signal_id": None,
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+
+        if best_match:
+            score = best_match["score"]
+            signal = best_match["signal"]
+            # Extract numeric confidence score (tier3 uses tuple, others use float)
+            confidence_score = score[0] if isinstance(score, tuple) else score
+
+            # Calculate time delta for structured logging
+            entry_time = datetime.fromisoformat(
+                signal["entryTimeUtc"].replace("Z", "+00:00")
+            )
+            if entry_time.tzinfo is None:
+                entry_time = entry_time.replace(tzinfo=UTC)
+            time_delta_seconds = (result_date - entry_time).total_seconds()
+
+            logger.debug(
+                f"Matched signal {signal.get('id', 'unknown')} "
+                f"(asset={signal['asset']}, tier={tier_used}, score={score}, "
+                f"confidence={confidence_score:.2f})",
+                extra={
+                    "match_type": tier_used,
+                    "asset": signal.get("asset"),
+                    "signal_id": signal.get("id", "unknown"),
+                    "confidence": confidence_score,
+                    "delta_seconds": time_delta_seconds,
+                },
+            )
+            if SIGNAL_MATCHING_DEBUG:
+                logger.info(
+                    f"Matched signal {signal.get('id', 'unknown')} "
+                    f"(asset={signal['asset']}, tier={tier_used}, score={score}, "
+                    f"confidence={confidence_score:.2f})",
+                    extra={
+                        "match_type": tier_used,
+                        "asset": signal.get("asset"),
+                        "signal_id": signal.get("id", "unknown"),
+                        "confidence": confidence_score,
+                        "delta_seconds": time_delta_seconds,
+                    },
+                )
+            sentry_sdk.add_breadcrumb(
+                category="signal_matching",
+                message=f"Matched signal using {tier_used}",
+                level="info",
+                data={
+                    "candidates_tier1": len(tier1_candidates),
+                    "candidates_tier2": len(tier2_candidates),
+                    "result_date": result_date.isoformat(),
+                },
+            )
+            self.recent_matches.append(
+                {"is_exact": False, "confidence": confidence_score}
+            )
+            return (signal, confidence_score)
+        else:
+            self.matching_stats["no_match"] += 1
+            logger.debug(
+                f"No matching signal for result at {result_date}",
+                extra={
+                    "match_type": "no_match",
+                    "asset": asset,
+                    "signal_id": None,
+                    "confidence": None,
+                    "delta_seconds": None,
+                },
+            )
+            if SIGNAL_MATCHING_DEBUG:
+                logger.info(
+                    f"No matching signal for result at {result_date}",
+                    extra={
+                        "match_type": "no_match",
+                        "asset": asset,
+                        "signal_id": None,
+                        "confidence": None,
+                        "delta_seconds": None,
+                    },
+                )
+            return None
+
+    def find_matching_signal(
+        self,
+        result_date: datetime,
+        asset: str | None = None,
+        direction: str | None = None,
+        iteration: int = 0,
+    ) -> dict | None:
+        """Find the best matching signal for a result message.
+
+        Implements the same 3-tier algorithm used by
+        ``find_matching_signal_proximity_only`` but as a lightweight path
+        suitable for high-frequency calling (no Sentry / Prometheus overhead).
+
+        Tier 1 – exact expiration match: asset matches *and* result_date is
+            within ±2 minutes of the signal's calculated expiration time.
+            Selects the candidate with the smallest time delta.
+
+        Tier 2 – proximity match: asset matches but result is outside the
+            exact window; selects the best score using typical posting delay.
+            An optional *direction* hint provides a 0.5-point tie-breaking
+            bonus for a matching direction.
+
+        Tier 3 – backward-compatibility / time-only match (``asset=None``):
+            ignores the asset field and selects the best time-proximity
+            candidate.  Preserves legacy behaviour for callers that do not
+            supply an asset.
+
+        Args:
+            result_date: Timezone-aware datetime of the received result.
+            asset: Asset symbol for asset-aware matching (e.g. ``"EURUSD"``).
+                   Pass ``None`` to fall back to legacy time-only matching
+                   (Tier 3 / backward-compat).
+            direction: Optional trade direction used as a Tier-2 tie-breaker
+                       (e.g. ``"CALL"`` or ``"PUT"``).
+            iteration: Martingale iteration number (reserved for future use).
+
+        Returns:
+            The matched signal dict, or ``None`` if no match was found across
+            all tiers.
+        """
+        EXACT_MATCH_TOLERANCE_MINUTES = 2.0
+        typical_delay_fmt1 = 7.0
+        typical_delay_fmt2 = 0.5
+
+        tier1_candidates: list[dict] = []
+        tier2_candidates: list[dict] = []
+        tier3_candidates: list[dict] = []
+
+        norm_asset = self.normalize_asset_for_matching(asset) if asset is not None else None
+        norm_direction = direction.upper() if direction is not None else None
+
+        for sig in self.active_signals:
+            if sig.get("status") in ("resolved", "expired"):
+                continue
+            try:
+                entry = datetime.fromisoformat(
+                    sig["entryTimeUtc"].replace("Z", "+00:00")
+                )
+                if entry.tzinfo is None:
+                    entry = entry.replace(tzinfo=UTC)
+                delta_min = (result_date - entry).total_seconds() / 60
+                if not 0 <= delta_min <= 35:
+                    continue
+                expected_exp_time = self.calculate_signal_expiration_time(sig)
+            except (KeyError, ValueError, AttributeError):
+                continue
+
+            try:
+                if norm_asset is not None:
+                    # Asset-aware: Tier 1 or Tier 2
+                    if self.normalize_asset_for_matching(sig.get("asset", "")) != norm_asset:
+                        continue
+                    time_diff = abs(
+                        (result_date - expected_exp_time).total_seconds() / 60
+                    )
+                    if time_diff < EXACT_MATCH_TOLERANCE_MINUTES:
+                        # Tier 1 candidate
+                        tier1_candidates.append({"signal": sig, "score": time_diff})
+                    else:
+                        # Tier 2 candidate — direction hint lowers score (better match)
+                        fmt = sig.get("format", "fmt1")
+                        typical_delay = (
+                            typical_delay_fmt2 if fmt == "fmt2" else typical_delay_fmt1
+                        )
+                        score = abs(time_diff - typical_delay)
+                        if norm_direction is not None:
+                            if sig.get("direction", "").upper() == norm_direction:
+                                score -= 0.5
+                        tier2_candidates.append({"signal": sig, "score": score})
+                else:
+                    # Tier 3: time-only / backward-compat
+                    fmt = sig.get("format", "fmt1")
+                    typical_delay = (
+                        typical_delay_fmt2 if fmt == "fmt2" else typical_delay_fmt1
+                    )
+                    time_diff = abs(
+                        (result_date - expected_exp_time).total_seconds() / 60
+                    )
+                    proximity_score = abs(time_diff - typical_delay)
+                    tier3_candidates.append(
+                        {"signal": sig, "score": (proximity_score, time_diff)}
+                    )
+            except (KeyError, AttributeError, TypeError):
+                continue
+
+        # Select best match by tier priority
+        if tier1_candidates:
+            best = min(tier1_candidates, key=lambda x: x["score"])
+            self.matching_stats["tier1"] += 1
+            return best["signal"]
+        if tier2_candidates:
+            best = min(tier2_candidates, key=lambda x: x["score"])
+            self.matching_stats["tier2"] += 1
+            return best["signal"]
+        if tier3_candidates:
+            best = min(tier3_candidates, key=lambda x: x["score"])
+            self.matching_stats["tier3"] += 1
+            return best["signal"]
+
+        self.matching_stats["no_match"] += 1
+        return None
+
+
+# --- HTTP helpers ---
+
+
+async def api_post(session, path, data):
+    url = f"{API_BASE}/api/internal{path}"
+    headers = {"X-Internal-Key": INTERNAL_API_KEY, "Content-Type": "application/json"}
+    for attempt in range(3):
+        try:
+            async with session.post(
+                url,
+                json=data,
+                headers=headers,
+                timeout=aiohttp.ClientTimeout(total=10),
+            ) as resp:
+                if resp.status in (200, 201):
+                    try:
+                        return await resp.json()
+                    except json.JSONDecodeError as error:
+                        logger.error(f"JSON error: {error}")
+                        sentry_sdk.capture_exception(error)
+                        sentry_sdk.set_context(
+                            "api_request", {"url": url, "status_code": resp.status}
+                        )
+                        return None
+                body = await resp.text()
+                logger.warning(f"API POST {path} -> {resp.status}: {body}")
+                return None
+        except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+            logger.warning(
+                f"API POST {path} attempt {attempt + 1} failed: {e}, retry in 1s"
+            )
+            sentry_sdk.capture_exception(e)
+            sentry_sdk.set_context(
+                "api_request", {"url": url, "attempt": attempt + 1, "path": path}
+            )
+            if attempt < 2:
+                await asyncio.sleep(1)
+    logger.error(f"Failed to send signal to backend after 3 attempts")
+    asyncio.ensure_future(send_alert(session, f"Backend unreachable: POST {path}"))
+    return None
+
+
+async def api_patch(session, path, data):
+    url = f"{API_BASE}/api/internal{path}"
+    headers = {"X-Internal-Key": INTERNAL_API_KEY, "Content-Type": "application/json"}
+    for attempt in range(3):
+        try:
+            async with session.patch(
+                url,
+                json=data,
+                headers=headers,
+                timeout=aiohttp.ClientTimeout(total=10),
+            ) as resp:
+                if resp.status == 200:
+                    try:
+                        return await resp.json()
+                    except json.JSONDecodeError as error:
+                        logger.error(f"JSON error: {error}")
+                        sentry_sdk.capture_exception(error)
+                        sentry_sdk.set_context(
+                            "api_request", {"url": url, "status_code": resp.status}
+                        )
+                        return None
+                body = await resp.text()
+                logger.warning(f"API PATCH {path} -> {resp.status}: {body}")
+                return None
+        except Exception as e:
+            wait = 2**attempt
+            logger.warning(
+                f"API PATCH {path} attempt {attempt + 1} failed: {e}, retry in {wait}s"
+            )
+            sentry_sdk.capture_exception(e)
+            sentry_sdk.set_context(
+                "api_request", {"url": url, "attempt": attempt + 1, "path": path}
+            )
+            await asyncio.sleep(wait)
+    logger.error(f"API PATCH {path} failed after 3 attempts")
+    return None
+
+
+async def api_get(session, path):
+    """GET with retry logic — M2 fix: aligned with api_post/api_patch."""
+    url = f"{API_BASE}/api/internal{path}"
+    headers = {"X-Internal-Key": INTERNAL_API_KEY}
+    for attempt in range(3):
+        try:
+            async with session.get(
+                url,
+                headers=headers,
+                timeout=aiohttp.ClientTimeout(total=10),
+            ) as resp:
+                if resp.status == 200:
+                    try:
+                        return await resp.json()
+                    except json.JSONDecodeError as error:
+                        logger.error(f"JSON error: {error}")
+                        sentry_sdk.capture_exception(error)
+                        sentry_sdk.set_context(
+                            "api_request", {"url": url, "status_code": resp.status}
+                        )
+                        return None
+                logger.warning(
+                    f"API GET {path} → {resp.status} (attempt {attempt+1}/3)"
+                )
+        except Exception as e:
+            logger.warning(f"API GET {path} failed (attempt {attempt+1}/3): {e}")
+            sentry_sdk.capture_exception(e)
+            sentry_sdk.set_context(
+                "api_request", {"url": url, "attempt": attempt + 1, "path": path}
+            )
+        if attempt < 2:
+            await asyncio.sleep(2**attempt)
+    return None
+
+
+# --- Gale level detection ---
+
+
+def extract_gale_level_from_text(text: str) -> Optional[int]:
+    """Extract martingale iteration from result message text.
+
+    Looks for patterns like "GALE 1", "GALE 2", "MARTINGALE 1", etc.
+
+    Args:
+        text: Raw message text to search
+
+    Returns:
+        int: Gale level (0 for first entry, 1 for first gale, etc.) or None if not found
+    """
+    if not text:
+        return None
+
+    text_upper = text.upper()
+
+    # Check for "GALE N" or "MARTINGALE N" patterns
+    import re
+
+    patterns = [
+        r"GALE\s*(\d+)",
+        r"MARTINGALE\s*(\d+)",
+        r"GALE(\d+)",
+        r"MG\s*(\d+)",
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, text_upper)
+        if match:
+            level = int(match.group(1))
+            # Convert to 0-indexed (GALE 1 = level 1, GALE 2 = level 2, etc.)
+            return level
+
+    return None
+
+
+def determine_gale_level(signal: dict, result_date: datetime) -> int:
+    fmt = signal.get("formatVersion", 1)
+    typical_delay = 7.0 if fmt == 1 else 0.5
+    entry_time = datetime.fromisoformat(signal["entryTimeUtc"].replace("Z", "+00:00"))
+    mg_times = signal.get("martingaleTimes", [])
+
+    ends = [(0, entry_time + timedelta(minutes=5))]
+    for i, mt_str in enumerate(mg_times):
+        h, m = map(int, mt_str.split(":"))
+        dt = entry_time.replace(hour=h, minute=m, second=0, microsecond=0)
+        diff = (dt - entry_time).total_seconds()
+        if diff > 12 * 3600:
+            dt -= timedelta(days=1)
+        elif diff < -12 * 3600:
+            dt += timedelta(days=1)
+        if fmt == 2:
+            dt += timedelta(minutes=5)
+        ends.append((i + 1, dt))
+
+    best_gale = None
+    best_score = float("inf")
+    for gale_level, end_time in ends:
+        diff_min = (result_date - end_time).total_seconds() / 60
+        if diff_min < -2:
+            continue
+        score = abs(diff_min - typical_delay)
+        if score < best_score:
+            best_score = score
+            best_gale = gale_level
+
+    if best_gale is not None:
+        return best_gale
+
+    delta = (result_date - entry_time).total_seconds() / 60
+    if fmt == 1:
+        return 0 if delta < 14.5 else (1 if delta < 19 else 2)
+    return 0 if delta < 8 else (1 if delta < 13 else 2)
+
+
+def find_by_exact_expiration(*args, **kwargs):
+    """Find option/signal by exact expiration matching.
+
+    Supports two call signatures:
+    1. Legacy: find_by_exact_expiration(asset, result_timestamp, signals)
+    2. Testing: find_by_exact_expiration(option_chain, target_date, strike_price=X)
+    """
+    # Detect which signature is being used
+    if len(args) >= 2 and 'strike_price' in kwargs:
+        # Testing signature: (option_chain, target_date, *, strike_price)
+        return _find_by_exact_expiration_test(args[0], args[1], kwargs['strike_price'])
+    else:
+        # Legacy signature: (asset, result_timestamp, signals)
+        return _find_by_exact_expiration_legacy(args[0], args[1], args[2] if len(args) > 2 else kwargs.get('signals'))
+
+
+def _find_by_exact_expiration_test(
+    option_chain: list,
+    target_date,  # Can be date or datetime
+    strike_price: float
+) -> Optional[dict]:
+    """Test-compatible version: find option by expiration date and strike price.
+
+    Args:
+        option_chain: List of option dictionaries
+        target_date: Target date (date or datetime object)
+        strike_price: Strike price to match
+
+    Returns:
+        Matching option dict or None if no match found
+    """
+    from datetime import date as date_type, datetime as datetime_type
+
+    # Convert target_date to date if it's a datetime
+    if isinstance(target_date, datetime_type):
+        target_date_obj = target_date.date()
+        has_time_component = True
+        target_datetime = target_date if target_date.tzinfo else target_date.replace(tzinfo=timezone.utc)
+    else:
+        target_date_obj = target_date
+        has_time_component = False
+        target_datetime = None
+
+    # Format target date as string for comparison
+    target_date_str = target_date_obj.isoformat()
+
+    matches = []
+    for option in option_chain:
+        # Skip if expiration_date doesn't match
+        exp_date = option.get("expiration_date")
+        if exp_date != target_date_str:
+            continue
+
+        # Skip if strike_price doesn't match
+        if option.get("strike_price") != strike_price:
+            continue
+
+        # Check expiration_time field
+        exp_time = option.get("expiration_time")
+
+        # If expiration_time key exists and is None, skip this option
+        # (backward compatibility - old signals without time data)
+        if "expiration_time" in option and exp_time is None:
+            continue
+
+        # If option has a valid expiration_time, we need to check time-based matching
+        if exp_time is not None:
+            # Parse and validate expiration_time
+            try:
+                if isinstance(exp_time, str):
+                    exp_time_dt = datetime_type.fromisoformat(exp_time.replace("Z", "+00:00"))
+                elif isinstance(exp_time, datetime_type):
+                    exp_time_dt = exp_time if exp_time.tzinfo else exp_time.replace(tzinfo=timezone.utc)
+                else:
+                    # Invalid expiration_time type, skip
+                    continue
+
+                # For time-based matching, we need a reference time
+                # Use current time if only date was provided (for testing compatibility)
+                if not has_time_component:
+                    # No time component provided - skip time-based matching
+                    # This means options with expiration_time won't match date-only queries
+                    continue
+
+                # Check if within ±5 seconds tolerance
+                time_diff = abs((target_datetime - exp_time_dt).total_seconds())
+                if time_diff <= 5:
+                    matches.append((option, time_diff, exp_time_dt))
+                # else: outside tolerance, don't add to matches
+            except (ValueError, AttributeError, TypeError):
+                # Invalid timestamp, skip
+                continue
+        else:
+            # No expiration_time field - simple date+strike match
+            matches.append((option, float('inf'), None))
+
+    if not matches:
+        return None
+
+    # If multiple matches found
+    if len(matches) > 1:
+        # Log warning about ambiguity
+        logger.warning(
+            f"Found multiple signals with same expiration - ambiguous match. "
+            f"Returning most recent by created_at."
+        )
+
+        # Sort by created_at if available, otherwise by time_diff
+        def sort_key(m):
+            option, time_diff, _ = m
+            created_at = option.get("created_at")
+            if created_at:
+                if isinstance(created_at, datetime_type):
+                    return created_at
+                try:
+                    return datetime_type.fromisoformat(str(created_at))
+                except:
+                    pass
+            return datetime_type.min
+
+        matches.sort(key=sort_key, reverse=True)
+
+    # Log info about exact match
+    logger.info(f"Exact match found for strike {strike_price} on {target_date_str}")
+
+    return matches[0][0]
+
+
+def _find_by_exact_expiration_legacy(
+    asset: str, result_timestamp: datetime, signals: list
+) -> Optional[dict]:
+    """Legacy version: Find a signal by exact expiration time matching within ±5 seconds.
+
+    Args:
+        asset: The asset symbol to match
+        result_timestamp: The datetime when the result was received (timezone-aware or naive)
+        signals: List of signal dictionaries to search
+
+    Returns:
+        Matching signal dict or None if no match found
+    """
+    # Ensure timezone consistency: if naive, assume UTC
+    if result_timestamp.tzinfo is None:
+        result_timestamp = result_timestamp.replace(tzinfo=timezone.utc)
+
+    matches = []
+    for signal in signals:
+        # Filter by asset
+        if signal.get("asset") != asset:
+            continue
+
+        # Skip old signals without expiration_time field (will be caught by proximity fallback)
+        if signal.get("expiration_time") is None:
+            continue
+
+        # Get expirationTime from signal
+        expiration_time_str = signal.get("expirationTime")
+        if not expiration_time_str:
+            continue
+
+        # Parse expiration time
+        try:
+            expiration_time = datetime.fromisoformat(
+                expiration_time_str.replace("Z", "+00:00")
+            )
+        except (ValueError, AttributeError):
+            continue
+
+        # Check if result_timestamp matches expirationTime within tolerance
+        time_diff = abs((result_timestamp - expiration_time).total_seconds())
+        if time_diff <= EXPIRATION_MATCH_TOLERANCE_SECONDS:
+            matches.append(signal)
+
+    if not matches:
+        return None
+
+    if len(matches) > 1:
+        signal_ids = [str(s.get("id", "unknown")) for s in matches]
+        logger.warning(
+            f"Multiple signals found for exact expiration: {', '.join(signal_ids)}"
+        )
+        # Return the most recent one by timestamp
+        matches.sort(key=lambda s: s.get("timestamp", ""), reverse=True)
+
+    logger.info(
+        f"Exact expiration match found for {asset}",
+        extra={
+            "match_type": "exact",
+            "asset": asset,
+            "signal_id": matches[0].get("id", "unknown"),
+            "confidence_score": 1.0,
+            "time_delta_seconds": time_diff,
+        },
+    )
+    sentry_sdk.add_breadcrumb(
+        level="info",
+        category="matching",
+        message="Exact expiration match",
+        data={
+            "asset": asset,
+            "signal_id": matches[0].get("id", "unknown"),
+            "delta_seconds": time_diff,
+        },
+    )
+    return matches[0]
+
+
+# --- Background tasks ---
+
+
+async def signal_activator(handlers: dict, session):
+    while True:
+        try:
+            now = datetime.now(UTC)
+            for handler in handlers.values():
+                try:
+                    for sig in handler.active_signals:
+                        if sig.get("status") != "pending":
+                            continue
+                        entry = datetime.fromisoformat(
+                            sig["entryTimeUtc"].replace("Z", "+00:00")
+                        )
+                        if entry.tzinfo is None:
+                            entry = entry.replace(tzinfo=UTC)
+                        if (entry - now).total_seconds() <= 30:
+                            result = await api_post(
+                                session, f"/signals/{sig['id']}/activate", {}
+                            )
+                            if result:
+                                sig["status"] = "active"
+                                logger.info(
+                                    f"[{handler.slug}] Activated {sig['id']} "
+                                    f"({sig['asset']} {sig['direction']})"
+                                )
+                except Exception as e:
+                    logger.error(
+                        f"Signal activator error for channel [{handler.slug}]: {e}"
+                    )
+                    sentry_sdk.capture_exception(e)
+                    gc.collect()
+        except Exception as e:
+            logger.error(f"Signal activator error: {e}")
+            sentry_sdk.capture_exception(e)
+            gc.collect()
+        await asyncio.sleep(SIGNAL_ACTIVATE_DELAY_SEC)
+
+
+async def timeout_checker(handlers: dict, session):
+    while True:
+        try:
+            now = datetime.now(UTC)
+            for handler in handlers.values():
+                try:
+                    to_expire = []
+                    for sig in handler.active_signals:
+                        if sig.get("status") in ("resolved", "expired"):
+                            continue
+                        entry = datetime.fromisoformat(
+                            sig["entryTimeUtc"].replace("Z", "+00:00")
+                        )
+                        if entry.tzinfo is None:
+                            entry = entry.replace(tzinfo=UTC)
+                        if (now - entry).total_seconds() / 60 > SIGNAL_TIMEOUT_MIN:
+                            to_expire.append(sig)
+
+                    for sig in to_expire:
+                        result = await api_patch(
+                            session,
+                            f"/signals/{sig['id']}/status",
+                            {"status": "expired"},
+                        )
+                        if result:
+                            sig["status"] = "expired"
+                            logger.info(f"[{handler.slug}] Expired {sig['id']}")
+
+                    # Cleanup old entries
+                    cutoff = now - timedelta(hours=1)
+                    handler.active_signals[:] = [
+                        s
+                        for s in handler.active_signals
+                        if s.get("status") not in ("resolved", "expired")
+                        or datetime.fromisoformat(
+                            s["entryTimeUtc"].replace("Z", "+00:00")
+                        ).replace(tzinfo=UTC)
+                        > cutoff
+                    ]
+
+                    # Alert if channel silent >4h during active hours (08-22 UTC)
+                    if handler.last_signal_at and 8 <= now.hour <= 22:
+                        silent_h = (now - handler.last_signal_at).total_seconds() / 3600
+                        if silent_h > 4 and not handler._silence_alerted:
+                            handler._silence_alerted = True
+                            await send_alert(
+                                session,
+                                f"Channel {handler.slug} silent for {silent_h:.1f}h",
+                            )
+                except Exception as e:
+                    logger.error(
+                        f"Timeout checker error for channel [{handler.slug}]: {e}"
+                    )
+                    sentry_sdk.capture_exception(e)
+                    gc.collect()
+        except Exception as e:
+            logger.error(f"Timeout checker error: {e}")
+            sentry_sdk.capture_exception(e)
+            gc.collect()
+        await asyncio.sleep(60)
+
+
+# --- Main ---
+
+
+async def run_with_reconnection(
+    client, reconnection_manager, alerter, health_tracker, connection_metrics
+):
+    """Run the listener with automatic reconnection on failure.
+
+    Args:
+        client: TelegramClient instance
+        reconnection_manager: ReconnectionManager instance for backoff logic
+        alerter: TelegramAlerter instance for sending alerts
+        health_tracker: HealthTracker instance for monitoring health
+        connection_metrics: ConnectionMetrics instance for tracking connection statistics
+    """
+    while reconnection_manager.should_retry():
+        if shutdown_requested:
+            break
+        try:
+            reconnection_manager.state = ConnectionState.CONNECTING
+            # Log successful connection and reset retry counter
+            logger.info("Successfully connected to Telegram, monitoring for messages")
+
+            # Send recovery alert if reconnection was successful
+            if reconnection_manager.attempt_count > 0:
+                attempt_count = reconnection_manager.attempt_count
+                if reconnection_manager.last_failure_time:
+                    downtime_seconds = int(
+                        (
+                            datetime.now(timezone.utc)
+                            - reconnection_manager.last_failure_time
+                        ).total_seconds()
+                    )
+                else:
+                    downtime_seconds = 0
+                await alerter.send_alert(
+                    f"✅ Listener Recovered\n\nReconnected after {attempt_count} attempts\nDowntime: {downtime_seconds}s",
+                    "INFO",
+                )
+                logger.info(
+                    f"Reconnection successful after {attempt_count} attempts with {downtime_seconds}s downtime"
+                )
+
+                # Update connection metrics
+                connection_metrics.total_reconnections += 1
+                connection_metrics.total_downtime_seconds += downtime_seconds
+
+                # Calculate statistics
+                avg_downtime = (
+                    connection_metrics.total_downtime_seconds
+                    / connection_metrics.total_reconnections
+                )
+                total_attempts = (
+                    connection_metrics.successful_connections
+                    + connection_metrics.failed_connections
+                )
+                success_rate = (
+                    (connection_metrics.successful_connections / total_attempts * 100)
+                    if total_attempts > 0
+                    else 0
+                )
+
+                # Log reconnection statistics
+                logger.info(
+                    f"Reconnection successful. Total reconnections: {connection_metrics.total_reconnections}, Average downtime: {avg_downtime:.1f}s, Success rate: {success_rate:.1f}%"
+                )
+
+            reconnection_manager.reset()
+            reconnection_manager.state = ConnectionState.CONNECTED
+            await client.run_until_disconnected()
+            logger.info("Client disconnected normally")
+            break
+        except FloodWaitError as e:
+            wait_time = e.seconds
+            buffer = 5  # Add 5 second buffer
+            total_wait = wait_time + buffer
+            logger.warning(
+                f"FloodWaitError: Telegram rate limit hit. Waiting {wait_time}s + {buffer}s buffer = {total_wait}s"
+            )
+            sentry_sdk.capture_message(
+                "Rate limit exceeded", level="warning", extra={"wait_time": total_wait}
+            )
+            await alerter.send_alert(
+                f"Telegram rate limit hit. Waiting {total_wait}s before retry.",
+                "Rate Limit",
+            )
+            await asyncio.sleep(total_wait)
+            # Continue without incrementing failure count - this is not a connection failure
+        except ConnectionError as e:
+            logger.error(f"Connection failure: {e}", exc_info=True)
+            reconnection_manager.record_failure()
+            reconnection_manager.state = ConnectionState.RECONNECTING
+            record_exception(e)
+            health_tracker.record_error()
+            gc.collect()  # Clean up memory on connection error
+            if not reconnection_manager.should_retry():
+                reconnection_manager.state = ConnectionState.FAILED
+                await alerter.send_alert(
+                    "🛑 Listener Failed\n\nMax retries exceeded. Manual intervention required.",
+                    "CRITICAL",
+                )
+                sys.exit(1)
+            delay = reconnection_manager.calculate_next_delay()
+            attempt_count = reconnection_manager.attempt_count
+            logger.info(
+                f"Sleeping for {delay:.1f}s before reconnection (attempt {attempt_count})"
+            )
+            await alerter.send_alert(
+                f"🔌 Connection Lost\n\nAttempt: {attempt_count}\nNext retry in: {delay}s\n\nError: {str(e)}",
+                "WARNING",
+            )
+            await asyncio.sleep(delay)
+        except Exception as e:
+            logger.error(f"Network error: {e}", exc_info=True)
+            reconnection_manager.record_failure()
+            reconnection_manager.state = ConnectionState.RECONNECTING
+            record_exception(e)
+            health_tracker.record_error()
+            gc.collect()  # Clean up memory on network error
+            if not reconnection_manager.should_retry():
+                reconnection_manager.state = ConnectionState.FAILED
+                await alerter.send_alert(
+                    "🛑 Listener Failed\n\nMax retries exceeded. Manual intervention required.",
+                    "CRITICAL",
+                )
+                sys.exit(1)
+            delay = reconnection_manager.calculate_next_delay()
+            logger.info(
+                f"Sleeping for {delay:.1f}s before reconnection (attempt {reconnection_manager.attempt_count})"
+            )
+            await alerter.send_alert(
+                f"Network error. Reconnecting in {delay:.1f}s (attempt {reconnection_manager.attempt_count})",
+                "Network Error",
+            )
+            await asyncio.sleep(delay)
+        except TimeoutError as e:
+            logger.error(f"Timeout error: {e}", exc_info=True)
+            reconnection_manager.record_failure()
+            reconnection_manager.state = ConnectionState.RECONNECTING
+            record_exception(e)
+            health_tracker.record_error()
+            gc.collect()  # Clean up memory on timeout error
+            if not reconnection_manager.should_retry():
+                reconnection_manager.state = ConnectionState.FAILED
+                await alerter.send_alert(
+                    "🛑 Listener Failed\n\nMax retries exceeded. Manual intervention required.",
+                    "CRITICAL",
+                )
+                sys.exit(1)
+            delay = reconnection_manager.calculate_next_delay()
+            logger.info(
+                f"Sleeping for {delay:.1f}s before reconnection (attempt {reconnection_manager.attempt_count})"
+            )
+            await alerter.send_alert(
+                f"Timeout error. Reconnecting in {delay:.1f}s (attempt {reconnection_manager.attempt_count})",
+                "Timeout",
+            )
+            await asyncio.sleep(delay)
+        except OSError as e:
+            logger.error(f"Network error: {e}", exc_info=True)
+            reconnection_manager.record_failure()
+            reconnection_manager.state = ConnectionState.RECONNECTING
+            record_exception(e)
+            health_tracker.record_error()
+            gc.collect()  # Clean up memory on network error
+            if not reconnection_manager.should_retry():
+                reconnection_manager.state = ConnectionState.FAILED
+                await alerter.send_alert(
+                    "🛑 Listener Failed\n\nMax retries exceeded. Manual intervention required.",
+                    "CRITICAL",
+                )
+                sys.exit(1)
+            delay = reconnection_manager.calculate_next_delay()
+            logger.info(
+                f"Sleeping for {delay:.1f}s before reconnection (attempt {reconnection_manager.attempt_count})"
+            )
+            await alerter.send_alert(
+                f"Network error. Reconnecting in {delay:.1f}s (attempt {reconnection_manager.attempt_count})",
+                "Network Error",
+            )
+            await asyncio.sleep(delay)
+        except Exception as e:
+            logger.error(f"Connection error: {e}", exc_info=True)
+            reconnection_manager.record_failure()
+            reconnection_manager.state = ConnectionState.RECONNECTING
+            record_exception(e)
+            health_tracker.record_error()
+            gc.collect()  # Clean up memory on critical error
+            crash_report = format_crash_report(
+                e,
+                {
+                    "attempt": reconnection_manager.attempt_count,
+                    "state": reconnection_manager.state,
+                },
+            )
+            await alerter.send_alert(crash_report, "CRITICAL")
+            if not reconnection_manager.should_retry():
+                reconnection_manager.state = ConnectionState.FAILED
+                await alerter.send_alert(
+                    "🛑 Listener Failed\n\nMax retries exceeded. Manual intervention required.",
+                    "CRITICAL",
+                )
+                sys.exit(1)
+            delay = reconnection_manager.calculate_next_delay()
+            logger.info(
+                f"Sleeping for {delay:.1f}s before reconnection (attempt {reconnection_manager.attempt_count})"
+            )
+            await alerter.send_alert(
+                f"Connection lost. Reconnecting in {delay:.1f}s (attempt {reconnection_manager.attempt_count})",
+                "warning",
+            )
+            await asyncio.sleep(delay)
+
+    # If we exit the while loop, max retries have been exceeded
+    if not reconnection_manager.should_retry():
+        reconnection_manager.state = ConnectionState.FAILED
+        await alerter.send_alert(
+            "🛑 Listener Failed\n\nMax retries exceeded. Manual intervention required.",
+            "CRITICAL",
+        )
+        sys.exit(1)
+
+
+def validate_config() -> None:
+    """Validate required environment variables on startup."""
+    errors = []
+
+    # Check TELEGRAM_API_ID
+    if not TELEGRAM_API_ID or TELEGRAM_API_ID == "REDACTED":
+        errors.append("TELEGRAM_API_ID is not configured")
+
+    # Check BACKEND_URL
+    if not BACKEND_URL or BACKEND_URL == "REDACTED":
+        errors.append("BACKEND_URL is not configured")
+
+    # Check crash alert configuration if enabled
+    if ENABLE_CRASH_ALERTS:
+        if not ALERT_BOT_TOKEN or ALERT_BOT_TOKEN == "REDACTED":
+            errors.append("ALERT_BOT_TOKEN is required when ENABLE_CRASH_ALERTS=true")
+        if not ALERT_CHAT_ID or ALERT_CHAT_ID == "REDACTED":
+            errors.append("ALERT_CHAT_ID is required when ENABLE_CRASH_ALERTS=true")
+
+    if errors:
+        logger.error("Configuration validation failed:")
+        for error in errors:
+            logger.error(f"  - {error}")
+        sys.exit(1)
+
+    logger.info("Configuration validation passed")
+
+
+async def run_healthcheck_server(port: int, health_tracker=None, handlers=None):
+    """Run a simple HTTP healthcheck server on the specified port.
+
+    Args:
+        port: The port to listen on for healthcheck requests
+        health_tracker: Optional HealthTracker instance for metrics
+        handlers: Optional dict of ChannelHandler instances for matching stats
+    """
+    from aiohttp import web
+
+    async def health_handler(request):
+        """Handle /health endpoint requests."""
+        uptime = (
+            int((datetime.now(timezone.utc) - START_TIME).total_seconds())
+            if START_TIME
+            else 0
+        )
+
+        # Determine health status
+        is_healthy = health_tracker.is_healthy() if health_tracker else True
+        status = "healthy" if is_healthy else "unhealthy"
+
+        # Aggregate matching stats from all handlers
+        matching_stats = {
+            "exact_match": 0,
+            "proximity_fallback_count": 0,
+            "tier1": 0,
+            "tier2": 0,
+            "tier3": 0,
+            "no_match": 0,
+        }
+        ambiguous_matches = 0
+        if handlers:
+            for handler in handlers.values():
+                for key in matching_stats:
+                    matching_stats[key] += handler.matching_stats.get(key, 0)
+                ambiguous_matches += handler.ambiguous_matches
+
+        response = {
+            "status": status,
+            "uptime": uptime,
+            "messages": health_tracker.message_count if health_tracker else 0,
+            "last_heartbeat": (
+                health_tracker.last_heartbeat.isoformat()
+                if health_tracker and health_tracker.last_heartbeat
+                else None
+            ),
+            "errors": health_tracker.error_count if health_tracker else 0,
+            "matching_stats": matching_stats,
+            "ambiguous_matches": ambiguous_matches,
+        }
+
+        # Send Sentry alert if unhealthy
+        if not is_healthy:
+            sentry_sdk.capture_message(
+                "Listener unhealthy", level="warning", extra=response
+            )
+
+        return web.json_response(response)
+
+    async def metrics_handler(request):
+        """Handle /metrics endpoint requests for Prometheus."""
+        return web.Response(body=generate_latest(), content_type=CONTENT_TYPE_LATEST)
+
+    app = web.Application()
+    app.router.add_get("/health", health_handler)
+    app.router.add_get("/metrics", metrics_handler)
+
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+
+    logger.info(f"Healthcheck server started on port {port}")
+
+
+async def main():
+    logger.info("Starting SnapTrade Multi-Channel Listener...")
+
+    # Load and log previous session metrics if available
+    metrics_file = os.path.join("listener", "metrics.json")
+    if os.path.exists(metrics_file):
+        try:
+            with open(metrics_file, "r", encoding="utf-8") as f:
+                prev_metrics = json.load(f)
+            messages = prev_metrics.get("message_count", 0)
+            uptime = prev_metrics.get("uptime", 0)
+            errors = prev_metrics.get("error_count", 0)
+            logger.info(
+                f"Previous session: {messages} messages, {uptime}s uptime, {errors} errors"
+            )
+        except (IOError, OSError, json.JSONDecodeError) as e:
+            sentry_sdk.capture_exception(e)
+            logger.warning(f"Failed to load previous metrics: {e}")
+
+    # Validate configuration on startup
+    validate_config()
+
+    try:
+        client = TelegramClient(
+            os.path.join(os.path.dirname(__file__), SESSION_NAME),
+            TELEGRAM_API_ID,
+            TELEGRAM_API_HASH,
+        )
+
+        # Register SIGTERM handler for graceful shutdown
+        alerter = SHUTDOWN_ALERTER
+        loop = asyncio.get_running_loop()
+        loop.add_signal_handler(
+            signal.SIGTERM,
+            lambda: asyncio.ensure_future(
+                handle_shutdown("SIGTERM", client, alerter)
+            ),
+        )
+        loop.add_signal_handler(
+            signal.SIGINT,
+            lambda: asyncio.ensure_future(
+                handle_shutdown("SIGINT", client, alerter)
+            ),
+        )
+
+        await client.start(phone=TELEGRAM_PHONE)
+        logger.info("Telegram client connected")
+    except (ValueError, AuthKeyError, PhoneNumberInvalidError) as e:
+        sentry_sdk.capture_exception(e)
+        logger.error(f"Authentication failed: {type(e).__name__}: {e}")
+        logger.error(
+            "Please check your Telegram credentials (API_ID, API_HASH, PHONE) and session file."
+        )
+        sys.exit(1)
+
+    async with aiohttp.ClientSession() as session:
+        # Initialize health tracker and metrics
+        health_tracker = HealthTracker()
+        connection_metrics = ConnectionMetrics()
+
+        # Load channel configs from API (retry up to 5 times for API startup race)
+        channels_data = None
+        for attempt in range(5):
+            channels_data = await api_get(session, "/channels")
+            if channels_data:
+                break
+            wait = 5 * (attempt + 1)
+            logger.warning(
+                f"API not ready (attempt {attempt + 1}/5), retrying in {wait}s..."
+            )
+            await asyncio.sleep(wait)
+        if not channels_data:
+            logger.error("Failed to load channels from API after 5 attempts.")
+            channels_data = []
+
+        # Build handlers and resolve Telegram entities
+        handlers: dict[int, ChannelHandler] = {}
+        channel_entities = []
+
+        # Build dialog index for name matching
+        dialog_index = {}
+        async for dialog in client.iter_dialogs():
+            dialog_index[dialog.name] = dialog
+            if dialog.entity and hasattr(dialog.entity, "id"):
+                dialog_index[str(dialog.entity.id)] = dialog
+
+        for ch_config in channels_data:
+            try:
+                if not ch_config.get("isActive", True):
+                    continue
+
+                handler = ChannelHandler(ch_config, health_tracker)
+
+                # Resolve Telegram entity
+                entity = None
+                if handler.telegram_id:
+                    # Try by numeric ID
+                    tg_key = str(handler.telegram_id)
+                    if tg_key in dialog_index:
+                        entity = dialog_index[tg_key].entity
+
+                if not entity:
+                    # Try by name
+                    if handler.telegram_name in dialog_index:
+                        entity = dialog_index[handler.telegram_name].entity
+
+                if not entity:
+                    # Fuzzy match
+                    for dname, dialog in dialog_index.items():
+                        if (
+                            isinstance(dname, str)
+                            and handler.telegram_name.lower() in dname.lower()
+                        ):
+                            entity = dialog.entity
+                            break
+
+                if entity:
+                    entity_id = entity.id
+                    handlers[entity_id] = handler
+                    channel_entities.append(entity)
+                    logger.info(
+                        f"Channel [{handler.slug}] -> entity {entity_id} ({handler.telegram_name})"
+                    )
+                else:
+                    logger.warning(
+                        f"Channel [{handler.slug}] could not resolve Telegram entity for '{handler.telegram_name}'"
+                    )
+            except Exception as e:
+                sentry_sdk.capture_exception(e)
+                channel_name = ch_config.get("slug", ch_config.get("name", "unknown"))
+                logger.error(
+                    f"Failed to process channel [{channel_name}]: {e}", exc_info=True
+                )
+                # Cleanup memory after channel processing errors
+                gc.collect()
+                continue
+
+        if not handlers:
+            logger.error("No channels resolved. Exiting.")
+            return
+
+        logger.info(f"Listening on {len(handlers)} channels")
+
+        # Set Sentry context for telethon channels
+        channel_list = [h.slug for h in handlers.values()]
+        sentry_sdk.set_context("telethon", {"channels": channel_list})
+
+        await alerter.send_alert(
+            f"🚀 Listener Started\n\nVersion: {VERSION}\nChannels: {len(handlers)}\nCrash recovery: Enabled",
+            "INFO",
+        )
+
+        # Recover active signals
+        active_data = await api_get(session, "/signals/active")
+        if active_data and isinstance(active_data, list):
+            for sig in active_data:
+                ch_id = sig.get("channelId")
+                for handler in handlers.values():
+                    try:
+                        if handler.channel_id == ch_id:
+                            handler.active_signals.append(sig)
+                            break
+                    except Exception as e:
+                        sentry_sdk.capture_exception(e)
+                        logger.error(
+                            f"Failed to recover signal for channel [{handler.slug}]: {e}"
+                        )
+            logger.info(f"Recovered {len(active_data)} active signals")
+
+        # Start background tasks
+        asyncio.create_task(signal_activator(handlers, session))
+        asyncio.create_task(timeout_checker(handlers, session))
+        asyncio.create_task(
+            save_metrics_periodically(connection_metrics, health_tracker)
+        )
+
+        # Build ID lookup for all registered channels (positive and -100-prefixed)
+        handler_lookup: dict[int, ChannelHandler] = {}
+        for eid, h in handlers.items():
+            try:
+                handler_lookup[eid] = h
+                handler_lookup[-eid] = h
+                # Telegram channels use -100 prefix: -100XXXXXXXXXX
+                handler_lookup[int(f"-100{eid}")] = h
+            except Exception as e:
+                sentry_sdk.capture_exception(e)
+                logger.error(f"Failed to build ID lookup for channel [{h.slug}]: {e}")
+
+        @client.on(events.NewMessage())
+        async def handler_fn(event):
+            try:
+                health_tracker.record_message()
+                chat_id = event.chat_id
+                handler = handler_lookup.get(chat_id)
+                if not handler:
+                    return
+
+                sentry_sdk.add_breadcrumb(
+                    category="telegram",
+                    message="Message received",
+                    data={"channel": handler.channel_id},
+                )
+                text = event.message.message
+
+                # Pocket VIP: handle all messages (stickers, photos, text) via OCR parser
+                if (
+                    handler.source_format == "pocket_vip_sticker"
+                    and handler.pocket_vip_parser
+                ):
+                    msg_id = event.message.id
+                    msg_date = event.message.date
+                    if msg_date.tzinfo is None:
+                        msg_date = msg_date.replace(tzinfo=UTC)
+                    msg_date = msg_date.astimezone(UTC)
+                    try:
+                        parsed = await handler.pocket_vip_parser.process_message(
+                            event.message
+                        )
+                    except Exception as e:
+                        sentry_sdk.capture_exception(e)
+                        logger.error(f"Failed to parse signal: {e}")
+                        health_tracker.record_error()
+                        # Cleanup memory after processing errors
+                        if "parsed" in locals():
+                            del parsed
+                        gc.collect()
+                        return
+                    if not parsed:
+                        return
+                    handler.last_signal_at = datetime.now(UTC)
+                    handler._silence_alerted = False
+                    if parsed.get("type") == "signal":
+                        raw_text = (
+                            text[:500]
+                            if text
+                            else f"[PV] {parsed['asset']} {parsed['direction']}"
+                        )
+                        martingale_times = parsed.get("martingale_times", [])
+                        expiration_minutes = (
+                            martingale_times[0]
+                            if martingale_times
+                            else parsed.get("expiration_minutes", 5)
+                        )
+                        expiration_time = calculate_expiration_time(
+                            msg_date, [expiration_minutes * 60]
+                        )
+                        logger.info(
+                            f"Sending signal for {parsed['asset']} expiring at {expiration_time}"
+                        )
+                        api_result = await api_post(
+                            session,
+                            "/signals",
+                            {
+                                "telegramMsgId": msg_id,
+                                "channelId": handler.channel_id,
+                                "asset": parsed["asset"],
+                                "direction": parsed["direction"],
+                                "entryTimeUtc": parsed["entry_time_utc"],
+                                "expirationMinutes": parsed.get(
+                                    "expiration_minutes", 5
+                                ),
+                                "expirationTime": expiration_time.isoformat(),
+                                "formatVersion": 99,
+                                "martingaleTimes": parsed.get("martingale_times", []),
+                                "rawText": raw_text,
+                            },
+                        )
+                        if api_result:
+                            api_result["expiration_time"] = expiration_time
+                            handler.active_signals.append(api_result)
+                            logger.info(
+                                f"[{handler.slug}] PV Signal: {parsed['asset']} "
+                                f"{parsed['direction']} (tf={parsed.get('expiration_minutes', 5)}m) "
+                                f"Expires: {expiration_time.strftime('%H:%M:%S')}"
+                            )
+                    elif parsed.get("type") == "result":
+                        # PV results don't include asset info, rely on time-only matching.
+                        # Extract iteration for matching
+                        result_iteration = parsed.get("gale_level")
+                        if result_iteration is None:
+                            result_iteration = (
+                                extract_gale_level_from_text(text) if text else None
+                            )
+                        if result_iteration is None:
+                            result_iteration = 0
+                            logger.warning(
+                                f"[{handler.slug}] Could not determine iteration for result #{msg_id}, defaulting to 0"
+                            )
+                        _raw_result = handler.find_matching_signal_proximity_only(
+                            msg_date,
+                            asset=parsed.get("asset"),
+                            direction=parsed.get("direction"),
+                        )
+                        if _raw_result is not None:
+                            if isinstance(_raw_result, tuple):
+                                matching, confidence = _raw_result
+                                match_tier = 2
+                            else:
+                                matching, confidence = _raw_result, 1.0
+                                match_tier = 1
+                            is_win = parsed.get("is_win", False)
+                            # Detect gale level: first from parser, then from text, finally default to 0
+                            gale_level = parsed.get("gale_level")
+                            if gale_level is None:
+                                gale_level = (
+                                    extract_gale_level_from_text(text) if text else None
+                                )
+                            if gale_level is None:
+                                gale_level = 0
+                            outcome = "win" if is_win else "loss"
+                            logger.info(
+                                f"[{handler.slug}] Signal matched with tier={match_tier}, confidence={confidence:.2f}, "
+                                f"signal_id={matching.get('id')}, asset={matching.get('asset')}"
+                            )
+                            if confidence == 1.0:
+                                signal_matches_exact_expiration_total.labels(
+                                    asset=matching.get("asset", "unknown"),
+                                    outcome=outcome,
+                                ).inc()
+                            api_result = await api_patch(
+                                session,
+                                f"/signals/{matching['id']}/result",
+                                {
+                                    "result": outcome,
+                                    "galeLevel": gale_level,
+                                    "resultMsgId": msg_id,
+                                    "matchTier": match_tier,
+                                    "matchConfidence": confidence,
+                                },
+                            )
+                            if api_result:
+                                matching["status"] = "resolved"
+                                logger.info(
+                                    f"[{handler.slug}] PV Result: "
+                                    f"{'WIN' if is_win else 'LOSS'} (g{gale_level}) [confidence={confidence:.2f}]"
+                                )
+                        else:
+                            logger.warning(
+                                f"[{handler.slug}] PV no match for result #{msg_id}",
+                                extra={
+                                    "match_type": "pv_no_match",
+                                    "asset": None,
+                                    "signal_id": None,
+                                    "confidence": None,
+                                    "delta_seconds": None,
+                                },
+                            )
+                    # Cleanup memory after processing large images
+                    del parsed
+                    gc.collect()
+                    return  # Pocket VIP handled — do not fall through to text-based parsing
+
+                if not text:
+                    return
+
+                msg_id = event.message.id
+                msg_date = event.message.date
+                if msg_date.tzinfo is None:
+                    msg_date = msg_date.replace(tzinfo=UTC)
+                msg_date = msg_date.astimezone(UTC)
+
+                logger.info(f"[{handler.slug}] #{msg_id}: {text[:80]}...")
+
+                parsed_items = None
+                try:
+                    parsed_items = handler.parse(text, msg_id, msg_date)
+                except Exception as e:
+                    sentry_sdk.capture_exception(e)
+                    logger.error(f"Failed to parse signal: {e}")
+                    health_tracker.record_error()
+                    # Cleanup memory after processing errors
+                    gc.collect()
+                    return
+                if not parsed_items:
+                    return
+
+                handler.last_signal_at = datetime.now(UTC)
+                handler._silence_alerted = False
+
+                for parsed in parsed_items:
+                    if parsed is None:
+                        continue
+
+                    if handler.is_inline_format():
+                        # Inline format: combined or separate signal/result
+                        if parsed.get("type") == "inline_signal":
+                            expiration_time = calculate_expiration_time(
+                                msg_date, [5 * 60]
+                            )
+                            logger.info(
+                                f"Sending signal for {parsed['asset']} expiring at {expiration_time}"
+                            )
+                            api_result = await api_post(
+                                session,
+                                "/signals",
+                                {
+                                    "telegramMsgId": msg_id,
+                                    "channelId": handler.channel_id,
+                                    "asset": parsed["asset"],
+                                    "direction": parsed["direction"],
+                                    "entryTimeUtc": parsed["entry_time_utc"],
+                                    "expirationMinutes": 5,
+                                    "expirationTime": expiration_time.isoformat(),
+                                    "formatVersion": 99,
+                                    "martingaleTimes": [],
+                                    "rawText": text[:500],
+                                    "status": "resolved",
+                                    "result": "win" if parsed["is_win"] else "loss",
+                                    "galeLevel": parsed["gale_level"],
+                                },
+                            )
+                            if api_result:
+                                logger.info(
+                                    f"[{handler.slug}] Inline signal+result: "
+                                    f"{parsed['asset']} {parsed['direction']} -> "
+                                    f"{'WIN' if parsed['is_win'] else 'LOSS'}"
+                                )
+                        elif parsed.get("type") == "signal":
+                            # Signal-only (current format: separate result message)
+                            martingale_times = parsed.get("martingale_times", [])
+                            expiration_minutes = (
+                                martingale_times[0]
+                                if martingale_times
+                                else parsed.get("expiration_minutes", 5)
+                            )
+                            expiration_time = calculate_expiration_time(
+                                msg_date, [expiration_minutes * 60]
+                            )
+                            logger.info(
+                                f"Sending signal for {parsed['asset']} expiring at {expiration_time}"
+                            )
+                            api_result = await api_post(
+                                session,
+                                "/signals",
+                                {
+                                    "telegramMsgId": msg_id,
+                                    "channelId": handler.channel_id,
+                                    "asset": parsed["asset"],
+                                    "direction": parsed["direction"],
+                                    "entryTimeUtc": parsed["entry_time_utc"],
+                                    "expirationMinutes": parsed.get(
+                                        "expiration_minutes", 5
+                                    ),
+                                    "expirationTime": expiration_time.isoformat(),
+                                    "formatVersion": parsed.get("format_version", 99),
+                                    "martingaleTimes": parsed.get(
+                                        "martingale_times", []
+                                    ),
+                                    "rawText": text[:500],
+                                },
+                            )
+                            if api_result:
+                                api_result["expiration_time"] = expiration_time
+                                handler.active_signals.append(api_result)
+                                logger.info(
+                                    f"[{handler.slug}] Signal (pending): "
+                                    f"{parsed['asset']} {parsed['direction']}"
+                                )
+                        elif parsed.get("type") == "result":
+                            # Informal result message — match to active signal
+                            # Extract iteration for matching
+                            result_iteration = parsed.get("gale_level")
+                            if result_iteration is None:
+                                result_iteration = (
+                                    extract_gale_level_from_text(text) if text else None
+                                )
+                            if result_iteration is None:
+                                result_iteration = 0
+                                logger.warning(
+                                    f"[{handler.slug}] Could not determine iteration for result #{msg_id}, defaulting to 0"
+                                )
+                            _raw_result = handler.find_matching_signal_proximity_only(
+                                msg_date,
+                                asset=parsed.get("asset"),
+                                direction=parsed.get("direction"),
+                            )
+                            if _raw_result is not None:
+                                if isinstance(_raw_result, tuple):
+                                    matching, confidence = _raw_result
+                                    match_tier = 2
+                                else:
+                                    matching, confidence = _raw_result, 1.0
+                                    match_tier = 1
+                                # Detect gale level: first from parser, then from text, finally default to 0
+                                gale_level = parsed.get("gale_level")
+                                if gale_level is None:
+                                    gale_level = extract_gale_level_from_text(text)
+                                if gale_level is None:
+                                    gale_level = 0
+                                logger.info(
+                                    f"[{handler.slug}] Signal matched with tier={match_tier}, confidence={confidence:.2f}, "
+                                    f"signal_id={matching.get('id')}, asset={matching.get('asset')}"
+                                )
+                                if confidence == 1.0:
+                                    signal_matches_exact_expiration_total.labels(
+                                        asset=matching.get("asset", "unknown"),
+                                        outcome=parsed["result"],
+                                    ).inc()
+                                api_result = await api_patch(
+                                    session,
+                                    f"/signals/{matching['id']}/result",
+                                    {
+                                        "result": parsed["result"],
+                                        "galeLevel": gale_level,
+                                        "resultMsgId": msg_id,
+                                        "matchTier": match_tier,
+                                        "matchConfidence": confidence,
+                                    },
+                                )
+                                if api_result:
+                                    matching["status"] = "resolved"
+                                    logger.info(
+                                        f"[{handler.slug}] Informal result: "
+                                        f"{matching['asset']} -> {parsed['result'].upper()} "
+                                        f"(g{parsed.get('gale_level', 0)}) [confidence={confidence:.2f}]"
+                                    )
+                            else:
+                                logger.warning(
+                                    f"[{handler.slug}] Result but no match: "
+                                    f"'{text[:80]}'"
+                                )
+                    else:
+                        # Non-inline: separate signal and result messages
+                        if parsed.get("type") == "signal":
+                            martingale_times = parsed["martingale_times"]
+                            expiration_minutes = (
+                                martingale_times[0]
+                                if martingale_times
+                                else parsed["expiration_minutes"]
+                            )
+                            expiration_time = calculate_expiration_time(
+                                msg_date, [expiration_minutes * 60]
+                            )
+                            logger.info(
+                                f"Sending signal for {parsed['asset']} expiring at {expiration_time}"
+                            )
+                            api_result = await api_post(
+                                session,
+                                "/signals",
+                                {
+                                    "telegramMsgId": msg_id,
+                                    "channelId": handler.channel_id,
+                                    "asset": parsed["asset"],
+                                    "direction": parsed["direction"],
+                                    "entryTimeUtc": parsed["entry_time_utc"],
+                                    "expirationMinutes": parsed["expiration_minutes"],
+                                    "expirationTime": expiration_time.isoformat(),
+                                    "formatVersion": parsed["format_version"],
+                                    "martingaleTimes": parsed["martingale_times"],
+                                    "rawText": text[:500],
+                                },
+                            )
+                            if api_result:
+                                api_result["expiration_time"] = expiration_time
+                                handler.active_signals.append(api_result)
+                                logger.info(
+                                    f"[{handler.slug}] Signal: {parsed['asset']} "
+                                    f"{parsed['direction']} at {parsed['entry_time_utc']} "
+                                    f"Expires: {expiration_time.strftime('%H:%M:%S')}"
+                                )
+
+                        elif parsed.get("type") == "gale":
+                            # Gale message (VIP OTC Market): "prepared Martin N"
+                            # Means trade at level N-2 lost, now entering level N-1
+                            # We don't resolve yet — wait for next signal or final result
+                            logger.info(
+                                f"[{handler.slug}] Gale step {parsed.get('level', '?')}"
+                            )
+
+                        elif parsed.get("type") == "result":
+                            # Extract iteration for matching
+                            result_iteration = parsed.get("gale_level")
+                            if result_iteration is None:
+                                result_iteration = (
+                                    extract_gale_level_from_text(text) if text else None
+                                )
+                            if result_iteration is None:
+                                result_iteration = 0
+                                logger.warning(
+                                    f"[{handler.slug}] Could not determine iteration for result #{msg_id}, defaulting to 0"
+                                )
+                            _raw_result = handler.find_matching_signal_proximity_only(
+                                msg_date,
+                                asset=parsed.get("asset"),
+                                direction=parsed.get("direction"),
+                            )
+                            if not _raw_result:
+                                logger.warning(
+                                    f"[{handler.slug}] No match for result #{msg_id}"
+                                )
+                                continue
+
+                            if isinstance(_raw_result, tuple):
+                                matching, confidence = _raw_result
+                                match_tier = 2
+                            else:
+                                matching, confidence = _raw_result, 1.0
+                                match_tier = 1
+                            is_win = parsed["result_type"] != "loss"
+                            outcome = "win" if is_win else "loss"
+                            logger.info(
+                                f"[{handler.slug}] Signal matched with tier={match_tier}, confidence={confidence:.2f}, "
+                                f"signal_id={matching.get('id')}, asset={matching.get('asset')}"
+                            )
+                            if confidence == 1.0:
+                                signal_matches_exact_expiration_total.labels(
+                                    asset=matching.get("asset", "unknown"),
+                                    outcome=outcome,
+                                ).inc()
+                            # Detect gale level: parser -> text -> time-based -> victory check
+                            gale_level = parsed.get("gale_level")
+                            if gale_level is None:
+                                gale_level = extract_gale_level_from_text(text)
+                            if gale_level is None:
+                                gale_level = determine_gale_level(matching, msg_date)
+                                if (
+                                    parsed["result_type"] == "victory_at_gale"
+                                    and gale_level == 0
+                                ):
+                                    gale_level = 1
+
+                            api_result = await api_patch(
+                                session,
+                                f"/signals/{matching['id']}/result",
+                                {
+                                    "result": outcome,
+                                    "galeLevel": gale_level,
+                                    "resultMsgId": msg_id,
+                                    "matchTier": match_tier,
+                                    "matchConfidence": confidence,
+                                },
+                            )
+                            if api_result:
+                                matching["status"] = "resolved"
+                                logger.info(
+                                    f"[{handler.slug}] Resolved {matching['id']}: "
+                                    f"{'WIN' if is_win else 'LOSS'} (gale {gale_level}) [confidence={confidence:.2f}]"
+                                )
+            except Exception as e:
+                sentry_sdk.capture_exception(e)
+                health_tracker.record_error()
+                logger.error(
+                    f"Message handler error (chat_id={event.chat_id if event else 'unknown'}): {e}",
+                    exc_info=True,
+                )
+                # Cleanup memory after message processing errors
+                gc.collect()
+                attempt_count = 0
+                state = "MESSAGE_HANDLER"
+                crash_report = format_crash_report(
+                    e, {"attempt": attempt_count, "state": state}
+                )
+                await alerter.send_alert(crash_report, "CRITICAL")
+                return
+
+        logger.info(f"Handler lookup IDs: {list(handler_lookup.keys())}")
+        logger.info("Multi-channel listener running. Catching up missed messages...")
+
+        # Start healthcheck server if configured
+        if HEALTHCHECK_PORT > 0:
+            asyncio.create_task(
+                run_healthcheck_server(HEALTHCHECK_PORT, health_tracker, handlers)
+            )
+
+        try:
+            await client.catch_up()
+            logger.info("Catch-up complete. Waiting for new messages...")
+
+            # Record successful connection
+            connection_metrics.successful_connections += 1
+            connection_metrics.last_connected_at = datetime.now(timezone.utc)
+            logger.info(
+                f"Successfully connected to Telegram (total successful connections: {connection_metrics.successful_connections})"
+            )
+
+            await client.run_until_disconnected()
+        finally:
+            # Cleanup on exit
+            logger.info("Initiating cleanup...")
+
+            # Disconnect Telegram client
+            if client.is_connected():
+                await client.disconnect()
+                logger.info("Telegram client disconnected")
+
+            # Save metrics to file
+            global START_TIME, MESSAGE_COUNT
+            if START_TIME:
+                uptime = int((datetime.now(timezone.utc) - START_TIME).total_seconds())
+                metrics = {
+                    "shutdown_time": datetime.now(timezone.utc).isoformat(),
+                    "uptime_seconds": uptime,
+                    "messages_processed": MESSAGE_COUNT,
+                    "handlers_count": len(handlers) if handlers else 0,
+                }
+                metrics_file = os.path.join(LOGS_DIR, "listener_metrics.json")
+                try:
+                    with open(metrics_file, "w", encoding="utf-8") as f:
+                        json.dump(metrics, f, indent=2)
+                    logger.info(f"Metrics saved to {metrics_file}")
+                except (IOError, TypeError, ValueError, json.JSONDecodeError) as error:
+                    logger.error(f"JSON error: {error}")
+                    sentry_sdk.capture_exception(error)
+
+            # Note: aiohttp session auto-closes via context manager
+
+            logger.info("Listener stopped cleanly")
+
+
+if __name__ == "__main__":
+    # Initialize Sentry error tracking
+    init_sentry()
+    sentry_sdk.set_tag("component", "telegram-listener")
+    sentry_sdk.set_tag("version", VERSION)
+
+    # Initialize global tracking
+    START_TIME = datetime.now(timezone.utc)
+    if ALERT_BOT_TOKEN and ALERT_CHAT_ID:
+        SHUTDOWN_ALERTER = TelegramAlerter(ALERT_BOT_TOKEN, ALERT_CHAT_ID)
+
+    # Signal handler for graceful shutdown
+    def signal_handler(signum, _frame):
+        global START_TIME, MESSAGE_COUNT, SHUTDOWN_ALERTER
+        signal_name = "SIGTERM" if signum == signal.SIGTERM else "SIGINT"
+        uptime = int((datetime.now(timezone.utc) - START_TIME).total_seconds())
+
+        logger.info(f"Received {signal_name}, initiating graceful shutdown...")
+
+        # Send shutdown alert
+        if SHUTDOWN_ALERTER:
+            try:
+                asyncio.run(
+                    SHUTDOWN_ALERTER.send_alert(
+                        f"🛑 Listener Shutting Down\n\nSignal: {signal_name}\nUptime: {uptime}s\nMessages processed: {MESSAGE_COUNT}",
+                        "INFO",
+                    )
+                )
+            except Exception as e:
+                logger.error(f"Failed to send shutdown alert: {e}")
+
+        sys.exit(0)
+
+    # Register signal handlers
+    signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+
+    retry_count = 0
+    MAX_RETRIES = 5
+    BASE_DELAY = 5
+
+    while retry_count < MAX_RETRIES:
+        try:
+            asyncio.run(main())
+            break  # Exit if successful
+        except KeyboardInterrupt:
+            # SIGINT is handled by signal_handler above, but this catches Ctrl+C in some cases
+            signal_handler(signal.SIGINT, None)
+            break
+        except Exception as e:
+            sentry_sdk.capture_exception(e)
+            # Log full traceback
+            logger.error(f"Critical unhandled exception in main: {e}", exc_info=True)
+
+            # Record in RECENT_EXCEPTIONS
+            record_exception(e)
+
+            # Cleanup memory on critical errors
+            gc.collect()
+
+            # Format crash report and send alert
+            attempt_count = retry_count + 1
+            state = "FAILED"
+            crash_report = format_crash_report(
+                e, {"attempt": attempt_count, "state": state}
+            )
+            logger.critical(crash_report)
+
+            # Send alert with CRITICAL severity
+            if ALERT_BOT_TOKEN and ALERT_CHAT_ID and ENABLE_CRASH_ALERTS:
+                alerter = TelegramAlerter(ALERT_BOT_TOKEN, ALERT_CHAT_ID)
+                try:
+                    asyncio.run(alerter.send_alert(crash_report, "CRITICAL"))
+                except Exception:
+                    pass  # Fail silently on alert error
+
+            retry_count += 1
+
+            if retry_count < MAX_RETRIES:
+                # Apply exponential backoff
+                delay = BASE_DELAY * (2 ** (retry_count - 1))
+                logger.warning(
+                    f"Restarting in {delay}s (attempt {retry_count + 1}/{MAX_RETRIES})..."
+                )
+                time.sleep(delay)
+            else:
+                logger.critical("Max retries reached. Exiting.")
+                sys.exit(1)

@@ -1,0 +1,66 @@
+[
+  {
+    "date": "2022-09-27 18:59:47",
+    "asset": "NZDCAD_otc",
+    "direction": "PUT",
+    "channel": "sinais_mil",
+    "result": "WIN",
+    "gale_level": 1
+  },
+  {
+    "date": "2022-09-27 19:32:34",
+    "asset": "NZDCAD_otc",
+    "direction": "CALL",
+    "channel": "sinais_mil",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2022-09-27 19:48:23",
+    "asset": "NZDCAD_otc",
+    "direction": "PUT",
+    "channel": "sinais_mil",
+    "result": "WIN",
+    "gale_level": 1
+  },
+  {
+    "date": "2022-09-27 20:10:34",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "sinais_mil",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2022-09-27 20:59:57",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "sinais_mil",
+    "result": "LOSS",
+    "gale_level": 1
+  },
+  {
+    "date": "2022-09-27 22:28:42",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "sinais_mil",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2022-12-26 23:06:42",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "sinais_mil",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2024-04-16 23:38:55",
+    "asset": "QARCNY_otc",
+    "direction": "PUT",
+    "channel": "sinais_mil",
+    "result": "LOSS",
+    "gale_level": 1
+  }
+]

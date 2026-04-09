@@ -1,0 +1,88 @@
+/**
+ * PayPal Configuration Constants
+ */
+
+/**
+ * PayPal Webhook Event Types
+ * https://developer.paypal.com/api/rest/webhooks/event-names/
+ */
+export const WEBHOOK_EVENT_TYPES = {
+  // Billing Subscription Events
+  BILLING_SUBSCRIPTION_ACTIVATED: 'BILLING.SUBSCRIPTION.ACTIVATED',
+  BILLING_SUBSCRIPTION_CANCELLED: 'BILLING.SUBSCRIPTION.CANCELLED',
+  BILLING_SUBSCRIPTION_CREATED: 'BILLING.SUBSCRIPTION.CREATED',
+  BILLING_SUBSCRIPTION_EXPIRED: 'BILLING.SUBSCRIPTION.EXPIRED',
+  BILLING_SUBSCRIPTION_SUSPENDED: 'BILLING.SUBSCRIPTION.SUSPENDED',
+  BILLING_SUBSCRIPTION_UPDATED: 'BILLING.SUBSCRIPTION.UPDATED',
+  BILLING_SUBSCRIPTION_PAYMENT_FAILED: 'BILLING.SUBSCRIPTION.PAYMENT.FAILED',
+
+  // Payment Events
+  PAYMENT_SALE_COMPLETED: 'PAYMENT.SALE.COMPLETED',
+  PAYMENT_SALE_REFUNDED: 'PAYMENT.SALE.REFUNDED',
+  PAYMENT_SALE_REVERSED: 'PAYMENT.SALE.REVERSED',
+  PAYMENT_SALE_PENDING: 'PAYMENT.SALE.PENDING',
+  PAYMENT_SALE_DENIED: 'PAYMENT.SALE.DENIED',
+
+  // Checkout Events
+  CHECKOUT_ORDER_APPROVED: 'CHECKOUT.ORDER.APPROVED',
+  CHECKOUT_ORDER_COMPLETED: 'CHECKOUT.ORDER.COMPLETED',
+  CHECKOUT_ORDER_PROCESSED: 'CHECKOUT.ORDER.PROCESSED',
+
+  // Payment Capture Events
+  PAYMENT_CAPTURE_COMPLETED: 'PAYMENT.CAPTURE.COMPLETED',
+  PAYMENT_CAPTURE_DECLINED: 'PAYMENT.CAPTURE.DECLINED',
+  PAYMENT_CAPTURE_PENDING: 'PAYMENT.CAPTURE.PENDING',
+  PAYMENT_CAPTURE_REFUNDED: 'PAYMENT.CAPTURE.REFUNDED',
+  PAYMENT_CAPTURE_REVERSED: 'PAYMENT.CAPTURE.REVERSED',
+
+  // Dispute Events
+  CUSTOMER_DISPUTE_CREATED: 'CUSTOMER.DISPUTE.CREATED',
+  CUSTOMER_DISPUTE_RESOLVED: 'CUSTOMER.DISPUTE.RESOLVED',
+  CUSTOMER_DISPUTE_UPDATED: 'CUSTOMER.DISPUTE.UPDATED',
+} as const;
+
+/**
+ * Webhook Verification Configuration
+ */
+export const WEBHOOK_CONFIG = {
+  /**
+   * Webhook verification algorithm
+   */
+  VERIFICATION_ALGORITHM: 'sha256',
+
+  /**
+   * Enable webhook signature verification
+   */
+  VERIFY_SIGNATURE: true,
+
+  /**
+   * Maximum age of webhook event (in seconds) to accept
+   * Prevents replay attacks
+   */
+  MAX_EVENT_AGE: 300, // 5 minutes
+} as const;
+
+/**
+ * PayPal API Configuration
+ */
+export const PAYPAL_CONFIG = {
+  /**
+   * API Version
+   */
+  API_VERSION: 'v1',
+
+  /**
+   * Default currency
+   */
+  DEFAULT_CURRENCY: 'USD',
+
+  /**
+   * Timeout for API requests (in milliseconds)
+   */
+  REQUEST_TIMEOUT: 30000, // 30 seconds
+} as const;
+
+/**
+ * Type helper for webhook event types
+ */
+export type WebhookEventType = typeof WEBHOOK_EVENT_TYPES[keyof typeof WEBHOOK_EVENT_TYPES];

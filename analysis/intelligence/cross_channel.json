@@ -1,0 +1,36 @@
+{
+  "multi_channel_windows": 49,
+  "total_windows": 17866,
+  "pair_stats": {
+    "tyl_trading_tyl_vip": {
+      "agree": 13,
+      "disagree": 15,
+      "agree_win": 9,
+      "agree_loss": 4
+    },
+    "private_team_tyl_vip": {
+      "agree": 0,
+      "disagree": 1,
+      "agree_win": 0,
+      "agree_loss": 0
+    },
+    "cole_carter_tyl_vip": {
+      "agree": 0,
+      "disagree": 1,
+      "agree_win": 0,
+      "agree_loss": 0
+    },
+    "private_team_tyl_trading": {
+      "agree": 4,
+      "disagree": 7,
+      "agree_win": 2,
+      "agree_loss": 2
+    },
+    "cole_carter_private_team": {
+      "agree": 8,
+      "disagree": 0,
+      "agree_win": 8,
+      "agree_loss": 0
+    }
+  }
+}

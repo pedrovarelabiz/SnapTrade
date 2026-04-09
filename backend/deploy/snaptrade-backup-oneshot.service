@@ -1,0 +1,16 @@
+[Unit]
+Description=SnapTrade Database Backup (One-shot)
+Documentation=man:systemd.service(5)
+After=network.target postgresql.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/snaptrade-unified/backend
+EnvironmentFile=/opt/snaptrade-unified/backend/.env
+ExecStart=/usr/bin/node /opt/snaptrade-unified/backend/dist/scripts/db-backup.js
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=snaptrade-backup
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,43 @@
+{
+  "recommended_source": "All (no dedup)",
+  "recommended_strategy": "Masaniello",
+  "expected_pnl": 367734.95,
+  "channels_analyzed": [
+    "tyl_vip",
+    "tyl_trading",
+    "blacklist_otc",
+    "sinais_milionarios"
+  ],
+  "overlap_tyl": {
+    "total_trading": 5306,
+    "overlaps": 14,
+    "overlap_pct": 0.3,
+    "unique_count": 5292
+  },
+  "per_channel_stats": {
+    "tyl_vip": {
+      "trades": 7989,
+      "win_rate": 87.2,
+      "best_strategy": "Masaniello (cap $500)",
+      "best_pnl": 313801.23
+    },
+    "tyl_trading": {
+      "trades": 5103,
+      "win_rate": 86.9,
+      "best_strategy": "Masaniello (cap $500)",
+      "best_pnl": 269507.18
+    },
+    "blacklist_otc": {
+      "trades": 837,
+      "win_rate": 90.4,
+      "best_strategy": "Masaniello (cap $500)",
+      "best_pnl": 32324.95
+    },
+    "sinais_milionarios": {
+      "trades": 3645,
+      "win_rate": 82.8,
+      "best_strategy": "Masaniello (cap $500)",
+      "best_pnl": 165604.32
+    }
+  }
+}

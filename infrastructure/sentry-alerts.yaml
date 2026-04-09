@@ -1,0 +1,349 @@
+# Sentry Alert Configuration
+# Define alert rules for monitoring application errors and performance
+
+version: 1
+
+alerts:
+  # CRITICAL ALERTS
+  - name: "Critical Error Rate Spike"
+    severity: critical
+    conditions:
+      - type: event_frequency
+        value: 100
+        interval: 5m
+      - type: error_level
+        value: error
+    thresholds:
+      critical: 100
+      warning: 50
+    actions:
+      - type: pagerduty
+        integration_key: "{{ PAGERDUTY_INTEGRATION_KEY }}"
+        recipients:
+          - oncall-engineering
+      - type: slack
+        webhook_url: "{{ SLACK_CRITICAL_WEBHOOK }}"
+        channel: "#alerts-critical"
+        recipients:
+          - "@engineering-leads"
+          - "@devops-team"
+      - type: email
+        recipients:
+          - "engineering@company.com"
+          - "oncall@company.com"
+
+  - name: "Production Database Connection Failures"
+    severity: critical
+    conditions:
+      - type: issue_category
+        value: "database"
+      - type: environment
+        value: "production"
+      - type: event_frequency
+        value: 10
+        interval: 1m
+    thresholds:
+      critical: 10
+    actions:
+      - type: pagerduty
+        integration_key: "{{ PAGERDUTY_INTEGRATION_KEY }}"
+        recipients:
+          - oncall-engineering
+          - oncall-database
+      - type: slack
+        webhook_url: "{{ SLACK_CRITICAL_WEBHOOK }}"
+        channel: "#alerts-critical"
+        recipients:
+          - "@database-team"
+          - "@engineering-leads"
+
+  - name: "Payment Processing Failures"
+    severity: critical
+    conditions:
+      - type: tag_match
+        key: "transaction_type"
+        value: "payment"
+      - type: error_level
+        value: error
+      - type: event_frequency
+        value: 5
+        interval: 5m
+    thresholds:
+      critical: 5
+    actions:
+      - type: pagerduty
+        integration_key: "{{ PAGERDUTY_INTEGRATION_KEY }}"
+        recipients:
+          - oncall-engineering
+          - oncall-payments
+      - type: slack
+        webhook_url: "{{ SLACK_CRITICAL_WEBHOOK }}"
+        channel: "#alerts-payments"
+        recipients:
+          - "@payments-team"
+          - "@engineering-leads"
+      - type: email
+        recipients:
+          - "payments@company.com"
+          - "engineering@company.com"
+
+  # WARNING ALERTS
+  - name: "Elevated Error Rate"
+    severity: warning
+    conditions:
+      - type: event_frequency
+        value: 50
+        interval: 10m
+      - type: error_level
+        value: error
+    thresholds:
+      warning: 50
+      info: 25
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#alerts-warning"
+        recipients:
+          - "@engineering-team"
+      - type: email
+        recipients:
+          - "engineering@company.com"
+
+  - name: "High Memory Usage"
+    severity: warning
+    conditions:
+      - type: metric_threshold
+        metric: "memory_usage_percent"
+        value: 85
+        comparison: ">"
+      - type: duration
+        value: 5m
+    thresholds:
+      warning: 85
+      critical: 95
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#alerts-infrastructure"
+        recipients:
+          - "@devops-team"
+      - type: email
+        recipients:
+          - "devops@company.com"
+
+  - name: "API Response Time Degradation"
+    severity: warning
+    conditions:
+      - type: metric_threshold
+        metric: "response_time_p95"
+        value: 2000
+        comparison: ">"
+        unit: "ms"
+      - type: duration
+        value: 10m
+    thresholds:
+      warning: 2000
+      critical: 5000
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#alerts-performance"
+        recipients:
+          - "@backend-team"
+          - "@devops-team"
+      - type: email
+        recipients:
+          - "engineering@company.com"
+
+  - name: "Failed Background Jobs"
+    severity: warning
+    conditions:
+      - type: tag_match
+        key: "job_type"
+        value: "background"
+      - type: error_level
+        value: error
+      - type: event_frequency
+        value: 20
+        interval: 15m
+    thresholds:
+      warning: 20
+      critical: 50
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#alerts-jobs"
+        recipients:
+          - "@backend-team"
+      - type: email
+        recipients:
+          - "engineering@company.com"
+
+  - name: "High Ambiguous Signal Match Rate"
+    severity: warning
+    conditions:
+      - type: message_contains
+        value: "High ambiguous match rate"
+      - type: event_frequency
+        value: 10
+        interval: 1h
+    thresholds:
+      warning: 10
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#trading-alerts"
+        recipients:
+          - "@trading-team"
+
+  - name: "Authentication Failures Spike"
+    severity: warning
+    conditions:
+      - type: tag_match
+        key: "error_type"
+        value: "authentication"
+      - type: event_frequency
+        value: 30
+        interval: 5m
+    thresholds:
+      warning: 30
+      critical: 100
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#alerts-security"
+        recipients:
+          - "@security-team"
+          - "@backend-team"
+      - type: email
+        recipients:
+          - "security@company.com"
+          - "engineering@company.com"
+
+  - name: "Webhook Verification Failures"
+    severity: high
+    conditions:
+      - type: tag_match
+        key: "error_type"
+        value: "webhook_verification_failure"
+      - type: metric_threshold
+        metric: "webhook_failure_rate"
+        value: 10
+        comparison: ">"
+        unit: "percent"
+      - type: duration
+        value: 5m
+    thresholds:
+      high: 10
+      critical: 25
+    context:
+      - webhook_endpoint
+      - webhook_source
+      - verification_error_details
+      - request_signature
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_WARNING_WEBHOOK }}"
+        channel: "#alerts-security"
+        recipients:
+          - "@security-team"
+          - "@backend-team"
+      - type: email
+        recipients:
+          - "security@company.com"
+          - "engineering@company.com"
+      - type: pagerduty
+        integration_key: "{{ PAGERDUTY_INTEGRATION_KEY }}"
+        recipients:
+          - oncall-security
+
+  # INFO ALERTS
+  - name: "New Error Type Detected"
+    severity: info
+    conditions:
+      - type: issue_state
+        value: "new"
+      - type: error_level
+        value: error
+      - type: first_seen
+        value: true
+    thresholds:
+      info: 1
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_INFO_WEBHOOK }}"
+        channel: "#alerts-info"
+        recipients:
+          - "@engineering-team"
+
+  - name: "Deprecated API Usage"
+    severity: info
+    conditions:
+      - type: tag_match
+        key: "api_version"
+        value: "deprecated"
+      - type: event_frequency
+        value: 10
+        interval: 1h
+    thresholds:
+      info: 10
+      warning: 100
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_INFO_WEBHOOK }}"
+        channel: "#alerts-deprecations"
+        recipients:
+          - "@api-team"
+      - type: email
+        recipients:
+          - "api-team@company.com"
+
+  - name: "Warning Level Logs Increase"
+    severity: info
+    conditions:
+      - type: error_level
+        value: warning
+      - type: event_frequency
+        value: 100
+        interval: 30m
+    thresholds:
+      info: 100
+      warning: 500
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_INFO_WEBHOOK }}"
+        channel: "#alerts-info"
+        recipients:
+          - "@engineering-team"
+
+  - name: "Third-Party API Errors"
+    severity: info
+    conditions:
+      - type: tag_match
+        key: "error_source"
+        value: "third_party"
+      - type: event_frequency
+        value: 15
+        interval: 15m
+    thresholds:
+      info: 15
+      warning: 50
+    actions:
+      - type: slack
+        webhook_url: "{{ SLACK_INFO_WEBHOOK }}"
+        channel: "#alerts-integrations"
+        recipients:
+          - "@integrations-team"
+      - type: email
+        recipients:
+          - "integrations@company.com"
+
+# Global Settings
+settings:
+  default_environment: "production"
+  timezone: "UTC"
+  auto_resolve: true
+  auto_resolve_age: 24h
+  frequency_limit:
+    max_alerts_per_issue: 10
+    period: 1h

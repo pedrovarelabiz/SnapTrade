@@ -1,0 +1,83 @@
+{
+  "name": "SnapTrade Global Strategy v1",
+  "channels": {
+    "sinais_mil": {
+      "role": "PRIMARY",
+      "gale_mode": "NoMG",
+      "stake": "2-3%",
+      "asset_filter": "ALL (20/20 above breakeven)",
+      "wr": 82.6,
+      "max_dd": 8.3,
+      "trades": 3008,
+      "ev_per_trade": "+0.55x",
+      "period": "Aug 2022 - Aug 2025",
+      "note": "Strongest edge. Every asset profitable. Zero gale dependency."
+    },
+    "blacklist": {
+      "role": "SECONDARY",
+      "gale_mode": "MG1",
+      "stake": "2%",
+      "asset_filter": "ALL 8 assets above 53.2% BE",
+      "wr": 92.0,
+      "max_dd": 23.8,
+      "trades": 587,
+      "ev_per_trade": "+0.32x",
+      "period": "Nov 2021 - Aug 2022",
+      "note": "Solid edge. MG1 optimal. Older data - verify still active."
+    },
+    "tyl_trading": {
+      "role": "TERTIARY",
+      "gale_mode": "MG1",
+      "stake": "1% (reduced due to DD)",
+      "asset_filter": "Top 8 assets with MG1 WR >= 90%",
+      "wr_filtered": 93.5,
+      "max_dd_filtered": 9.0,
+      "trades_filtered": 186,
+      "wr_unfiltered": 86.7,
+      "max_dd_unfiltered": 40.3,
+      "trades_unfiltered": 2547,
+      "ev_per_trade": "+0.024x (global), higher with filter",
+      "period": "Jan 2025 - Mar 2026",
+      "note": "Marginal global EV. Filter to 90%+ assets critical. Reduce stake."
+    },
+    "tyl_vip": {
+      "role": "OPTIONAL / HIGH-RISK",
+      "gale_mode": "MG2",
+      "stake": "1% (max)",
+      "asset_filter": "ONLY: NZDUSD, AUDCAD, CADJPY, USDCOP, GBPAUD, USDINR",
+      "wr": 91.2,
+      "max_dd": 98.3,
+      "trades": 1868,
+      "note": "Positive EV only with strict 6-asset filter. 98% DD means near-bust. Use with extreme caution or skip entirely."
+    },
+    "private_team": {
+      "role": "MONITOR",
+      "note": "87.6% WR but only 3 months data. No gale level info. Monitor until 6+ months."
+    },
+    "cole_carter": {
+      "role": "EXCLUDE",
+      "note": "Promotional channel. 100% reported WR = unreliable."
+    },
+    "vip_otc_market": {
+      "role": "EXCLUDE",
+      "note": "Self-reported 99.5% WR. Individual markers suggest ~63%. Unreliable."
+    }
+  },
+  "risk_management": {
+    "daily_loss_limit": "10% of bankroll",
+    "drawdown_stop": "20% from peak -> pause all trading",
+    "rolling_wr_monitor": "Pause channel if 50-signal WR drops below breakeven",
+    "max_daily_trades": 15,
+    "consecutive_loss_stop": 3
+  },
+  "breakevens": {
+    "NoMG": "53.2%",
+    "MG1": "78.1%",
+    "MG2": "89.7%"
+  },
+  "gale_multipliers": {
+    "G0": 1.0,
+    "G1": 2.136,
+    "G2": 4.564
+  }
+}

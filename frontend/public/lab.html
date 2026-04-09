@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapTrade — Painel de Controlo</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080c1c;--card:#0c1028;--border:rgba(100,180,246,0.1);
+  --text:#c8d0e0;--dim:#666;--muted:#444;
+  --blue:#64B5F6;--green:#4CAF50;--red:#f44336;--orange:#FF9800;--yellow:#FFD54F;
+  --green-bg:rgba(76,175,80,0.08);--red-bg:rgba(244,67,54,0.08);--orange-bg:rgba(255,152,0,0.08);
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.5;max-width:960px;margin:0 auto;padding:16px}
+/* ─── Typography ─── */
+.page-title{font-size:18px;font-weight:800;color:var(--blue);letter-spacing:1px}
+.section-title{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}
+.label{font-size:10px;color:var(--dim);margin-top:2px}
+.help{font-size:10px;color:var(--muted);margin-top:1px;line-height:1.4}
+/* ─── Cards ─── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.card.ok{border-color:rgba(76,175,80,0.2)}
+.card.warn{border-color:rgba(255,152,0,0.2)}
+.card.bad{border-color:rgba(244,67,54,0.2)}
+.card.info{border-color:rgba(100,180,246,0.15)}
+/* ─── Status badge ─── */
+.status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px}
+.status.live{background:rgba(76,175,80,0.12);color:#4CAF50;border:1px solid rgba(76,175,80,0.25)}
+.status.sim{background:rgba(255,152,0,0.1);color:#FF9800;border:1px solid rgba(255,152,0,0.25)}
+.status.off{background:rgba(100,100,100,0.1);color:#666;border:1px solid rgba(100,100,100,0.2)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+/* ─── Grids ─── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+/* ─── Big metric ─── */
+.big{text-align:center;background:rgba(255,255,255,0.02);border-radius:8px;padding:12px 8px}
+.big .val{font-size:28px;font-weight:800;line-height:1}
+.big .lbl{font-size:10px;color:var(--dim);margin-top:4px}
+.big .sub{font-size:9px;color:var(--muted);margin-top:2px}
+.mid{text-align:center;padding:8px 6px}
+.mid .val{font-size:18px;font-weight:700;line-height:1}
+.mid .lbl{font-size:10px;color:var(--dim);margin-top:2px}
+/* ─── Funnel ─── */
+.funnel-row{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+.funnel-row:last-child{border-bottom:none}
+.funnel-icon{width:20px;text-align:center;font-size:12px;flex-shrink:0}
+.funnel-text{flex:1;min-width:0}
+.funnel-name{font-size:11px;font-weight:600;color:var(--text)}
+.funnel-desc{font-size:10px;color:var(--dim)}
+.funnel-right{text-align:right;flex-shrink:0;padding-left:10px}
+.funnel-count{font-size:13px;font-weight:700}
+.funnel-pct{font-size:10px;color:var(--dim)}
+.bar{height:4px;background:rgba(255,255,255,0.04);border-radius:2px;margin-top:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px;transition:width .4s}
+/* ─── Trade log ─── */
+.trade-row{display:grid;grid-template-columns:38px 90px 38px 1fr 45px 50px;gap:6px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.02);font-size:11px}
+.trade-row:last-child{border-bottom:none}
+.trade-header{font-size:9px;color:var(--dim)}
+/* ─── Alert banner ─── */
+.banner{padding:10px 14px;border-radius:8px;font-size:11px;line-height:1.5;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px}
+.banner.stale{background:rgba(255,152,0,0.08);border:1px solid rgba(255,152,0,0.2);color:#FFB74D}
+.banner.stale-bad{background:rgba(244,67,54,0.07);border:1px solid rgba(244,67,54,0.2);color:#EF9A9A}
+.banner.ok{background:rgba(76,175,80,0.07);border:1px solid rgba(76,175,80,0.2);color:#A5D6A7}
+.banner.info{background:rgba(100,180,246,0.07);border:1px solid rgba(100,180,246,0.15);color:#90CAF9}
+.banner-icon{font-size:16px;line-height:1;flex-shrink:0;margin-top:1px}
+/* ─── Tabs ─── */
+.tabs{display:flex;gap:2px;border-bottom:2px solid rgba(100,180,246,0.08);margin-bottom:14px}
+.tab{padding:8px 16px;cursor:pointer;color:var(--dim);font-size:11px;font-weight:600;border-bottom:2px solid transparent;transition:all .15s;border-radius:4px 4px 0 0;letter-spacing:.3px}
+.tab:hover{color:#aaa}.tab.on{color:var(--blue);border-bottom-color:var(--blue);background:rgba(100,180,246,0.04)}
+.sec{display:none}.sec.on{display:block}
+/* ─── Misc ─── */
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 0 12px;border-bottom:1px solid var(--border);margin-bottom:14px}
+.refresh-btn{background:rgba(100,180,246,0.1);color:var(--blue);border:1px solid rgba(100,180,246,0.2);padding:5px 14px;border-radius:5px;cursor:pointer;font-size:11px;font-weight:600}
+.tok{text-align:center;padding:60px 20px}
+.tok input{padding:8px 12px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:5px;color:var(--text);width:320px;font-size:12px;margin-top:8px}
+.tok button{margin-top:10px;padding:8px 18px;background:rgba(100,180,246,.15);border:1px solid rgba(100,180,246,.25);border-radius:5px;color:var(--blue);cursor:pointer;font-size:12px;font-weight:600}
+.strat{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.025);position:relative}
+.strat .bg{position:absolute;left:0;top:0;bottom:0;opacity:.07;border-radius:3px}
+.strat .inner{position:relative;display:flex;justify-content:space-between;align-items:center}
+.badge{font-size:8px;padding:1px 5px;border-radius:3px;font-weight:600;display:inline-block;margin-left:4px;vertical-align:middle}
+.pair-row{display:grid;grid-template-columns:90px 50px 50px 1fr;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.025)}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}.trade-row{grid-template-columns:35px 75px 35px 1fr 40px}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <span class="page-title">SNAPTRADE</span>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span id="age-label" style="font-size:10px;color:var(--dim)">A carregar...</span>
+    <button class="refresh-btn" onclick="go()">Actualizar</button>
+  </div>
+</div>
+
+<div id="stale-banner"></div>
+<div id="status-bar"></div>
+
+<div class="tabs" id="tabs-el"></div>
+<div id="tab-now" class="sec on"></div>
+<div id="tab-pipeline" class="sec"></div>
+<div id="tab-strategies" class="sec"></div>
+<div id="tab-pairs" class="sec"></div>
+<div id="tab-rd" class="sec"></div>
+
+<div id="nodata" class="tok" style="display:none">
+  <div class="section-title" style="font-size:16px;margin-bottom:8px">SnapTrade</div>
+  <div style="color:var(--dim);font-size:12px">Insere o token da extensao para aceder aos dados.<br>Os dados sao enviados automaticamente de 30 em 30 minutos.</div>
+  <input id="ti" type="text" placeholder="st_ext_...">
+  <br><button onclick="save()">Ligar</button>
+</div>
+
+<script>
+var API = location.origin + '/api';
+var D = null;
+
+function T() { return localStorage.getItem('st_token') || ''; }
+function save() {
+  localStorage.setItem('st_token', document.getElementById('ti').value.trim());
+  go();
+}
+
+// ─── Colour helpers ───
+function wr(w) { return w >= 58 ? 'var(--green)' : w >= 52 ? '#8BC34A' : w >= 48 ? 'var(--orange)' : 'var(--red)'; }
+function sgn(v) { return v >= 0 ? 'var(--green)' : 'var(--red)'; }
+function fmt(v) { return (v >= 0 ? '+' : '') + v.toFixed(1); }
+function N(v) { return (v || 0).toLocaleString('pt-PT'); }
+function pct(a, b) { return b > 0 ? Math.round(a / b * 100) : 0; }
+function bar(w, c) {
+  return '<div class="bar"><div class="bar-fill" style="width:' + Math.min(100, Math.max(0, w)) + '%;background:' + c + '"></div></div>';
+}
+function big(val, lbl, sub, col) {
+  return '<div class="big"><div class="val" style="color:' + (col || 'var(--text)') + '">' + val + '</div><div class="lbl">' + lbl + '</div>' + (sub ? '<div class="sub">' + sub + '</div>' : '') + '</div>';
+}
+function mid(val, lbl, col) {
+  return '<div class="mid"><div class="val" style="color:' + (col || 'var(--text)') + '">' + val + '</div><div class="lbl">' + lbl + '</div></div>';
+}
+function badge(t, c, bg) {
+  return '<span class="badge" style="color:' + c + ';background:' + bg + '">' + t + '</span>';
+}
+
+// ─── Tabs ───
+var TABS = [
+  ['now', 'AGORA'],
+  ['pipeline', 'FILTROS'],
+  ['strategies', 'ESTRATEGIAS'],
+  ['pairs', 'PARES'],
+  ['rd', 'R&D'],
+];
+document.getElementById('tabs-el').innerHTML = TABS.map(function(t, i) {
+  return '<div class="tab' + (i === 0 ? ' on' : '') + '" data-t="' + t[0] + '">' + t[1] + '</div>';
+}).join('');
+document.querySelectorAll('.tab').forEach(function(el) {
+  el.onclick = function() {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('on'); });
+    document.querySelectorAll('.sec').forEach(function(s) { s.classList.remove('on'); });
+    el.classList.add('on');
+    document.getElementById('tab-' + el.dataset.t).classList.add('on');
+  };
+});
+
+// ─── Fetch ───
+function go() {
+  var tk = T();
+  if (!tk) { document.getElementById('nodata').style.display = 'block'; return; }
+  document.getElementById('nodata').style.display = 'none';
+  fetch(API + '/extension/lab-dashboard', { headers: { Authorization: 'Bearer ' + tk } })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (!d.available) {
+        document.getElementById('nodata').style.display = 'block';
+        return;
+      }
+      document.getElementById('nodata').style.display = 'none';
+      D = d;
+      render();
+    })
+    .catch(function() { document.getElementById('nodata').style.display = 'block'; });
+}
+
+// ─── Render ───
+function render() {
+  if (!D) return;
+  var ageMin = Math.round((Date.now() - D.receivedAt) / 60000);
+  var nextMin = Math.max(0, 30 - ageMin);
+
+  // Age label
+  document.getElementById('age-label').textContent =
+    ageMin <= 1 ? 'Dados em tempo real' : 'Dados de ha ' + ageMin + ' min';
+
+  // Stale banner
+  var sb = document.getElementById('stale-banner');
+  if (ageMin > 60) {
+    sb.innerHTML = '<div class="banner stale-bad"><div class="banner-icon">!</div><div><b>DADOS MUITO ANTIGOS (' + ageMin + ' min)</b><br>A extensao pode ter parado ou o Chrome pode ter reiniciado. Os numeros abaixo podem nao reflectir o estado actual.</div></div>';
+  } else if (ageMin > 30) {
+    sb.innerHTML = '<div class="banner stale"><div class="banner-icon">!</div><div><b>Dados de ha ' + ageMin + ' minutos.</b> A extensao envia actualizacoes de 30 em 30 min. Se o Chrome reiniciou recentemente, aguarda o proximo envio.</div></div>';
+  } else if (ageMin <= 2) {
+    sb.innerHTML = '<div class="banner ok"><div class="banner-icon">&#10003;</div><div>Dados actualizados ha menos de 2 minutos.</div></div>';
+  } else {
+    sb.innerHTML = '<div class="banner info"><div class="banner-icon">i</div><div>Dados de ha <b>' + ageMin + ' min</b>. Proxima actualizacao em aproximadamente <b>' + nextMin + ' min</b>.</div></div>';
+  }
+
+  rStatusBar();
+  rNow();
+  rPipeline();
+  rStrategies();
+  rPairs();
+  rRD();
+}
+
+/* ═══════════════════ STATUS BAR ═══════════════════ */
+function rStatusBar() {
+  var h = D.health || {};
+  var tl = D.tradeLog || [];
+  var tlW = tl.filter(function(t) { return t.result === 'win'; }).length;
+  var tlL = tl.filter(function(t) { return t.result === 'loss'; }).length;
+  var tlT = tlW + tlL;
+  var tlWR = tlT > 0 ? Math.round(tlW / tlT * 100) : null;
+
+  var sysOk = h.labActive && h.aiActive;
+  var regime = h.regimeBlocked ? 'MERCADO BLOQUEADO' : h.regimeState === 'warning' ? 'MERCADO EM ALERTA' : 'MERCADO ESTAVEL';
+  var regClr = h.regimeBlocked ? 'var(--red)' : h.regimeState === 'warning' ? 'var(--orange)' : 'var(--green)';
+  var regBg = h.regimeBlocked ? 'rgba(244,67,54,.12)' : h.regimeState === 'warning' ? 'rgba(255,152,0,.12)' : 'rgba(76,175,80,.12)';
+
+  var html = '<div class="card" style="margin-bottom:12px">' +
+    '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">' +
+    '<div class="status ' + (sysOk ? 'live' : 'off') + '"><span class="dot"></span>' + (sysOk ? 'SISTEMA ACTIVO' : 'SISTEMA INACTIVO') + '</div>' +
+    '<div class="status live" style="background:' + regBg + ';color:' + regClr + ';border-color:' + regClr + '25">' + regime + '</div>' +
+    (tlWR !== null ? '<div class="status ' + (tlWR >= 55 ? 'live' : tlWR >= 48 ? 'sim' : 'off') + '">WR REAL: ' + tlWR + '% (' + tlT + ' trades)</div>' : '') +
+    '<div class="status sim">AI ' + (h.aiActive ? 'ACTIVA' : 'INACTIVA') + '</div>' +
+    '<div style="margin-left:auto;font-size:10px;color:var(--dim)">Conta: DEMO | ' + (D.demoBalance ? '$' + D.demoBalance.toLocaleString('pt-PT', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '?') + '</div>' +
+    '</div>' +
+    '</div>';
+
+  document.getElementById('status-bar').innerHTML = html;
+}
+
+/* ═══════════════════ AGORA ═══════════════════ */
+function stratName(id) {
+  var s = (D.stats || []).find(function(s) { return s.id === id; });
+  return s ? s.name : (id || '?');
+}
+
+function tradeCard(t, isActive) {
+  var dt = new Date(t.t);
+  var time = String(dt.getUTCHours()).padStart(2, '0') + ':' + String(dt.getUTCMinutes()).padStart(2, '0') + ' UTC';
+  var pending = isActive || t.result === 'pending' || !t.result;
+  var resClr = t.result === 'win' ? 'var(--green)' : t.result === 'loss' ? 'var(--red)' : 'var(--dim)';
+  var resText = t.result === 'win' ? 'GANHOU' : t.result === 'loss' ? 'PERDEU' : pending ? 'EM CURSO' : '?';
+  var resSymbol = t.result === 'win' ? '&#10003;' : t.result === 'loss' ? '&#10007;' : pending ? '&#9654;' : '?';
+  var dirPt = t.dir === 'CALL' ? 'SUBIDA' : 'DESCIDA';
+  var dirClr = t.dir === 'CALL' ? 'var(--green)' : 'var(--red)';
+  var dirArrow = t.dir === 'CALL' ? '&#9650;' : '&#9660;';
+  var payout = t.payout ? Math.round(t.payout * 100) : null;
+  var be = payout ? Math.round(100 / (1 + payout / 100)) : null;
+  var pnlVal = t.result === 'win' ? (t.stake * (t.payout || 0.82)) : t.result === 'loss' ? -t.stake : null;
+  var pnlStr = pnlVal !== null ? ((pnlVal >= 0 ? '+' : '') + '$' + Math.abs(pnlVal).toFixed(2)) : '\u2014';
+  var sName = stratName(t.s);
+  var globalWR = t.wr ? Math.round(t.wr * 100) : null;
+  var pairWR = t.pairWR ? Math.round(t.pairWR) : null;
+
+  // Validation badges
+  var badges = '';
+  // Proof gate: pairWR exists means it passed proof gate
+  if (pairWR !== null) {
+    badges += '<span style="background:rgba(0,200,100,0.15);color:var(--green);padding:2px 7px;border-radius:10px;font-size:10px;margin-right:4px">&#10003; Prova ' + pairWR + '%</span>';
+  }
+  // Payout badge
+  if (payout !== null) {
+    var pcClr = payout >= 82 ? 'var(--green)' : payout >= 75 ? 'var(--orange)' : 'var(--red)';
+    badges += '<span style="background:rgba(100,180,246,0.1);color:' + pcClr + ';padding:2px 7px;border-radius:10px;font-size:10px;margin-right:4px">Payout ' + payout + '%</span>';
+  }
+  // AI badge
+  if (t.ai) {
+    var aiAction = t.ai.action || t.ai;
+    var aiConf = t.aiConfidence || t.ai.conf || null;
+    var aiAgrees = t.ai.agrees;
+    var aiClr = aiAction === 'BUY' || aiAction === 'SELL' ? (aiAgrees !== false ? 'var(--green)' : 'var(--orange)') : 'var(--dim)';
+    var aiLabel = aiAction === 'WAIT' ? 'IA: espera' : aiAgrees !== false ? 'IA: confirma' : 'IA: contra';
+    badges += '<span style="background:rgba(180,100,246,0.15);color:' + aiClr + ';padding:2px 7px;border-radius:10px;font-size:10px;margin-right:4px">' + aiLabel + (aiConf ? ' ' + Math.round(aiConf * 100) + '%' : '') + '</span>';
+  } else if (t.aiDecision) {
+    badges += '<span style="background:rgba(180,100,246,0.15);color:var(--green);padding:2px 7px;border-radius:10px;font-size:10px;margin-right:4px">IA: ' + t.aiDecision + '</span>';
+  }
+  // Timeout badge
+  if (!t.ai && !t.aiDecision) {
+    badges += '<span style="background:rgba(150,150,150,0.1);color:var(--dim);padding:2px 7px;border-radius:10px;font-size:10px;margin-right:4px">IA: timeout (passou)</span>';
+  }
+
+  // AI reasoning
+  var aiReason = '';
+  if (t.ai && t.ai.reason) {
+    aiReason = '<div style="margin-top:6px;padding:6px 10px;background:rgba(180,100,246,0.06);border-left:2px solid rgba(180,100,246,0.3);border-radius:4px;font-size:10px;color:var(--dim);line-height:1.5">' +
+      '<b style="color:rgba(180,100,246,0.8)">IA:</b> ' + t.ai.reason + '</div>';
+  }
+
+  // Candidates
+  var candidatesStr = '';
+  if (t.candidates && t.candidates.length > 0) {
+    var cands = t.candidates.slice(0, 3).map(function(c) {
+      return stratName(c.id || c) + (c.wr ? ' (' + Math.round(c.wr * 100) + '%)' : '');
+    });
+    candidatesStr = '<div style="margin-top:4px;font-size:10px;color:var(--dim)">Outros candidatos considerados: ' + cands.join(', ') + '</div>';
+  }
+
+  var cardBg = pending ? 'rgba(100,180,246,0.05)' : t.result === 'win' ? 'rgba(0,200,100,0.04)' : 'rgba(255,100,100,0.04)';
+  var borderClr = pending ? 'rgba(100,180,246,0.3)' : t.result === 'win' ? 'rgba(0,200,100,0.3)' : 'rgba(255,100,100,0.3)';
+
+  return '<div style="background:' + cardBg + ';border:1px solid ' + borderClr + ';border-radius:8px;padding:12px;margin-bottom:8px">' +
+    // Header row
+    '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">' +
+    '<span style="font-size:18px;color:' + resClr + '">' + resSymbol + '</span>' +
+    '<span style="font-weight:700;font-size:15px">' + (t.sym || '?').replace('_otc', '') + '</span>' +
+    '<span style="font-size:14px;font-weight:600;color:' + dirClr + '">' + dirArrow + ' ' + dirPt + '</span>' +
+    '<span style="margin-left:auto;font-size:12px;color:var(--dim)">' + time + '</span>' +
+    '</div>' +
+    // Strategy + stats row
+    '<div style="margin-bottom:6px">' +
+    '<span style="font-size:12px;color:var(--blue)">Estrategia: <b>' + sName + '</b></span>' +
+    (globalWR !== null ? '<span style="font-size:11px;color:var(--dim);margin-left:8px">WR global: ' + globalWR + '%</span>' : '') +
+    (pairWR !== null ? '<span style="font-size:11px;color:var(--green);margin-left:8px">WR neste par: ' + pairWR + '%</span>' : '') +
+    '</div>' +
+    // Badges
+    '<div style="margin-bottom:6px;display:flex;flex-wrap:wrap;gap:4px">' + badges + '</div>' +
+    // AI reasoning
+    aiReason +
+    // Candidates
+    candidatesStr +
+    // Footer: stake + P&L
+    '<div style="display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05)">' +
+    '<span style="font-size:11px;color:var(--dim)">Stake: <b style="color:var(--text)">$' + (t.stake ? t.stake.toFixed(2) : '?') + '</b>' +
+      (payout !== null ? ' &middot; Payout ' + payout + '%' : '') +
+      (be !== null ? ' &middot; Break-even ' + be + '%' : '') +
+    '</span>' +
+    '<span style="font-size:13px;font-weight:700;color:' + resClr + '">' + (pending ? 'EM ABERTO' : pnlStr) + '</span>' +
+    '</div>' +
+    '</div>';
+}
+
+function rNow() {
+  var tl = D.tradeLog || [];
+  var h = D.health || {};
+  var gate = D.tradeGate || {};
+  var tlW = tl.filter(function(t) { return t.result === 'win'; }).length;
+  var tlL = tl.filter(function(t) { return t.result === 'loss'; }).length;
+  var tlPend = tl.filter(function(t) { return !t.result || t.result === 'pending'; }).length;
+  var tlT = tlW + tlL;
+  var tlWR = tlT > 0 ? Math.round(tlW / tlT * 100) : 0;
+  var tlPnl = tl.reduce(function(a, t) {
+    if (t.result === 'win') return a + (t.stake * (t.payout || 0.82));
+    if (t.result === 'loss') return a - t.stake;
+    return a;
+  }, 0);
+
+  // Active trade from tradeGate (most up-to-date)
+  var activeHtml = '';
+  var at = gate.activeTrade;
+  if (at) {
+    var atDir = at.direction === 'CALL' ? 'SUBIDA' : 'DESCIDA';
+    var atDirClr = at.direction === 'CALL' ? 'var(--green)' : 'var(--red)';
+    var atAge = at.queuedAt ? Math.round((Date.now() - at.queuedAt) / 1000) : null;
+    activeHtml = '<div class="banner ok" style="margin-bottom:12px;padding:14px">' +
+      '<div class="banner-icon">&#9654;</div>' +
+      '<div style="flex:1">' +
+      '<div style="font-weight:700;font-size:14px;margin-bottom:4px">TRADE ABERTA AGORA</div>' +
+      '<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:4px">' +
+      '<span><b>' + (at.symbol || '?').replace('_otc', '') + '</b></span>' +
+      '<span style="color:' + atDirClr + '"><b>' + atDir + '</b></span>' +
+      '<span>Stake: <b>$' + (at.stake || '?') + '</b></span>' +
+      (at.payout ? '<span>Payout: <b>' + Math.round(at.payout * 100) + '%</b></span>' : '') +
+      '</div>' +
+      '<div style="font-size:11px;color:var(--dim)">' +
+      'Estrategia: <b style="color:var(--blue)">' + (at.strategyName || stratName(at.strategyId)) + '</b>' +
+      (at.wr ? ' &middot; WR global: ' + Math.round(at.wr * 100) + '%' : '') +
+      (at.pairWR ? ' &middot; WR neste par: ' + Math.round(at.pairWR) + '%' : '') +
+      (atAge !== null ? ' &middot; aberta ha ' + atAge + 's' : '') +
+      '</div>' +
+      '</div></div>';
+  } else if (tlPend > 0) {
+    // Fallback: last pending from tradeLog
+    var pt = tl.slice().reverse().find(function(t) { return !t.result || t.result === 'pending'; });
+    if (pt) {
+      activeHtml = '<div class="banner ok" style="margin-bottom:12px">' +
+        '<div class="banner-icon">&#9654;</div>' +
+        '<div><b>TRADE EM CURSO</b> — ' + (pt.sym || '?').replace('_otc', '') + ' ' +
+        (pt.dir === 'CALL' ? 'SUBIDA' : 'DESCIDA') + ' $' + (pt.stake || '?') + '</div></div>';
+    }
+  }
+
+  // Trade cards (last 20, newest first)
+  var recent = tl.slice().reverse().slice(0, 20);
+  var cards = recent.map(function(t) { return tradeCard(t, false); }).join('');
+
+  var note = '';
+  if (tlT === 0 && tl.length === 0) {
+    note = '<div class="banner info" style="margin-top:10px"><div class="banner-icon">i</div><div>Nenhuma trade registada nesta sessao. O historico aparece aqui apos a primeira trade ser concluida.</div></div>';
+  } else if (tlWR < 50 && tlT >= 5) {
+    note = '<div class="banner stale-bad" style="margin-top:10px"><div class="banner-icon">!</div><div><b>Win rate abaixo de 50%</b> nas ultimas ' + tlT + ' trades. Monitoriza se continua.</div></div>';
+  } else if (tlWR >= 60 && tlT >= 5) {
+    note = '<div class="banner ok" style="margin-top:10px"><div class="banner-icon">&#10003;</div><div>Win rate de ' + tlWR + '% nas trades reais. Boa performance.</div></div>';
+  }
+
+  var html = activeHtml +
+    '<div class="card info">' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">' +
+    '<div class="section-title" style="margin:0">Trades da conta demo</div>' +
+    '<span style="font-size:10px;color:var(--dim)">Ultimas ' + Math.min(20, tl.length) + ' trades</span>' +
+    '</div>' +
+    '<div class="g4" style="margin-bottom:14px">' +
+    big(D.demoBalance ? '$' + Math.round(D.demoBalance).toLocaleString('pt-PT') : '?', 'Balance Demo', 'Baseline: $50,000', 'var(--blue)') +
+    big(tlWR + '%', 'Win Rate Real', tlT + ' trades concluidas', wr(tlWR)) +
+    big(tlW + ' / ' + tlL, 'Ganhos / Perdas', tlPend > 0 ? tlPend + ' pendente(s)' : 'Concluidas', tlWR >= 55 ? 'var(--green)' : 'var(--orange)') +
+    big((tlPnl >= 0 ? '+' : '') + '$' + Math.abs(tlPnl).toFixed(2), 'P&L Estimado', 'Stake x payout', sgn(tlPnl)) +
+    '</div>' +
+    note +
+    '</div>' +
+    (tl.length > 0 ?
+      '<div style="margin-top:4px">' + cards + '</div>'
+    : '<div class="card"><div style="color:var(--dim);text-align:center;padding:20px">Nenhuma trade registada.</div></div>');
+
+  document.getElementById('tab-now').innerHTML = html;
+}
+
+/* ═══════════════════ PIPELINE DE FILTROS ═══════════════════ */
+function rPipeline() {
+  var h = D.health || {};
+  var ageMin = Math.round((Date.now() - D.receivedAt) / 60000);
+
+  var fired = h.labFired || 0;
+  var gateB = h.labGateBlocked || 0;
+  var proofB = h.labProofBlocked || 0;
+  var cooldown = h.labPairCooldown || 0;
+  var routeR = h.labRouteRejected || 0;
+  var payoutR = h.labPayoutRejected || 0;
+  var aiApproved = h.labAiApproved || 0;
+  var aiRejected = h.labAiRejected || 0;
+  var aiWait = h.labAiWait || 0;
+  var aiTimeout = h.labAiTimeout || 0;
+  var aiTotal = aiApproved + aiRejected + aiWait;
+  var aiRate = aiTotal > 0 ? Math.round(aiApproved / aiTotal * 100) : null;
+  var traded = h.labTraded || 0;
+
+  // Proof gate staleness note
+  var proofNote = '';
+  if (proofB === 0 && ageMin > 5) {
+    proofNote = '<div class="banner info" style="margin-top:8px"><div class="banner-icon">i</div><div>O "Prova por par" mostra 0 porque estes dados sao anteriores ao gate entrar em vigor (Chrome reiniciou ha ' + ageMin + ' min). O valor real aparece no proximo envio.</div></div>';
+  }
+
+  function fRow(icon, name, desc, count, total, color, extraNote) {
+    var p = total > 0 ? pct(count, total) : 0;
+    return '<div class="funnel-row">' +
+      '<div class="funnel-icon">' + icon + '</div>' +
+      '<div class="funnel-text">' +
+      '<div class="funnel-name">' + name + '</div>' +
+      '<div class="funnel-desc">' + desc + '</div>' +
+      bar(p, color) +
+      (extraNote || '') +
+      '</div>' +
+      '<div class="funnel-right">' +
+      '<div class="funnel-count" style="color:' + color + '">' + (count > 0 ? '-' : '') + N(count) + '</div>' +
+      '<div class="funnel-pct">' + p + '%</div>' +
+      '</div>' +
+      '</div>';
+  }
+
+  var html = '<div class="banner info" style="margin-bottom:12px"><div class="banner-icon">i</div>' +
+    '<div>Cada vez que o lab detecta um sinal, ele passa por <b>7 filtros</b> antes de se tornar uma trade real. Abaixo podes ver quantos sao rejeitados em cada etapa.</div></div>' +
+
+    '<div class="card">' +
+    '<div class="section-title">Como chegamos as trades reais</div>' +
+
+    // Total fired
+    '<div class="funnel-row">' +
+    '<div class="funnel-icon">&#9654;</div>' +
+    '<div class="funnel-text"><div class="funnel-name">Sinais gerados pelo laboratorio</div><div class="funnel-desc">Total de vezes que uma estrategia viu uma oportunidade</div>' + bar(100, 'var(--blue)') + '</div>' +
+    '<div class="funnel-right"><div class="funnel-count" style="color:var(--blue)">' + N(fired) + '</div><div class="funnel-pct">100%</div></div>' +
+    '</div>' +
+
+    fRow('&#8635;', 'Rejeitados: ja houve sinal recente neste par',
+      'O sistema espera 2 minutos entre sinais do mesmo par (evita entrar multiplas vezes no mesmo movimento)',
+      gateB, fired, 'var(--red)') +
+
+    fRow('&#128203;', 'Rejeitados: par sem historico suficiente',
+      'O sistema exige pelo menos 3 trades anteriores neste par para ter provas estatisticas de que funciona',
+      proofB, fired, '#FF7043') +
+
+    (proofB === 0 ? proofNote : '') +
+
+    fRow('&#9200;', 'Rejeitados: par em pausa',
+      'Limite de 1 trade por par a cada 15 minutos (evita over-trading)',
+      cooldown, fired, 'var(--orange)') +
+
+    fRow('&#9654;&#9654;', 'Rejeitados: ha uma estrategia mais forte neste par',
+      'Quando o routing esta activo, so a melhor estrategia por par executa',
+      routeR, fired, 'var(--yellow)') +
+
+    fRow('&#36;', 'Rejeitados: payout do broker muito baixo',
+      'O broker so oferece payout suficiente para cobrir o risco quando o mercado esta favoravel',
+      payoutR, fired, 'var(--orange)') +
+
+    // AI gate
+    '<div class="funnel-row">' +
+    '<div class="funnel-icon">&#129302;</div>' +
+    '<div class="funnel-text">' +
+    '<div class="funnel-name">Validacao pela IA (Claude Sonnet)</div>' +
+    '<div class="funnel-desc">Antes de executar, o Claude analisa o grafico e decide se o sinal e credivel' +
+    (aiRate !== null ? ' — aprovacao actual: ' + aiRate + '%' : '') + '</div>' +
+    bar(aiRate !== null ? aiRate : 0, aiRate !== null && aiRate >= 50 ? '#8BC34A' : 'var(--orange)') +
+    '</div>' +
+    '<div class="funnel-right">' +
+    '<div class="funnel-count" style="color:' + (aiTotal > 0 ? '#8BC34A' : 'var(--dim)') + '">' + N(aiApproved) + ' OK</div>' +
+    '<div class="funnel-pct">' + N(aiRejected) + ' recusados</div>' +
+    (aiTimeout > 0 ? '<div class="funnel-pct" style="font-size:9px">' + aiTimeout + ' timeout</div>' : '') +
+    '</div>' +
+    '</div>' +
+
+    // Traded
+    '<div class="funnel-row" style="background:rgba(76,175,80,0.04);border-radius:6px;padding:8px 4px;margin-top:4px">' +
+    '<div class="funnel-icon" style="color:var(--green)">&#10003;</div>' +
+    '<div class="funnel-text"><div class="funnel-name" style="color:var(--green);font-weight:700">Executados como trade real na conta demo</div>' +
+    '<div class="funnel-desc">Apenas estes chegam a conta. Todos os outros foram descartados automaticamente.</div></div>' +
+    '<div class="funnel-right"><div class="funnel-count" style="color:var(--green);font-size:16px">' + N(traded) + '</div><div class="funnel-pct">' + pct(traded, fired) + '%</div></div>' +
+    '</div>' +
+
+    '</div>' +
+
+    // AI detail card
+    '<div class="card">' +
+    '<div class="section-title">Inteligencia Artificial (Claude Sonnet 4.6)</div>' +
+    '<div class="help" style="margin-bottom:10px">O Claude analisa os ultimos graficos e indicadores antes de aprovar cada trade. Se nao responder em 15 segundos, a trade executa na mesma (fail-open).</div>' +
+    '<div class="g4">' +
+    mid(N(h.aiTotalValidated || 0), 'Sinais analisados', 'var(--blue)') +
+    mid(N(aiApproved), 'Aprovados', aiApproved > 0 ? 'var(--green)' : 'var(--dim)') +
+    mid(N(aiRejected), 'Recusados', aiRejected > 0 ? 'var(--orange)' : 'var(--dim)') +
+    mid(N(aiTimeout), 'Timeout (exec. na mesma)', aiTimeout > 0 ? 'var(--yellow)' : 'var(--dim)') +
+    '</div>' +
+    (aiTotal === 0 ? '<div class="banner info" style="margin-top:10px"><div class="banner-icon">i</div><div>A IA ainda nao validou sinais nesta sessao. Pode ser que o volume de sinais seja baixo ou que os dados sejam de uma sessao anterior.</div></div>' : '') +
+    '</div>';
+
+  document.getElementById('tab-pipeline').innerHTML = html;
+}
+
+/* ═══════════════════ ESTRATEGIAS ═══════════════════ */
+function rStrategies() {
+  var st = D.stats || [];
+  if (!st.length) {
+    document.getElementById('tab-strategies').innerHTML = '<div class="card"><div class="help">Sem dados de estrategias ainda.</div></div>';
+    return;
+  }
+  var above55 = st.filter(function(s) { return s.wr >= 55; }).length;
+  var below45 = st.filter(function(s) { return s.wr < 45; }).length;
+  var profitable = st.filter(function(s) { return s.pnl > 0; }).length;
+
+  var html = '<div class="banner info" style="margin-bottom:12px"><div class="banner-icon">i</div>' +
+    '<div>Estas estrategias sao testadas <b>virtualmente</b> (simulacao) — nao sao trades reais. Servem para identificar quais funcionam antes de as usar a sério.</div></div>' +
+    '<div class="card">' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">' +
+    '<div class="section-title" style="margin:0">Todas as estrategias (' + st.length + ')</div>' +
+    '</div>' +
+    '<div class="g4" style="margin-bottom:12px">' +
+    mid(st.length, 'Total activas') +
+    mid(above55, 'WR acima 55%', 'var(--green)') +
+    mid(below45, 'WR abaixo 45%', 'var(--red)') +
+    mid(profitable, 'Em lucro virtual', profitable > 0 ? 'var(--green)' : 'var(--dim)') +
+    '</div>' +
+    '<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)">' +
+    '<span>Nome</span><span>WR | Trades | P&L virtual</span>' +
+    '</div>';
+
+  html += st.map(function(s, i) {
+    var t = s.w + s.l;
+    var src = s.id.indexOf('crawler_') === 0 ? badge('CRAWLER', '#FFB74D', 'rgba(255,183,77,.1)') :
+      (s.id.indexOf('evolved_') === 0 || s.id.indexOf('hybrid_') === 0 || s.id.indexOf('hypothesis_') === 0) ?
+        badge('EVOLUCAO', '#CE93D8', 'rgba(206,147,216,.1)') : '';
+    var barC = s.wr >= 58 ? 'rgba(76,175,80,.4)' : s.wr >= 50 ? 'rgba(255,167,38,.35)' : 'rgba(244,67,54,.35)';
+    return '<div class="strat"' + (s.dis ? ' style="opacity:.3"' : '') + '>' +
+      '<div class="bg" style="width:' + s.wr + '%;background:' + barC + '"></div>' +
+      '<div class="inner">' +
+      '<span style="max-width:65%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' +
+      '<span style="color:var(--dim);font-size:9px;margin-right:4px">' + (i + 1) + '.</span>' +
+      (s.nm || s.id) + src +
+      (s.dis ? badge('OFF', 'var(--red)', 'rgba(244,67,54,.1)') : '') +
+      '</span>' +
+      '<span style="display:flex;gap:8px;align-items:center;flex-shrink:0">' +
+      '<b style="color:' + wr(s.wr) + '">' + s.wr + '%</b>' +
+      '<span style="color:var(--dim);font-size:10px">' + t + '</span>' +
+      '<span style="color:' + sgn(s.pnl) + ';font-size:11px">' + fmt(s.pnl) + '</span>' +
+      '</span></div></div>';
+  }).join('');
+
+  html += '</div>';
+  document.getElementById('tab-strategies').innerHTML = html;
+}
+
+/* ═══════════════════ PARES ═══════════════════ */
+function rPairs() {
+  var pairs = D.pairs || [];
+  if (!pairs.length) {
+    document.getElementById('tab-pairs').innerHTML = '<div class="card"><div class="help">Sem dados de pares ainda. O sistema precisa de pelo menos 3 trades virtuais por par.</div></div>';
+    return;
+  }
+  var sorted = pairs.slice().sort(function(a, b) { return b.wr - a.wr; });
+  var positive = sorted.filter(function(p) { return p.wr >= 52; });
+  var negative = sorted.filter(function(p) { return p.wr < 48; });
+
+  var html = '<div class="banner info" style="margin-bottom:12px"><div class="banner-icon">i</div>' +
+    '<div>Performance <b>virtual</b> por par de divisas. Identifica quais pares respondem melhor as estrategias. Ainda nao afecta as trades reais (routing em bypass).</div></div>' +
+    '<div class="card">' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">' +
+    '<div class="section-title" style="margin:0">' + sorted.length + ' pares com dados suficientes</div>' +
+    '</div>' +
+    '<div class="g3" style="margin-bottom:12px">' +
+    mid(positive.length, 'Pares positivos (WR > 52%)', 'var(--green)') +
+    mid(sorted.length - positive.length - negative.length, 'Pares neutros', 'var(--orange)') +
+    mid(negative.length, 'Pares negativos (WR < 48%)', 'var(--red)') +
+    '</div>' +
+    '<div class="pair-row" style="font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)">' +
+    '<span>Par</span><span>WR virtual</span><span>Trades</span><span>Melhor estrategia</span>' +
+    '</div>';
+
+  html += sorted.map(function(p) {
+    var isOtc = p.p.indexOf('_otc') >= 0;
+    var sym = p.p.replace('_otc', '');
+    var t = p.w + p.l;
+    return '<div class="pair-row">' +
+      '<span>' + sym + (isOtc ? ' <span style="color:#333;font-size:8px">OTC</span>' : '') + '</span>' +
+      '<span style="color:' + wr(p.wr) + ';font-weight:700">' + p.wr + '%</span>' +
+      '<span style="color:var(--dim)">' + t + '</span>' +
+      '<span style="font-size:10px"><span style="color:' + wr(p.bwr) + '">' + p.bwr + '%</span> <span style="color:var(--dim)">' + (p.best || '?') + '</span></span>' +
+      '</div>' +
+      bar(p.wr, wr(p.wr));
+  }).join('');
+
+  html += '</div>';
+  document.getElementById('tab-pairs').innerHTML = html;
+}
+
+/* ═══════════════════ R&D ═══════════════════ */
+function rRD() {
+  var e = D.evolution || {};
+  var l = D.loader || {};
+  var st = D.stats || [];
+  var total = l.total || 0;
+  var cap = 300;
+  var pctCap = Math.round(total / cap * 100);
+
+  var ev = st.filter(function(s) { return s.id.indexOf('evolved_') === 0 || s.id.indexOf('hybrid_') === 0 || s.id.indexOf('hypothesis_') === 0; });
+  var cr = st.filter(function(s) { return s.id.indexOf('crawler_') === 0; });
+  var bu = st.filter(function(s) { return !s.id.startsWith('crawler_') && !s.id.startsWith('evolved_') && !s.id.startsWith('hybrid_') && !s.id.startsWith('hypothesis_'); });
+
+  function avgWR(a) { return a.length > 0 ? Math.round(a.reduce(function(x, s) { return x + s.wr; }, 0) / a.length) : 0; }
+
+  var nextEvol = e.nextCycleIn > 0 ?
+    (Math.floor(e.nextCycleIn / 3600000) + 'h ' + Math.floor((e.nextCycleIn % 3600000) / 60000) + 'min') :
+    'Pendente';
+
+  var html = '<div class="banner info" style="margin-bottom:12px"><div class="banner-icon">i</div>' +
+    '<div>O sistema cria e testa novas estrategias automaticamente. Estrategias que nao funcionam sao removidas. As melhores sao combinadas para criar novas versoes.</div></div>' +
+
+    '<div class="card">' +
+    '<div class="section-title">Repositorio de estrategias</div>' +
+    '<div class="g4" style="margin-bottom:8px">' +
+    mid(l.builtin || 0, 'Embutidas\n(na extensao)') +
+    mid(l.crawler || 0, 'Descobertas\n(crawler web)', '#FFB74D') +
+    mid(l.evolved || 0, 'Evoluidas\n(IA + mutacao)', '#CE93D8') +
+    mid(total + ' / ' + cap, 'Total / Capacidade', pctCap > 90 ? 'var(--red)' : 'var(--blue)') +
+    '</div>' +
+    bar(pctCap, pctCap > 90 ? 'var(--red)' : 'var(--blue)') +
+    '<div class="help" style="margin-top:6px">Quando o repositorio atinge 300, as estrategias com pior performance sao automaticamente removidas.</div>' +
+    '</div>' +
+
+    '<div class="g2">' +
+    '<div class="card">' +
+    '<div class="section-title">Ciclo de evolucao</div>' +
+    '<div style="font-size:11px">' +
+    '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.02)">' +
+    '<span style="color:var(--dim)">Motor ligado:</span>' +
+    '<span style="color:' + (e.isRunning ? 'var(--green)' : 'var(--red)') + ';font-weight:600">' + (e.isRunning ? 'SIM' : 'NAO') + '</span>' +
+    '</div>' +
+    '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.02)">' +
+    '<span style="color:var(--dim)">Ciclos executados:</span><span>#' + (e.cycleCount || 0) + '</span>' +
+    '</div>' +
+    '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.02)">' +
+    '<span style="color:var(--dim)">Ultimo ciclo:</span>' +
+    '<span>' + (e.lastCycleAt > 0 ? new Date(e.lastCycleAt).toLocaleString('pt-PT') : 'Ainda nao correu') + '</span>' +
+    '</div>' +
+    '<div style="display:flex;justify-content:space-between;padding:4px 0">' +
+    '<span style="color:var(--dim)">Proximo ciclo em:</span><span>' + nextEvol + '</span>' +
+    '</div>' +
+    '</div>' +
+    '</div>' +
+
+    '<div class="card">' +
+    '<div class="section-title">WR medio por origem</div>' +
+    '<div class="help" style="margin-bottom:8px">Qual tipo de estrategia produz melhores resultados virtuais?</div>' +
+    [
+      { l: 'Embutidas', a: bu, c: 'var(--green)' },
+      { l: 'Crawler (web)', a: cr, c: '#FFB74D' },
+      { l: 'Evoluidas (IA)', a: ev, c: '#CE93D8' },
+    ].map(function(g) {
+      var avg = avgWR(g.a);
+      return '<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.02)">' +
+        '<span style="color:' + g.c + '">' + g.l + ' <span style="color:var(--dim)">(' + g.a.length + ')</span></span>' +
+        '<b style="color:' + wr(avg) + '">' + avg + '%</b>' +
+        '</div>';
+    }).join('') +
+    '</div>' +
+    '</div>';
+
+  document.getElementById('tab-rd').innerHTML = html;
+}
+
+go();
+setInterval(go, 60000);
+</script>
+</body>
+</html>

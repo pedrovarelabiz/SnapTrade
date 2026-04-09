@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapTrade Intelligence Center</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080c1c;--card:#0c1028;--border:rgba(100,180,246,0.1);--text:#c8d0e0;--dim:#555;--accent:#64B5F6;--green:#4CAF50;--red:#f44336;--orange:#FF9800;--purple:#CE93D8}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.5;max-width:1200px;margin:0 auto;padding:16px}
+h1{font-size:20px;color:var(--accent);letter-spacing:2px;font-weight:800}
+h2{font-size:14px;color:var(--accent);letter-spacing:1px;font-weight:700;margin-bottom:2px}
+.subtitle{font-size:11px;color:var(--dim);margin-bottom:10px;line-height:1.4}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 0 8px;border-bottom:1px solid var(--border);margin-bottom:14px}
+.tabs{display:flex;gap:2px;border-bottom:2px solid rgba(100,180,246,0.08);margin-bottom:16px}
+.tab{padding:8px 18px;cursor:pointer;color:var(--dim);font-size:12px;font-weight:600;border-bottom:2px solid transparent;transition:all .15s;letter-spacing:.3px;border-radius:4px 4px 0 0}
+.tab:hover{color:#aaa;background:rgba(100,180,246,0.03)}.tab.on{color:var(--accent);border-bottom-color:var(--accent);background:rgba(100,180,246,0.05)}
+.sec{display:none}.sec.on{display:block}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.c{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.c.highlight{border-color:rgba(100,180,246,0.25);box-shadow:0 0 20px rgba(100,180,246,0.05)}
+.c.live-card{border-color:rgba(76,175,80,0.2);box-shadow:0 0 16px rgba(76,175,80,0.04)}
+.ct{font-size:11px;color:var(--accent);letter-spacing:.8px;font-weight:700;margin-bottom:4px}
+.insight{background:rgba(100,180,246,0.04);border-left:3px solid var(--accent);padding:8px 12px;margin:8px 0;font-size:11px;line-height:1.5;border-radius:0 4px 4px 0}
+.insight.warn{border-left-color:var(--orange);background:rgba(255,152,0,0.04)}
+.insight.bad{border-left-color:var(--red);background:rgba(244,67,54,0.04)}
+.insight.good{border-left-color:var(--green);background:rgba(76,175,80,0.04)}
+.metric{text-align:center;background:rgba(255,255,255,0.02);padding:10px;border-radius:6px}
+.metric .val{font-size:22px;font-weight:800;line-height:1.2}
+.metric .lbl{font-size:10px;color:var(--dim);margin-top:2px}
+.metric .sub{font-size:9px;color:var(--dim);margin-top:1px}
+.badge{font-size:8px;padding:1px 5px;border-radius:3px;font-weight:600;display:inline-block;margin-left:3px}
+/* Status badges */
+.sb{font-size:8px;padding:2px 6px;border-radius:3px;font-weight:800;letter-spacing:.5px;display:inline-block;margin-left:7px;vertical-align:middle;text-transform:uppercase}
+.sb.live{color:#4CAF50;background:rgba(76,175,80,0.12);border:1px solid rgba(76,175,80,0.3)}
+.sb.sim{color:#FF9800;background:rgba(255,152,0,0.1);border:1px solid rgba(255,152,0,0.25)}
+.sb.off{color:#666;background:rgba(100,100,100,0.1);border:1px solid rgba(100,100,100,0.2)}
+/* Pipeline funnel */
+.funnel{margin:10px 0}
+.funnel-row{display:flex;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+.funnel-row:last-child{border-bottom:none}
+.funnel-label{width:220px;font-size:11px;color:var(--dim)}
+.funnel-label span{color:var(--text)}
+.funnel-bar-wrap{flex:1;margin:0 10px}
+.funnel-bar-bg{height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden}
+.funnel-bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.funnel-count{width:90px;text-align:right;font-size:11px;font-weight:700}
+.funnel-pct{width:45px;text-align:right;font-size:10px;color:var(--dim)}
+.bar-track{height:5px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden;margin-top:3px}
+.bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.strat{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.025);position:relative}
+.strat .bg{position:absolute;left:0;top:0;bottom:0;opacity:.08;border-radius:3px}
+.strat .inner{position:relative}
+.strat .r1{display:flex;justify-content:space-between;align-items:center}
+.strat .r2{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);margin-top:2px}
+.strat .r3{display:flex;gap:8px;font-size:9px;margin-top:2px;padding-top:2px;border-top:1px solid rgba(255,255,255,0.02)}
+.pair{display:grid;grid-template-columns:100px 55px 55px 1fr;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.025)}
+.regime-pill{padding:3px 10px;border-radius:4px;font-weight:800;font-size:11px;letter-spacing:.5px;display:inline-block}
+.refresh{background:rgba(100,180,246,0.1);color:var(--accent);border:1px solid rgba(100,180,246,0.2);padding:5px 14px;border-radius:5px;cursor:pointer;font-size:11px;font-weight:600}
+.tok{text-align:center;padding:60px 20px}
+.tok input{padding:8px 12px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;color:var(--text);width:320px;font-size:12px;margin-top:8px}
+.tok button{margin-top:10px;padding:8px 16px;background:rgba(100,180,246,0.15);border:1px solid rgba(100,180,246,0.25);border-radius:5px;color:var(--accent);cursor:pointer;font-size:12px;font-weight:600}
+@media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}.pair{grid-template-columns:80px 45px 45px 1fr}.funnel-label{width:150px}.funnel-pct{display:none}}
+</style>
+</head>
+<body>
+<div class="hdr">
+<h1>SNAPTRADE INTELLIGENCE</h1>
+<div><span id="upd" style="font-size:10px;color:var(--dim)">Loading...</span> <button class="refresh" onclick="go()">Refresh</button></div>
+</div>
+<div id="health-bar" class="c highlight" style="margin-bottom:10px"></div>
+<div class="tabs" id="tabs"></div>
+<div id="tab-overview" class="sec on"></div>
+<div id="tab-strategies" class="sec"></div>
+<div id="tab-pairs" class="sec"></div>
+<div id="tab-evolution" class="sec"></div>
+<div id="nodata" class="tok" style="display:none">
+<h2>SnapTrade Lab Dashboard</h2>
+<div class="subtitle">Insere o token da extension para aceder aos dados em tempo real.<br>Os dados sao enviados automaticamente a cada 5 minutos.</div>
+<input id="ti" type="text" placeholder="st_ext_...">
+<br><button onclick="localStorage.setItem('st_token',document.getElementById('ti').value.trim());go()">Ligar</button>
+</div>
+<script>
+var API=location.origin+'/api',D=null;
+function T(){return localStorage.getItem('st_token')||''}
+function C(w){return w>=58?'var(--green)':w>=52?'#8BC34A':w>=48?'var(--orange)':'var(--red)'}
+function PC(v){return v>=0?'var(--green)':'var(--red)'}
+function PS(v){return(v>=0?'+':'')+v.toFixed(1)}
+function B(t,c,b){return '<span class="badge" style="color:'+c+';background:'+b+'">'+t+'</span>'}
+function BAR(w,c){return '<div class="bar-track"><div class="bar-fill" style="width:'+Math.min(100,Math.max(0,w))+'%;background:'+c+'"></div></div>'}
+function M(v,l,s,c){return '<div class="metric"><div class="val" style="color:'+(c||'var(--text)')+'">'+v+'</div><div class="lbl">'+l+'</div>'+(s?'<div class="sub">'+s+'</div>':'')+'</div>'}
+function SB(t){
+  if(t==='LIVE') return '<span class="sb live">LIVE</span>';
+  if(t==='SIM') return '<span class="sb sim">SIMULACAO</span>';
+  return '<span class="sb off">DESACTIVADO</span>';
+}
+function N(v){return(v||0).toLocaleString()}
+
+var TABS=[['overview','OVERVIEW'],['strategies','STRATEGIES'],['pairs','PAIRS'],['evolution','R&D']];
+document.getElementById('tabs').innerHTML=TABS.map(function(t,i){return '<div class="tab'+(i===0?' on':'')+'" data-t="'+t[0]+'">'+t[1]+'</div>'}).join('');
+document.querySelectorAll('.tab').forEach(function(el){el.onclick=function(){
+document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+el.classList.add('on');document.getElementById('tab-'+el.dataset.t).classList.add('on')}});
+
+function go(){
+var tk=T();if(!tk){document.getElementById('nodata').style.display='block';return}
+fetch(API+'/extension/lab-dashboard',{headers:{Authorization:'Bearer '+tk}})
+.then(function(r){return r.json()}).then(function(d){
+if(!d.available){document.getElementById('nodata').style.display='block';return}
+document.getElementById('nodata').style.display='none';D=d;render()
+}).catch(function(){document.getElementById('nodata').style.display='block'})}
+
+function render(){
+if(!D)return;
+var ago=Math.round((Date.now()-D.receivedAt)/60000);
+document.getElementById('upd').textContent=ago<2?'Live':ago+'m ago';
+rHealth();rOverview();rStrategies();rPairs();rEvolution()}
+
+/* ═══════════════════ HEALTH MONITOR ═══════════════════ */
+function rHealth(){
+var h=D.health;
+if(!h){document.getElementById('health-bar').innerHTML='<div class="insight bad">Health data not available. Extension may need rebuild.</div>';return;}
+var checks=[
+{name:'Lab',ok:h.labActive,val:h.totalTrades+' trades acumulados',bad:'Lab inactivo (0 trades)'},
+{name:'AI Gate',ok:h.aiActive&&!h.aiDisabled,val:h.aiTotalValidated+' sinais validados',bad:'AI Gate inactivo — nao esta a filtrar trades'},
+{name:'Regime',ok:h.regimeBlockRate<=30,val:'Block rate: '+h.regimeBlockRate+'%',bad:'Block rate: '+h.regimeBlockRate+'% (>30% = demasiado restritivo)'},
+{name:'Pre-filter',ok:h.preFilterTotal>0?(h.preFilterPassRate>=20):true,val:h.preFilterTotal>0?'Pass rate: '+h.preFilterPassRate+'% ('+h.preFilterPassed+'/'+h.preFilterTotal+')':'BYPASS (lab primario)',bad:'Pass rate: '+h.preFilterPassRate+'% — demasiado restritivo'},
+{name:'Trade Router',ok:true,val:h.labRouteRejected===0?'BYPASS (payout+AI gates activos)':h.routedPairs+' pares com routing',bad:''},
+{name:'Strategies',ok:h.activeStrategies>0,val:h.activeStrategies+' activas ('+h.disabledStrategies+' desactivadas)',bad:'0 estrategias activas'},
+];
+var ok=0,fail=0;
+var html='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">';
+for(var i=0;i<checks.length;i++){
+var c=checks[i];
+var color=c.ok?'var(--green)':'var(--red)';
+var bg=c.ok?'rgba(76,175,80,0.1)':'rgba(244,67,54,0.1)';
+var icon=c.ok?'OK':'FAIL';
+if(c.ok)ok++;else fail++;
+html+='<div style="background:'+bg+';border:1px solid '+color+';border-radius:5px;padding:6px 10px;font-size:11px;flex:1;min-width:140px">';
+html+='<div style="color:'+color+';font-weight:800;font-size:10px">'+icon+' '+c.name+'</div>';
+html+='<div style="color:var(--text);font-size:10px;margin-top:2px">'+(c.ok?c.val:c.bad)+'</div>';
+html+='</div>';}
+html+='</div>';
+var status=fail===0?'TODOS OS SISTEMAS OK':fail+'/'+checks.length+' PROBLEMAS DETECTADOS';
+var statusColor=fail===0?'var(--green)':'var(--red)';
+html='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-weight:800;color:'+statusColor+';font-size:12px;letter-spacing:1px">'+status+'</span><span style="font-size:10px;color:var(--dim)">Ultimo upload: '+new Date(h.ts).toISOString().substring(11,19)+' UTC</span></div>'+html;
+if(h.preFilterSources&&Object.keys(h.preFilterSources).length>0){
+html+='<div style="font-size:10px;color:var(--dim);margin-top:4px">Signal sources: '+Object.entries(h.preFilterSources).map(function(e){return e[0]+':'+e[1]}).join(' | ')+'</div>';}
+document.getElementById('health-bar').innerHTML=html;}
+
+/* ═══════════════════ OVERVIEW ═══════════════════ */
+function rOverview(){
+var r=D.regime||{},ai=D.ai||{},pnl=D.pnl||{},st=D.stats||[],l=D.loader||{},h=D.health||{};
+var totalW=st.reduce(function(a,s){return a+s.w},0);
+var totalL=st.reduce(function(a,s){return a+s.l},0);
+var total=totalW+totalL;
+var baseWR=total>0?Math.round(100*totalW/total):0;
+var aiVT=(ai.valW||0)+(ai.valL||0),aiRT=(ai.rejW||0)+(ai.rejL||0);
+var aiVWR=aiVT>0?Math.round(100*ai.valW/aiVT):0;
+var aiRWR=aiRT>0?Math.round(100*ai.rejW/aiRT):0;
+var gatedW=st.reduce(function(a,s){return a+s.gw},0);
+var gatedL=st.reduce(function(a,s){return a+s.gl},0);
+var gatedT=gatedW+gatedL;
+var gatedWR=gatedT>0?Math.round(100*gatedW/gatedT):0;
+
+// Pipeline funnel data
+var fired=h.labFired||0;
+var gateBlocked=h.labGateBlocked||0;
+var payoutRej=h.labPayoutRejected||0;
+var aiQueued=h.labQueued||0;
+var traded=h.labTraded||0;
+var aiRejected=Math.max(0,aiQueued-traded);
+
+// Regime
+var stClr=r.state==='stable'?'var(--green)':r.state==='warning'?'var(--orange)':'var(--red)';
+var stBg=r.state==='stable'?'rgba(76,175,80,.12)':r.state==='warning'?'rgba(255,152,0,.12)':'rgba(244,67,54,.15)';
+var regimeInsight='';
+if(r.state==='blocked') regimeInsight='<div class="insight bad">O regime detectou condicoes adversas de mercado. Trades estao bloqueadas automaticamente ate o mercado estabilizar. WR global caiu para '+r.wr+'%.</div>';
+else if(r.state==='warning') regimeInsight='<div class="insight warn">O mercado mostra sinais de instabilidade. O sistema esta em alerta mas ainda permite trades. Monitoriza de perto.</div>';
+else regimeInsight='<div class="insight good">Mercado estavel. Condicoes favoraveis para trading.</div>';
+
+var regimeImpact='';
+if(gatedT>100&&total>100){
+var diff=gatedWR-baseWR;
+regimeImpact='<div class="insight '+(diff>0?'good':'warn')+'"><b>Impacto do Regime Gate:</b> Quando o regime esta aberto ('+gatedT+' trades), WR sobe para <b>'+gatedWR+'%</b> vs <b>'+baseWR+'%</b> total. '+(diff>0?'O filtro de regime adiciona <b>+'+diff+'pp</b> ao win rate.':'O regime gate nao esta a melhorar o WR.')+'</div>';}
+
+// Top 10
+var top10=(D.top10||[]).map(function(s,i){
+var profitable=s.pnl>0;
+return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.02)"><span style="color:#aaa">'+(i+1)+'. <span style="color:var(--text)">'+(s.name||s.id)+'</span></span><span><b style="color:'+C(s.wr)+'">'+s.wr+'%</b> <span style="color:var(--dim);font-size:10px">('+s.trades+' trades)</span> <span style="color:'+PC(s.pnl)+';font-weight:600">'+PS(s.pnl)+'</span>'+(profitable?' <span style="color:var(--green);font-size:9px">PROFIT</span>':'')+'</span></div>'}).join('');
+
+var bestStrat=D.top10&&D.top10[0];
+var bestInsight=bestStrat?'<div class="insight good"><b>Melhor estrategia:</b> "'+bestStrat.name+'" com <b>'+bestStrat.wr+'%</b> WR em '+bestStrat.trades+' trades. '+(bestStrat.pnl>0?'Esta em lucro (+'+bestStrat.pnl.toFixed(1)+' unidades).':'Apesar do bom WR, P&L negativo — verifica se o payout compensa.')+'</div>':'';
+
+document.getElementById('tab-overview').innerHTML=
+
+/* ── 1. SAUDE DO SISTEMA [LIVE] ── */
+'<div class="c highlight live-card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h2>SAUDE DO SISTEMA'+SB('LIVE')+'</h2><span class="regime-pill" style="color:'+stClr+';background:'+stBg+'">'+(r.state||'?').toUpperCase()+'</span></div>'+
+'<div class="subtitle">Estado actual do mercado e do sistema de trading automatico. Afecta trades reais.</div>'+
+regimeInsight+
+'<div class="g4" style="margin-top:10px">'+
+M((r.wr||0)+'%','WR Rolling','Ultimos 30 trades do lab',C(r.wr||0))+
+M((r.volatility||0)+'%','Volatilidade',r.volTrend||'normal',(r.volatility||0)>70?'var(--red)':'var(--green)')+
+M(((r.sentinelsTotal||7)-(r.sentinelsFailing||0))+'/'+(r.sentinelsTotal||7),'Sentinels OK','Monitores autonomos',(r.sentinelsFailing||0)>=5?'var(--red)':'var(--green)')+
+M(r.streak||0,'Losing Streaks','Estrategias em serie negativa',(r.streak||0)>=3?'var(--red)':'var(--green)')+
+'</div>'+
+(r.state==='blocked'&&r.recovery>0?BAR(r.recovery,'var(--orange)')+'<div style="text-align:center;font-size:9px;color:var(--orange);margin-top:2px">Recuperacao: '+r.recovery+'%</div>':'')+
+regimeImpact+
+'</div>'+
+
+/* ── 2. PIPELINE DE SINAIS [LIVE] ── */
+(fired>0?
+'<div class="c live-card"><h2>PIPELINE DE SINAIS'+SB('LIVE')+'</h2>'+
+'<div class="subtitle">Cada sinal gerado pelo lab passa por varios filtros antes de se tornar uma trade real. Este funil mostra onde e rejeitado.</div>'+
+'<div class="funnel">'+
+'<div class="funnel-row">'+
+'<div class="funnel-label"><span>Sinais gerados</span></div>'+
+'<div class="funnel-bar-wrap"><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:100%;background:var(--accent)"></div></div></div>'+
+'<div class="funnel-count" style="color:var(--accent)">'+N(fired)+'</div>'+
+'<div class="funnel-pct">100%</div>'+
+'</div>'+
+'<div class="funnel-row">'+
+'<div class="funnel-label" style="padding-left:10px">&#x2514; Time gate (5min)</div>'+
+'<div class="funnel-bar-wrap"><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:'+Math.round(gateBlocked/fired*100)+'%;background:var(--red)"></div></div></div>'+
+'<div class="funnel-count" style="color:var(--red)">-'+N(gateBlocked)+'</div>'+
+'<div class="funnel-pct" style="color:var(--dim)">'+Math.round(gateBlocked/fired*100)+'%</div>'+
+'</div>'+
+'<div class="funnel-row">'+
+'<div class="funnel-label" style="padding-left:10px">&#x2514; Payout insuficiente</div>'+
+'<div class="funnel-bar-wrap"><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:'+Math.round(payoutRej/fired*100)+'%;background:var(--orange)"></div></div></div>'+
+'<div class="funnel-count" style="color:var(--orange)">-'+N(payoutRej)+'</div>'+
+'<div class="funnel-pct" style="color:var(--dim)">'+Math.round(payoutRej/fired*100)+'%</div>'+
+'</div>'+
+'<div class="funnel-row">'+
+'<div class="funnel-label" style="padding-left:10px">&#x2514; AI gate (aprovados)</div>'+
+'<div class="funnel-bar-wrap"><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:'+Math.min(100,Math.round(aiQueued/Math.max(1,fired)*100*20))+'%;background:#8BC34A"></div></div></div>'+
+'<div class="funnel-count" style="color:#8BC34A">'+N(aiQueued)+' entram</div>'+
+'<div class="funnel-pct" style="color:var(--dim)">'+Math.round(aiQueued/Math.max(1,fired)*100)+'%</div>'+
+'</div>'+
+'<div class="funnel-row">'+
+'<div class="funnel-label" style="padding-left:20px;font-weight:700"><span>&#x2514; Trades executados</span></div>'+
+'<div class="funnel-bar-wrap"><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:'+Math.min(100,Math.round(traded/Math.max(1,fired)*100*30))+'%;background:var(--green)"></div></div></div>'+
+'<div class="funnel-count" style="color:var(--green);font-weight:800">'+N(traded)+' trades</div>'+
+'<div class="funnel-pct" style="color:var(--dim)">'+Math.round(traded/Math.max(1,fired)*100*100)/100+'%</div>'+
+'</div>'+
+'</div>'+
+(aiRejected>0?'<div class="insight warn"><b>AI Gate bloqueou '+aiRejected+' sinais</b> que passaram o time gate e payout check. O AI gate e fail-open (15s timeout) — se o AI nao responder a tempo, a trade executa na mesma.</div>':
+aiQueued>0&&traded>0?'<div class="insight good">AI Gate activo. De '+aiQueued+' sinais enviados ao AI, '+traded+' foram executados como trades reais.</div>':
+'<div class="insight warn">Pipeline activo mas sem trades executadas ainda nesta sessao.</div>')+
+'</div>':'')+ /* end pipeline card */
+
+/* ── 3. AI GATE PRE-TRADE [LIVE] ── */
+'<div class="c live-card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><h2>AI GATE PRE-TRADE'+SB('LIVE')+'</h2></div>'+
+'<div class="subtitle">O Claude Sonnet 4.6 valida cada sinal ANTES de executar a trade real. Fail-open: se o AI nao responder em 15s, a trade executa na mesma.</div>'+
+'<div class="g4" style="margin-bottom:10px">'+
+M(h.aiTotalValidated||0,'Sinais Validados','Total AI calls com resposta','var(--accent)')+
+M(aiRejected||0,'Rejeitados','Bloqueados pelo AI gate',aiRejected>0?'var(--orange)':'var(--dim)')+
+M(h.aiPending||0,'Pendentes','Aguardam resposta AI',h.aiPending>0?'var(--orange)':'var(--dim)')+
+M(h.aiCallsThisHour||0,'Calls/hora','Uso da API Claude','var(--text)')+
+'</div>'+
+(aiVT>0?
+'<div style="font-size:10px;color:var(--dim);margin-bottom:6px;padding-top:6px;border-top:1px solid var(--border)">Impacto no Lab Virtual ('+aiVT+' trades com validacao AI):</div>'+
+'<div class="g3">'+
+M(baseWR+'%','Sem AI','Todas as trades lab ('+total+')',C(baseWR))+
+'<div class="metric" style="border:1px solid rgba(100,180,246,.15);background:rgba(100,180,246,.03)"><div class="val" style="color:'+C(aiVWR)+'">'+aiVWR+'%</div><div class="lbl" style="color:var(--accent)">AI Aprovadas</div><div class="sub">'+aiVT+' trades</div></div>'+
+M(aiRWR+'%','AI Rejeitadas',aiRT+' trades bloqueadas',C(aiRWR))+
+'</div>'+
+'<div class="insight '+(aiVWR>baseWR?'good':aiVWR===baseWR?'warn':'bad')+'">'+
+(aiVWR>baseWR?'A AI esta a melhorar o win rate em <b>+'+(aiVWR-baseWR)+'pp</b>. Trades aprovadas tem '+aiVWR+'% WR vs '+baseWR+'% sem filtro.':
+aiVWR===baseWR?'A AI ainda nao tem impacto mensuravel no WR do lab.':
+'A AI esta a piorar o WR no lab — pode estar a rejeitar bons sinais. Monitoriza.')+
+(aiRT>0&&aiRWR<48?' Trades rejeitadas tem '+aiRWR+'% WR, confirmando que o AI identifica sinais fracos.':'')+
+'</div>'
+:'<div class="insight warn">Dados de impacto AI no lab ainda a acumular. O AI Gate esta activo nos trades reais ('+( h.aiTotalValidated||0)+' validacoes).</div>')+
+'</div>'+
+
+/* ── 4. PERFORMANCE + P&L [SIMULACAO] ── */
+'<div class="g2">'+
+'<div class="c"><h2>PERFORMANCE GLOBAL'+SB('SIM')+'</h2><div class="subtitle">Resultado acumulado de '+total.toLocaleString()+' trades <b>virtuais</b> em '+D.activeStrategies+' estrategias. NAO sao trades reais.</div>'+
+'<div class="g3">'+
+M(baseWR+'%','Win Rate Lab','Trades virtuais acumuladas',C(baseWR))+
+M(D.activeStrategies+'/'+D.totalStrategies,'Estrategias','Activas / Total','var(--accent)')+
+M(total.toLocaleString(),'Total Trades','Virtual, desde reset','var(--text)')+
+'</div></div>'+
+'<div class="c"><h2>P&L POR MODO'+SB('SIM')+'</h2><div class="subtitle">Simulacao: flat (1x) vs Martingale por sinal vs Martingale por candle. Baseado em trades <b>virtuais</b>.</div>'+
+'<div class="g3">'+
+M(PS(pnl.flat||0),'Flat (1x)','Sem recuperacao',PC(pnl.flat||0))+
+M(PS(pnl.galeSig||0),'Gale Signal','Recupera no proximo sinal',PC(pnl.galeSig||0))+
+M(PS(pnl.galeCdl||0),'Gale Candle','Recupera na proxima candle',PC(pnl.galeCdl||0))+
+'</div>'+
+'<div class="insight '+(pnl.flat>=0?'good':'bad')+'">'+
+(pnl.flat>=0?'O lab mostra lucro flat simulado. ':'O lab esta em perda simulada. ')+
+(pnl.galeSig>pnl.flat&&pnl.galeSig>pnl.galeCdl?'Martingale por sinal e o modo mais lucrativo no lab.':
+pnl.galeCdl>pnl.flat&&pnl.galeCdl>pnl.galeSig?'Martingale por candle e o modo mais lucrativo no lab.':
+'Flat betting e o modo mais seguro.')+
+'</div></div></div>'+
+
+/* ── 5. ESTRATEGIA COMPOSTA [SIMULACAO] ── */
+(function(){
+var comp=D.composite;
+if(!comp||!comp.pairs||comp.pairs.length===0) return '';
+var html='<div class="c"><h2>ESTRATEGIA COMPOSTA (Best-of-Breed)'+SB('SIM')+'</h2>'+
+'<div class="subtitle"><b>Simulacao hipotetica:</b> se usassemos a melhor estrategia por par, qual seria o WR? Isto NAO afecta trades reais. E um benchmark para avaliar se vale a pena activar routing por par.</div>'+
+'<div class="g3" style="margin-bottom:10px">'+
+'<div class="metric" style="border:1px solid rgba(76,175,80,.2);background:rgba(76,175,80,.05)"><div class="val" style="color:var(--green)">'+comp.wr+'%</div><div class="lbl" style="color:var(--green)">WR Composto</div><div class="sub">Melhor estrategia por par</div></div>'+
+M(comp.uniformWR+'%','WR Uniforme','Mesma estrategia para todos',C(comp.uniformWR))+
+M((comp.delta>=0?'+':'')+comp.delta+'pp','Ganho do Router','Diferenca composto vs uniforme',comp.delta>0?'var(--green)':'var(--red)')+
+'</div>'+
+'<div class="insight '+(comp.delta>2?'good':comp.delta>0?'warn':'bad')+'">'+
+(comp.delta>2?'Um router por par melhoraria o WR em <b>+'+comp.delta+'pp</b>. Existe vantagem real em adaptar estrategias por par.':
+comp.delta>0?'Ganho marginal de +'+comp.delta+'pp. Diferenca ainda pequena.':
+'Nao ha ganho em usar estrategias diferentes por par — dados insuficientes ou mercado uniforme.')+
+' Baseado em '+comp.trades+' trades em '+comp.pairsCount+' pares.</div>';
+
+html+='<div style="margin-top:8px;font-size:10px">'+
+'<div style="display:grid;grid-template-columns:90px 50px 1fr 50px 45px;gap:6px;padding:3px 0;font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)">'+
+'<span>Par</span><span>WR Geral</span><span>Melhor Estrategia</span><span>WR Best</span><span>Ganho</span></div>';
+html+=comp.pairs.slice(0,20).map(function(p){
+var pairWR=p.pairOverallWR||0;
+var gain=p.wr-pairWR;
+var sym=p.pair.replace('_otc','');
+var otc=p.pair.indexOf('_otc')>=0?'<span style="color:#333;font-size:7px"> OTC</span>':'';
+return '<div style="display:grid;grid-template-columns:90px 50px 1fr 50px 45px;gap:6px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.02);align-items:center">'+
+'<span>'+sym+otc+'</span>'+
+'<span style="color:'+C(pairWR)+'">'+pairWR+'%</span>'+
+'<span style="color:var(--accent);font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+p.stratName+'</span>'+
+'<span style="color:'+C(p.wr)+';font-weight:700">'+p.wr+'%</span>'+
+'<span style="color:'+(gain>0?'var(--green)':gain<0?'var(--red)':'var(--dim)')+';font-weight:600">'+(gain>0?'+':'')+gain+'pp</span>'+
+'</div>'}).join('')+'</div>';
+var worstPairs=comp.pairs.filter(function(p){return p.wr<50});
+if(worstPairs.length>0){
+html+='<div class="insight bad"><b>'+worstPairs.length+' pares onde nem a melhor estrategia chega a 50% WR.</b> Considera bloquear: '+worstPairs.slice(0,5).map(function(p){return p.pair.replace('_otc','')}).join(', ')+(worstPairs.length>5?' e mais '+(worstPairs.length-5):'')+'.</div>';}
+return html+'</div>'})()+''+
+
+/* ── 6. TRADE ROUTER [DESACTIVADO] ── */
+(function(){
+var tg=D.tradeGate;
+if(!tg) return '';
+var isBypass=tg.routedPairs===0&&tg.qualifying===0;
+var html='<div class="c"><h2>TRADE ROUTER'+SB(isBypass?'OFF':'LIVE')+'</h2>'+
+'<div class="subtitle">'+(isBypass?'O routing por par esta em modo BYPASS. Trades executam directamente apos passarem time gate + payout check + AI gate.':'Estado do router de trades por par.')+'</div>';
+if(isBypass){
+html+='<div class="insight" style="border-left-color:var(--dim)"><b>Modo BYPASS activo</b> — todos os sinais aprovados pelo pipeline executam directamente, sem routing por par.<br><br>'+
+'<span style="color:var(--dim)">Para activar routing, sao necessarios dados robustos de performance por par (min. 50-100 trades/par com WR consistente). O sistema activa automaticamente quando os dados forem suficientes.</span></div>';
+// Show Masaniello state even in bypass
+if(tg.masaniello){
+html+='<div class="g2" style="margin-top:8px">'+
+M(tg.masaniello.cycle,'Masaniello Ciclo','Ciclo W/L actual','var(--text)')+
+M('$'+tg.masaniello.stake.toFixed(0),'Stake Proxima Trade','Calculado pelo Masaniello','var(--accent)')+
+'</div>';}}
+else{
+html+='<div class="g4" style="margin-bottom:8px">'+
+M(tg.qualifying||0,'Qualifying','Estrategias aptas','var(--accent)')+
+M(tg.routedPairs||0,'Pairs Routed','Par → estrategia','var(--green)')+
+M(tg.masaniello?tg.masaniello.cycle:'?','Masaniello','Ciclo W/L','var(--text)')+
+M(tg.masaniello?'$'+tg.masaniello.stake.toFixed(0):'?','Stake','Proxima trade','var(--accent)')+
+'</div>';
+var statusColor=tg.activeTrade?'var(--orange)':tg.hasPending?'var(--accent)':parseFloat(tg.gateMin)>0?'var(--dim)':'var(--green)';
+var statusText=tg.activeTrade?'TRADE ACTIVA: '+tg.activeTrade:tg.hasPending?'PENDING: '+tg.pendingSymbol:parseFloat(tg.gateMin)>0?'Gate: '+tg.gateMin+'min restantes':'PRONTO para next trade';
+html+='<div class="insight" style="border-left-color:'+statusColor+'"><b>'+statusText+'</b></div>';
+if(tg.routing&&tg.routing.length>0){
+html+='<div style="margin-top:6px;font-size:10px;color:var(--dim)">Routing table:</div>'+
+'<div style="display:grid;grid-template-columns:85px 1fr 40px 40px 50px;gap:4px;padding:3px 0;font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)">'+
+'<span>Par</span><span>Estrategia</span><span>WR</span><span>Trades</span><span>Min Pay</span></div>';
+html+=tg.routing.sort(function(a,b){return b.wr-a.wr}).map(function(rt){
+var sym=rt.pair.replace('_otc','');
+var otc=rt.pair.indexOf('_otc')>=0?'<span style="color:#333;font-size:7px"> OTC</span>':'';
+return '<div style="display:grid;grid-template-columns:85px 1fr 40px 40px 50px;gap:4px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.02);font-size:10px;align-items:center">'+
+'<span>'+sym+otc+'</span>'+
+'<span style="color:var(--accent);font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+rt.strat+'</span>'+
+'<span style="color:'+C(rt.wr)+';font-weight:600">'+rt.wr+'%</span>'+
+'<span style="color:var(--dim)">'+rt.trades+'</span>'+
+'<span style="color:'+(rt.minPayout<=75?'var(--green)':rt.minPayout<=85?'var(--orange)':'var(--red)')+'">'+rt.minPayout+'%</span>'+
+'</div>'}).join('');}}
+return html+'</div>'})()+''+
+
+/* ── 7. TOP 10 ESTRATEGIAS [SIMULACAO] ── */
+'<div class="c"><h2>TOP 10 ESTRATEGIAS'+SB('SIM')+'</h2><div class="subtitle">Ranking virtual. So inclui estrategias com 10+ trades virtuais para significancia estatistica.</div>'+
+(top10||'<div style="color:var(--dim)">Sem dados suficientes</div>')+
+bestInsight+
+'</div>';
+
+/* ── 8. TRADES REAIS [LIVE] ── */
+var tl=D.tradeLog||[];
+var tlWins=tl.filter(function(t){return t.result==='win'}).length;
+var tlLosses=tl.filter(function(t){return t.result==='loss'}).length;
+var tlPending=tl.filter(function(t){return !t.result||t.result==='pending'}).length;
+var tlTotal=tlWins+tlLosses;
+var tlWR=tlTotal>0?Math.round(100*tlWins/tlTotal):0;
+var tlPnlEst=tl.reduce(function(a,t){if(t.result==='win')return a+(t.stake*t.payout);if(t.result==='loss')return a-t.stake;return a},0);
+var balHtml=D.demoBalance?M('$'+D.demoBalance.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}),'Balance Demo','Baseline: $50,000','var(--accent)'):'';
+var tradeRows=tl.slice().reverse().map(function(t){
+var dt=new Date(t.t);
+var time=String(dt.getUTCHours()).padStart(2,'0')+':'+String(dt.getUTCMinutes()).padStart(2,'0');
+var resClr=t.result==='win'?'var(--green)':t.result==='loss'?'var(--red)':'var(--dim)';
+var resText=t.result==='win'?'WIN':t.result==='loss'?'LOSS':t.result==='pending'?'...':'?';
+var pnlVal=t.result==='win'?'+'+(t.stake*(t.payout||0.82)).toFixed(2):t.result==='loss'?'-'+t.stake.toFixed(2):'\u2014';
+var pnlEst=t.result==='win'?+(t.stake*(t.payout||0.82)):t.result==='loss'?-t.stake:0;
+return '<div style="display:grid;grid-template-columns:42px 95px 40px 1fr 50px 48px 55px;gap:5px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.02);font-size:11px;align-items:center">'+
+'<span style="color:var(--dim)">'+time+'</span>'+
+'<span>'+t.sym+'</span>'+
+'<span style="color:'+(t.dir==='CALL'?'var(--green)':'var(--red)')+'">'+t.dir+'</span>'+
+'<span style="color:var(--dim);font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(t.s||'?')+'</span>'+
+'<span>$'+t.stake.toFixed(2)+'</span>'+
+'<span style="color:'+resClr+';font-weight:700">'+resText+'</span>'+
+'<span style="color:'+resClr+'">'+pnlVal+'</span>'+
+'</div>'}).join('');
+
+document.getElementById('tab-overview').innerHTML+=
+'<div class="c highlight live-card"><h2>TRADES REAIS (Pipeline)'+SB('LIVE')+'</h2>'+
+'<div class="subtitle">Trades executados pelo sistema automatico na conta demo. Resultados reais confirmados pelo broker.</div>'+
+'<div class="g4" style="margin-bottom:10px">'+
+balHtml+
+M(tlWins+'/'+tlLosses,'W/L Real','Total: '+(tlWins+tlLosses)+' trades',tlWR>=55?'var(--green)':tlWR>=50?'var(--orange)':'var(--red)')+
+M(tlWR+'%','Win Rate Real','Trades executados',C(tlWR))+
+M((tlPnlEst>=0?'+':'')+tlPnlEst.toFixed(2),'PnL Estimado','Stake x Payout',PC(tlPnlEst))+
+'</div>'+
+(tl.length>0?
+'<div style="display:grid;grid-template-columns:42px 95px 40px 1fr 50px 48px 55px;gap:5px;padding:4px 0;border-bottom:1px solid var(--border);font-size:9px;color:var(--dim)">'+
+'<span>Hora</span><span>Par</span><span>Dir</span><span>Strategy</span><span>Stake</span><span>Result</span><span>PnL</span></div>'+
+tradeRows
+:'<div style="color:var(--dim);text-align:center;padding:20px">Nenhum trade real executado ainda.</div>')+
+(tlPending>0?'<div class="insight warn">'+tlPending+' trade(s) com resultado pendente.</div>':'')+
+(tlTotal>0&&tlWR<50?'<div class="insight bad">Win rate abaixo de 50% nos trades reais. Monitoriza e considera o rollback do AI gate se continuar.</div>':'')+
+(tlTotal>=5&&tlWR>=60?'<div class="insight good">Win rate acima de 60% nos trades reais. Pipeline a funcionar correctamente.</div>':'')+
+'</div>'}
+
+/* ═══════════════════ STRATEGIES [SIMULACAO] ═══════════════════ */
+function rStrategies(){
+var st=D.stats||[];if(!st.length){document.getElementById('tab-strategies').innerHTML='<div class="c"><div class="subtitle">Sem dados de estrategias ainda.</div></div>';return}
+var a55=st.filter(function(s){return s.wr>=55}).length;
+var b45=st.filter(function(s){return s.wr<45}).length;
+var dis=st.filter(function(s){return s.dis}).length;
+var profitable=st.filter(function(s){return s.pnl>0}).length;
+
+var html='<div class="c"><h2>TODAS AS ESTRATEGIAS ('+st.length+')'+SB('SIM')+'</h2>'+
+'<div class="subtitle">Cada estrategia e testada virtualmente em todos os pares. WR = win rate virtual. @Sig = WR se entrasse no sinal vs esperar candle. AI = impacto da validacao AI no lab.</div>'+
+'<div class="g4" style="margin-bottom:10px">'+
+M(st.length,'Total','Com trades','var(--text)')+
+M(a55,'Acima 55%','WR positivo no lab','var(--green)')+
+M(b45,'Abaixo 45%','WR negativo no lab','var(--red)')+
+M(profitable,'Lucrativas','P&L virtual > 0',profitable>0?'var(--green)':'var(--dim)')+
+'</div>';
+
+html+='<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)"><span>#  Nome</span><span style="display:flex;gap:12px"><span>WR</span><span>@Sig</span><span>PnL</span></span></div>';
+
+html+=st.map(function(s,i){
+var t=s.w+s.l;
+var src=s.id.indexOf('crawler_')===0?B('CRAWLER','#FFB74D','rgba(255,183,77,.1)'):
+(s.id.indexOf('evolved_')===0||s.id.indexOf('hybrid_')===0||s.id.indexOf('hypothesis_')===0)?B('EVOLVED','var(--purple)','rgba(206,147,216,.1)'):'';
+var tf=s.id.endsWith('_m5_m1opt')?B('M5+M1','var(--purple)','rgba(206,147,216,.08)'):
+s.id.endsWith('_m5g')?B('M5g','#FFB74D','rgba(255,183,77,.08)'):
+s.id.endsWith('_m5')?B('M5','var(--accent)','rgba(100,180,246,.08)'):
+B('M1','#888','rgba(136,136,136,.06)');
+var disTag=s.dis?B('OFF','var(--red)','rgba(244,67,54,.1)'):'';
+var aiTag=s.aiVwr>=0?B('AI:'+s.aiVwr+'%','var(--accent)','rgba(100,180,246,.08)'):'';
+var asCol=s.aswr>=0?'<span style="color:'+(s.aswr>=50?'#8BC34A':'var(--orange)')+'">@'+s.aswr+'%</span>':'<span style="color:#333">-</span>';
+var rc=s.recent?s.recent.split('').map(function(c){return '<span style="color:'+(c==='W'?'var(--green)':'var(--red)')+'">'+c+'</span>'}).join(''):'';
+var gale=(s.pnl!==0||s.galeSig!==0)?'F:<span style="color:'+PC(s.pnl)+'">'+PS(s.pnl)+'</span> S:<span style="color:'+PC(s.galeSig)+'">'+PS(s.galeSig)+'</span> C:<span style="color:'+PC(s.galeCdl)+'">'+PS(s.galeCdl)+'</span>':'';
+var aiRow='';
+if(s.aiVwr>=0){
+var aiVT2=s.aiVw+s.aiVl,aiRT2=s.aiRw+s.aiRl;
+aiRow='<div class="r3"><span style="color:var(--accent)">AI Aprovadas: <b>'+s.aiVwr+'%</b> ('+aiVT2+'t)</span>'+
+(s.aiRwr>=0?'<span style="color:var(--orange)">AI Rejeitadas: <b>'+s.aiRwr+'%</b> ('+aiRT2+'t)</span>':'')+
+(s.aiVwr>=0&&s.aiRwr>=0?'<span style="color:'+(s.aiVwr>s.aiRwr?'var(--green)':'var(--red)')+'">Delta: '+(s.aiVwr>s.aiRwr?'+':'')+(s.aiVwr-s.aiRwr)+'pp</span>':'')+
+'</div>';}
+var barC=s.wr>=58?'rgba(76,175,80,.5)':s.wr>=50?'rgba(255,167,38,.4)':'rgba(244,67,54,.4)';
+return '<div class="strat"'+(s.dis?' style="opacity:.3"':'')+'><div class="bg" style="width:'+s.wr+'%;background:'+barC+'"></div><div class="inner">'+
+'<div class="r1"><span><span style="color:var(--dim);min-width:20px;display:inline-block">'+(i+1)+'</span>'+(s.nm||s.id)+src+tf+disTag+aiTag+'</span>'+
+'<span style="display:flex;gap:8px;align-items:center"><b style="color:'+C(s.wr)+';font-size:13px">'+s.wr+'%</b>'+asCol+'<span style="color:'+PC(s.pnl)+'">'+PS(s.pnl)+'</span></span></div>'+
+'<div class="r2"><span>'+s.w+'W / '+s.l+'L ('+t+') '+(s.sc>0?'<span style="color:var(--accent)">Score '+(s.sc*100).toFixed(0)+'</span> ':'')+(s.dd>0?'<span style="color:var(--red)">DD '+s.dd.toFixed(1)+'</span> ':'')+
+'<span style="font-size:9px">'+gale+'</span></span><span>'+rc+'</span></div>'+
+aiRow+'</div></div>'}).join('');
+
+var bestPnl=st.reduce(function(best,s){return s.pnl>best.pnl?s:best},{pnl:-9999,nm:'?'});
+html+='<div class="insight '+(profitable>st.length/2?'good':'warn')+'">'+profitable+' de '+st.length+' estrategias sao lucrativas no lab. '+(bestPnl.pnl>0?'A mais lucrativa e "'+bestPnl.nm+'" com +'+bestPnl.pnl.toFixed(1)+' unidades virtuais.':'Nenhuma estrategia esta consistentemente em lucro virtual — o sistema precisa de mais tuning.')+'</div>';
+html+='</div>';
+document.getElementById('tab-strategies').innerHTML=html}
+
+/* ═══════════════════ PAIRS [SIMULACAO] ═══════════════════ */
+function rPairs(){
+var pairs=D.pairs||[];
+if(!pairs.length){document.getElementById('tab-pairs').innerHTML='<div class="c"><div class="subtitle">Sem dados de pares ainda. Precisam de pelo menos 3 trades virtuais por par.</div></div>';return}
+var sorted=pairs.slice().sort(function(a,b){return b.wr-a.wr});
+var profitable=sorted.filter(function(p){return p.wr>=52});
+var losing=sorted.filter(function(p){return p.wr<48});
+
+var html='<div class="c"><h2>PERFORMANCE POR PAR ('+sorted.length+' pares)'+SB('SIM')+'</h2>'+
+'<div class="subtitle">Dados <b>virtuais</b>. WR agregado de todas as estrategias por par. Util para perceber quais pares funcionam melhor, mas ainda nao afecta routing (bypass activo).</div>'+
+'<div class="g3" style="margin-bottom:10px">'+
+M(sorted.length,'Pares Tracked','Com 3+ trades virtuais','var(--text)')+
+M(profitable.length,'Pares Positivos','WR acima 52%','var(--green)')+
+M(losing.length,'Pares Negativos','WR abaixo 48%','var(--red)')+
+'</div>';
+html+='<div class="pair" style="font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)"><span>Par</span><span>WR</span><span>Trades</span><span>Melhor Estrategia</span></div>';
+html+=sorted.map(function(p){
+var isOtc=p.p.indexOf('_otc')>=0;
+var sym=p.p.replace('_otc','');
+var t=p.w+p.l;
+return '<div class="pair"><span>'+sym+(isOtc?'<span style="color:#444;font-size:8px"> OTC</span>':'')+'</span>'+
+'<span style="color:'+C(p.wr)+';font-weight:700">'+p.wr+'%</span>'+
+'<span style="color:var(--dim)">'+t+'</span>'+
+'<span style="font-size:10px"><span style="color:'+C(p.bwr)+'">'+p.bwr+'%</span> <span style="color:var(--dim)">'+p.best+'</span></span></div>'+
+BAR(p.wr,C(p.wr))}).join('');
+if(profitable.length>0){
+var best=sorted[0];
+html+='<div class="insight good"><b>Melhor par:</b> '+best.p.replace('_otc','')+' com <b>'+best.wr+'%</b> WR em '+(best.w+best.l)+' trades virtuais. Melhor estrategia neste par: '+best.bwr+'% WR.</div>';}
+if(losing.length>0){
+var worst=sorted[sorted.length-1];
+html+='<div class="insight bad"><b>Pior par:</b> '+worst.p.replace('_otc','')+' com <b>'+worst.wr+'%</b> WR virtual. Quando o routing for activado, este par sera deprioritizado.</div>';}
+html+='</div>';
+document.getElementById('tab-pairs').innerHTML=html}
+
+/* ═══════════════════ EVOLUTION / R&D [SIMULACAO] ═══════════════════ */
+function rEvolution(){
+var e=D.evolution||{},l=D.loader||{},st=D.stats||[];
+var total=l.total||0,pct=Math.round(total/150*100);
+var ev=st.filter(function(s){return s.id.indexOf('evolved_')===0});
+var hy=st.filter(function(s){return s.id.indexOf('hybrid_')===0});
+var hp=st.filter(function(s){return s.id.indexOf('hypothesis_')===0});
+var cr=st.filter(function(s){return s.id.indexOf('crawler_')===0});
+var bu=st.filter(function(s){return!s.id.startsWith('crawler_')&&!s.id.startsWith('evolved_')&&!s.id.startsWith('hybrid_')&&!s.id.startsWith('hypothesis_')});
+function avg(a){return a.length>0?Math.round(a.reduce(function(x,s){return x+s.wr},0)/a.length):0}
+function bestOf(a){if(!a.length)return null;return a.reduce(function(b,s){return s.wr>b.wr?s:b})}
+
+var html='<div class="c highlight"><h2>PIPELINE DE ESTRATEGIAS'+SB('SIM')+'</h2>'+
+'<div class="subtitle">O sistema descobre, testa e evolui estrategias automaticamente em modo virtual. Capacidade maxima: 150. Quando atinge o limite, as piores sao removidas.</div>'+
+'<div class="g4">'+
+'<div class="metric" style="background:rgba(76,175,80,.05)"><div class="val" style="color:var(--green)">'+(l.builtin||0)+'</div><div class="lbl">Builtin</div><div class="sub">Codificadas na extensao</div></div>'+
+'<div class="metric" style="background:rgba(255,183,77,.05)"><div class="val" style="color:#FFB74D">'+(l.crawler||0)+'</div><div class="lbl">Crawler</div><div class="sub">Descobertas na web</div></div>'+
+'<div class="metric" style="background:rgba(206,147,216,.05)"><div class="val" style="color:var(--purple)">'+(l.evolved||0)+'</div><div class="lbl">Evolved</div><div class="sub">Mutacoes + hybridos + AI</div></div>'+
+'<div class="metric" style="background:rgba(100,180,246,.05)"><div class="val" style="color:var(--accent)">'+total+'</div><div class="lbl">Total</div><div class="sub">'+pct+'% da capacidade</div></div>'+
+'</div>'+BAR(pct,pct>90?'var(--red)':'var(--accent)')+'</div>'+
+
+'<div class="g2">'+
+'<div class="c"><h2>CICLO DE EVOLUCAO'+SB('SIM')+'</h2>'+
+'<div class="subtitle">O sistema analisa as melhores estrategias virtuais, cria mutacoes, cruza pares complementares, e pede sugestoes ao Claude.</div>'+
+'<div style="font-size:12px;margin-top:6px">'+
+'<div style="display:flex;justify-content:space-between;padding:3px 0"><span class="lbl">Estado:</span><span>'+(e.isRunning?'<span style="color:var(--green);font-weight:600">ACTIVO</span>':'<span style="color:var(--red)">PARADO</span>')+'</span></div>'+
+'<div style="display:flex;justify-content:space-between;padding:3px 0"><span class="lbl">Ciclo actual:</span><span>#'+(e.cycleCount||0)+'</span></div>'+
+'<div style="display:flex;justify-content:space-between;padding:3px 0"><span class="lbl">Ultimo run:</span><span>'+(e.lastCycleAt>0?new Date(e.lastCycleAt).toLocaleString():'Nunca (warmup 1h)')+'</span></div>'+
+'<div style="display:flex;justify-content:space-between;padding:3px 0"><span class="lbl">Proximo em:</span><span>'+(e.nextCycleIn>0?Math.floor(e.nextCycleIn/86400000)+'d '+Math.floor((e.nextCycleIn%86400000)/3600000)+'h':'Pendente')+'</span></div>'+
+'</div></div>'+
+
+'<div class="c"><h2>WR MEDIO POR FONTE'+SB('SIM')+'</h2>'+
+'<div class="subtitle">Compara a qualidade das estrategias virtuais por origem. Qual fonte produz melhores resultados?</div>'+
+[{l:'Builtin',a:bu,c:'var(--green)'},{l:'Crawler',a:cr,c:'#FFB74D'},{l:'Mutacoes',a:ev,c:'var(--purple)'},{l:'Hibridos',a:hy,c:'#E040FB'},{l:'AI Hypoth.',a:hp,c:'var(--accent)'}].map(function(g){
+var b=bestOf(g.a);
+return '<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.02)"><span style="color:'+g.c+'">'+g.l+' ('+g.a.length+')</span><span>avg <b style="color:'+C(avg(g.a))+'">'+avg(g.a)+'%</b>'+(b?' | best <b style="color:'+C(b.wr)+'">'+b.wr+'%</b>':'')+'</span></div>'}).join('')+
+'</div></div>';
+
+var bestSource=[{l:'Builtin',a:bu},{l:'Crawler',a:cr},{l:'Evolved',a:ev.concat(hy).concat(hp)}].filter(function(g){return g.a.length>0}).sort(function(a,b){return avg(b.a)-avg(a.a)});
+if(bestSource.length>0){
+html+='<div class="insight '+(avg(bestSource[0].a)>50?'good':'warn')+'"><b>Melhor fonte:</b> '+bestSource[0].l+' com WR medio de '+avg(bestSource[0].a)+'% no lab. '+(l.evolved>0?'Estrategias evoluidas tem WR medio de '+avg(ev.concat(hy).concat(hp))+'%.':'Motor de evolucao ainda nao gerou estrategias.')+'</div>';}
+
+document.getElementById('tab-evolution').innerHTML=html}
+
+go();setInterval(go,60000);
+</script>
+</body>
+</html>

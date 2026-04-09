@@ -1,0 +1,66 @@
+# Backup status files
+*backup*status*.json
+backup-status.json
+
+# Local backup directories
+backups/
+backup/
+.backups/
+
+# Environment files with credentials
+.env
+.env.*
+*.env
+**/.env
+*.env.backup
+.env.backup*
+**/.env.backup
+.env.local
+.env.production
+.env.development
+
+# AWS credentials
+.aws/
+aws-credentials.json
+credentials.json
+
+# Encryption keys
+*.key
+encryption-key.txt
+backup-encryption-key.txt
+
+# Temporary backup files
+*.dump
+*.dump.enc
+
+# Backup logs
+backup*.log
+*backup*.log
+*.backup.log
+
+# Audit logs
+backup-audit.log
+*audit*.log
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+build/
+.next/
+out/
+
+# Logs
+*.log
+logs/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

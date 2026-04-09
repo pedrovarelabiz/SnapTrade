@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      # Application / Auth
+      NODE_ENV: ${NODE_ENV}
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      INTERNAL_API_KEY: ${INTERNAL_API_KEY}
+
+      # Sentry — injected from shell, never hardcoded
+      SENTRY_DSN: ${SENTRY_DSN}
+      SENTRY_DSN_BACKEND: ${SENTRY_DSN_BACKEND}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
+      SENTRY_TRACES_SAMPLE_RATE: ${SENTRY_TRACES_SAMPLE_RATE}
+
+      # Backup / Encryption — injected from shell, never hardcoded
+      BACKUP_ENCRYPTION_KEY: ${BACKUP_ENCRYPTION_KEY}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      S3_BACKUP_BUCKET: ${S3_BACKUP_BUCKET}
+      BACKUP_S3_BUCKET: ${BACKUP_S3_BUCKET}
+      BACKUP_LOCAL_DIR: ${BACKUP_LOCAL_DIR}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS}
+
+      # Database (individual params for scripts that skip DATABASE_URL)
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      DB_SSL: ${DB_SSL}
+
+      # Alerts
+      ALERT_BOT_TOKEN: ${ALERT_BOT_TOKEN}
+      ALERT_CHAT_ID: ${ALERT_CHAT_ID}
+    restart: unless-stopped

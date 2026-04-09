@@ -1,0 +1,457 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model apiKey {
+  id        String    @id
+  userId    String    @map("user_id")
+  key       String    @unique
+  name      String
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now()) @map("created_at")
+  lastUsed  DateTime? @map("last_used")
+  user      user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("api_keys")
+}
+
+model channel {
+  id                         String            @id
+  name                       String            @unique
+  slug                       String            @unique
+  telegramId                 String?           @map("telegram_id")
+  telegramName               String            @map("telegram_name")
+  timezone                   String
+  sourceFormat               String            @map("source_format")
+  maxGaleLevel               Int               @default(2) @map("max_gale_level")
+  isActive                   Boolean           @default(true) @map("is_active")
+  masanielloTotalTrades      Int               @default(20) @map("masaniello_total_trades")
+  masanielloExpectedWins     Int               @default(17) @map("masaniello_expected_wins")
+  masanielloMaxBetMultiplier Decimal           @default(5.0) @map("masaniello_max_bet_multiplier")
+  totalSignals               Int               @default(0) @map("total_signals")
+  totalWins                  Int               @default(0) @map("total_wins")
+  totalLosses                Int               @default(0) @map("total_losses")
+  winRate                    Decimal?          @map("win_rate")
+  directWinRate              Decimal?          @map("direct_win_rate")
+  lastSignalAt               DateTime?         @map("last_signal_at")
+  createdAt                  DateTime          @default(now()) @map("created_at")
+  updatedAt                  DateTime          @map("updated_at")
+  masanielloStates           masanielloState[]
+  signals                    signal[]
+
+  @@map("channels")
+}
+
+model dailyReport {
+  id           String   @id
+  date         DateTime @unique @db.Date
+  totalSignals Int      @map("total_signals")
+  wins         Int
+  losses       Int
+  winRate      Float    @map("win_rate")
+  bestAsset    String?  @map("best_asset")
+  worstAsset   String?  @map("worst_asset")
+  avgGaleLevel Float?   @map("avg_gale_level")
+  summary      String?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("daily_reports")
+}
+
+model extensionConfig {
+  id           String   @id
+  userId       String   @unique @map("user_id")
+  autoTrade    Boolean  @default(false) @map("auto_trade")
+  baseAmount   Float    @default(10) @map("base_amount")
+  maxGale      Int      @default(2) @map("max_gale")
+  strategy     String   @default("mg2")
+  payoutRate   Float    @default(0.88) @map("payout_rate")
+  enabledAssets String[] @default([]) @map("enabled_assets")
+  blockedHours Int[]    @default([]) @map("blocked_hours")
+  user         user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("extension_configs")
+}
+
+model masanielloState {
+  id           String   @id
+  channelId    String   @map("channel_id")
+  date         DateTime @db.Date
+  tradeNumber  Int      @default(0) @map("trade_number")
+  winsCount    Int      @default(0) @map("wins_count")
+  lossesCount  Int      @default(0) @map("losses_count")
+  totalTrades  Int      @map("total_trades")
+  expectedWins Int      @map("expected_wins")
+  isComplete   Boolean  @default(false) @map("is_complete")
+  stateJson    Json     @map("state_json")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @map("updated_at")
+  channel      channel  @relation(fields: [channelId], references: [id])
+
+  @@unique([channelId, date])
+  @@map("masaniello_states")
+}
+
+model payment {
+  id           String        @id
+  userId       String        @map("user_id")
+  amount       Float
+  currency     String        @default("USD")
+  method       PaymentMethod
+  status       PaymentStatus @default(pending)
+  externalId   String?       @map("external_id")
+  plan         String
+  durationDays Int           @map("duration_days")
+  createdAt    DateTime      @default(now()) @map("created_at")
+  confirmedAt  DateTime?     @map("confirmed_at")
+  user         user          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+model platformConfig {
+  id          String  @id
+  key         String  @unique
+  value       String
+  description String?
+
+  @@map("platform_config")
+}
+
+model signal {
+  id               String           @id
+  telegramMsgId    Int?             @map("telegram_msg_id")
+  asset            String
+  direction        String
+  entryTimeUtc     DateTime         @map("entry_time_utc")
+  expirationMinutes Int             @default(5) @map("expiration_minutes")
+  formatVersion    Int              @default(1) @map("format_version")
+  martingaleTimes  String[]         @map("martingale_times")
+  status           SignalStatus     @default(pending)
+  visibility       SignalVisibility @default(free)
+  result           TradeOutcome?
+  galeLevel        Int?             @map("gale_level")
+  resultMsgId      Int?             @map("result_msg_id")
+  resolvedAt       DateTime?        @map("resolved_at")
+  rawText          String?          @map("raw_text")
+  createdAt        DateTime         @default(now()) @map("created_at")
+  channelId        String?          @map("channel_id")
+  matchTier        Int?             @map("match_tier")
+  matchConfidence  Float?           @map("match_confidence")
+  matchedAt        DateTime?        @map("matched_at") @db.Timestamp(6)
+  resultIteration  Int?             @map("result_iteration")
+  expirationTime   DateTime?        @map("expiration_time") @db.Timestamp(6)
+  channel          channel?         @relation(fields: [channelId], references: [id])
+
+  @@unique([channelId, telegramMsgId])
+  @@index([asset, expirationTime], map: "idx_signals_asset_exp")
+  @@index([expirationTime], map: "idx_signals_expiration")
+  @@index([asset])
+  @@index([channelId, entryTimeUtc])
+  @@index([createdAt])
+  @@index([entryTimeUtc])
+  @@index([status])
+  @@map("signals")
+}
+
+model subscription {
+  id        String             @id
+  userId    String             @unique @map("user_id")
+  plan      String             @default("free")
+  status    SubscriptionStatus @default(active)
+  expiresAt DateTime?          @map("expires_at")
+  createdAt DateTime           @default(now()) @map("created_at")
+  updatedAt DateTime           @map("updated_at")
+  user      user               @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
+
+model trade {
+  id         String        @id
+  userId     String        @map("user_id")
+  signalId   String        @map("signal_id")
+  amount     Float
+  outcome    TradeOutcome?
+  pnl        Float?
+  galeLevel  Int           @default(0) @map("gale_level")
+  strategy   String        @default("manual")
+  executedAt DateTime      @default(now()) @map("executed_at")
+  user       user          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("trades")
+}
+
+model user {
+  id              String           @id
+  email           String           @unique
+  passwordHash    String           @map("password_hash")
+  name            String?
+  role            Role             @default(user)
+  emailVerified   Boolean          @default(false) @map("email_verified")
+  extensionToken  String?          @unique @map("extension_token")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @map("updated_at")
+  apiKeys         apiKey[]
+  extensionConfig extensionConfig?
+  payments        payment[]
+  subscription    subscription?
+  trades          trade[]
+  devices         userDevice[]
+  dailyUsage      userDailyUsage[]
+  labSnapshots    labSnapshot[]
+  poUserId        Int?             @map("po_user_id")
+
+  @@map("users")
+}
+
+enum PaymentMethod {
+  crypto
+  paypal
+}
+
+enum PaymentStatus {
+  pending
+  confirmed
+  failed
+  refunded
+}
+
+enum Role {
+  user
+  premium
+  admin
+}
+
+enum SignalStatus {
+  pending
+  active
+  expired
+  resolved
+}
+
+enum SignalVisibility {
+  free
+  premium
+}
+
+enum SubscriptionStatus {
+  active
+  grace_period
+  expired
+  cancelled
+}
+
+enum TradeOutcome {
+  win
+  loss
+}
+
+// ─── Phase 4: Subscription Tiers + Multi-Device ──────────────────────────────
+
+model subscriptionTier {
+  id               String   @id @default(cuid())
+  name             String   @unique  // demo, basic, pro, custom
+  displayName      String   @map("display_name")
+  maxDailyTrades   Int      @default(0) @map("max_daily_trades")  // 0 = unlimited
+  maxDevices       Int      @default(1) @map("max_devices")
+  allowedPairs     String[] @default([]) @map("allowed_pairs")    // empty = all pairs
+  tradingHoursStart Int?    @map("trading_hours_start")           // UTC hour, null = 24/7
+  tradingHoursEnd   Int?    @map("trading_hours_end")
+  canAutoTrade     Boolean  @default(false) @map("can_auto_trade")
+  canManualTrade   Boolean  @default(false) @map("can_manual_trade")
+  priceMonthly     Float    @default(0) @map("price_monthly")
+  isActive         Boolean  @default(true) @map("is_active")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@map("subscription_tiers")
+}
+
+model userDevice {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  machineId  String   @map("machine_id")
+  isPrimary  Boolean  @default(false) @map("is_primary")
+  lastSeen   DateTime @default(now()) @map("last_seen")
+  userAgent  String?  @map("user_agent")
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, machineId])
+  @@index([userId])
+  @@map("user_devices")
+}
+
+model userDailyUsage {
+  id             String   @id @default(cuid())
+  userId         String   @map("user_id")
+  date           DateTime @db.Date
+  tradesExecuted Int      @default(0) @map("trades_executed")
+  tradesBlocked  Int      @default(0) @map("trades_blocked")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+  user           user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@map("user_daily_usage")
+}
+
+model aiPrediction {
+  id                  Int       @id @default(autoincrement())
+  userId              String    @map("user_id")
+  symbol              String
+  predictedAction     String    @map("predicted_action")
+  predictedConfidence Int       @map("predicted_confidence")
+  localConfidence     Int       @map("local_confidence")
+  model               String    @default("haiku")
+  source              String    @default("batch")
+  actualResult        String?   @map("actual_result")
+  tradeId             String?   @map("trade_id")
+  createdAt           DateTime? @default(now()) @map("created_at")
+  resolvedAt          DateTime? @map("resolved_at")
+
+  @@index([userId], map: "idx_ai_pred_user")
+  @@index([createdAt], map: "idx_ai_pred_created")
+  @@map("ai_predictions")
+}
+
+model labSnapshot {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  payload   Json
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at")
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("lab_snapshots")
+}
+
+// ─── ForexTrade Models ────────────────────────────────────────────────────────
+
+model ForexCandle {
+  id        Int      @id @default(autoincrement())
+  symbol    String
+  timeframe String
+  openTime  DateTime @map("open_time")
+  open      Float
+  high      Float
+  low       Float
+  close     Float
+  volume    Float    @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([symbol, timeframe, openTime])
+  @@index([symbol, timeframe, openTime(sort: Desc)])
+  @@map("forex_candles")
+}
+
+model ForexStrategy {
+  id          String   @id
+  name        String
+  source      String   @default("builtin")
+  dslJson     Json     @map("dsl_json")
+  isActive    Boolean  @default(true) @map("is_active")
+  parentIds   String[] @default([]) @map("parent_ids")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  stats       ForexPairStats[]
+  backtests   ForexBacktest[]
+
+  @@map("forex_strategies")
+}
+
+model ForexPairStats {
+  id              String   @id @default(cuid())
+  strategyId      String   @map("strategy_id")
+  symbol          String
+  timeframe       String   @default("M5")
+  totalSignals    Int      @default(0) @map("total_signals")
+  wins            Int      @default(0)
+  losses          Int      @default(0)
+  winRate         Float?   @map("win_rate")
+  sharpe          Float?
+  maxDrawdown     Float?   @map("max_drawdown")
+  profitFactor    Float?   @map("profit_factor")
+  consecutiveLoss Int      @default(0) @map("consecutive_loss")
+  lastSignalAt    DateTime? @map("last_signal_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+  strategy        ForexStrategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
+
+  @@unique([strategyId, symbol, timeframe])
+  @@index([symbol, winRate(sort: Desc)])
+  @@map("forex_pair_stats")
+}
+
+model ForexTrade {
+  id           String    @id @default(cuid())
+  ticket       Int?
+  symbol       String
+  strategyId   String    @map("strategy_id")
+  action       String
+  confidence   Int
+  slPips       Float     @map("sl_pips")
+  tpPips       Float     @map("tp_pips")
+  lotSize      Float     @map("lot_size")
+  outcome      String?
+  pips         Float?
+  aiApproved   Boolean   @default(false) @map("ai_approved")
+  aiRejCode    String?   @map("ai_rej_code")
+  openedAt     DateTime  @default(now()) @map("opened_at")
+  closedAt     DateTime? @map("closed_at")
+
+  @@index([symbol, openedAt(sort: Desc)])
+  @@index([strategyId])
+  @@map("forex_trades")
+}
+
+model ForexBacktest {
+  id           String   @id @default(cuid())
+  strategyId   String   @map("strategy_id")
+  symbol       String
+  timeframe    String
+  periodYears  Int      @default(5) @map("period_years")
+  totalTrades  Int      @map("total_trades")
+  wins         Int
+  losses       Int
+  winRate      Float    @map("win_rate")
+  profitFactor Float    @map("profit_factor")
+  maxDrawdown  Float    @map("max_drawdown")
+  sharpe       Float
+  cagr         Float?
+  tradesPerDay Float    @map("trades_per_day")
+  passed       Boolean  @default(false)
+  failReason   String?  @map("fail_reason")
+  ranAt        DateTime @default(now()) @map("ran_at")
+  strategy     ForexStrategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
+
+  @@index([strategyId, symbol])
+  @@index([passed, winRate(sort: Desc)])
+  @@map("forex_backtests")
+}
+
+model ForexRoutingTable {
+  id           String   @id @default(cuid())
+  symbol       String   @unique
+  strategyId   String   @map("strategy_id")
+  pairWinRate  Float    @map("pair_win_rate")
+  totalTrades  Int      @map("total_trades")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("forex_routing_table")
+}
+
+model ForexEvolutionState {
+  id           String   @id @default(cuid())
+  cycleCount   Int      @default(0) @map("cycle_count")
+  lastCycleAt  DateTime? @map("last_cycle_at")
+  totalEvolved Int      @default(0) @map("total_evolved")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("forex_evolution_state")
+}

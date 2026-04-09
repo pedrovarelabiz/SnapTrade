@@ -1,0 +1,24 @@
+[Unit]
+Description=SnapTrade Backend API
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=snaptrade
+WorkingDirectory=/opt/snaptrade/backend
+EnvironmentFile=/opt/snaptrade/backend/.env
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=snaptrade-backend
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/snaptrade/backend
+
+[Install]
+WantedBy=multi-user.target

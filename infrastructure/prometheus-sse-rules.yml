@@ -1,0 +1,61 @@
+groups:
+  - name: sse_recording_rules
+    interval: 30s
+    rules:
+      # SSE Connection Rate - 1m interval
+      - record: sse_connection_rate:1m
+        expr: rate(sse_connections_total[1m])
+
+      # SSE Connection Rate - 5m interval
+      - record: sse_connection_rate:5m
+        expr: rate(sse_connections_total[5m])
+
+      # SSE Connection Rate - 15m interval
+      - record: sse_connection_rate:15m
+        expr: rate(sse_connections_total[15m])
+
+      # SSE Disconnect Rate by Reason - 1m interval
+      - record: sse_disconnect_rate:1m
+        expr: rate(sse_disconnections_total[1m])
+        labels:
+          aggregation: by_reason
+
+      # SSE Disconnect Rate by Reason - 5m interval
+      - record: sse_disconnect_rate:5m
+        expr: rate(sse_disconnections_total[5m])
+        labels:
+          aggregation: by_reason
+
+      # SSE Disconnect Rate by Reason - 15m interval
+      - record: sse_disconnect_rate:15m
+        expr: rate(sse_disconnections_total[15m])
+        labels:
+          aggregation: by_reason
+
+      # SSE Capacity Utilization (active connections / 1000) - 1m interval
+      - record: sse_capacity_utilization:1m
+        expr: avg_over_time(sse_active_connections[1m]) / 1000
+
+      # SSE Capacity Utilization (active connections / 1000) - 5m interval
+      - record: sse_capacity_utilization:5m
+        expr: avg_over_time(sse_active_connections[5m]) / 1000
+
+      # SSE Capacity Utilization (active connections / 1000) - 15m interval
+      - record: sse_capacity_utilization:15m
+        expr: avg_over_time(sse_active_connections[15m]) / 1000
+
+      # SSE Average Connection Age - 1m interval
+      - record: sse_avg_connection_age:1m
+        expr: avg_over_time(sse_connection_age_seconds[1m])
+
+      # SSE Average Connection Age - 5m interval
+      - record: sse_avg_connection_age:5m
+        expr: avg_over_time(sse_connection_age_seconds[5m])
+
+      # SSE Average Connection Age - 15m interval
+      - record: sse_avg_connection_age:15m
+        expr: avg_over_time(sse_connection_age_seconds[15m])
+
+  - name: sse_alerts
+    rules:
+      # SSE-related alert definitions will be added here

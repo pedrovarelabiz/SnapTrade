@@ -1,0 +1,53 @@
+{
+  "Rules": [
+    {
+      "Id": "BackupRetentionPolicy",
+      "Status": "Enabled",
+      "Filter": {
+        "Prefix": ""
+      },
+      "Transitions": [
+        {
+          "Days": 7,
+          "StorageClass": "GLACIER"
+        }
+      ],
+      "Expiration": {
+        "Days": 30
+      }
+    }
+  ],
+  "_instructions": {
+    "description": "S3 Lifecycle Policy - Transitions backups to Glacier after 7 days and permanently deletes after 30 days. This provides redundant retention enforcement as a backup to application-level cleanup.",
+    "apply_via_aws_console": [
+      "1. Navigate to S3 in AWS Console",
+      "2. Select your backup bucket",
+      "3. Go to Management tab",
+      "4. Click 'Create lifecycle rule'",
+      "5. Name the rule (e.g., 'BackupRetentionPolicy')",
+      "6. Set scope to apply to all objects or specific prefix",
+      "7. Add transition action: Move to Glacier after 7 days",
+      "8. Add expiration action: Permanently delete after 30 days",
+      "9. Review and create rule"
+    ],
+    "apply_via_aws_cli": [
+      "aws s3api put-bucket-lifecycle-configuration --bucket YOUR-BACKUP-BUCKET-NAME --lifecycle-configuration file:///opt/snaptrade-unified/backend/docs/s3-lifecycle-policy.json",
+      "",
+      "Note: Remove the '_instructions' field before applying via CLI, or use the clean version below:",
+      "aws s3api put-bucket-lifecycle-configuration --bucket YOUR-BACKUP-BUCKET-NAME --lifecycle-configuration '{\"Rules\":[{\"Id\":\"BackupRetentionPolicy\",\"Status\":\"Enabled\",\"Filter\":{\"Prefix\":\"\"},\"Transitions\":[{\"Days\":7,\"StorageClass\":\"GLACIER\"}],\"Expiration\":{\"Days\":30}}]}'"
+    ],
+    "verify_policy": [
+      "aws s3api get-bucket-lifecycle-configuration --bucket YOUR-BACKUP-BUCKET-NAME"
+    ],
+    "policy_details": {
+      "transition_to_glacier_after_days": 7,
+      "permanent_deletion_after_days": 30,
+      "purpose": "Redundant retention enforcement as backup to application cleanup",
+      "storage_classes": {
+        "0-7_days": "STANDARD (S3)",
+        "7-30_days": "GLACIER",
+        "after_30_days": "DELETED"
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "source": "OPERATIONS REPORT messages from TYL VIP channel",
+  "total_reports": 1330,
+  "total_trades": 20705,
+  "detailed_trades": 15143,
+  "simple_trades": 5562,
+  "period": "2025-04-21 to 2026-03-21",
+  "unique_days": 335,
+  "global_wr": 87.4,
+  "wins": 18091,
+  "losses": 2614,
+  "note": "Results include gale recovery (up to GL2). WIN = won at any gale level. LOSS = lost all 3 attempts.",
+  "gale_model": {
+    "payout": 0.88,
+    "multipliers": {
+      "GL0": 1.0,
+      "GL1": 2.136,
+      "GL2": 4.564
+    },
+    "total_exposure_per_chain": 7.7,
+    "net_per_win": 0.88,
+    "net_per_loss": -7.7,
+    "breakeven_wr": 89.7,
+    "actual_wr": 87.4,
+    "ev_per_chain": -0.217,
+    "verdict": "NEGATIVE EV - system loses money long term"
+  },
+  "streaks": {
+    "max_win_streak": 152,
+    "max_loss_streak": 4,
+    "avg_loss_streak": 1.1
+  },
+  "daily_wr_distribution": {
+    "min": 52,
+    "p5": 72,
+    "p25": 83,
+    "median": 89,
+    "p75": 93,
+    "mean": 87.7
+  },
+  "best_assets": [
+    "USDINR_otc",
+    "GBPAUD_otc",
+    "USDCOP_otc",
+    "CADJPY_otc",
+    "NZDUSD_otc"
+  ],
+  "worst_assets": [
+    "USDEGP_otc",
+    "EURTRY_otc",
+    "USDDZD_otc"
+  ],
+  "best_hours_utc": [
+    "09",
+    "22",
+    "08",
+    "20"
+  ],
+  "worst_hours_utc": [
+    "06",
+    "18"
+  ],
+  "monthly_consistency": "84.9% to 89.6% range - stable"
+}

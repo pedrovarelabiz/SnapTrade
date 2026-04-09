@@ -1,0 +1,3514 @@
+[
+  {
+    "date": "2025-12-24 13:28:41",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-24 14:36:34",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-24 15:02:51",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 12:34:57",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 12:57:31",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 13:29:21",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 18:42:57",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 18:51:03",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 19:05:29",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 14:01:59",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 14:39:39",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 14:58:24",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 19:06:43",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 19:20:39",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 19:26:30",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 14:13:55",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 14:30:13",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 14:51:27",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 18:38:33",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 18:48:18",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 18:57:55",
+    "asset": "AEDCHY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 13:28:42",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 13:45:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 14:15:18",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 18:42:04",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 19:03:47",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 19:17:46",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 13:40:52",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 13:48:50",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 13:58:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 17:27:39",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 17:43:15",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 17:55:51",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 14:18:13",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 14:36:43",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 14:50:40",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 18:26:54",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 18:37:18",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 18:47:36",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 13:23:17",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 13:38:34",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 13:53:42",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 17:24:51",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 17:38:08",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 17:57:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 16:42:33",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 17:05:49",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 17:15:35",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 17:27:44",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 20:03:50",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 20:11:36",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 20:20:26",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 14:28:54",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 14:35:15",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 15:07:37",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 19:46:52",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 19:56:53",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 20:12:15",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 13:28:50",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 13:52:15",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 14:10:34",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 19:21:56",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 19:59:14",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 20:07:52",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 14:14:40",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 14:31:36",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 14:37:31",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 18:47:40",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 18:58:50",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 19:04:48",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 13:38:04",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 14:31:18",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 14:44:45",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 18:31:44",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 18:38:17",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 18:51:24",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 13:55:37",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 14:05:11",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 14:39:13",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 17:20:59",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 17:49:02",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 18:02:29",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 14:40:31",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 15:01:35",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 15:14:56",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 18:07:40",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 18:23:32",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 19:14:44",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 13:43:26",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 13:54:04",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 14:17:31",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 17:55:24",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 18:19:39",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 19:51:29",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 13:46:21",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 14:33:28",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 15:50:49",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 18:00:43",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 18:56:42",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 19:04:52",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 14:09:04",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 14:14:54",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 14:21:07",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 18:32:20",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 18:48:06",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 19:07:42",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 13:34:26",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 13:41:55",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 14:05:41",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 17:34:29",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 18:03:19",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 18:14:50",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 18:26:53",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 12:46:56",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 12:59:35",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 13:11:29",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 13:29:35",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 18:02:44",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 18:21:17",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 18:34:20",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 19:12:55",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 12:47:01",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 12:55:49",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 13:03:02",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 17:42:07",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 17:58:09",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 18:33:55",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 18:47:07",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 19:10:01",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 12:30:07",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 12:44:01",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 13:03:03",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 13:14:21",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 13:27:27",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 17:28:10",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 17:49:20",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 18:05:05",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 18:26:26",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 18:36:03",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 18:50:25",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 12:04:03",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 12:14:03",
+    "asset": "USDBDT_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 12:28:22",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 12:40:34",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 12:48:33",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 17:05:34",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 17:14:17",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 17:28:57",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 17:37:11",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 17:45:07",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 12:02:51",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 12:17:11",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": null,
+    "gale_level": null
+  },
+  {
+    "date": "2026-01-16 12:22:27",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 12:30:06",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 12:42:51",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 12:49:41",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 17:01:46",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 17:14:02",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 17:20:59",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 17:33:35",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 12:01:32",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 12:08:02",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 12:14:53",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 12:22:02",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 12:30:08",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 17:12:45",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 17:33:36",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-18 12:01:49",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-18 12:16:02",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-18 12:47:42",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-18 17:06:04",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-18 17:18:52",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 12:01:45",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 12:23:52",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 12:30:12",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 17:02:38",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 17:19:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 17:30:45",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 12:02:55",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 12:23:10",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 12:30:07",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 12:37:07",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 17:02:03",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 17:20:57",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 17:50:18",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 12:02:44",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 12:19:08",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 12:30:48",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 12:41:31",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 17:00:23",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 17:21:45",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 17:39:46",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 12:00:32",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 12:20:10",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 17:09:13",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 17:15:59",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 17:28:28",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 17:39:54",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-23 12:03:18",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-23 12:38:09",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-23 12:48:03",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-23 17:04:05",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-23 17:40:20",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 12:10:01",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 12:16:34",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 12:28:45",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 17:05:16",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 17:17:07",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 17:38:45",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-24 17:50:37",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 12:00:27",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 12:24:13",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 12:49:24",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 17:00:28",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 17:06:58",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 17:20:35",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 17:45:41",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-26 12:27:21",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-26 12:33:03",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-26 18:51:28",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-27 12:00:18",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-27 12:09:47",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-27 12:18:58",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-27 17:23:03",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-28 12:01:10",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-29 12:25:58",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-29 12:38:59",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-29 17:02:05",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-29 17:25:54",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-30 12:01:28",
+    "asset": "SARCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-30 12:08:54",
+    "asset": "ZARUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-30 12:22:45",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-30 17:09:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-30 17:15:46",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-31 12:33:30",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-31 12:41:26",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-31 18:27:54",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-31 18:40:06",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-31 19:36:22",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-01 13:37:46",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-01 13:58:05",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-01 18:51:06",
+    "asset": "SARCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-01 19:04:37",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 13:08:32",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 13:19:07",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 13:49:07",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 18:18:40",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 18:31:50",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 18:38:11",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 18:44:42",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-03 12:56:24",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-03 13:23:28",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-03 17:31:47",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-03 17:50:21",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-04 12:20:30",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-04 13:27:32",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-04 17:44:25",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-04 17:50:17",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-04 17:56:32",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-05 12:39:51",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-05 12:46:22",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-05 18:10:56",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-05 18:58:23",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-06 13:23:25",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-06 13:44:53",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-06 14:08:33",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-06 19:23:15",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-07 13:05:50",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-07 13:11:41",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-07 18:29:31",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-08 12:43:09",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-08 12:49:13",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-08 13:16:21",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-08 18:18:46",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-08 18:54:17",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 12:55:32",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 13:13:38",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 13:20:13",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 13:28:48",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 18:37:16",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 18:50:57",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 19:01:53",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 12:33:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 12:58:56",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 13:20:13",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 18:40:08",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 18:56:43",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 19:09:19",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 19:28:05",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-11 13:31:35",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-11 13:57:24",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-11 16:54:30",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-11 17:00:25",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-11 17:18:31",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 12:25:48",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 13:04:53",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 13:11:01",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 13:37:57",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 13:52:16",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 16:21:29",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 16:33:05",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 17:41:42",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-13 12:59:16",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-13 13:37:18",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-13 17:41:24",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 13:02:56",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 13:21:48",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 13:33:37",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 17:57:38",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 18:15:03",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 18:26:13",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-15 12:38:30",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-15 12:48:43",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-15 17:55:34",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-15 18:12:46",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-16 12:00:03",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-16 17:15:18",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-17 12:09:09",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-17 12:23:07",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-17 17:00:18",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-18 12:03:27",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-18 12:38:58",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-18 12:53:11",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-19 12:12:11",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-19 12:51:40",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-19 17:00:19",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-19 17:18:55",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-20 11:59:43",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-20 12:12:45",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-20 16:59:34",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-20 17:22:11",
+    "asset": "USDEGP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-20 17:35:48",
+    "asset": "NZDJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-21 12:07:56",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-21 12:22:30",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-21 17:11:43",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-22 12:00:03",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-22 12:07:56",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-22 12:22:03",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-22 17:00:28",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-22 17:12:29",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-23 12:09:33",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-23 12:30:32",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-23 17:25:22",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-23 17:40:24",
+    "asset": "USDCNH_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-24 12:00:02",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-24 12:07:21",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-24 12:15:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-24 16:59:59",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-25 12:00:31",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-25 12:07:20",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-25 12:15:27",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-25 17:21:26",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-26 12:31:55",
+    "asset": "USDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-26 17:03:35",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-26 17:25:40",
+    "asset": "USDARS_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-27 12:11:27",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-27 12:23:06",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-27 17:00:07",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-27 17:11:42",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-27 17:32:37",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-28 12:01:45",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-28 12:21:06",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-28 17:11:32",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-01 12:17:17",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-01 17:07:45",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-01 17:32:32",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-02 12:01:20",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-02 12:18:57",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-02 17:22:44",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-03 12:14:55",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-03 12:22:19",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-03 17:20:15",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-04 17:03:44",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-04 17:20:59",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-05 12:00:05",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-05 12:21:40",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-05 17:00:22",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-06 12:11:46",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-06 17:17:08",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-06 17:29:12",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 12:01:14",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 12:15:09",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 12:28:53",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 12:44:28",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 17:27:12",
+    "asset": "NZDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 17:52:29",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-08 12:00:07",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-08 17:10:20",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-09 12:14:10",
+    "asset": "TNDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-09 17:02:29",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-10 17:07:50",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-11 12:01:09",
+    "asset": "USDARS_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-11 12:10:03",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-11 12:22:27",
+    "asset": "USDPHP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-11 17:09:03",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-12 12:02:58",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-12 12:30:21",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 12:00:48",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 12:08:34",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 12:21:34",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 17:01:06",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 17:15:39",
+    "asset": "USDCOP_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 17:41:08",
+    "asset": "USDCNH_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 12:00:56",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 12:12:40",
+    "asset": "YERUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 12:25:44",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 12:38:12",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 17:01:29",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 17:16:18",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 17:28:47",
+    "asset": "YERUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 17:39:23",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 12:00:01",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 12:07:03",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 12:22:18",
+    "asset": "NZDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 17:17:23",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 17:30:00",
+    "asset": "USDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 17:37:28",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-16 12:14:30",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-16 17:01:38",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-16 17:08:41",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-16 17:15:36",
+    "asset": "TNDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-17 12:03:21",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-17 17:09:26",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-17 17:16:56",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-18 12:12:16",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-18 12:21:17",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-18 17:01:55",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-18 17:08:28",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-18 17:17:33",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-19 12:00:46",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-19 12:28:32",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-19 17:19:11",
+    "asset": "NZDUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-19 17:42:01",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-20 12:00:03",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "LOSS",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-20 12:13:26",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-20 12:22:09",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-20 17:16:21",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-21 12:16:32",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-21 12:39:41",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "private_team",
+    "result": null,
+    "gale_level": null
+  }
+]

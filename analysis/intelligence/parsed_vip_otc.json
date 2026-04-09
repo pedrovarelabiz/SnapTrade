@@ -1,0 +1,7890 @@
+[
+  {
+    "msg_id": 71448,
+    "date": "2026-03-20T15:57:41+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71445,
+    "date": "2026-03-20T15:55:24+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71441,
+    "date": "2026-03-20T15:52:37+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71438,
+    "date": "2026-03-20T15:49:59+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71437,
+    "date": "2026-03-20T15:49:15+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71430,
+    "date": "2026-03-20T15:34:56+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71426,
+    "date": "2026-03-20T15:32:12+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71421,
+    "date": "2026-03-20T15:26:02+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71410,
+    "date": "2026-03-20T08:54:15+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71406,
+    "date": "2026-03-20T08:50:15+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71402,
+    "date": "2026-03-20T08:46:38+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71398,
+    "date": "2026-03-20T08:42:31+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71395,
+    "date": "2026-03-20T08:38:00+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71392,
+    "date": "2026-03-20T08:35:25+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71389,
+    "date": "2026-03-20T08:26:13+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71385,
+    "date": "2026-03-20T08:22:12+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71381,
+    "date": "2026-03-20T08:14:22+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71377,
+    "date": "2026-03-20T08:10:22+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71366,
+    "date": "2026-03-19T15:59:14+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71363,
+    "date": "2026-03-19T15:57:28+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71359,
+    "date": "2026-03-19T15:53:43+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71356,
+    "date": "2026-03-19T15:49:03+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71353,
+    "date": "2026-03-19T15:45:07+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71350,
+    "date": "2026-03-19T15:41:30+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71347,
+    "date": "2026-03-19T15:36:28+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71344,
+    "date": "2026-03-19T15:19:15+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71340,
+    "date": "2026-03-19T15:13:20+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71336,
+    "date": "2026-03-19T15:08:20+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71322,
+    "date": "2026-03-19T08:47:27+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71319,
+    "date": "2026-03-19T08:43:36+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71316,
+    "date": "2026-03-19T08:41:12+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71309,
+    "date": "2026-03-19T08:34:13+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71305,
+    "date": "2026-03-19T08:29:20+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71301,
+    "date": "2026-03-19T08:25:14+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71298,
+    "date": "2026-03-19T08:22:14+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71295,
+    "date": "2026-03-19T08:18:08+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71290,
+    "date": "2026-03-19T08:13:09+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71287,
+    "date": "2026-03-19T08:10:10+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71272,
+    "date": "2026-03-18T15:51:04+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71266,
+    "date": "2026-03-18T15:42:19+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71261,
+    "date": "2026-03-18T15:38:28+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71255,
+    "date": "2026-03-18T15:32:15+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71250,
+    "date": "2026-03-18T15:22:17+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71238,
+    "date": "2026-03-18T09:05:17+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71234,
+    "date": "2026-03-18T08:58:10+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71231,
+    "date": "2026-03-18T08:53:24+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71228,
+    "date": "2026-03-18T08:50:18+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71224,
+    "date": "2026-03-18T08:44:41+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71220,
+    "date": "2026-03-18T08:40:19+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71216,
+    "date": "2026-03-18T08:31:22+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71213,
+    "date": "2026-03-18T08:28:30+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71209,
+    "date": "2026-03-18T08:21:35+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71202,
+    "date": "2026-03-18T08:07:02+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71191,
+    "date": "2026-03-17T16:02:31+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71188,
+    "date": "2026-03-17T16:00:19+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71185,
+    "date": "2026-03-17T15:57:34+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71182,
+    "date": "2026-03-17T15:55:06+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71179,
+    "date": "2026-03-17T15:52:02+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71176,
+    "date": "2026-03-17T15:46:17+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71173,
+    "date": "2026-03-17T15:43:07+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71168,
+    "date": "2026-03-17T15:37:37+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71164,
+    "date": "2026-03-17T15:31:04+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71161,
+    "date": "2026-03-17T15:27:03+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71143,
+    "date": "2026-03-17T08:50:12+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71140,
+    "date": "2026-03-17T08:47:16+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71137,
+    "date": "2026-03-17T08:44:12+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71134,
+    "date": "2026-03-17T08:42:11+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71130,
+    "date": "2026-03-17T08:35:13+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71127,
+    "date": "2026-03-17T08:32:02+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71124,
+    "date": "2026-03-17T08:28:07+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71120,
+    "date": "2026-03-17T08:20:01+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71113,
+    "date": "2026-03-17T08:07:11+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71110,
+    "date": "2026-03-17T08:04:19+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71098,
+    "date": "2026-03-16T15:52:05+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71095,
+    "date": "2026-03-16T15:46:33+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71092,
+    "date": "2026-03-16T15:44:19+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71089,
+    "date": "2026-03-16T15:40:14+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71086,
+    "date": "2026-03-16T15:38:08+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71083,
+    "date": "2026-03-16T15:34:29+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71078,
+    "date": "2026-03-16T15:27:26+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71075,
+    "date": "2026-03-16T15:21:26+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71072,
+    "date": "2026-03-16T15:13:25+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71060,
+    "date": "2026-03-16T08:47:05+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71057,
+    "date": "2026-03-16T08:44:20+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71054,
+    "date": "2026-03-16T08:42:35+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71048,
+    "date": "2026-03-16T08:32:11+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71045,
+    "date": "2026-03-16T08:25:19+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71042,
+    "date": "2026-03-16T08:22:10+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71039,
+    "date": "2026-03-16T08:20:29+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71036,
+    "date": "2026-03-16T08:17:06+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71033,
+    "date": "2026-03-16T08:09:13+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71030,
+    "date": "2026-03-16T08:04:08+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71014,
+    "date": "2026-03-14T08:45:46+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71010,
+    "date": "2026-03-14T08:42:19+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71006,
+    "date": "2026-03-14T08:39:34+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 71002,
+    "date": "2026-03-14T08:36:42+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70997,
+    "date": "2026-03-14T08:32:44+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70993,
+    "date": "2026-03-14T08:27:12+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70989,
+    "date": "2026-03-14T08:20:59+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70984,
+    "date": "2026-03-14T08:15:24+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70980,
+    "date": "2026-03-14T08:10:07+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70976,
+    "date": "2026-03-14T08:06:03+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70963,
+    "date": "2026-03-13T15:46:14+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70960,
+    "date": "2026-03-13T15:44:34+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70957,
+    "date": "2026-03-13T15:42:07+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70954,
+    "date": "2026-03-13T15:40:18+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70951,
+    "date": "2026-03-13T15:36:26+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70948,
+    "date": "2026-03-13T15:33:15+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70943,
+    "date": "2026-03-13T15:25:34+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70939,
+    "date": "2026-03-13T15:21:10+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70936,
+    "date": "2026-03-13T15:18:06+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70933,
+    "date": "2026-03-13T15:15:08+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70923,
+    "date": "2026-03-13T09:03:15+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70920,
+    "date": "2026-03-13T08:57:03+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70917,
+    "date": "2026-03-13T08:53:37+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70914,
+    "date": "2026-03-13T08:50:32+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70911,
+    "date": "2026-03-13T08:47:46+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70908,
+    "date": "2026-03-13T08:45:38+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70905,
+    "date": "2026-03-13T08:42:15+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70901,
+    "date": "2026-03-13T08:33:05+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70895,
+    "date": "2026-03-13T08:17:14+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70892,
+    "date": "2026-03-13T08:14:07+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70889,
+    "date": "2026-03-13T08:12:04+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70886,
+    "date": "2026-03-13T08:09:07+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70883,
+    "date": "2026-03-13T08:05:17+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70872,
+    "date": "2026-03-12T16:01:17+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70869,
+    "date": "2026-03-12T15:59:09+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70866,
+    "date": "2026-03-12T15:56:03+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70863,
+    "date": "2026-03-12T15:53:03+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70860,
+    "date": "2026-03-12T15:49:20+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70857,
+    "date": "2026-03-12T15:45:13+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70854,
+    "date": "2026-03-12T15:42:08+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70851,
+    "date": "2026-03-12T15:39:03+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70848,
+    "date": "2026-03-12T15:34:05+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70842,
+    "date": "2026-03-12T15:27:09+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70831,
+    "date": "2026-03-12T08:38:08+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70828,
+    "date": "2026-03-12T08:35:33+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70825,
+    "date": "2026-03-12T08:32:05+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70822,
+    "date": "2026-03-12T08:30:11+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70819,
+    "date": "2026-03-12T08:27:26+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70816,
+    "date": "2026-03-12T08:23:02+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70813,
+    "date": "2026-03-12T08:17:27+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70809,
+    "date": "2026-03-12T08:09:20+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70805,
+    "date": "2026-03-12T08:06:11+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70800,
+    "date": "2026-03-12T08:02:09+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70786,
+    "date": "2026-03-11T15:53:33+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70783,
+    "date": "2026-03-11T15:49:10+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70780,
+    "date": "2026-03-11T15:47:13+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70774,
+    "date": "2026-03-11T15:36:26+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70771,
+    "date": "2026-03-11T15:33:37+00:00",
+    "asset": "USDARS_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70767,
+    "date": "2026-03-11T15:29:04+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70763,
+    "date": "2026-03-11T15:22:06+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70760,
+    "date": "2026-03-11T15:16:33+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70757,
+    "date": "2026-03-11T15:10:03+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70754,
+    "date": "2026-03-11T15:07:06+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70739,
+    "date": "2026-03-11T08:51:05+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70736,
+    "date": "2026-03-11T08:47:27+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70733,
+    "date": "2026-03-11T08:44:06+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70729,
+    "date": "2026-03-11T08:39:27+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70726,
+    "date": "2026-03-11T08:37:09+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70722,
+    "date": "2026-03-11T08:28:03+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70719,
+    "date": "2026-03-11T08:25:15+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70715,
+    "date": "2026-03-11T08:15:05+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70712,
+    "date": "2026-03-11T08:12:18+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70706,
+    "date": "2026-03-11T08:04:05+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70693,
+    "date": "2026-03-10T15:42:14+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70690,
+    "date": "2026-03-10T15:37:07+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70687,
+    "date": "2026-03-10T15:33:11+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70684,
+    "date": "2026-03-10T15:31:23+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70681,
+    "date": "2026-03-10T15:29:07+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70678,
+    "date": "2026-03-10T15:26:32+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70675,
+    "date": "2026-03-10T15:22:21+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70671,
+    "date": "2026-03-10T15:16:14+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70667,
+    "date": "2026-03-10T15:11:11+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70664,
+    "date": "2026-03-10T15:06:19+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70653,
+    "date": "2026-03-10T08:39:13+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70650,
+    "date": "2026-03-10T08:34:08+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70647,
+    "date": "2026-03-10T08:31:30+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70644,
+    "date": "2026-03-10T08:29:10+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70641,
+    "date": "2026-03-10T08:26:05+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70638,
+    "date": "2026-03-10T08:23:16+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70633,
+    "date": "2026-03-10T08:18:28+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70630,
+    "date": "2026-03-10T08:15:10+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70627,
+    "date": "2026-03-10T08:12:06+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70624,
+    "date": "2026-03-10T08:08:17+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70611,
+    "date": "2026-03-09T16:26:24+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70608,
+    "date": "2026-03-09T16:22:46+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70605,
+    "date": "2026-03-09T16:20:49+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70602,
+    "date": "2026-03-09T16:18:14+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70599,
+    "date": "2026-03-09T16:16:28+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70596,
+    "date": "2026-03-09T16:10:11+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70593,
+    "date": "2026-03-09T16:05:09+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70590,
+    "date": "2026-03-09T16:01:28+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70582,
+    "date": "2026-03-09T08:52:19+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70579,
+    "date": "2026-03-09T08:50:29+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70572,
+    "date": "2026-03-09T08:42:19+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70569,
+    "date": "2026-03-09T08:39:06+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70566,
+    "date": "2026-03-09T08:36:14+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70563,
+    "date": "2026-03-09T08:32:13+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70560,
+    "date": "2026-03-09T08:30:09+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70557,
+    "date": "2026-03-09T08:24:22+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70554,
+    "date": "2026-03-09T08:20:03+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70549,
+    "date": "2026-03-09T08:15:11+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70546,
+    "date": "2026-03-09T08:13:34+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70543,
+    "date": "2026-03-09T08:07:19+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70514,
+    "date": "2026-03-07T08:51:21+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70510,
+    "date": "2026-03-07T08:47:07+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70507,
+    "date": "2026-03-07T08:44:04+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70504,
+    "date": "2026-03-07T08:39:13+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70501,
+    "date": "2026-03-07T08:36:15+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70498,
+    "date": "2026-03-07T08:33:35+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70495,
+    "date": "2026-03-07T08:31:03+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70492,
+    "date": "2026-03-07T08:24:03+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70487,
+    "date": "2026-03-07T08:16:01+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70482,
+    "date": "2026-03-07T08:09:35+00:00",
+    "asset": "EURusd_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70470,
+    "date": "2026-03-06T15:47:04+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70467,
+    "date": "2026-03-06T15:43:03+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70464,
+    "date": "2026-03-06T15:37:14+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70461,
+    "date": "2026-03-06T15:32:23+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70458,
+    "date": "2026-03-06T15:29:23+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70455,
+    "date": "2026-03-06T15:25:14+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70452,
+    "date": "2026-03-06T15:23:20+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70449,
+    "date": "2026-03-06T15:18:15+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70446,
+    "date": "2026-03-06T15:15:18+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70443,
+    "date": "2026-03-06T15:11:13+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70432,
+    "date": "2026-03-06T08:39:15+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70429,
+    "date": "2026-03-06T08:37:24+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70426,
+    "date": "2026-03-06T08:34:11+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70423,
+    "date": "2026-03-06T08:30:28+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70418,
+    "date": "2026-03-06T08:26:25+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70414,
+    "date": "2026-03-06T08:21:25+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70411,
+    "date": "2026-03-06T08:19:13+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70408,
+    "date": "2026-03-06T08:17:25+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70403,
+    "date": "2026-03-06T08:12:07+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70400,
+    "date": "2026-03-06T08:09:16+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70382,
+    "date": "2026-03-05T16:15:04+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70379,
+    "date": "2026-03-05T16:12:50+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70373,
+    "date": "2026-03-05T16:06:38+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70370,
+    "date": "2026-03-05T16:01:40+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70367,
+    "date": "2026-03-05T15:59:38+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70357,
+    "date": "2026-03-05T08:59:18+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70354,
+    "date": "2026-03-05T08:55:16+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70351,
+    "date": "2026-03-05T08:47:12+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70348,
+    "date": "2026-03-05T08:44:32+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70345,
+    "date": "2026-03-05T08:41:03+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70342,
+    "date": "2026-03-05T08:35:19+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70339,
+    "date": "2026-03-05T08:31:28+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70336,
+    "date": "2026-03-05T08:26:15+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70333,
+    "date": "2026-03-05T08:22:32+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70330,
+    "date": "2026-03-05T08:19:17+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70313,
+    "date": "2026-03-04T16:00:25+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70310,
+    "date": "2026-03-04T15:57:02+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70304,
+    "date": "2026-03-04T15:45:28+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70297,
+    "date": "2026-03-04T15:34:55+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70294,
+    "date": "2026-03-04T15:30:06+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70291,
+    "date": "2026-03-04T15:25:38+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70282,
+    "date": "2026-03-04T08:57:09+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70279,
+    "date": "2026-03-04T08:53:12+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70276,
+    "date": "2026-03-04T08:50:11+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70273,
+    "date": "2026-03-04T08:48:13+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70270,
+    "date": "2026-03-04T08:45:17+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70267,
+    "date": "2026-03-04T08:42:24+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70263,
+    "date": "2026-03-04T08:38:09+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70259,
+    "date": "2026-03-04T08:32:23+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70256,
+    "date": "2026-03-04T08:28:04+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70253,
+    "date": "2026-03-04T08:22:11+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70242,
+    "date": "2026-03-03T15:26:08+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70239,
+    "date": "2026-03-03T15:23:12+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70236,
+    "date": "2026-03-03T15:20:08+00:00",
+    "asset": "SARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70231,
+    "date": "2026-03-03T15:14:09+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70228,
+    "date": "2026-03-03T15:10:14+00:00",
+    "asset": "USDRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70225,
+    "date": "2026-03-03T15:07:07+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70222,
+    "date": "2026-03-03T15:04:13+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70219,
+    "date": "2026-03-03T15:00:08+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70214,
+    "date": "2026-03-03T14:53:18+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70210,
+    "date": "2026-03-03T14:49:21+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70199,
+    "date": "2026-03-03T09:06:07+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70196,
+    "date": "2026-03-03T09:02:32+00:00",
+    "asset": "SARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70193,
+    "date": "2026-03-03T09:00:28+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70190,
+    "date": "2026-03-03T08:58:21+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70187,
+    "date": "2026-03-03T08:55:21+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70184,
+    "date": "2026-03-03T08:53:33+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70181,
+    "date": "2026-03-03T08:50:07+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70178,
+    "date": "2026-03-03T08:47:10+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70175,
+    "date": "2026-03-03T08:41:04+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70172,
+    "date": "2026-03-03T08:36:04+00:00",
+    "asset": "SARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70149,
+    "date": "2026-03-02T09:00:06+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70146,
+    "date": "2026-03-02T08:55:09+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70143,
+    "date": "2026-03-02T08:48:04+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70140,
+    "date": "2026-03-02T08:44:03+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70133,
+    "date": "2026-03-02T08:33:09+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70130,
+    "date": "2026-03-02T08:24:13+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70126,
+    "date": "2026-03-02T08:17:33+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70123,
+    "date": "2026-03-02T08:13:04+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70119,
+    "date": "2026-03-02T08:06:08+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70116,
+    "date": "2026-03-02T08:03:05+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70102,
+    "date": "2026-02-28T08:40:17+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70099,
+    "date": "2026-02-28T08:37:35+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70094,
+    "date": "2026-02-28T08:32:10+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70091,
+    "date": "2026-02-28T08:30:40+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70088,
+    "date": "2026-02-28T08:27:15+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70083,
+    "date": "2026-02-28T08:21:28+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70080,
+    "date": "2026-02-28T08:16:04+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70077,
+    "date": "2026-02-28T08:11:12+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70073,
+    "date": "2026-02-28T08:07:27+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70069,
+    "date": "2026-02-28T08:03:23+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70057,
+    "date": "2026-02-27T16:44:51+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70054,
+    "date": "2026-02-27T16:42:42+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70051,
+    "date": "2026-02-27T16:40:07+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70042,
+    "date": "2026-02-27T08:40:28+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70037,
+    "date": "2026-02-27T08:33:43+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70034,
+    "date": "2026-02-27T08:31:19+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70031,
+    "date": "2026-02-27T08:29:26+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70025,
+    "date": "2026-02-27T08:23:09+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70022,
+    "date": "2026-02-27T08:21:09+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70019,
+    "date": "2026-02-27T08:18:10+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70015,
+    "date": "2026-02-27T08:13:12+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70010,
+    "date": "2026-02-27T08:06:18+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 70007,
+    "date": "2026-02-27T08:04:22+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69994,
+    "date": "2026-02-26T15:58:24+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69991,
+    "date": "2026-02-26T15:56:03+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69988,
+    "date": "2026-02-26T15:53:05+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69985,
+    "date": "2026-02-26T15:49:29+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69982,
+    "date": "2026-02-26T15:47:17+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69979,
+    "date": "2026-02-26T15:45:35+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69976,
+    "date": "2026-02-26T15:42:21+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69973,
+    "date": "2026-02-26T15:39:16+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69970,
+    "date": "2026-02-26T15:36:23+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69967,
+    "date": "2026-02-26T15:32:04+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69955,
+    "date": "2026-02-26T08:55:05+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69951,
+    "date": "2026-02-26T08:48:23+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69948,
+    "date": "2026-02-26T08:46:12+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69945,
+    "date": "2026-02-26T08:43:38+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69942,
+    "date": "2026-02-26T08:39:37+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69939,
+    "date": "2026-02-26T08:35:13+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69936,
+    "date": "2026-02-26T08:31:20+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69933,
+    "date": "2026-02-26T08:26:10+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69929,
+    "date": "2026-02-26T08:23:04+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69926,
+    "date": "2026-02-26T08:20:11+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69913,
+    "date": "2026-02-25T16:06:27+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69910,
+    "date": "2026-02-25T16:04:14+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69907,
+    "date": "2026-02-25T16:02:27+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69904,
+    "date": "2026-02-25T15:58:36+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69901,
+    "date": "2026-02-25T15:56:26+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69897,
+    "date": "2026-02-25T15:52:34+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69892,
+    "date": "2026-02-25T15:45:42+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69889,
+    "date": "2026-02-25T15:43:31+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69886,
+    "date": "2026-02-25T15:40:09+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69883,
+    "date": "2026-02-25T15:37:03+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69873,
+    "date": "2026-02-25T08:41:37+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69870,
+    "date": "2026-02-25T08:39:09+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69867,
+    "date": "2026-02-25T08:36:01+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69864,
+    "date": "2026-02-25T08:33:10+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69860,
+    "date": "2026-02-25T08:29:02+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69857,
+    "date": "2026-02-25T08:26:02+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69854,
+    "date": "2026-02-25T08:21:06+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69851,
+    "date": "2026-02-25T08:18:03+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69848,
+    "date": "2026-02-25T08:13:07+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69845,
+    "date": "2026-02-25T08:09:14+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69829,
+    "date": "2026-02-24T15:49:04+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69825,
+    "date": "2026-02-24T15:44:30+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69822,
+    "date": "2026-02-24T15:42:13+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69816,
+    "date": "2026-02-24T15:34:06+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69811,
+    "date": "2026-02-24T15:28:33+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69808,
+    "date": "2026-02-24T15:25:25+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69805,
+    "date": "2026-02-24T15:20:13+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69802,
+    "date": "2026-02-24T15:16:07+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69799,
+    "date": "2026-02-24T15:09:14+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69796,
+    "date": "2026-02-24T15:04:08+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69784,
+    "date": "2026-02-24T08:46:12+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69781,
+    "date": "2026-02-24T08:42:29+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69778,
+    "date": "2026-02-24T08:40:28+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69775,
+    "date": "2026-02-24T08:38:02+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69772,
+    "date": "2026-02-24T08:33:14+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69767,
+    "date": "2026-02-24T08:26:33+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69764,
+    "date": "2026-02-24T08:23:14+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69760,
+    "date": "2026-02-24T08:17:12+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69757,
+    "date": "2026-02-24T08:13:19+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69754,
+    "date": "2026-02-24T08:10:06+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69742,
+    "date": "2026-02-23T16:01:11+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69737,
+    "date": "2026-02-23T15:55:15+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69734,
+    "date": "2026-02-23T15:50:19+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69730,
+    "date": "2026-02-23T15:45:16+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69726,
+    "date": "2026-02-23T15:40:21+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69722,
+    "date": "2026-02-23T15:37:21+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69719,
+    "date": "2026-02-23T15:35:33+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69715,
+    "date": "2026-02-23T15:31:34+00:00",
+    "asset": "SARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69712,
+    "date": "2026-02-23T15:27:15+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69709,
+    "date": "2026-02-23T15:23:20+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69698,
+    "date": "2026-02-23T08:39:21+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69695,
+    "date": "2026-02-23T08:36:37+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69692,
+    "date": "2026-02-23T08:30:18+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69688,
+    "date": "2026-02-23T08:27:15+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69685,
+    "date": "2026-02-23T08:23:27+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69682,
+    "date": "2026-02-23T08:18:24+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69679,
+    "date": "2026-02-23T08:16:04+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69676,
+    "date": "2026-02-23T08:11:28+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69672,
+    "date": "2026-02-23T08:06:29+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69669,
+    "date": "2026-02-23T08:04:11+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69652,
+    "date": "2026-02-21T16:25:18+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69649,
+    "date": "2026-02-21T16:22:46+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69645,
+    "date": "2026-02-21T16:18:06+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69642,
+    "date": "2026-02-21T16:14:23+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69639,
+    "date": "2026-02-21T16:10:59+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69636,
+    "date": "2026-02-21T16:08:02+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69632,
+    "date": "2026-02-21T16:02:09+00:00",
+    "asset": "USDARS_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69625,
+    "date": "2026-02-21T15:53:35+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69621,
+    "date": "2026-02-21T15:49:30+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69618,
+    "date": "2026-02-21T15:44:16+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69614,
+    "date": "2026-02-21T15:39:39+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69604,
+    "date": "2026-02-21T09:18:04+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69601,
+    "date": "2026-02-21T09:15:18+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69598,
+    "date": "2026-02-21T09:12:10+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69594,
+    "date": "2026-02-21T09:07:20+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69591,
+    "date": "2026-02-21T09:05:11+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69588,
+    "date": "2026-02-21T09:02:02+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69585,
+    "date": "2026-02-21T08:59:10+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69582,
+    "date": "2026-02-21T08:55:10+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69578,
+    "date": "2026-02-21T08:50:17+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69575,
+    "date": "2026-02-21T08:45:11+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69560,
+    "date": "2026-02-20T15:46:10+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69554,
+    "date": "2026-02-20T15:39:07+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69551,
+    "date": "2026-02-20T15:34:36+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69548,
+    "date": "2026-02-20T15:29:09+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69545,
+    "date": "2026-02-20T15:26:10+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69542,
+    "date": "2026-02-20T15:23:20+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69539,
+    "date": "2026-02-20T15:20:19+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69536,
+    "date": "2026-02-20T15:17:07+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69531,
+    "date": "2026-02-20T15:09:21+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69528,
+    "date": "2026-02-20T15:05:15+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69516,
+    "date": "2026-02-20T09:00:27+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69512,
+    "date": "2026-02-20T08:57:03+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69509,
+    "date": "2026-02-20T08:53:24+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69505,
+    "date": "2026-02-20T08:48:23+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69500,
+    "date": "2026-02-20T08:43:21+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69496,
+    "date": "2026-02-20T08:39:16+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69493,
+    "date": "2026-02-20T08:36:03+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69487,
+    "date": "2026-02-20T08:29:27+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69484,
+    "date": "2026-02-20T08:23:03+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69481,
+    "date": "2026-02-20T08:20:06+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69465,
+    "date": "2026-02-19T16:18:05+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69458,
+    "date": "2026-02-19T16:10:09+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69455,
+    "date": "2026-02-19T16:03:22+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69451,
+    "date": "2026-02-19T15:59:20+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69448,
+    "date": "2026-02-19T15:56:11+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69444,
+    "date": "2026-02-19T15:51:02+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69440,
+    "date": "2026-02-19T15:46:17+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69437,
+    "date": "2026-02-19T15:41:10+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69434,
+    "date": "2026-02-19T15:37:26+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69431,
+    "date": "2026-02-19T15:33:06+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69421,
+    "date": "2026-02-19T08:39:02+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69417,
+    "date": "2026-02-19T08:36:03+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69414,
+    "date": "2026-02-19T08:32:16+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69411,
+    "date": "2026-02-19T08:29:02+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69404,
+    "date": "2026-02-19T08:20:02+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69401,
+    "date": "2026-02-19T08:17:06+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69398,
+    "date": "2026-02-19T08:14:02+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69395,
+    "date": "2026-02-19T08:10:19+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69391,
+    "date": "2026-02-19T08:04:28+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69387,
+    "date": "2026-02-19T08:01:28+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69376,
+    "date": "2026-02-18T16:13:10+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69371,
+    "date": "2026-02-18T16:07:33+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69366,
+    "date": "2026-02-18T16:02:09+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69361,
+    "date": "2026-02-18T15:56:22+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69358,
+    "date": "2026-02-18T15:53:08+00:00",
+    "asset": "USDRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69355,
+    "date": "2026-02-18T15:50:17+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69352,
+    "date": "2026-02-18T15:47:03+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69347,
+    "date": "2026-02-18T15:40:28+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69344,
+    "date": "2026-02-18T15:36:21+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69341,
+    "date": "2026-02-18T15:34:16+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69328,
+    "date": "2026-02-18T08:36:26+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69324,
+    "date": "2026-02-18T08:33:11+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69321,
+    "date": "2026-02-18T08:30:05+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69318,
+    "date": "2026-02-18T08:27:03+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69315,
+    "date": "2026-02-18T08:23:02+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69312,
+    "date": "2026-02-18T08:19:07+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69309,
+    "date": "2026-02-18T08:15:14+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69306,
+    "date": "2026-02-18T08:11:36+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69303,
+    "date": "2026-02-18T08:07:23+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69300,
+    "date": "2026-02-18T08:03:06+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69285,
+    "date": "2026-02-17T15:48:32+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69282,
+    "date": "2026-02-17T15:43:08+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69278,
+    "date": "2026-02-17T15:38:24+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69274,
+    "date": "2026-02-17T15:31:20+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69271,
+    "date": "2026-02-17T15:29:18+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69268,
+    "date": "2026-02-17T15:26:03+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69265,
+    "date": "2026-02-17T15:21:16+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69262,
+    "date": "2026-02-17T15:18:26+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69258,
+    "date": "2026-02-17T15:13:09+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69255,
+    "date": "2026-02-17T15:06:20+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69244,
+    "date": "2026-02-17T08:47:19+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69241,
+    "date": "2026-02-17T08:45:03+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69238,
+    "date": "2026-02-17T08:42:03+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69235,
+    "date": "2026-02-17T08:35:03+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69232,
+    "date": "2026-02-17T08:30:31+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69229,
+    "date": "2026-02-17T08:26:22+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69226,
+    "date": "2026-02-17T08:22:03+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69223,
+    "date": "2026-02-17T08:18:31+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69218,
+    "date": "2026-02-17T08:12:02+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69213,
+    "date": "2026-02-17T08:05:22+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69199,
+    "date": "2026-02-16T16:35:38+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69195,
+    "date": "2026-02-16T16:30:26+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69192,
+    "date": "2026-02-16T16:27:27+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69189,
+    "date": "2026-02-16T16:24:10+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69184,
+    "date": "2026-02-16T16:20:39+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69181,
+    "date": "2026-02-16T16:17:42+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69178,
+    "date": "2026-02-16T16:14:05+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69175,
+    "date": "2026-02-16T16:10:03+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69172,
+    "date": "2026-02-16T16:07:28+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69168,
+    "date": "2026-02-16T16:05:05+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69157,
+    "date": "2026-02-16T08:38:21+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69154,
+    "date": "2026-02-16T08:35:30+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69151,
+    "date": "2026-02-16T08:32:09+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69148,
+    "date": "2026-02-16T08:28:16+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69145,
+    "date": "2026-02-16T08:26:38+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69142,
+    "date": "2026-02-16T08:23:30+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69137,
+    "date": "2026-02-16T08:18:15+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69134,
+    "date": "2026-02-16T08:15:13+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69131,
+    "date": "2026-02-16T08:09:08+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69128,
+    "date": "2026-02-16T08:06:06+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69125,
+    "date": "2026-02-16T08:02:13+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69114,
+    "date": "2026-02-14T16:21:37+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69111,
+    "date": "2026-02-14T16:17:07+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69107,
+    "date": "2026-02-14T16:07:07+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69104,
+    "date": "2026-02-14T16:03:07+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69101,
+    "date": "2026-02-14T15:57:14+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69098,
+    "date": "2026-02-14T15:53:14+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69095,
+    "date": "2026-02-14T15:50:20+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69092,
+    "date": "2026-02-14T15:47:14+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69089,
+    "date": "2026-02-14T15:41:18+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69085,
+    "date": "2026-02-14T15:36:15+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69067,
+    "date": "2026-02-14T08:57:06+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69060,
+    "date": "2026-02-14T08:48:03+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69057,
+    "date": "2026-02-14T08:44:02+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69054,
+    "date": "2026-02-14T08:41:02+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69051,
+    "date": "2026-02-14T08:38:26+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69048,
+    "date": "2026-02-14T08:34:02+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69045,
+    "date": "2026-02-14T08:31:03+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69040,
+    "date": "2026-02-14T08:24:11+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69037,
+    "date": "2026-02-14T08:19:31+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69034,
+    "date": "2026-02-14T08:16:04+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69019,
+    "date": "2026-02-13T15:44:02+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69015,
+    "date": "2026-02-13T15:39:36+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69010,
+    "date": "2026-02-13T15:34:33+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69006,
+    "date": "2026-02-13T15:32:29+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 69002,
+    "date": "2026-02-13T15:30:12+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68999,
+    "date": "2026-02-13T15:27:27+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68994,
+    "date": "2026-02-13T15:24:16+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68990,
+    "date": "2026-02-13T15:22:14+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68986,
+    "date": "2026-02-13T15:18:13+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68982,
+    "date": "2026-02-13T15:14:05+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68968,
+    "date": "2026-02-13T08:39:43+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68964,
+    "date": "2026-02-13T08:35:40+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68961,
+    "date": "2026-02-13T08:31:08+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68955,
+    "date": "2026-02-13T08:19:02+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68952,
+    "date": "2026-02-13T08:14:47+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68949,
+    "date": "2026-02-13T08:11:18+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68943,
+    "date": "2026-02-13T07:59:46+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68931,
+    "date": "2026-02-12T16:02:06+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68924,
+    "date": "2026-02-12T15:55:14+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68920,
+    "date": "2026-02-12T15:51:08+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68914,
+    "date": "2026-02-12T15:45:23+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68910,
+    "date": "2026-02-12T15:43:30+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68906,
+    "date": "2026-02-12T15:41:18+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68902,
+    "date": "2026-02-12T15:38:40+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68898,
+    "date": "2026-02-12T15:35:08+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68894,
+    "date": "2026-02-12T15:31:25+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68890,
+    "date": "2026-02-12T15:28:11+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68887,
+    "date": "2026-02-12T15:21:04+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68883,
+    "date": "2026-02-12T15:18:05+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68870,
+    "date": "2026-02-12T09:09:22+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68866,
+    "date": "2026-02-12T09:07:37+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68861,
+    "date": "2026-02-12T09:03:03+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68857,
+    "date": "2026-02-12T09:00:10+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68853,
+    "date": "2026-02-12T08:56:12+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68845,
+    "date": "2026-02-12T08:48:30+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68841,
+    "date": "2026-02-12T08:46:13+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68837,
+    "date": "2026-02-12T08:43:25+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68833,
+    "date": "2026-02-12T08:40:02+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68826,
+    "date": "2026-02-12T08:32:04+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68810,
+    "date": "2026-02-11T15:58:19+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68805,
+    "date": "2026-02-11T15:51:21+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68801,
+    "date": "2026-02-11T15:49:11+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68797,
+    "date": "2026-02-11T15:46:03+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68793,
+    "date": "2026-02-11T15:42:04+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68789,
+    "date": "2026-02-11T15:39:29+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68782,
+    "date": "2026-02-11T15:30:21+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68778,
+    "date": "2026-02-11T15:28:08+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68774,
+    "date": "2026-02-11T15:24:18+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68770,
+    "date": "2026-02-11T15:19:27+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68740,
+    "date": "2026-02-11T08:40:03+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68736,
+    "date": "2026-02-11T08:36:21+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68732,
+    "date": "2026-02-11T08:34:06+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68728,
+    "date": "2026-02-11T08:31:03+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68722,
+    "date": "2026-02-11T08:25:22+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68718,
+    "date": "2026-02-11T08:22:09+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68713,
+    "date": "2026-02-11T08:16:30+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68709,
+    "date": "2026-02-11T08:13:03+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68705,
+    "date": "2026-02-11T08:08:25+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68701,
+    "date": "2026-02-11T08:06:08+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68688,
+    "date": "2026-02-10T16:05:11+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68684,
+    "date": "2026-02-10T16:01:32+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68680,
+    "date": "2026-02-10T15:58:19+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68676,
+    "date": "2026-02-10T15:53:11+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68671,
+    "date": "2026-02-10T15:47:18+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68667,
+    "date": "2026-02-10T15:45:08+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68663,
+    "date": "2026-02-10T15:42:10+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68659,
+    "date": "2026-02-10T15:38:18+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68655,
+    "date": "2026-02-10T15:33:12+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68651,
+    "date": "2026-02-10T15:28:23+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68627,
+    "date": "2026-02-10T08:37:10+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68623,
+    "date": "2026-02-10T08:34:04+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68619,
+    "date": "2026-02-10T08:30:25+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68613,
+    "date": "2026-02-10T08:25:10+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68609,
+    "date": "2026-02-10T08:21:26+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68605,
+    "date": "2026-02-10T08:18:28+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68601,
+    "date": "2026-02-10T08:15:21+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68597,
+    "date": "2026-02-10T08:11:13+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68593,
+    "date": "2026-02-10T08:08:13+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68588,
+    "date": "2026-02-10T08:02:17+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68575,
+    "date": "2026-02-09T15:47:24+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68571,
+    "date": "2026-02-09T15:45:40+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68567,
+    "date": "2026-02-09T15:43:24+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68563,
+    "date": "2026-02-09T15:40:03+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68559,
+    "date": "2026-02-09T15:37:14+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68553,
+    "date": "2026-02-09T15:29:26+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68549,
+    "date": "2026-02-09T15:26:16+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68545,
+    "date": "2026-02-09T15:22:23+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68541,
+    "date": "2026-02-09T15:19:20+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68537,
+    "date": "2026-02-09T15:15:06+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68522,
+    "date": "2026-02-09T09:18:24+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68517,
+    "date": "2026-02-09T09:14:11+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68513,
+    "date": "2026-02-09T09:09:02+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68509,
+    "date": "2026-02-09T09:06:28+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68505,
+    "date": "2026-02-09T09:03:04+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68501,
+    "date": "2026-02-09T09:00:07+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68497,
+    "date": "2026-02-09T08:57:01+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68492,
+    "date": "2026-02-09T08:51:04+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68488,
+    "date": "2026-02-09T08:45:08+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68484,
+    "date": "2026-02-09T08:41:04+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68466,
+    "date": "2026-02-07T16:12:18+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68462,
+    "date": "2026-02-07T16:09:25+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68458,
+    "date": "2026-02-07T16:06:01+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68454,
+    "date": "2026-02-07T16:02:24+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68450,
+    "date": "2026-02-07T15:59:30+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68445,
+    "date": "2026-02-07T15:55:03+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68441,
+    "date": "2026-02-07T15:51:25+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68437,
+    "date": "2026-02-07T15:49:25+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68432,
+    "date": "2026-02-07T15:43:21+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68427,
+    "date": "2026-02-07T15:36:14+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68390,
+    "date": "2026-02-07T09:04:03+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68386,
+    "date": "2026-02-07T08:59:02+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68380,
+    "date": "2026-02-07T08:53:06+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68374,
+    "date": "2026-02-07T08:47:26+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68369,
+    "date": "2026-02-07T08:42:04+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68365,
+    "date": "2026-02-07T08:38:06+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68358,
+    "date": "2026-02-07T08:30:04+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68354,
+    "date": "2026-02-07T08:26:25+00:00",
+    "asset": "USDINR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68347,
+    "date": "2026-02-07T08:19:03+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68343,
+    "date": "2026-02-07T08:16:20+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68298,
+    "date": "2026-02-06T08:39:02+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68294,
+    "date": "2026-02-06T08:36:30+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68290,
+    "date": "2026-02-06T08:33:33+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68286,
+    "date": "2026-02-06T08:31:17+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68282,
+    "date": "2026-02-06T08:28:22+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68278,
+    "date": "2026-02-06T08:23:14+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68270,
+    "date": "2026-02-06T08:15:03+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68266,
+    "date": "2026-02-06T08:11:08+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68262,
+    "date": "2026-02-06T08:06:06+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68257,
+    "date": "2026-02-06T08:01:25+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68240,
+    "date": "2026-02-05T16:47:18+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68232,
+    "date": "2026-02-05T16:38:05+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68228,
+    "date": "2026-02-05T16:35:10+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68224,
+    "date": "2026-02-05T16:32:10+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68220,
+    "date": "2026-02-05T16:28:15+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68216,
+    "date": "2026-02-05T16:24:04+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68212,
+    "date": "2026-02-05T16:21:18+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68208,
+    "date": "2026-02-05T16:18:10+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68204,
+    "date": "2026-02-05T16:14:16+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68200,
+    "date": "2026-02-05T16:11:09+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68166,
+    "date": "2026-02-05T13:53:34+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68155,
+    "date": "2026-02-05T09:13:02+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68152,
+    "date": "2026-02-05T09:09:22+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68149,
+    "date": "2026-02-05T09:07:06+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68145,
+    "date": "2026-02-05T09:03:06+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68142,
+    "date": "2026-02-05T08:59:09+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68139,
+    "date": "2026-02-05T08:54:14+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68135,
+    "date": "2026-02-05T08:50:25+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68132,
+    "date": "2026-02-05T08:47:42+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68129,
+    "date": "2026-02-05T08:43:02+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68125,
+    "date": "2026-02-05T08:38:02+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68112,
+    "date": "2026-02-04T17:05:17+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68108,
+    "date": "2026-02-04T17:01:32+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68103,
+    "date": "2026-02-04T16:56:15+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68099,
+    "date": "2026-02-04T16:53:04+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68095,
+    "date": "2026-02-04T16:50:08+00:00",
+    "asset": "USDRUB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68088,
+    "date": "2026-02-04T16:43:12+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68084,
+    "date": "2026-02-04T16:38:11+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68080,
+    "date": "2026-02-04T16:30:30+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68075,
+    "date": "2026-02-04T16:26:27+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68071,
+    "date": "2026-02-04T16:21:08+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68043,
+    "date": "2026-02-04T09:15:07+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68037,
+    "date": "2026-02-04T09:09:08+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68033,
+    "date": "2026-02-04T09:05:24+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68029,
+    "date": "2026-02-04T09:02:21+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68025,
+    "date": "2026-02-04T08:59:02+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68019,
+    "date": "2026-02-04T08:53:11+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68015,
+    "date": "2026-02-04T08:49:29+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68011,
+    "date": "2026-02-04T08:46:11+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68007,
+    "date": "2026-02-04T08:43:05+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 68003,
+    "date": "2026-02-04T08:40:06+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67987,
+    "date": "2026-02-03T15:46:28+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67981,
+    "date": "2026-02-03T15:40:10+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67975,
+    "date": "2026-02-03T15:37:37+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67971,
+    "date": "2026-02-03T15:34:28+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67967,
+    "date": "2026-02-03T15:31:04+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67963,
+    "date": "2026-02-03T15:27:05+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67958,
+    "date": "2026-02-03T15:22:17+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67919,
+    "date": "2026-02-03T08:43:16+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67915,
+    "date": "2026-02-03T08:39:12+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67911,
+    "date": "2026-02-03T08:34:11+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67907,
+    "date": "2026-02-03T08:31:13+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67903,
+    "date": "2026-02-03T08:28:32+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67899,
+    "date": "2026-02-03T08:25:20+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67895,
+    "date": "2026-02-03T08:20:26+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67890,
+    "date": "2026-02-03T08:14:14+00:00",
+    "asset": "NGNUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67886,
+    "date": "2026-02-03T08:11:33+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67882,
+    "date": "2026-02-03T08:09:06+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67864,
+    "date": "2026-02-02T15:38:29+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67859,
+    "date": "2026-02-02T15:35:36+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67855,
+    "date": "2026-02-02T15:31:27+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67851,
+    "date": "2026-02-02T15:25:36+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67847,
+    "date": "2026-02-02T15:21:31+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67843,
+    "date": "2026-02-02T15:17:32+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67839,
+    "date": "2026-02-02T15:13:29+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67835,
+    "date": "2026-02-02T15:08:41+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67831,
+    "date": "2026-02-02T15:05:26+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67827,
+    "date": "2026-02-02T15:02:37+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67799,
+    "date": "2026-02-02T08:41:05+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67795,
+    "date": "2026-02-02T08:38:10+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67789,
+    "date": "2026-02-02T08:32:05+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67785,
+    "date": "2026-02-02T08:29:21+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67780,
+    "date": "2026-02-02T08:26:01+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67776,
+    "date": "2026-02-02T08:23:06+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67772,
+    "date": "2026-02-02T08:20:03+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67768,
+    "date": "2026-02-02T08:13:25+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67764,
+    "date": "2026-02-02T08:08:15+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67760,
+    "date": "2026-02-02T08:05:10+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67699,
+    "date": "2026-01-31T09:05:02+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67695,
+    "date": "2026-01-31T09:02:06+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67691,
+    "date": "2026-01-31T08:59:07+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67687,
+    "date": "2026-01-31T08:56:25+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67683,
+    "date": "2026-01-31T08:54:06+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67677,
+    "date": "2026-01-31T08:48:32+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67673,
+    "date": "2026-01-31T08:46:11+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67669,
+    "date": "2026-01-31T08:40:04+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67662,
+    "date": "2026-01-31T08:31:02+00:00",
+    "asset": "SARCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67658,
+    "date": "2026-01-31T08:27:12+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67654,
+    "date": "2026-01-31T08:24:09+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67638,
+    "date": "2026-01-30T12:28:57+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67633,
+    "date": "2026-01-30T12:24:37+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67629,
+    "date": "2026-01-30T12:18:36+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67625,
+    "date": "2026-01-30T12:14:56+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67621,
+    "date": "2026-01-30T12:14:56+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67605,
+    "date": "2026-01-30T09:13:24+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67601,
+    "date": "2026-01-30T09:10:30+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67597,
+    "date": "2026-01-30T09:08:29+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67593,
+    "date": "2026-01-30T09:06:05+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67588,
+    "date": "2026-01-30T09:00:08+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67584,
+    "date": "2026-01-30T08:57:31+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67580,
+    "date": "2026-01-30T08:55:14+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67573,
+    "date": "2026-01-30T08:45:04+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67569,
+    "date": "2026-01-30T08:39:06+00:00",
+    "asset": "USDARS_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67565,
+    "date": "2026-01-30T08:34:17+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67548,
+    "date": "2026-01-29T13:56:13+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67543,
+    "date": "2026-01-29T13:50:06+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67539,
+    "date": "2026-01-29T13:47:05+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67535,
+    "date": "2026-01-29T13:44:36+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67531,
+    "date": "2026-01-29T13:42:27+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67527,
+    "date": "2026-01-29T13:39:04+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67523,
+    "date": "2026-01-29T13:35:38+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67519,
+    "date": "2026-01-29T13:32:08+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67515,
+    "date": "2026-01-29T13:28:03+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67511,
+    "date": "2026-01-29T13:22:15+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67493,
+    "date": "2026-01-29T09:15:28+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67489,
+    "date": "2026-01-29T09:13:33+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67485,
+    "date": "2026-01-29T09:11:12+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67481,
+    "date": "2026-01-29T09:08:40+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67477,
+    "date": "2026-01-29T09:05:28+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67473,
+    "date": "2026-01-29T09:03:04+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67469,
+    "date": "2026-01-29T08:59:11+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67465,
+    "date": "2026-01-29T08:50:08+00:00",
+    "asset": "USDMXN_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67460,
+    "date": "2026-01-29T08:42:05+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67456,
+    "date": "2026-01-29T08:36:10+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67443,
+    "date": "2026-01-28T16:27:30+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67439,
+    "date": "2026-01-28T16:25:21+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67435,
+    "date": "2026-01-28T16:23:04+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67431,
+    "date": "2026-01-28T16:20:04+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67427,
+    "date": "2026-01-28T16:17:05+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67410,
+    "date": "2026-01-28T08:45:07+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67403,
+    "date": "2026-01-28T08:38:04+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67399,
+    "date": "2026-01-28T08:33:04+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67395,
+    "date": "2026-01-28T08:30:10+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67391,
+    "date": "2026-01-28T08:27:42+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67387,
+    "date": "2026-01-28T08:24:27+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67383,
+    "date": "2026-01-28T08:22:03+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67379,
+    "date": "2026-01-28T08:18:12+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67375,
+    "date": "2026-01-28T08:11:24+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67371,
+    "date": "2026-01-28T08:06:14+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67359,
+    "date": "2026-01-27T08:42:49+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67355,
+    "date": "2026-01-27T08:36:06+00:00",
+    "asset": "USDSGD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67351,
+    "date": "2026-01-27T08:29:07+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67347,
+    "date": "2026-01-27T08:24:05+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67343,
+    "date": "2026-01-27T08:21:17+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67339,
+    "date": "2026-01-27T08:16:04+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67335,
+    "date": "2026-01-27T08:12:28+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67331,
+    "date": "2026-01-27T08:05:42+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67326,
+    "date": "2026-01-27T08:01:07+00:00",
+    "asset": "USDARS_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67321,
+    "date": "2026-01-27T07:56:05+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67305,
+    "date": "2026-01-22T21:08:03+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67301,
+    "date": "2026-01-22T21:03:11+00:00",
+    "asset": "EURGBP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67298,
+    "date": "2026-01-22T21:00:46+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67289,
+    "date": "2026-01-22T08:39:39+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67285,
+    "date": "2026-01-22T08:37:14+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67281,
+    "date": "2026-01-22T08:29:05+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67277,
+    "date": "2026-01-22T08:23:19+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67273,
+    "date": "2026-01-22T08:19:41+00:00",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67268,
+    "date": "2026-01-22T08:13:05+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67263,
+    "date": "2026-01-22T08:07:02+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67259,
+    "date": "2026-01-22T08:03:02+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67254,
+    "date": "2026-01-22T07:56:26+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67242,
+    "date": "2026-01-21T19:52:25+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67236,
+    "date": "2026-01-21T19:43:31+00:00",
+    "asset": "EURNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67232,
+    "date": "2026-01-21T19:40:07+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67228,
+    "date": "2026-01-21T19:34:26+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67211,
+    "date": "2026-01-21T08:31:36+00:00",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67207,
+    "date": "2026-01-21T08:28:04+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67201,
+    "date": "2026-01-21T08:20:09+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67197,
+    "date": "2026-01-21T08:16:14+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67193,
+    "date": "2026-01-21T08:12:45+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67189,
+    "date": "2026-01-21T08:09:28+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67185,
+    "date": "2026-01-21T08:04:18+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67181,
+    "date": "2026-01-21T08:01:27+00:00",
+    "asset": "USDCOP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67176,
+    "date": "2026-01-21T07:56:18+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67172,
+    "date": "2026-01-21T07:52:24+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67158,
+    "date": "2026-01-20T20:21:50+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67153,
+    "date": "2026-01-20T20:09:16+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67150,
+    "date": "2026-01-20T20:06:32+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67136,
+    "date": "2026-01-20T08:48:14+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67132,
+    "date": "2026-01-20T08:45:17+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67129,
+    "date": "2026-01-20T08:41:32+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67125,
+    "date": "2026-01-20T08:39:03+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67121,
+    "date": "2026-01-20T08:35:27+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67117,
+    "date": "2026-01-20T08:33:11+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67112,
+    "date": "2026-01-20T08:30:36+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67108,
+    "date": "2026-01-20T08:28:23+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67104,
+    "date": "2026-01-20T08:25:10+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67100,
+    "date": "2026-01-20T08:21:27+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67096,
+    "date": "2026-01-20T08:19:08+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67078,
+    "date": "2026-01-19T20:59:08+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67074,
+    "date": "2026-01-19T20:54:15+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67071,
+    "date": "2026-01-19T20:50:51+00:00",
+    "asset": "JODCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67067,
+    "date": "2026-01-19T20:46:05+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67054,
+    "date": "2026-01-18T17:20:05+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67051,
+    "date": "2026-01-18T17:15:40+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67047,
+    "date": "2026-01-18T17:12:17+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67043,
+    "date": "2026-01-18T17:02:49+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67030,
+    "date": "2026-01-18T08:35:17+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67025,
+    "date": "2026-01-18T08:29:12+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67019,
+    "date": "2026-01-18T08:21:09+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67015,
+    "date": "2026-01-18T08:17:51+00:00",
+    "asset": "QARCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67011,
+    "date": "2026-01-18T08:09:09+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67007,
+    "date": "2026-01-18T08:03:10+00:00",
+    "asset": "YERUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 67003,
+    "date": "2026-01-18T07:59:27+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66990,
+    "date": "2026-01-17T16:41:14+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66986,
+    "date": "2026-01-17T16:36:01+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66982,
+    "date": "2026-01-17T16:32:03+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66976,
+    "date": "2026-01-17T16:23:22+00:00",
+    "asset": "CHFJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66972,
+    "date": "2026-01-17T16:19:02+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66968,
+    "date": "2026-01-17T16:15:41+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66964,
+    "date": "2026-01-17T16:13:03+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66960,
+    "date": "2026-01-17T16:09:12+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66954,
+    "date": "2026-01-17T15:36:03+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66948,
+    "date": "2026-01-17T15:27:15+00:00",
+    "asset": "USDPKR_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66935,
+    "date": "2026-01-17T08:51:25+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66929,
+    "date": "2026-01-17T08:38:43+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66923,
+    "date": "2026-01-17T08:31:17+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66920,
+    "date": "2026-01-17T08:27:45+00:00",
+    "asset": "EURJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66917,
+    "date": "2026-01-17T08:23:12+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66913,
+    "date": "2026-01-17T08:19:09+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66909,
+    "date": "2026-01-17T08:15:04+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66903,
+    "date": "2026-01-17T08:07:14+00:00",
+    "asset": "CHFNOK_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66891,
+    "date": "2026-01-16T20:07:37+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66888,
+    "date": "2026-01-16T20:00:09+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66883,
+    "date": "2026-01-16T19:53:45+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66880,
+    "date": "2026-01-16T19:49:11+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66876,
+    "date": "2026-01-16T19:20:06+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66859,
+    "date": "2026-01-16T08:52:03+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66855,
+    "date": "2026-01-16T08:48:36+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66851,
+    "date": "2026-01-16T08:46:32+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66847,
+    "date": "2026-01-16T08:40:25+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66843,
+    "date": "2026-01-16T08:37:09+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66839,
+    "date": "2026-01-16T08:33:12+00:00",
+    "asset": "OMRCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66835,
+    "date": "2026-01-16T08:28:20+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66831,
+    "date": "2026-01-16T08:23:12+00:00",
+    "asset": "KESUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66827,
+    "date": "2026-01-16T08:18:23+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66823,
+    "date": "2026-01-16T08:15:03+00:00",
+    "asset": "USDBRL_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66818,
+    "date": "2026-01-16T08:09:26+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66804,
+    "date": "2026-01-15T08:54:13+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66800,
+    "date": "2026-01-15T08:51:19+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66796,
+    "date": "2026-01-15T08:48:40+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66792,
+    "date": "2026-01-15T08:45:04+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66788,
+    "date": "2026-01-15T08:42:27+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66784,
+    "date": "2026-01-15T08:39:19+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66780,
+    "date": "2026-01-15T08:36:09+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66774,
+    "date": "2026-01-15T08:24:04+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66770,
+    "date": "2026-01-15T08:19:20+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66765,
+    "date": "2026-01-15T08:14:04+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66758,
+    "date": "2026-01-15T08:07:11+00:00",
+    "asset": "USDDZD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66735,
+    "date": "2026-01-14T09:53:26+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66730,
+    "date": "2026-01-14T09:50:25+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66726,
+    "date": "2026-01-14T09:47:08+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66722,
+    "date": "2026-01-14T09:44:06+00:00",
+    "asset": "LBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66718,
+    "date": "2026-01-14T09:40:30+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66714,
+    "date": "2026-01-14T09:37:10+00:00",
+    "asset": "AUDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66710,
+    "date": "2026-01-14T09:33:14+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66706,
+    "date": "2026-01-14T09:28:10+00:00",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66699,
+    "date": "2026-01-14T09:20:13+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66695,
+    "date": "2026-01-14T09:17:19+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66684,
+    "date": "2026-01-13T19:26:16+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66681,
+    "date": "2026-01-13T19:24:15+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66678,
+    "date": "2026-01-13T19:20:04+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66675,
+    "date": "2026-01-13T19:16:12+00:00",
+    "asset": "USDIDR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66672,
+    "date": "2026-01-13T19:13:06+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66660,
+    "date": "2026-01-13T11:59:11+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66655,
+    "date": "2026-01-13T11:54:05+00:00",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66651,
+    "date": "2026-01-13T11:50:07+00:00",
+    "asset": "USDVND_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66645,
+    "date": "2026-01-13T11:42:03+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66641,
+    "date": "2026-01-13T11:39:06+00:00",
+    "asset": "USDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66637,
+    "date": "2026-01-13T11:35:15+00:00",
+    "asset": "USDVND_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66632,
+    "date": "2026-01-13T11:29:08+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66617,
+    "date": "2026-01-12T16:12:29+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66610,
+    "date": "2026-01-12T16:05:07+00:00",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66606,
+    "date": "2026-01-12T16:02:12+00:00",
+    "asset": "ZARUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66602,
+    "date": "2026-01-12T15:59:11+00:00",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66598,
+    "date": "2026-01-12T15:55:09+00:00",
+    "asset": "EURRUB_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66594,
+    "date": "2026-01-12T15:52:07+00:00",
+    "asset": "USDMYR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66590,
+    "date": "2026-01-12T15:48:31+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66586,
+    "date": "2026-01-12T15:46:08+00:00",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66582,
+    "date": "2026-01-12T15:40:05+00:00",
+    "asset": "NZDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66578,
+    "date": "2026-01-12T15:37:06+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66564,
+    "date": "2026-01-12T09:14:19+00:00",
+    "asset": "EURCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66560,
+    "date": "2026-01-12T09:11:10+00:00",
+    "asset": "USDINR_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66555,
+    "date": "2026-01-12T09:06:10+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66551,
+    "date": "2026-01-12T09:03:02+00:00",
+    "asset": "UAHUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66547,
+    "date": "2026-01-12T08:59:13+00:00",
+    "asset": "USDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66543,
+    "date": "2026-01-12T08:56:32+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66537,
+    "date": "2026-01-12T08:48:14+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66533,
+    "date": "2026-01-12T08:45:19+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66529,
+    "date": "2026-01-12T08:40:07+00:00",
+    "asset": "NZDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66525,
+    "date": "2026-01-12T08:36:14+00:00",
+    "asset": "EURUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66521,
+    "date": "2026-01-12T08:31:04+00:00",
+    "asset": "GBPUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66512,
+    "date": "2026-01-11T19:54:07+00:00",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66508,
+    "date": "2026-01-11T19:50:41+00:00",
+    "asset": "GBPJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66488,
+    "date": "2026-01-10T08:30:10+00:00",
+    "asset": "USDEGP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66484,
+    "date": "2026-01-10T08:26:06+00:00",
+    "asset": "EURTRY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66479,
+    "date": "2026-01-10T08:20:10+00:00",
+    "asset": "TNDUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66475,
+    "date": "2026-01-10T08:16:16+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66470,
+    "date": "2026-01-10T08:09:19+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66466,
+    "date": "2026-01-10T08:05:22+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66460,
+    "date": "2026-01-10T07:59:24+00:00",
+    "asset": "USDTHB_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66440,
+    "date": "2026-01-09T08:15:08+00:00",
+    "asset": "USDCNH_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66436,
+    "date": "2026-01-09T08:11:27+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66432,
+    "date": "2026-01-09T08:09:04+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66428,
+    "date": "2026-01-09T08:05:29+00:00",
+    "asset": "USDCLP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66424,
+    "date": "2026-01-09T08:01:10+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66420,
+    "date": "2026-01-09T07:57:13+00:00",
+    "asset": "USDJPY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66415,
+    "date": "2026-01-09T07:53:04+00:00",
+    "asset": "EURHUF_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66408,
+    "date": "2026-01-09T07:47:19+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66404,
+    "date": "2026-01-09T07:40:10+00:00",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66400,
+    "date": "2026-01-09T07:34:14+00:00",
+    "asset": "CADCHF_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66386,
+    "date": "2026-01-08T19:44:05+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66383,
+    "date": "2026-01-08T19:41:05+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "PUT",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66380,
+    "date": "2026-01-08T19:38:23+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66376,
+    "date": "2026-01-08T19:34:17+00:00",
+    "asset": "USDPHP_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  },
+  {
+    "msg_id": 66373,
+    "date": "2026-01-08T19:30:07+00:00",
+    "asset": "MADUSD_otc",
+    "direction": "CALL",
+    "exp": 1,
+    "ch": "vip_otc_market"
+  }
+]

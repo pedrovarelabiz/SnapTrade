@@ -1,0 +1,32 @@
+global:
+  scrape_interval: 30s
+  evaluation_interval: 30s
+  scrape_timeout: 10s
+
+rule_files:
+  - "prometheus-sse-rules.yml"
+  - "prometheus-sse-alerts.yml"
+
+scrape_configs:
+  - job_name: "snaptrade-api"
+    metrics_path: /metrics
+    scheme: http
+    bearer_token: "${PROMETHEUS_BEARER_TOKEN}"
+    static_configs:
+      - targets:
+          - "localhost:3001"
+        labels:
+          env: "production"
+          component: "api"
+
+  - job_name: "snaptrade-listener"
+    metrics_path: /metrics
+    scheme: http
+    # Note: Listener does not yet support bearer token authentication
+    # bearer_token: "${PROMETHEUS_BEARER_TOKEN}"
+    static_configs:
+      - targets:
+          - "localhost:8888"
+        labels:
+          env: "production"
+          component: "listener"

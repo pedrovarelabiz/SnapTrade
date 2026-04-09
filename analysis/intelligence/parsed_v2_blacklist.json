@@ -1,0 +1,10 @@
+[
+  {
+    "date": "2025-03-05 23:03:21",
+    "asset": "USDBDT_otc",
+    "direction": "CALL",
+    "channel": "blacklist",
+    "result": "WIN",
+    "gale_level": 0
+  }
+]

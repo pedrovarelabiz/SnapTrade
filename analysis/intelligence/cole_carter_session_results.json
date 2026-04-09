@@ -1,0 +1,6258 @@
+[
+  {
+    "msg_id": 51,
+    "date": "2025-12-25T14:36:32+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 51,
+    "date": "2025-12-25T14:36:32+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 51,
+    "date": "2025-12-25T14:36:32+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 56,
+    "date": "2025-12-25T19:21:38+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 56,
+    "date": "2025-12-25T19:21:38+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 56,
+    "date": "2025-12-25T19:21:38+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 56,
+    "date": "2025-12-25T19:21:38+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 56,
+    "date": "2025-12-25T19:21:38+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 56,
+    "date": "2025-12-25T19:21:38+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 77,
+    "date": "2025-12-26T15:33:43+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 460,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 77,
+    "date": "2025-12-26T15:33:43+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 77,
+    "date": "2025-12-26T15:33:43+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 81,
+    "date": "2025-12-26T20:32:32+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 460,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 81,
+    "date": "2025-12-26T20:32:32+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 81,
+    "date": "2025-12-26T20:32:32+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 81,
+    "date": "2025-12-26T20:32:32+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 81,
+    "date": "2025-12-26T20:32:32+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 81,
+    "date": "2025-12-26T20:32:32+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 98,
+    "date": "2025-12-27T15:14:05+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 98,
+    "date": "2025-12-27T15:14:05+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 98,
+    "date": "2025-12-27T15:14:05+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 102,
+    "date": "2025-12-27T19:13:07+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 102,
+    "date": "2025-12-27T19:13:07+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 102,
+    "date": "2025-12-27T19:13:07+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 102,
+    "date": "2025-12-27T19:13:07+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 102,
+    "date": "2025-12-27T19:13:07+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 102,
+    "date": "2025-12-27T19:13:07+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 121,
+    "date": "2025-12-28T14:54:23+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 121,
+    "date": "2025-12-28T14:54:23+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 121,
+    "date": "2025-12-28T14:54:23+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 126,
+    "date": "2025-12-28T19:27:14+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 126,
+    "date": "2025-12-28T19:27:14+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 126,
+    "date": "2025-12-28T19:27:14+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 126,
+    "date": "2025-12-28T19:27:14+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 126,
+    "date": "2025-12-28T19:27:14+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 126,
+    "date": "2025-12-28T19:27:14+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 146,
+    "date": "2025-12-29T14:05:29+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 146,
+    "date": "2025-12-29T14:05:29+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 146,
+    "date": "2025-12-29T14:05:29+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 152,
+    "date": "2025-12-29T18:37:13+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 152,
+    "date": "2025-12-29T18:37:13+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 152,
+    "date": "2025-12-29T18:37:13+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 152,
+    "date": "2025-12-29T18:37:13+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 152,
+    "date": "2025-12-29T18:37:13+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 176,
+    "date": "2025-12-30T15:00:26+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 176,
+    "date": "2025-12-30T15:00:26+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 176,
+    "date": "2025-12-30T15:00:26+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 182,
+    "date": "2025-12-30T18:56:53+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 182,
+    "date": "2025-12-30T18:56:53+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 182,
+    "date": "2025-12-30T18:56:53+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 182,
+    "date": "2025-12-30T18:56:53+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 182,
+    "date": "2025-12-30T18:56:53+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 182,
+    "date": "2025-12-30T18:56:53+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 201,
+    "date": "2025-12-31T14:14:46+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 201,
+    "date": "2025-12-31T14:14:46+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 201,
+    "date": "2025-12-31T14:14:46+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 206,
+    "date": "2025-12-31T19:21:28+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 206,
+    "date": "2025-12-31T19:21:28+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 206,
+    "date": "2025-12-31T19:21:28+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 206,
+    "date": "2025-12-31T19:21:28+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 206,
+    "date": "2025-12-31T19:21:28+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 206,
+    "date": "2025-12-31T19:21:28+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 226,
+    "date": "2026-01-01T18:06:16+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 226,
+    "date": "2026-01-01T18:06:16+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 226,
+    "date": "2026-01-01T18:06:16+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 232,
+    "date": "2026-01-01T20:29:50+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 232,
+    "date": "2026-01-01T20:29:50+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 232,
+    "date": "2026-01-01T20:29:50+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 232,
+    "date": "2026-01-01T20:29:50+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 232,
+    "date": "2026-01-01T20:29:50+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 232,
+    "date": "2026-01-01T20:29:50+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 251,
+    "date": "2026-01-02T15:19:06+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 251,
+    "date": "2026-01-02T15:19:06+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 251,
+    "date": "2026-01-02T15:19:06+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 256,
+    "date": "2026-01-02T20:29:16+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 256,
+    "date": "2026-01-02T20:29:16+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 256,
+    "date": "2026-01-02T20:29:16+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 256,
+    "date": "2026-01-02T20:29:16+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 256,
+    "date": "2026-01-02T20:29:16+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 256,
+    "date": "2026-01-02T20:29:16+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 275,
+    "date": "2026-01-03T16:25:14+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 275,
+    "date": "2026-01-03T16:25:14+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 275,
+    "date": "2026-01-03T16:25:14+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 280,
+    "date": "2026-01-03T20:26:31+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 280,
+    "date": "2026-01-03T20:26:31+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 280,
+    "date": "2026-01-03T20:26:31+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 280,
+    "date": "2026-01-03T20:26:31+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 280,
+    "date": "2026-01-03T20:26:31+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 280,
+    "date": "2026-01-03T20:26:31+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 299,
+    "date": "2026-01-04T15:58:35+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 299,
+    "date": "2026-01-04T15:58:35+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 299,
+    "date": "2026-01-04T15:58:35+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 304,
+    "date": "2026-01-04T19:33:59+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 304,
+    "date": "2026-01-04T19:33:59+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 304,
+    "date": "2026-01-04T19:33:59+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 304,
+    "date": "2026-01-04T19:33:59+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 304,
+    "date": "2026-01-04T19:33:59+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 304,
+    "date": "2026-01-04T19:33:59+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 325,
+    "date": "2026-01-05T16:19:52+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 325,
+    "date": "2026-01-05T16:19:52+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 325,
+    "date": "2026-01-05T16:19:52+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 330,
+    "date": "2026-01-05T20:20:16+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 330,
+    "date": "2026-01-05T20:20:16+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 330,
+    "date": "2026-01-05T20:20:16+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 330,
+    "date": "2026-01-05T20:20:16+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 330,
+    "date": "2026-01-05T20:20:16+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 330,
+    "date": "2026-01-05T20:20:16+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 349,
+    "date": "2026-01-06T14:59:18+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 349,
+    "date": "2026-01-06T14:59:18+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 349,
+    "date": "2026-01-06T14:59:18+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 354,
+    "date": "2026-01-06T19:02:40+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 354,
+    "date": "2026-01-06T19:02:40+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 354,
+    "date": "2026-01-06T19:02:40+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 354,
+    "date": "2026-01-06T19:02:40+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 354,
+    "date": "2026-01-06T19:02:40+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 354,
+    "date": "2026-01-06T19:02:40+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 373,
+    "date": "2026-01-07T15:46:04+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 373,
+    "date": "2026-01-07T15:46:04+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 373,
+    "date": "2026-01-07T15:46:04+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 378,
+    "date": "2026-01-07T19:33:18+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 378,
+    "date": "2026-01-07T19:33:18+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 378,
+    "date": "2026-01-07T19:33:18+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 378,
+    "date": "2026-01-07T19:33:18+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 378,
+    "date": "2026-01-07T19:33:18+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 378,
+    "date": "2026-01-07T19:33:18+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 399,
+    "date": "2026-01-08T15:52:30+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 399,
+    "date": "2026-01-08T15:52:30+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 399,
+    "date": "2026-01-08T15:52:30+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 404,
+    "date": "2026-01-08T20:03:07+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 404,
+    "date": "2026-01-08T20:03:07+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 404,
+    "date": "2026-01-08T20:03:07+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 404,
+    "date": "2026-01-08T20:03:07+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 404,
+    "date": "2026-01-08T20:03:07+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 404,
+    "date": "2026-01-08T20:03:07+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 830,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 424,
+    "date": "2026-01-09T16:21:55+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 424,
+    "date": "2026-01-09T16:21:55+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 424,
+    "date": "2026-01-09T16:21:55+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 429,
+    "date": "2026-01-09T19:14:54+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 429,
+    "date": "2026-01-09T19:14:54+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 429,
+    "date": "2026-01-09T19:14:54+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 429,
+    "date": "2026-01-09T19:14:54+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 429,
+    "date": "2026-01-09T19:14:54+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 429,
+    "date": "2026-01-09T19:14:54+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 448,
+    "date": "2026-01-10T14:51:29+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 448,
+    "date": "2026-01-10T14:51:29+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 448,
+    "date": "2026-01-10T14:51:29+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 453,
+    "date": "2026-01-10T20:03:27+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 453,
+    "date": "2026-01-10T20:03:27+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 453,
+    "date": "2026-01-10T20:03:27+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 453,
+    "date": "2026-01-10T20:03:27+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 453,
+    "date": "2026-01-10T20:03:27+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 453,
+    "date": "2026-01-10T20:03:27+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 471,
+    "date": "2026-01-11T15:38:47+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 471,
+    "date": "2026-01-11T15:38:47+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 471,
+    "date": "2026-01-11T15:38:47+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 476,
+    "date": "2026-01-11T18:48:17+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 476,
+    "date": "2026-01-11T18:48:17+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 476,
+    "date": "2026-01-11T18:48:17+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 476,
+    "date": "2026-01-11T18:48:17+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 476,
+    "date": "2026-01-11T18:48:17+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 476,
+    "date": "2026-01-11T18:48:17+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 497,
+    "date": "2026-01-12T15:26:24+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 497,
+    "date": "2026-01-12T15:26:24+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 503,
+    "date": "2026-01-12T19:58:09+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 503,
+    "date": "2026-01-12T19:58:09+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 503,
+    "date": "2026-01-12T19:58:09+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 503,
+    "date": "2026-01-12T19:58:09+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 523,
+    "date": "2026-01-13T13:24:42+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 536,
+    "date": "2026-01-13T19:41:06+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 536,
+    "date": "2026-01-13T19:41:06+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 536,
+    "date": "2026-01-13T19:41:06+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 536,
+    "date": "2026-01-13T19:41:06+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 536,
+    "date": "2026-01-13T19:41:06+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 460,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 536,
+    "date": "2026-01-13T19:41:06+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 558,
+    "date": "2026-01-14T14:27:46+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 558,
+    "date": "2026-01-14T14:27:46+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 558,
+    "date": "2026-01-14T14:27:46+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 558,
+    "date": "2026-01-14T14:27:46+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1104,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 565,
+    "date": "2026-01-14T19:41:24+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 586,
+    "date": "2026-01-15T13:27:31+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 586,
+    "date": "2026-01-15T13:27:31+00:00",
+    "asset": "USDBDT_otc",
+    "amount_usd": 1500,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 586,
+    "date": "2026-01-15T13:27:31+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1500,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 586,
+    "date": "2026-01-15T13:27:31+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "USDBDT_otc",
+    "amount_usd": 1500,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1500,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 870,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 598,
+    "date": "2026-01-15T18:07:39+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 620,
+    "date": "2026-01-16T13:48:29+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 750,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 620,
+    "date": "2026-01-16T13:48:29+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 620,
+    "date": "2026-01-16T13:48:29+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 620,
+    "date": "2026-01-16T13:48:29+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 620,
+    "date": "2026-01-16T13:48:29+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 627,
+    "date": "2026-01-16T18:36:22+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 750,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 627,
+    "date": "2026-01-16T18:36:22+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 627,
+    "date": "2026-01-16T18:36:22+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 627,
+    "date": "2026-01-16T18:36:22+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 627,
+    "date": "2026-01-16T18:36:22+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 627,
+    "date": "2026-01-16T18:36:22+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 646,
+    "date": "2026-01-17T13:55:17+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 646,
+    "date": "2026-01-17T13:55:17+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 646,
+    "date": "2026-01-17T13:55:17+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 646,
+    "date": "2026-01-17T13:55:17+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 653,
+    "date": "2026-01-17T19:22:48+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 674,
+    "date": "2026-01-18T14:18:11+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 674,
+    "date": "2026-01-18T14:18:11+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 674,
+    "date": "2026-01-18T14:18:11+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2250,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 681,
+    "date": "2026-01-18T18:27:14+00:00",
+    "asset": "USDBDT_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 702,
+    "date": "2026-01-19T14:06:30+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 702,
+    "date": "2026-01-19T14:06:30+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 702,
+    "date": "2026-01-19T14:06:30+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 702,
+    "date": "2026-01-19T14:06:30+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 709,
+    "date": "2026-01-19T18:19:47+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 733,
+    "date": "2026-01-20T12:59:31+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 733,
+    "date": "2026-01-20T12:59:31+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 733,
+    "date": "2026-01-20T12:59:31+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 733,
+    "date": "2026-01-20T12:59:31+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 740,
+    "date": "2026-01-20T18:20:31+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 740,
+    "date": "2026-01-20T18:20:31+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 740,
+    "date": "2026-01-20T18:20:31+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 740,
+    "date": "2026-01-20T18:20:31+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 740,
+    "date": "2026-01-20T18:20:31+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 740,
+    "date": "2026-01-20T18:20:31+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 760,
+    "date": "2026-01-21T13:42:19+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 760,
+    "date": "2026-01-21T13:42:19+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 760,
+    "date": "2026-01-21T13:42:19+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 760,
+    "date": "2026-01-21T13:42:19+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 760,
+    "date": "2026-01-21T13:42:19+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "NZDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 767,
+    "date": "2026-01-21T18:32:49+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 787,
+    "date": "2026-01-22T13:14:32+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 787,
+    "date": "2026-01-22T13:14:32+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 787,
+    "date": "2026-01-22T13:14:32+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 787,
+    "date": "2026-01-22T13:14:32+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 787,
+    "date": "2026-01-22T13:14:32+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 794,
+    "date": "2026-01-22T19:51:13+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 816,
+    "date": "2026-01-23T13:35:22+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 816,
+    "date": "2026-01-23T13:35:22+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 816,
+    "date": "2026-01-23T13:35:22+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 816,
+    "date": "2026-01-23T13:35:22+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 816,
+    "date": "2026-01-23T13:35:22+00:00",
+    "asset": "MADUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 823,
+    "date": "2026-01-23T18:35:04+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 823,
+    "date": "2026-01-23T18:35:04+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 823,
+    "date": "2026-01-23T18:35:04+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 823,
+    "date": "2026-01-23T18:35:04+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 823,
+    "date": "2026-01-23T18:35:04+00:00",
+    "asset": "MADUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 823,
+    "date": "2026-01-23T18:35:04+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 845,
+    "date": "2026-01-24T14:03:59+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 845,
+    "date": "2026-01-24T14:03:59+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 845,
+    "date": "2026-01-24T14:03:59+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 845,
+    "date": "2026-01-24T14:03:59+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 845,
+    "date": "2026-01-24T14:03:59+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 630,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 630,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 852,
+    "date": "2026-01-24T20:01:54+00:00",
+    "asset": "MADUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 875,
+    "date": "2026-01-25T13:11:04+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1125,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 875,
+    "date": "2026-01-25T13:11:04+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1050,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 875,
+    "date": "2026-01-25T13:11:04+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 875,
+    "date": "2026-01-25T13:11:04+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1125,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1050,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 882,
+    "date": "2026-01-25T19:11:09+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 903,
+    "date": "2026-01-26T13:35:44+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 903,
+    "date": "2026-01-26T13:35:44+00:00",
+    "asset": "BHFCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 903,
+    "date": "2026-01-26T13:35:44+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 908,
+    "date": "2026-01-26T19:29:32+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 908,
+    "date": "2026-01-26T19:29:32+00:00",
+    "asset": "BHFCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 908,
+    "date": "2026-01-26T19:29:32+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 908,
+    "date": "2026-01-26T19:29:32+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 908,
+    "date": "2026-01-26T19:29:32+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 908,
+    "date": "2026-01-26T19:29:32+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 926,
+    "date": "2026-01-27T13:03:55+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 926,
+    "date": "2026-01-27T13:03:55+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 926,
+    "date": "2026-01-27T13:03:55+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 931,
+    "date": "2026-01-27T18:14:50+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 931,
+    "date": "2026-01-27T18:14:50+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 931,
+    "date": "2026-01-27T18:14:50+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 931,
+    "date": "2026-01-27T18:14:50+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 931,
+    "date": "2026-01-27T18:14:50+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 931,
+    "date": "2026-01-27T18:14:50+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1110,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 950,
+    "date": "2026-01-28T13:49:25+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 950,
+    "date": "2026-01-28T13:49:25+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 950,
+    "date": "2026-01-28T13:49:25+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 955,
+    "date": "2026-01-28T18:12:37+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 955,
+    "date": "2026-01-28T18:12:37+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 955,
+    "date": "2026-01-28T18:12:37+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 955,
+    "date": "2026-01-28T18:12:37+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 955,
+    "date": "2026-01-28T18:12:37+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 955,
+    "date": "2026-01-28T18:12:37+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 977,
+    "date": "2026-01-29T13:24:44+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 977,
+    "date": "2026-01-29T13:24:44+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 977,
+    "date": "2026-01-29T13:24:44+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 977,
+    "date": "2026-01-29T13:24:44+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 985,
+    "date": "2026-01-29T18:42:31+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 985,
+    "date": "2026-01-29T18:42:31+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 985,
+    "date": "2026-01-29T18:42:31+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 985,
+    "date": "2026-01-29T18:42:31+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 985,
+    "date": "2026-01-29T18:42:31+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 985,
+    "date": "2026-01-29T18:42:31+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1004,
+    "date": "2026-01-30T13:50:44+00:00",
+    "asset": "SARCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1004,
+    "date": "2026-01-30T13:50:44+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1010,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1004,
+    "date": "2026-01-30T13:50:44+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1004,
+    "date": "2026-01-30T13:50:44+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "SARCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1010,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1013,
+    "date": "2026-01-30T17:51:22+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1030,
+    "date": "2026-01-31T14:13:51+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1030,
+    "date": "2026-01-31T14:13:51+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1030,
+    "date": "2026-01-31T14:13:51+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1037,
+    "date": "2026-01-31T19:59:49+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1037,
+    "date": "2026-01-31T19:59:49+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1037,
+    "date": "2026-01-31T19:59:49+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1037,
+    "date": "2026-01-31T19:59:49+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1037,
+    "date": "2026-01-31T19:59:49+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1056,
+    "date": "2026-02-01T15:04:40+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1056,
+    "date": "2026-02-01T15:04:40+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1056,
+    "date": "2026-02-01T15:04:40+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1061,
+    "date": "2026-02-01T20:09:07+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1061,
+    "date": "2026-02-01T20:09:07+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1061,
+    "date": "2026-02-01T20:09:07+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1061,
+    "date": "2026-02-01T20:09:07+00:00",
+    "asset": "SARCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1061,
+    "date": "2026-02-01T20:09:07+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1061,
+    "date": "2026-02-01T20:09:07+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1082,
+    "date": "2026-02-02T14:25:53+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1082,
+    "date": "2026-02-02T14:25:53+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1082,
+    "date": "2026-02-02T14:25:53+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "USDCOP_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1090,
+    "date": "2026-02-02T18:54:36+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1114,
+    "date": "2026-02-03T14:03:12+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1114,
+    "date": "2026-02-03T14:03:12+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1114,
+    "date": "2026-02-03T14:03:12+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1120,
+    "date": "2026-02-03T18:14:44+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1120,
+    "date": "2026-02-03T18:14:44+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1120,
+    "date": "2026-02-03T18:14:44+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1120,
+    "date": "2026-02-03T18:14:44+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1120,
+    "date": "2026-02-03T18:14:44+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1120,
+    "date": "2026-02-03T18:14:44+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1140,
+    "date": "2026-02-04T14:09:34+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1140,
+    "date": "2026-02-04T14:09:34+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1140,
+    "date": "2026-02-04T14:09:34+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1147,
+    "date": "2026-02-04T18:04:12+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1147,
+    "date": "2026-02-04T18:04:12+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1147,
+    "date": "2026-02-04T18:04:12+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1147,
+    "date": "2026-02-04T18:04:12+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1147,
+    "date": "2026-02-04T18:04:12+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1147,
+    "date": "2026-02-04T18:04:12+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1165,
+    "date": "2026-02-05T15:09:50+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1165,
+    "date": "2026-02-05T15:09:50+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1165,
+    "date": "2026-02-05T15:09:50+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1170,
+    "date": "2026-02-05T19:41:46+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1170,
+    "date": "2026-02-05T19:41:46+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1170,
+    "date": "2026-02-05T19:41:46+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1170,
+    "date": "2026-02-05T19:41:46+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1170,
+    "date": "2026-02-05T19:41:46+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1170,
+    "date": "2026-02-05T19:41:46+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1191,
+    "date": "2026-02-06T14:54:31+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1191,
+    "date": "2026-02-06T14:54:31+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1191,
+    "date": "2026-02-06T14:54:31+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1197,
+    "date": "2026-02-06T19:44:19+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1197,
+    "date": "2026-02-06T19:44:19+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1197,
+    "date": "2026-02-06T19:44:19+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1197,
+    "date": "2026-02-06T19:44:19+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1197,
+    "date": "2026-02-06T19:44:19+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1197,
+    "date": "2026-02-06T19:44:19+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1218,
+    "date": "2026-02-07T14:21:56+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1218,
+    "date": "2026-02-07T14:21:56+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1218,
+    "date": "2026-02-07T14:21:56+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1227,
+    "date": "2026-02-07T19:33:03+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1227,
+    "date": "2026-02-07T19:33:03+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1227,
+    "date": "2026-02-07T19:33:03+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1227,
+    "date": "2026-02-07T19:33:03+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1227,
+    "date": "2026-02-07T19:33:03+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1227,
+    "date": "2026-02-07T19:33:03+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1246,
+    "date": "2026-02-08T14:34:21+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1246,
+    "date": "2026-02-08T14:34:21+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1246,
+    "date": "2026-02-08T14:34:21+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1251,
+    "date": "2026-02-08T19:04:30+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1251,
+    "date": "2026-02-08T19:04:30+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1251,
+    "date": "2026-02-08T19:04:30+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1251,
+    "date": "2026-02-08T19:04:30+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1251,
+    "date": "2026-02-08T19:04:30+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1251,
+    "date": "2026-02-08T19:04:30+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1271,
+    "date": "2026-02-09T15:57:21+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1271,
+    "date": "2026-02-09T15:57:21+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1271,
+    "date": "2026-02-09T15:57:21+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1277,
+    "date": "2026-02-09T19:11:26+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1277,
+    "date": "2026-02-09T19:11:26+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1277,
+    "date": "2026-02-09T19:11:26+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1277,
+    "date": "2026-02-09T19:11:26+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1277,
+    "date": "2026-02-09T19:11:26+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1277,
+    "date": "2026-02-09T19:11:26+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1295,
+    "date": "2026-02-10T14:07:26+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1295,
+    "date": "2026-02-10T14:07:26+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1295,
+    "date": "2026-02-10T14:07:26+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1350,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1300,
+    "date": "2026-02-10T19:43:22+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1300,
+    "date": "2026-02-10T19:43:22+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1300,
+    "date": "2026-02-10T19:43:22+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1350,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1300,
+    "date": "2026-02-10T19:43:22+00:00",
+    "asset": "GBPJPY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1300,
+    "date": "2026-02-10T19:43:22+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1300,
+    "date": "2026-02-10T19:43:22+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1321,
+    "date": "2026-02-11T15:02:24+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1321,
+    "date": "2026-02-11T15:02:24+00:00",
+    "asset": "KESUSD_otc",
+    "amount_usd": 900,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1321,
+    "date": "2026-02-11T15:02:24+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1328,
+    "date": "2026-02-11T17:33:38+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1328,
+    "date": "2026-02-11T17:33:38+00:00",
+    "asset": "KESUSD_otc",
+    "amount_usd": 900,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1328,
+    "date": "2026-02-11T17:33:38+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1328,
+    "date": "2026-02-11T17:33:38+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1328,
+    "date": "2026-02-11T17:33:38+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1328,
+    "date": "2026-02-11T17:33:38+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1346,
+    "date": "2026-02-12T14:37:23+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1346,
+    "date": "2026-02-12T14:37:23+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1140,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1346,
+    "date": "2026-02-12T14:37:23+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1354,
+    "date": "2026-02-12T17:50:10+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1354,
+    "date": "2026-02-12T17:50:10+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1140,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1354,
+    "date": "2026-02-12T17:50:10+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1354,
+    "date": "2026-02-12T17:50:10+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1354,
+    "date": "2026-02-12T17:50:10+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1354,
+    "date": "2026-02-12T17:50:10+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1374,
+    "date": "2026-02-13T13:55:26+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1374,
+    "date": "2026-02-13T13:55:26+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1374,
+    "date": "2026-02-13T13:55:26+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1379,
+    "date": "2026-02-13T18:13:15+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1379,
+    "date": "2026-02-13T18:13:15+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1379,
+    "date": "2026-02-13T18:13:15+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1379,
+    "date": "2026-02-13T18:13:15+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1379,
+    "date": "2026-02-13T18:13:15+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1379,
+    "date": "2026-02-13T18:13:15+00:00",
+    "asset": "EURJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1398,
+    "date": "2026-02-14T13:56:25+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1398,
+    "date": "2026-02-14T13:56:25+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1398,
+    "date": "2026-02-14T13:56:25+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1403,
+    "date": "2026-02-14T18:37:27+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1403,
+    "date": "2026-02-14T18:37:27+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1403,
+    "date": "2026-02-14T18:37:27+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1403,
+    "date": "2026-02-14T18:37:27+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1403,
+    "date": "2026-02-14T18:37:27+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1403,
+    "date": "2026-02-14T18:37:27+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1423,
+    "date": "2026-02-15T13:28:13+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1423,
+    "date": "2026-02-15T13:28:13+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1423,
+    "date": "2026-02-15T13:28:13+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1428,
+    "date": "2026-02-15T18:44:33+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1428,
+    "date": "2026-02-15T18:44:33+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1428,
+    "date": "2026-02-15T18:44:33+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1428,
+    "date": "2026-02-15T18:44:33+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1428,
+    "date": "2026-02-15T18:44:33+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1428,
+    "date": "2026-02-15T18:44:33+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1447,
+    "date": "2026-02-16T12:44:14+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1447,
+    "date": "2026-02-16T12:44:14+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1447,
+    "date": "2026-02-16T12:44:14+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1454,
+    "date": "2026-02-16T17:57:29+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1454,
+    "date": "2026-02-16T17:57:29+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1454,
+    "date": "2026-02-16T17:57:29+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1454,
+    "date": "2026-02-16T17:57:29+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1454,
+    "date": "2026-02-16T17:57:29+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1454,
+    "date": "2026-02-16T17:57:29+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1474,
+    "date": "2026-02-17T12:44:01+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1474,
+    "date": "2026-02-17T12:44:01+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1474,
+    "date": "2026-02-17T12:44:01+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1479,
+    "date": "2026-02-17T18:05:31+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1479,
+    "date": "2026-02-17T18:05:31+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1479,
+    "date": "2026-02-17T18:05:31+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1479,
+    "date": "2026-02-17T18:05:31+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1479,
+    "date": "2026-02-17T18:05:31+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1479,
+    "date": "2026-02-17T18:05:31+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1509,
+    "date": "2026-02-18T13:14:49+00:00",
+    "asset": "USDIDR_otc",
+    "amount_usd": 375,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1509,
+    "date": "2026-02-18T13:14:49+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1518,
+    "date": "2026-02-18T18:52:54+00:00",
+    "asset": "USDIDR_otc",
+    "amount_usd": 375,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1518,
+    "date": "2026-02-18T18:52:54+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1518,
+    "date": "2026-02-18T18:52:54+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1518,
+    "date": "2026-02-18T18:52:54+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1518,
+    "date": "2026-02-18T18:52:54+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1534,
+    "date": "2026-02-19T13:13:18+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1534,
+    "date": "2026-02-19T13:13:18+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1610,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1534,
+    "date": "2026-02-19T13:13:18+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 61250,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1547,
+    "date": "2026-02-19T17:34:51+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1547,
+    "date": "2026-02-19T17:34:51+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1610,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1547,
+    "date": "2026-02-19T17:34:51+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 612,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1547,
+    "date": "2026-02-19T17:34:51+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1547,
+    "date": "2026-02-19T17:34:51+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1547,
+    "date": "2026-02-19T17:34:51+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1572,
+    "date": "2026-02-20T12:37:18+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 750,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1572,
+    "date": "2026-02-20T12:37:18+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1572,
+    "date": "2026-02-20T12:37:18+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1578,
+    "date": "2026-02-20T18:03:42+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 750,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1578,
+    "date": "2026-02-20T18:03:42+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1578,
+    "date": "2026-02-20T18:03:42+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1578,
+    "date": "2026-02-20T18:03:42+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1578,
+    "date": "2026-02-20T18:03:42+00:00",
+    "asset": "USDEGP_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1578,
+    "date": "2026-02-20T18:03:42+00:00",
+    "asset": "NZDJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1598,
+    "date": "2026-02-21T12:56:23+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1598,
+    "date": "2026-02-21T12:56:23+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1598,
+    "date": "2026-02-21T12:56:23+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1603,
+    "date": "2026-02-21T17:34:16+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1603,
+    "date": "2026-02-21T17:34:16+00:00",
+    "asset": "JODCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1603,
+    "date": "2026-02-21T17:34:16+00:00",
+    "asset": "CHFNOK_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1603,
+    "date": "2026-02-21T17:34:16+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1603,
+    "date": "2026-02-21T17:34:16+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1623,
+    "date": "2026-02-22T12:31:50+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1623,
+    "date": "2026-02-22T12:31:50+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1623,
+    "date": "2026-02-22T12:31:50+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1628,
+    "date": "2026-02-22T19:22:47+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1628,
+    "date": "2026-02-22T19:22:47+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1628,
+    "date": "2026-02-22T19:22:47+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1628,
+    "date": "2026-02-22T19:22:47+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 1100,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1628,
+    "date": "2026-02-22T19:22:47+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1628,
+    "date": "2026-02-22T19:22:47+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1648,
+    "date": "2026-02-23T12:41:19+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1275,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1648,
+    "date": "2026-02-23T12:41:19+00:00",
+    "asset": "EURJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1648,
+    "date": "2026-02-23T12:41:19+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1653,
+    "date": "2026-02-23T17:59:41+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1275,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1653,
+    "date": "2026-02-23T17:59:41+00:00",
+    "asset": "EURJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1653,
+    "date": "2026-02-23T17:59:41+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1653,
+    "date": "2026-02-23T17:59:41+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1653,
+    "date": "2026-02-23T17:59:41+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1653,
+    "date": "2026-02-23T17:59:41+00:00",
+    "asset": "USDCNH_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1676,
+    "date": "2026-02-24T14:57:01+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1676,
+    "date": "2026-02-24T14:57:01+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1676,
+    "date": "2026-02-24T14:57:01+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1681,
+    "date": "2026-02-24T17:51:58+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1681,
+    "date": "2026-02-24T17:51:58+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1681,
+    "date": "2026-02-24T17:51:58+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1681,
+    "date": "2026-02-24T17:51:58+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 460,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1681,
+    "date": "2026-02-24T17:51:58+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1681,
+    "date": "2026-02-24T17:51:58+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1702,
+    "date": "2026-02-25T12:41:07+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1702,
+    "date": "2026-02-25T12:41:07+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1702,
+    "date": "2026-02-25T12:41:07+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1707,
+    "date": "2026-02-25T17:45:22+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1707,
+    "date": "2026-02-25T17:45:22+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1707,
+    "date": "2026-02-25T17:45:22+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1707,
+    "date": "2026-02-25T17:45:22+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1707,
+    "date": "2026-02-25T17:45:22+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1707,
+    "date": "2026-02-25T17:45:22+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1728,
+    "date": "2026-02-26T13:11:52+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1728,
+    "date": "2026-02-26T13:11:52+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1736,
+    "date": "2026-02-26T17:39:58+00:00",
+    "asset": "EURGBP_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1736,
+    "date": "2026-02-26T17:39:58+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1736,
+    "date": "2026-02-26T17:39:58+00:00",
+    "asset": "NGNUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1736,
+    "date": "2026-02-26T17:39:58+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1736,
+    "date": "2026-02-26T17:39:58+00:00",
+    "asset": "USDARS_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1751,
+    "date": "2026-02-27T12:54:01+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1751,
+    "date": "2026-02-27T12:54:01+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1751,
+    "date": "2026-02-27T12:54:01+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1225,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1761,
+    "date": "2026-02-27T17:48:04+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1761,
+    "date": "2026-02-27T17:48:04+00:00",
+    "asset": "AUDNZD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1761,
+    "date": "2026-02-27T17:48:04+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1225,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1761,
+    "date": "2026-02-27T17:48:04+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1781,
+    "date": "2026-02-28T12:32:08+00:00",
+    "asset": "USDDZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1781,
+    "date": "2026-02-28T12:32:08+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1781,
+    "date": "2026-02-28T12:32:08+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1786,
+    "date": "2026-02-28T17:45:52+00:00",
+    "asset": "USDDZD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1786,
+    "date": "2026-02-28T17:45:52+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1786,
+    "date": "2026-02-28T17:45:52+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1786,
+    "date": "2026-02-28T17:45:52+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1786,
+    "date": "2026-02-28T17:45:52+00:00",
+    "asset": "USDINR_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1801,
+    "date": "2026-03-01T12:33:10+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1801,
+    "date": "2026-03-01T12:33:10+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1801,
+    "date": "2026-03-01T12:33:10+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1811,
+    "date": "2026-03-01T18:02:27+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1811,
+    "date": "2026-03-01T18:02:27+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1811,
+    "date": "2026-03-01T18:02:27+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1811,
+    "date": "2026-03-01T18:02:27+00:00",
+    "asset": "USDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1811,
+    "date": "2026-03-01T18:02:27+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1811,
+    "date": "2026-03-01T18:02:27+00:00",
+    "asset": "USDVND_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1825,
+    "date": "2026-03-02T12:31:18+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1825,
+    "date": "2026-03-02T12:31:18+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1825,
+    "date": "2026-03-02T12:31:18+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1835,
+    "date": "2026-03-02T17:41:52+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1835,
+    "date": "2026-03-02T17:41:52+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1835,
+    "date": "2026-03-02T17:41:52+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1835,
+    "date": "2026-03-02T17:41:52+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1835,
+    "date": "2026-03-02T17:41:52+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1835,
+    "date": "2026-03-02T17:41:52+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1849,
+    "date": "2026-03-03T12:43:24+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1849,
+    "date": "2026-03-03T12:43:24+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1849,
+    "date": "2026-03-03T12:43:24+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1860,
+    "date": "2026-03-03T17:54:01+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1860,
+    "date": "2026-03-03T17:54:01+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1150,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1860,
+    "date": "2026-03-03T17:54:01+00:00",
+    "asset": "GBPUSD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1860,
+    "date": "2026-03-03T17:54:01+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1860,
+    "date": "2026-03-03T17:54:01+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1860,
+    "date": "2026-03-03T17:54:01+00:00",
+    "asset": "KESUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1881,
+    "date": "2026-03-04T13:07:54+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1881,
+    "date": "2026-03-04T13:07:54+00:00",
+    "asset": "USDIDR_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1881,
+    "date": "2026-03-04T13:07:54+00:00",
+    "asset": "SARCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1886,
+    "date": "2026-03-04T18:04:52+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1886,
+    "date": "2026-03-04T18:04:52+00:00",
+    "asset": "USDIDR_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1886,
+    "date": "2026-03-04T18:04:52+00:00",
+    "asset": "SARCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1886,
+    "date": "2026-03-04T18:04:52+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1886,
+    "date": "2026-03-04T18:04:52+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1886,
+    "date": "2026-03-04T18:04:52+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1900,
+    "date": "2026-03-05T12:45:32+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1900,
+    "date": "2026-03-05T12:45:32+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1900,
+    "date": "2026-03-05T12:45:32+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1911,
+    "date": "2026-03-05T17:33:51+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1911,
+    "date": "2026-03-05T17:33:51+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1911,
+    "date": "2026-03-05T17:33:51+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1911,
+    "date": "2026-03-05T17:33:51+00:00",
+    "asset": "EURJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1911,
+    "date": "2026-03-05T17:33:51+00:00",
+    "asset": "KESUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1911,
+    "date": "2026-03-05T17:33:51+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1931,
+    "date": "2026-03-06T12:46:09+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1931,
+    "date": "2026-03-06T12:46:09+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1931,
+    "date": "2026-03-06T12:46:09+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1937,
+    "date": "2026-03-06T17:55:28+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1937,
+    "date": "2026-03-06T17:55:28+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1937,
+    "date": "2026-03-06T17:55:28+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1937,
+    "date": "2026-03-06T17:55:28+00:00",
+    "asset": "USDCLP_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1937,
+    "date": "2026-03-06T17:55:28+00:00",
+    "asset": "NZDJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1937,
+    "date": "2026-03-06T17:55:28+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1951,
+    "date": "2026-03-07T13:03:12+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1951,
+    "date": "2026-03-07T13:03:12+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1951,
+    "date": "2026-03-07T13:03:12+00:00",
+    "asset": "NGNUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1951,
+    "date": "2026-03-07T13:03:12+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "NGNUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "NZDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1963,
+    "date": "2026-03-07T18:11:05+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1980,
+    "date": "2026-03-08T12:34:58+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1980,
+    "date": "2026-03-08T12:34:58+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1980,
+    "date": "2026-03-08T12:34:58+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1990,
+    "date": "2026-03-08T17:45:44+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1990,
+    "date": "2026-03-08T17:45:44+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1990,
+    "date": "2026-03-08T17:45:44+00:00",
+    "asset": "GBPAUD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1990,
+    "date": "2026-03-08T17:45:44+00:00",
+    "asset": "USDARS_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1990,
+    "date": "2026-03-08T17:45:44+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 1990,
+    "date": "2026-03-08T17:45:44+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2005,
+    "date": "2026-03-09T13:07:23+00:00",
+    "asset": "TNDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2018,
+    "date": "2026-03-09T17:33:24+00:00",
+    "asset": "TNDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2018,
+    "date": "2026-03-09T17:33:24+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2018,
+    "date": "2026-03-09T17:33:24+00:00",
+    "asset": "USDCLP_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2018,
+    "date": "2026-03-09T17:33:24+00:00",
+    "asset": "TNDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2031,
+    "date": "2026-03-10T12:47:50+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2031,
+    "date": "2026-03-10T12:47:50+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2031,
+    "date": "2026-03-10T12:47:50+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2042,
+    "date": "2026-03-10T18:01:18+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2042,
+    "date": "2026-03-10T18:01:18+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2042,
+    "date": "2026-03-10T18:01:18+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2042,
+    "date": "2026-03-10T18:01:18+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2042,
+    "date": "2026-03-10T18:01:18+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2042,
+    "date": "2026-03-10T18:01:18+00:00",
+    "asset": "USDCAD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2058,
+    "date": "2026-03-11T12:51:16+00:00",
+    "asset": "USDARS_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2058,
+    "date": "2026-03-11T12:51:16+00:00",
+    "asset": "USDPHP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2058,
+    "date": "2026-03-11T12:51:16+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2069,
+    "date": "2026-03-11T18:22:20+00:00",
+    "asset": "USDARS_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2069,
+    "date": "2026-03-11T18:22:20+00:00",
+    "asset": "USDPHP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2069,
+    "date": "2026-03-11T18:22:20+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2069,
+    "date": "2026-03-11T18:22:20+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2069,
+    "date": "2026-03-11T18:22:20+00:00",
+    "asset": "USDMXN_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2069,
+    "date": "2026-03-11T18:22:20+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2088,
+    "date": "2026-03-12T13:02:43+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2088,
+    "date": "2026-03-12T13:02:43+00:00",
+    "asset": "USDMXN_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2088,
+    "date": "2026-03-12T13:02:43+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2093,
+    "date": "2026-03-12T18:10:38+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2093,
+    "date": "2026-03-12T18:10:38+00:00",
+    "asset": "USDMXN_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2093,
+    "date": "2026-03-12T18:10:38+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 920,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2093,
+    "date": "2026-03-12T18:10:38+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2093,
+    "date": "2026-03-12T18:10:38+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2093,
+    "date": "2026-03-12T18:10:38+00:00",
+    "asset": "EURHUF_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2112,
+    "date": "2026-03-13T13:07:14+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2112,
+    "date": "2026-03-13T13:07:14+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2112,
+    "date": "2026-03-13T13:07:14+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2117,
+    "date": "2026-03-13T17:55:28+00:00",
+    "asset": "AEDCNY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2117,
+    "date": "2026-03-13T17:55:28+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2117,
+    "date": "2026-03-13T17:55:28+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 650,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2117,
+    "date": "2026-03-13T17:55:28+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2117,
+    "date": "2026-03-13T17:55:28+00:00",
+    "asset": "USDCOP_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2117,
+    "date": "2026-03-13T17:55:28+00:00",
+    "asset": "USDCNH_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2139,
+    "date": "2026-03-14T12:50:42+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2139,
+    "date": "2026-03-14T12:50:42+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2139,
+    "date": "2026-03-14T12:50:42+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2145,
+    "date": "2026-03-14T18:12:11+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2145,
+    "date": "2026-03-14T18:12:11+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2145,
+    "date": "2026-03-14T18:12:11+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2145,
+    "date": "2026-03-14T18:12:11+00:00",
+    "asset": "EURTRY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2145,
+    "date": "2026-03-14T18:12:11+00:00",
+    "asset": "YERUSD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2145,
+    "date": "2026-03-14T18:12:11+00:00",
+    "asset": "BHDCNY_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2166,
+    "date": "2026-03-15T14:15:28+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2166,
+    "date": "2026-03-15T14:15:28+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2166,
+    "date": "2026-03-15T14:15:28+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2173,
+    "date": "2026-03-15T18:08:40+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2173,
+    "date": "2026-03-15T18:08:40+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2173,
+    "date": "2026-03-15T18:08:40+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2173,
+    "date": "2026-03-15T18:08:40+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2173,
+    "date": "2026-03-15T18:08:40+00:00",
+    "asset": "USDCAD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2173,
+    "date": "2026-03-15T18:08:40+00:00",
+    "asset": "EURRUB_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2186,
+    "date": "2026-03-16T12:59:55+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2186,
+    "date": "2026-03-16T12:59:55+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2186,
+    "date": "2026-03-16T12:59:55+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2197,
+    "date": "2026-03-16T17:42:33+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2197,
+    "date": "2026-03-16T17:42:33+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2197,
+    "date": "2026-03-16T17:42:33+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 2760,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2197,
+    "date": "2026-03-16T17:42:33+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2197,
+    "date": "2026-03-16T17:42:33+00:00",
+    "asset": "LBPUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2197,
+    "date": "2026-03-16T17:42:33+00:00",
+    "asset": "TNDUSD_otc",
+    "amount_usd": 1260,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2210,
+    "date": "2026-03-17T12:41:58+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2210,
+    "date": "2026-03-17T12:41:58+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2210,
+    "date": "2026-03-17T12:41:58+00:00",
+    "asset": "KESUSD_otc",
+    "amount_usd": 990,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2221,
+    "date": "2026-03-17T18:51:44+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2221,
+    "date": "2026-03-17T18:51:44+00:00",
+    "asset": "EURNZD_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2221,
+    "date": "2026-03-17T18:51:44+00:00",
+    "asset": "KESUSD_otc",
+    "amount_usd": 990,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2221,
+    "date": "2026-03-17T18:51:44+00:00",
+    "asset": "CADJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2221,
+    "date": "2026-03-17T18:51:44+00:00",
+    "asset": "EURCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2221,
+    "date": "2026-03-17T18:51:44+00:00",
+    "asset": "GBPJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2241,
+    "date": "2026-03-18T13:32:28+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2241,
+    "date": "2026-03-18T13:32:28+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2241,
+    "date": "2026-03-18T13:32:28+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2251,
+    "date": "2026-03-18T18:56:01+00:00",
+    "asset": "AUDCHF_otc",
+    "amount_usd": 1380,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2251,
+    "date": "2026-03-18T18:56:01+00:00",
+    "asset": "CHFJPY_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2251,
+    "date": "2026-03-18T18:56:01+00:00",
+    "asset": "AUDUSD_otc",
+    "amount_usd": 2300,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2251,
+    "date": "2026-03-18T18:56:01+00:00",
+    "asset": "AUDCAD_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2251,
+    "date": "2026-03-18T18:56:01+00:00",
+    "asset": "CADCHF_otc",
+    "amount_usd": 1840,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  },
+  {
+    "msg_id": 2251,
+    "date": "2026-03-18T18:56:01+00:00",
+    "asset": "EURUSD_otc",
+    "amount_usd": 1560,
+    "outcome": "PROFIT",
+    "channel": "cole_carter"
+  }
+]

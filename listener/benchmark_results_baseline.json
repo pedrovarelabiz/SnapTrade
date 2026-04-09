@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-03-23T09:35:20.546415+00:00",
+  "num_signals": 100,
+  "num_iterations": 1000,
+  "total_time_ms": 200.876,
+  "avg_time_per_call_ms": 0.2009,
+  "test_asset": "EURUSD",
+  "test_date": "2024-01-01T10:30:00+00:00"
+}

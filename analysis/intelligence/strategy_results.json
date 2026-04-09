@@ -1,0 +1,68 @@
+[
+  {
+    "name": "BASELINE_ALL",
+    "final_bank": NaN,
+    "roi": NaN,
+    "wins": 7533,
+    "losses": 16,
+    "wr": 99.8,
+    "max_dd": 0,
+    "total_trades": 7549,
+    "equity_len": 7550
+  },
+  {
+    "name": "TYL_VIP_ONLY",
+    "final_bank": 3.042055847750053e+190,
+    "roi": 3.042055847750053e+189,
+    "wins": 3548,
+    "losses": 0,
+    "wr": 100.0,
+    "max_dd": 0,
+    "total_trades": 3548,
+    "equity_len": 3549
+  },
+  {
+    "name": "SMART_FILTER",
+    "final_bank": NaN,
+    "roi": NaN,
+    "wins": 7533,
+    "losses": 16,
+    "wr": 99.8,
+    "max_dd": 0,
+    "total_trades": 7549,
+    "equity_len": 7550
+  },
+  {
+    "name": "TOP_CHANNELS",
+    "final_bank": 4.587633767195556e+209,
+    "roi": 4.587633767195556e+208,
+    "wins": 3978,
+    "losses": 45,
+    "wr": 98.9,
+    "max_dd": 30.5,
+    "total_trades": 4023,
+    "equity_len": 4024
+  },
+  {
+    "name": "AGGRESSIVE_MASANIELLO",
+    "final_bank": NaN,
+    "roi": NaN,
+    "wins": 7890,
+    "losses": 17,
+    "wr": 99.8,
+    "max_dd": 0,
+    "total_trades": 7907,
+    "equity_len": 7908
+  },
+  {
+    "name": "CONSERVATIVE_MASANIELLO",
+    "final_bank": NaN,
+    "roi": NaN,
+    "wins": 7124,
+    "losses": 12,
+    "wr": 99.8,
+    "max_dd": 0,
+    "total_trades": 7136,
+    "equity_len": 7137
+  }
+]

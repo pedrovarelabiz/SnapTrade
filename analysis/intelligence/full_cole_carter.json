@@ -1,0 +1,538 @@
+[
+  {
+    "date": "2025-12-24 14:15:25",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-25 13:16:24",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-26 15:10:21",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-27 14:30:46",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-28 14:02:07",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-29 13:56:52",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-30 14:37:40",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2025-12-31 13:39:38",
+    "asset": "AUDNZD_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-01 17:28:18",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-02 14:35:57",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-03 13:52:48",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-04 14:38:06",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-05 13:54:33",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-06 14:06:10",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-07 15:02:08",
+    "asset": "AUDCHF_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-08 13:53:35",
+    "asset": "AUDUSD_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-09 14:28:14",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-10 14:29:06",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-11 14:10:41",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-12 13:25:43",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-13 13:09:07",
+    "asset": "LBPUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-14 13:21:26",
+    "asset": "GBPAUD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-15 12:44:55",
+    "asset": "BHDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-16 13:07:31",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-17 12:34:36",
+    "asset": "AEDCNY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-18 13:01:19",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-19 13:17:58",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-20 12:19:39",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-21 13:19:11",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-22 12:48:38",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-23 13:10:54",
+    "asset": "BHDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-25 12:55:42",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-26 12:56:24",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-27 12:20:06",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-28 13:10:19",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-01-30 12:57:04",
+    "asset": "SARCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-02 13:19:36",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-05 12:46:55",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-06 14:04:36",
+    "asset": "CADJPY_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-08 13:10:35",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-09 14:11:37",
+    "asset": "EURHUF_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-10 12:57:48",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-11 13:36:56",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-12 13:15:04",
+    "asset": "AUDNZD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-14 13:18:34",
+    "asset": "AUDCAD_otc",
+    "direction": "CALL",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-15 12:46:12",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-18 12:54:28",
+    "asset": "USDIDR_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-19 12:33:01",
+    "asset": "GBPUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-20 12:13:01",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-22 12:08:39",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-23 12:25:01",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-24 13:58:00",
+    "asset": "CADCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-25 12:29:01",
+    "asset": "CHFJPY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-02-28 12:08:52",
+    "asset": "USDDZD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-02 12:09:08",
+    "asset": "CADJPY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-05 12:14:16",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-07 12:19:01",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-08 12:16:37",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-09 12:29:09",
+    "asset": "TNDUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-11 12:11:03",
+    "asset": "USDARS_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-12 12:43:19",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-13 12:45:21",
+    "asset": "AEDCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-14 12:35:14",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-15 12:19:41",
+    "asset": "AUDCAD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-17 12:13:01",
+    "asset": "AUDUSD_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-20 12:25:40",
+    "asset": "OMRCNY_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  },
+  {
+    "date": "2026-03-21 12:28:11",
+    "asset": "AUDCHF_otc",
+    "direction": "PUT",
+    "channel": "cole_carter",
+    "result": "WIN",
+    "gale_level": 0
+  }
+]

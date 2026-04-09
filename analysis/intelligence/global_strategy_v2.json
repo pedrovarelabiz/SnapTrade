@@ -1,0 +1,67 @@
+{
+  "version": "v2-full-history",
+  "viable_channels": {
+    "sinais_mil": {
+      "role": "PRIMARY",
+      "mode": "MG1",
+      "wr": 84.4,
+      "ev": 0.2473,
+      "dd_flat": "26%",
+      "trades": 7135,
+      "assets": "21/22 (excl CADCHF)",
+      "period": "2022-08 to 2026-03",
+      "gl0_wr": 56.4,
+      "note": "Strongest dataset. MG1 optimal."
+    },
+    "private_team": {
+      "role": "SECONDARY",
+      "mode": "NoMG",
+      "wr": 87.4,
+      "ev": 0.6431,
+      "dd_flat": "2%",
+      "trades": 437,
+      "assets": "19 profitable",
+      "period": "2025-12 to 2026-03",
+      "note": "Best risk-adjusted. Short history. Monitor."
+    },
+    "tyl_trading": {
+      "role": "TERTIARY",
+      "mode": "MG1",
+      "wr": 86.7,
+      "ev": 0.0237,
+      "dd_flat": "10%",
+      "trades": 2547,
+      "assets": "all",
+      "period": "2024-10 to 2026-03",
+      "note": "Marginal EV but stable. Use with moderate stake."
+    }
+  },
+  "excluded_channels": {
+    "tyl_vip": {
+      "reason": "Negative EV all gale modes. NoMG=49.5% (<53.2% BE). MG2 BE=89.7% not reached."
+    },
+    "blacklist": {
+      "reason": "61.2% MG1 WR < 78.1% BE. Goes bust in simulation. New data confirms NOT profitable."
+    },
+    "cole_carter": {
+      "reason": "Promotional. 100% reported WR."
+    }
+  },
+  "risk_management": {
+    "daily_loss_limit": "10%",
+    "drawdown_stop": "20%",
+    "rolling_wr": "pause if 50-sig WR<BE",
+    "max_daily": 15,
+    "consec_loss_stop": 3
+  },
+  "breakevens": {
+    "NoMG": "53.2%",
+    "MG1": "78.1%",
+    "MG2": "89.7%"
+  },
+  "gale_mults": {
+    "G0": 1.0,
+    "G1": 2.136,
+    "G2": 4.564
+  }
+}

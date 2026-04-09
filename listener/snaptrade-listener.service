@@ -1,0 +1,19 @@
+[Unit]
+Description=SnapTrade Listener Service
+After=network.target
+StartLimitInterval=600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=maestro
+WorkingDirectory=/opt/snaptrade-unified/listener
+ExecStart=/usr/bin/python3 /opt/snaptrade-unified/listener/listener.py
+Restart=always
+RestartSec=10
+EnvironmentFile=/opt/snaptrade-unified/listener/.env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,43 @@
+groups:
+  - name: sse_alerts
+    interval: 30s
+    rules:
+      - alert: SSEHighCapacity
+        expr: (sse_active_connections / sse_max_connections) * 100 > 90
+        for: 5m
+        labels:
+          severity: warning
+          component: sse
+        annotations:
+          summary: "SSE connection capacity is high"
+          description: "SSE connections are at {{ $value | humanizePercentage }} capacity (threshold: 90%). Current connections may be nearing the limit."
+
+      - alert: SSEHighRejectRate
+        expr: rate(sse_rejected_connections_total[1m]) > 10
+        for: 5m
+        labels:
+          severity: critical
+          component: sse
+        annotations:
+          summary: "SSE connection reject rate is high"
+          description: "SSE is rejecting connections at {{ $value | humanize }} per minute (threshold: 10/min). Service may be overloaded or misconfigured."
+
+      - alert: SSEHighDisconnectRate
+        expr: rate(sse_disconnections_total[1m]) > 50
+        for: 5m
+        labels:
+          severity: warning
+          component: sse
+        annotations:
+          summary: "SSE disconnect rate is high"
+          description: "SSE connections are disconnecting at {{ $value | humanize }} per minute (threshold: 50/min). Network issues or client problems may be occurring."
+
+      - alert: SSEStaleConnections
+        expr: avg(sse_connection_age_seconds) > 300
+        for: 10m
+        labels:
+          severity: info
+          component: sse
+        annotations:
+          summary: "SSE connections are stale"
+          description: "Average SSE connection age is {{ $value | humanizeDuration }} (threshold: 300s). Connections may not be cycling properly."

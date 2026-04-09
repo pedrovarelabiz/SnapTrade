@@ -1,0 +1,24 @@
+[Unit]
+Description=SnapTrade Telegram Listener
+After=network.target snaptrade-backend.service
+Wants=snaptrade-backend.service
+
+[Service]
+Type=simple
+User=snaptrade
+WorkingDirectory=/opt/snaptrade/listener
+EnvironmentFile=/opt/snaptrade/listener/.env
+ExecStart=/usr/bin/python3 listener.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=snaptrade-listener
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/snaptrade/listener
+
+[Install]
+WantedBy=multi-user.target
